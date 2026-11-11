@@ -499,6 +499,7 @@ export type CaseHighlight = {
   _type: "caseHighlight";
   eyebrow?: string;
   title?: InlineText;
+  lead?: string;
   image?: {
     asset?: SanityImageAssetReference;
     media?: unknown;
@@ -1917,6 +1918,7 @@ export type PAGE_QUERY_RESULT = {
         _type: "caseHighlight";
         eyebrow?: string;
         title?: InlineText;
+        lead?: string;
         image?: {
           asset?: SanityImageAssetReference;
           media?: unknown;

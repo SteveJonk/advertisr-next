@@ -197,6 +197,16 @@ function CardArt({ a, size }: { a: ArticleCardData; size: number }) {
   );
 }
 
+/** The category's line icon at badge size, as in the article header's "Pillar gids" tag (thicker stroke). */
+export function CategoryIcon({ category, size = 13 }: { category: ArticleCardData['category']; size?: number }) {
+  const art = ICONS[category?.icon ?? ''] ?? ICONS.target;
+  return (
+    <svg width={size} height={size} viewBox='0 0 64 64' style={{ color: category?.color || art.color }} className='shrink-0 [&_*]:[stroke-width:5]' aria-hidden='true'>
+      {art.icon}
+    </svg>
+  );
+}
+
 function CategoryArt({
   category,
   size,

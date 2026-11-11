@@ -16,6 +16,9 @@
 - Google reviews import follows the SteveJonk/schuijt pattern (Places API sync route + studio panel + cron + SerpApi backfill).
 
 ## Key Learnings
+
+- [2026-11-11] Design HTML loads Bricolage Grotesque with the opsz axis (12..96) from Google Fonts; app's next/font loads static weights only, so headings render wider and wrap one line earlier than the design (+20..80px per section). Fix = next/font `axes: ['opsz']` with variable weight.
+- [2026-11-11] Design-vs-app screenshots: puppeteer-core lives in the global openwolf package; next/image lazy images need `img.loading='eager'` + wait before fullPage screenshots or they render blank.
 - Forms are Sanity documents again (`form` + `formField`, singleton `formGeneralSettings` = Form settings with mail/spam/interface text). Blocks (`contactHero`, `groeiplanHero`, `finalCta`, `articleIndex.newsletter`) hold a `form` reference + `interesse`; a hidden field `{{interesse}}` / `{{path}}` picks those up. Everything posts to `/api/submit-form` (FORM_QUERY is the allow-list); mail env wins over the studio fallbacks. `npm run check:form` checks the round trip.
 - Shared form copy + public captcha key come via `getSite().forms` (SITE_QUERY), not per block.
 - Page content = `page` docs + page builder. Add a block: `studio/schemaTypes/blocks.ts` → resolve refs in `app/src/sanity/queries.ts` → `npm run typegen` (in app) → case in `PageBuilder.tsx` (+ component in `sections.tsx`). Block types come from `B<'type'>` in sections.tsx (generated PAGE_QUERY_RESULT).

@@ -139,11 +139,14 @@ export type Bridge = {
   sig?: string | null;
 };
 
-/** Founder quote card; overlaps the section below it by 64px. */
+/**
+ * Founder quote card. The design's `.bridge{translateY(64px)}` is overridden by `.rv.in{transform:none}`
+ * once revealed, so as rendered the card is not shifted; no translate here.
+ */
 export function BridgeQuote({ img, alt, line, sig }: Bridge) {
   return (
     <div className='relative z-6 mt-14'>
-      <div className='rv relative translate-y-16 rounded-3xl bg-[linear-gradient(120deg,rgba(255,57,81,.85),rgba(255,57,81,.2)_44%,rgba(14,14,18,.1))] p-0.5 shadow-[0_40px_80px_-36px_rgba(14,14,18,.45),0_0_60px_-30px_rgba(255,57,81,.5)] max-sm:translate-y-[50px]'>
+      <div className='rv relative rounded-3xl bg-[linear-gradient(120deg,rgba(255,57,81,.85),rgba(255,57,81,.2)_44%,rgba(14,14,18,.1))] p-0.5 shadow-[0_40px_80px_-36px_rgba(14,14,18,.45),0_0_60px_-30px_rgba(255,57,81,.5)]'>
         <div className='relative flex flex-wrap items-center gap-[34px] overflow-hidden rounded-[22px] bg-[linear-gradient(125deg,#FFF1F3_0%,#fff_52%,#F6F4F0_100%)] px-11 py-[38px] max-sm:gap-5 max-sm:px-[22px] max-sm:py-[26px]'>
           {img && (
             <div className='relative z-2 size-[76px] shrink-0 overflow-hidden rounded-full border-2 border-red/55'>
@@ -503,6 +506,7 @@ export function Crea({
 export type CaseStudyProps = {
   eyebrow?: string | null;
   title?: ReactNode;
+  lead?: ReactNode;
   img?: string;
   alt?: string;
   cat?: string | null;
@@ -515,6 +519,7 @@ export type CaseStudyProps = {
 export function CaseStudy({
   eyebrow,
   title,
+  lead,
   img,
   alt,
   cat,
@@ -525,7 +530,7 @@ export function CaseStudy({
   return (
     <Sec>
       <Wrap>
-        <SecHead eyebrow={eyebrow} title={title} />
+        <SecHead eyebrow={eyebrow} title={title} lead={lead} />
         <div className='rv relative grid min-h-85 grid-cols-2 overflow-hidden rounded-[20px] border border-line bg-white shadow-[0_30px_60px_-40px_rgba(14,14,18,.35)] max-dsk:grid-cols-1'>
           <div className='relative max-dsk:min-h-65'>
             {img && (

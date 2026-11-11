@@ -158,6 +158,7 @@ function render(block: Any, site: Site, prev?: Any) {
         <CaseStudy
           eyebrow={b.eyebrow}
           title={<Rich value={b.title} />}
+          lead={b.lead}
           img={image?.src}
           alt={image?.alt}
           cat={b.category}
@@ -206,7 +207,7 @@ function render(block: Any, site: Site, prev?: Any) {
       return (
         <Reviews
           // After a section with its own bottom padding the design tightens the gap.
-          className={prev?._type === 'caseList' ? 'pt-5!' : undefined}
+          className={prev?._type === 'caseList' || prev?._type === 'contactMethods' ? 'pt-5!' : undefined}
           eyebrow={b.eyebrow}
           title={<Rich value={b.title} />}
           items={(b.items ?? []).slice(0, b.count ?? 6)}

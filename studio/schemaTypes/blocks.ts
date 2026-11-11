@@ -131,7 +131,7 @@ export const BLOCKS = [
   ]),
   block('deliverables', 'Deliverables', [...head(), obj('photo', [img('image'), str('title'), txt('text', {rows: 2})]), list('rows', [str('title'), txt('text')]), band()]),
   block('mediaChips', 'Photo with chips', [img('image'), badge(), ...head(false), paragraphs('paragraphs'), strings('chips'), bool('screenshot', {description: 'A website screenshot: shown uncropped.'})]),
-  block('caseHighlight', 'Case highlight', [...head(false), img('image'), str('category'), str('name'), txt('text', {rows: 4}), list('stats', [str('value'), str('label')])]),
+  block('caseHighlight', 'Case highlight', [...head(), img('image'), str('category'), str('name'), txt('text', {rows: 4}), list('stats', [str('value'), str('label')])]),
   block('procSteps', 'Steps in a row', [...head(false), steps()]),
   block('ctaBand', 'Dark CTA band', [inline('title'), txt('text', {rows: 2}), cta('cta')]),
   block('quoteBand', 'Founder quote', [quote()]),

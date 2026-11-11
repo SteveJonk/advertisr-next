@@ -3,18 +3,18 @@
   "created_at": "2026-11-11T10:36:49.843Z",
   "lifetime": {
     "total_tokens_estimated": 72074,
-    "total_reads": 44,
+    "total_reads": 62,
     "total_writes": 0,
-    "total_sessions": 13,
+    "total_sessions": 16,
     "anatomy_hits": 16,
-    "anatomy_misses": 28,
+    "anatomy_misses": 46,
     "repeated_reads_blocked": 0,
     "estimated_savings_vs_bare_cli": 3200,
-    "real_input_tokens": 4190,
-    "real_output_tokens": 2125995,
-    "real_cache_read_tokens": 534970971,
-    "real_cache_creation_tokens": 6151400,
-    "real_api_calls": 2027
+    "real_input_tokens": 4270,
+    "real_output_tokens": 2148398,
+    "real_cache_read_tokens": 540014948,
+    "real_cache_creation_tokens": 6272801,
+    "real_api_calls": 2064
   },
   "sessions": [
     {
@@ -855,6 +855,138 @@
         "cache_read_input_tokens": 23384881,
         "cache_creation_input_tokens": 236934,
         "api_calls": 121
+      }
+    },
+    {
+      "id": "session-2026-11-11-2159",
+      "agent": "claude",
+      "started": "2026-11-11T20:59:48.007Z",
+      "ended": "2026-11-11T21:06:37.529Z",
+      "reads": [
+        {
+          "file": "/private/tmp/claude-501/-Users-stevejonk--claude-spares-spare-wZsuPW/18671276-2519-4ac7-82c6-79886fa4a317/scratchpad/sbs/ai-agent-workflows.m.05.jpg",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/private/tmp/claude-501/-Users-stevejonk--claude-spares-spare-wZsuPW/18671276-2519-4ac7-82c6-79886fa4a317/scratchpad/sbs/data-analytics.d.05.jpg",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/private/tmp/claude-501/-Users-stevejonk--claude-spares-spare-wZsuPW/18671276-2519-4ac7-82c6-79886fa4a317/scratchpad/sbs/homepage.d.00.jpg",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/private/tmp/claude-501/-Users-stevejonk--claude-spares-spare-wZsuPW/18671276-2519-4ac7-82c6-79886fa4a317/scratchpad/sbs/homepage.d.03.jpg",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/private/tmp/claude-501/-Users-stevejonk--claude-spares-spare-wZsuPW/18671276-2519-4ac7-82c6-79886fa4a317/scratchpad/sbs/google-ads-voor-mkb.d.00.jpg",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/private/tmp/claude-501/-Users-stevejonk--claude-spares-spare-wZsuPW/18671276-2519-4ac7-82c6-79886fa4a317/scratchpad/out/google-ads-voor-mkb.d.design.json",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/private/tmp/claude-501/-Users-stevejonk--claude-spares-spare-wZsuPW/18671276-2519-4ac7-82c6-79886fa4a317/scratchpad/sbs/kennisbank.d.00.jpg",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/private/tmp/claude-501/-Users-stevejonk--claude-spares-spare-wZsuPW/18671276-2519-4ac7-82c6-79886fa4a317/scratchpad/sbs/kennisbank.d.02.jpg",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/private/tmp/claude-501/-Users-stevejonk--claude-spares-spare-wZsuPW/18671276-2519-4ac7-82c6-79886fa4a317/scratchpad/sbs/kennisbank.m.01.jpg",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/private/tmp/claude-501/-Users-stevejonk--claude-spares-spare-wZsuPW/18671276-2519-4ac7-82c6-79886fa4a317/scratchpad/sbs/kennisbank.d.01.jpg",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/private/tmp/claude-501/-Users-stevejonk--claude-spares-spare-wZsuPW/18671276-2519-4ac7-82c6-79886fa4a317/scratchpad/sbs/seo-geo.d.04.jpg",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/private/tmp/claude-501/-Users-stevejonk--claude-spares-spare-wZsuPW/18671276-2519-4ac7-82c6-79886fa4a317/scratchpad/sbs/contact.d.02.jpg",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/private/tmp/claude-501/-Users-stevejonk--claude-spares-spare-wZsuPW/18671276-2519-4ac7-82c6-79886fa4a317/scratchpad/sbs/contact.d.00.jpg",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/private/tmp/claude-501/-Users-stevejonk--claude-spares-spare-wZsuPW/18671276-2519-4ac7-82c6-79886fa4a317/scratchpad/sbs/resultaten.d.00.jpg",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/private/tmp/claude-501/-Users-stevejonk--claude-spares-spare-wZsuPW/18671276-2519-4ac7-82c6-79886fa4a317/scratchpad/sbs/meta-ads.d.01.jpg",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/private/tmp/claude-501/-Users-stevejonk--claude-spares-spare-wZsuPW/18671276-2519-4ac7-82c6-79886fa4a317/scratchpad/sbs/groeiplan.m.03.jpg",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/private/tmp/claude-501/-Users-stevejonk--claude-spares-spare-wZsuPW/18671276-2519-4ac7-82c6-79886fa4a317/scratchpad/sbs/team.m.01.jpg",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/private/tmp/claude-501/-Users-stevejonk--claude-spares-spare-wZsuPW/18671276-2519-4ac7-82c6-79886fa4a317/scratchpad/sbs/google-ads.m.01.jpg",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 0,
+        "reads_count": 18,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      },
+      "real_usage": {
+        "input_tokens": 80,
+        "output_tokens": 22403,
+        "cache_read_input_tokens": 5043977,
+        "cache_creation_input_tokens": 121401,
+        "api_calls": 37
       }
     }
   ],

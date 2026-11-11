@@ -4,7 +4,7 @@ import Image from '@/components/ui/Image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { JsonLd } from '@/components/JsonLd';
-import { ArticleCard, shortDate, type ArticleCardData } from '@/components/advertisr/ArticleCard';
+import { ArticleCard, CategoryIcon, shortDate, type ArticleCardData } from '@/components/advertisr/ArticleCard';
 import { pic } from '@/components/advertisr/cms';
 import { anchor, prose, proseComponents as components, textOf } from '@/components/advertisr/prose';
 import { CtaBand, FaqList } from '@/components/advertisr/service';
@@ -88,14 +88,17 @@ export default async function ArticlePage({ params }: Props) {
             />
             {article.featured && (
               <div className='rv inline-flex items-center gap-[7px] rounded-full border border-red/30 bg-red-tint px-[15px] py-[7px] font-display text-xs font-bold text-red-ink'>
-                {ui.pillarBadge} · {article.category?.title}
+                {/* The design shows the category icon here instead of the badge's emoji. */}
+                <CategoryIcon category={article.category} />
+                {ui.pillarBadge?.replace(/^\p{Extended_Pictographic}\uFE0F?\s*/u, '')} · {article.category?.title}
               </div>
             )}
             <h1 className='rv mt-5 mb-[22px] text-[clamp(30px,4.4vw,50px)] leading-[1.08] tracking-[-.04em] text-ink'>{article.title}</h1>
             <p className='rv max-w-170 text-lg leading-[1.6] text-dim'>{article.intro}</p>
             <div className='rv mt-8 flex flex-wrap items-center justify-between gap-5 border-y border-line py-5'>
               {article.author && (
-                <div className='flex items-center gap-3'>
+                // Full row: as rendered, the design's row overflows 820px and puts the author alone on top, facts + share below.
+                <div className='flex basis-full items-center gap-3'>
                   {avatar && <Image src={avatar.src} alt={article.author.name} width={44} height={44} className='size-11 rounded-full border border-line-2 object-cover' />}
                   <div>
                     <div className='font-display text-[14.5px] font-bold'>{article.author.name}</div>

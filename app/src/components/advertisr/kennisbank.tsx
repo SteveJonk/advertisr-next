@@ -2,29 +2,72 @@
 
 import { createContext, useContext, useMemo, useState, type ReactNode } from 'react';
 import { cn } from '@/lib/cn';
+import { ghost } from './ui';
 
 export type FilterArticle = { _id: string; text: string; category: string | null };
 
-type Filter = { q: string; setQ: (q: string) => void; cat: number; setCat: (i: number) => void; shown: (id: string) => boolean };
+const PAGE = 9;
+
+type Filter = {
+  q: string;
+  setQ: (q: string) => void;
+  cat: number;
+  setCat: (i: number) => void;
+  shown: (id: string) => boolean;
+  more: (() => void) | null;
+};
 const FilterCtx = createContext<Filter | null>(null);
 const useFilter = () => useContext(FilterCtx)!;
 
 /**
  * Search + category state for the kennisbank. `categories[0]` is the "all" pill.
+ * Articles in `paged` show PAGE at a time (of those that match); `more` reveals the next PAGE.
  * Everything below only hides, never unmounts: a remounted `.rv` element is
  * never observed again by SiteEffects and stays invisible.
  */
-export function ArticleFilter({ articles, categories, children }: { articles: FilterArticle[]; categories: string[]; children: ReactNode }) {
+export function ArticleFilter({
+  articles,
+  categories,
+  paged = [],
+  children,
+}: {
+  articles: FilterArticle[];
+  categories: string[];
+  paged?: string[];
+  children: ReactNode;
+}) {
   const [q, setQ] = useState('');
   const [cat, setCat] = useState(0);
+  const [limit, setLimit] = useState(PAGE);
   const value = useMemo(() => {
     const words = q.toLocaleLowerCase().split(/\s+/).filter(Boolean);
     const ids = new Set(
       articles.filter((a) => (cat === 0 || a.category === categories[cat]) && words.every((w) => a.text.includes(w))).map((a) => a._id),
     );
-    return { q, setQ, cat, setCat, shown: (id: string) => ids.has(id) };
-  }, [q, cat, articles, categories]);
+    const matches = paged.filter((id) => ids.has(id));
+    matches.slice(limit).forEach((id) => ids.delete(id));
+    return {
+      q,
+      setQ: (v: string) => (setQ(v), setLimit(PAGE)),
+      cat,
+      setCat: (i: number) => (setCat(i), setLimit(PAGE)),
+      shown: (id: string) => ids.has(id),
+      more: matches.length > limit ? () => setLimit((l) => l + PAGE) : null,
+    };
+  }, [q, cat, limit, articles, categories, paged]);
   return <FilterCtx.Provider value={value}>{children}</FilterCtx.Provider>;
+}
+
+/** "Load more" button; hidden once every matching paged article is shown. */
+export function LoadMore({ className, children }: { className?: string; children: ReactNode }) {
+  const { more } = useFilter();
+  return (
+    <div className={cn(className, !more && 'hidden')}>
+      <button type='button' onClick={more ?? undefined} className={cn(ghost, 'cursor-pointer bg-transparent')}>
+        {children}
+      </button>
+    </div>
+  );
 }
 
 /** Hides a card that doesn't match; `contents` keeps it a direct grid item. */

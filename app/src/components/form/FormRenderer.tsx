@@ -36,7 +36,7 @@ const VARIANTS = {
   card: {
     form: '',
     fields: '',
-    row: 'grid grid-cols-2 gap-4 max-sm:grid-cols-1 max-sm:gap-0',
+    row: 'grid grid-cols-2 gap-4 max-sm:grid-cols-1',
     button: cn(btnRed, 'mt-1.5 w-full cursor-pointer justify-center disabled:opacity-70'),
     error: 'mt-3 text-center text-[13px] text-red-ink',
     note: 'mt-4 text-center text-xs text-dim-2',

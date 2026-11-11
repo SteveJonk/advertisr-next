@@ -7,7 +7,8 @@ import type { FormFieldDefinition } from '@/lib/form-fields';
 export type FormFieldVariant = 'card' | 'inline';
 
 const control = cn(
-  'w-full border border-line-2 font-sans text-ink',
+  // leading-[normal] (not leading-normal = 1.5): the designs' controls keep the UA line-height; Tailwind's preflight would inherit the body's 1.65.
+  'w-full border border-line-2 font-sans leading-[normal] text-ink',
   'transition-[border-color,background,box-shadow] duration-200 placeholder:text-dim-2',
   'focus:border-red focus:bg-white focus:shadow-[0_0_0_4px_rgba(255,57,81,.12)] focus:outline-none',
 );

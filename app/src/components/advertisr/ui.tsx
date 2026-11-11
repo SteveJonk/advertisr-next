@@ -69,15 +69,11 @@ export function BtnRed({ href, children, className }: { href: string; children: 
   );
 }
 
+export const ghost = 'inline-flex items-center gap-2 border-b-[1.5px] border-line-2 pb-[3px] text-[15px] font-semibold text-ink transition-colors hover:border-red';
+
 export function BtnGhost({ href, children, className }: { href: string; children: ReactNode; className?: string }) {
   return (
-    <Link
-      href={href}
-      className={cn(
-        'inline-flex items-center gap-2 border-b-[1.5px] border-line-2 pb-[3px] text-[15px] font-semibold text-ink transition-colors hover:border-red',
-        className,
-      )}
-    >
+    <Link href={href} className={cn(ghost, className)}>
       {children}
     </Link>
   );

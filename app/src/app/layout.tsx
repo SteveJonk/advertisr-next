@@ -11,7 +11,8 @@ import './globals.css';
 const display = Bricolage_Grotesque({
   variable: '--font-display-src',
   subsets: ['latin'],
-  weight: ['500', '600', '700', '800'],
+  // Variable font + optical-size axis, like the designs (opsz 12..96): large headings get the narrower display cut.
+  axes: ['opsz'],
 });
 
 const sans = Inter({

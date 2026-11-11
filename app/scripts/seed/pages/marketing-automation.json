@@ -283,6 +283,7 @@
           }
         ]
       },
+      "lead": "De aanvragen die binnenkomen via advertisr.nl doorlopen dezelfde opvolging die we voor klanten bouwen.",
       "image": {
         "$image": "/images/advertisr/het-team-van-advertisr-bouwt-automatiser.jpg",
         "alt": "Het team van Advertisr op kantoor in Haarlem"
