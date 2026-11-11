@@ -3,15 +3,23 @@
 import { usePathname } from 'next/navigation';
 import { useId, useState, type FormEvent, type ReactNode } from 'react';
 import { cn } from '@/lib/cn';
+import type { Ui } from '@/lib/site';
 import { Arrow, btnRed } from './ui';
 
-export type LeadFormProps = {
-  interesse?: string;
-  messageLabel?: string;
-  /** null drops the message field (the short groeiplan hero form). */
+/** The `form` object on a block; empty fields fall back to the defaults in Site information. */
+export type FormSettings = {
+  interesse?: string | null;
+  messageLabel?: string | null;
   messagePlaceholder?: string | null;
-  submitLabel?: string;
-  fine?: string;
+  /** Drops the message field (the short groeiplan forms). */
+  hideMessage?: boolean | null;
+  submitLabel?: string | null;
+  fine?: string | null;
+} | null;
+
+export type LeadFormProps = {
+  ui: Ui;
+  form?: FormSettings;
   id?: string;
   className?: string;
   /** Shown above the fields, inside the card. */
@@ -28,17 +36,10 @@ const input = cn(
 const label = 'mb-2 block text-[12.5px] font-semibold tracking-[.05em] text-dim';
 
 /** The "groeiplan" lead form; posts to /api/lead, which mails it. */
-export function LeadForm({
-  interesse,
-  messageLabel = 'Grootste marketingvraag',
-  messagePlaceholder = 'Waar wil je mee groeien? Meer leads, meer omzet, meer naamsbekendheid...',
-  submitLabel = 'Ontvang mijn groeiplan',
-  fine = 'Geen spam. Je gegevens worden alleen gebruikt om je groeiplan voor te bereiden.',
-  id: anchor,
-  className,
-  intro,
-  children,
-}: LeadFormProps) {
+export function LeadForm({ ui, form, id: anchor, className, intro, children }: LeadFormProps) {
+  const interesse = form?.interesse;
+  const fine = form?.fine || ui.formFine;
+  const submitLabel = form?.submitLabel || ui.formSubmit;
   const id = useId();
   const path = usePathname();
   const [state, setState] = useState<'idle' | 'sending' | 'sent'>('idle');
@@ -51,10 +52,10 @@ export function LeadForm({
     const res = await fetch('/api/lead', { method: 'POST', body: new FormData(e.currentTarget) }).catch(() => null);
     if (res?.ok) return setState('sent');
     setState('idle');
-    setError((await res?.json().catch(() => null))?.error ?? 'Versturen lukt nu niet. Probeer het later opnieuw.');
+    setError(ui.formError ?? '');
   }
 
-  const field = (name: string, text: string, props: Record<string, unknown> = {}) => (
+  const field = (name: string, text: string | undefined, props: Record<string, unknown> = {}) => (
     <div className='mb-[18px]'>
       <label htmlFor={`${id}-${name}`} className={label}>
         {text}
@@ -76,29 +77,29 @@ export function LeadForm({
         {intro}
         {state === 'sent' ? (
           <div className='py-10 text-center' role='status'>
-            <h3 className='text-[26px] tracking-[-.03em]'>Bedankt, we hebben je aanvraag.</h3>
-            <p className='mt-3 text-[15px] text-dim'>We nemen binnen 1 werkdag contact met je op.</p>
+            <h3 className='text-[26px] tracking-[-.03em]'>{ui.formSuccessTitle}</h3>
+            <p className='mt-3 text-[15px] text-dim'>{ui.formSuccessBody}</p>
           </div>
         ) : (
           <form onSubmit={onSubmit}>
             <div className='grid grid-cols-2 gap-4 max-sm:grid-cols-1'>
-              {field('name', 'Naam', { type: 'text', placeholder: 'Voor- en achternaam', required: true, autoComplete: 'name' })}
-              {field('company', 'Bedrijfsnaam', { type: 'text', placeholder: 'Jouw bedrijf', autoComplete: 'organization' })}
+              {field('name', ui.formName, { type: 'text', placeholder: ui.formNamePlaceholder, required: true, autoComplete: 'name' })}
+              {field('company', ui.formCompany, { type: 'text', placeholder: ui.formCompanyPlaceholder, autoComplete: 'organization' })}
             </div>
             <div className='grid grid-cols-2 gap-4 max-sm:grid-cols-1'>
-              {field('email', 'E-mailadres', { type: 'email', placeholder: 'jij@bedrijf.nl', required: true, autoComplete: 'email' })}
-              {field('phone', 'Telefoonnummer', { type: 'tel', placeholder: '06 - 12345678', autoComplete: 'tel' })}
+              {field('email', ui.formEmail, { type: 'email', placeholder: ui.formEmailPlaceholder, required: true, autoComplete: 'email' })}
+              {field('phone', ui.formPhone, { type: 'tel', placeholder: ui.formPhonePlaceholder, autoComplete: 'tel' })}
             </div>
-            {field('website', 'Website', { type: 'text', placeholder: 'www.jouwbedrijf.nl', autoComplete: 'url' })}
-            {messagePlaceholder !== null && (
+            {field('website', ui.formWebsite, { type: 'text', placeholder: ui.formWebsitePlaceholder, autoComplete: 'url' })}
+            {!form?.hideMessage && (
               <div className='mb-[18px]'>
                 <label htmlFor={`${id}-message`} className={label}>
-                  {messageLabel}
+                  {form?.messageLabel || ui.formMessage}
                 </label>
                 <textarea
                   id={`${id}-message`}
                   name='message'
-                  placeholder={messagePlaceholder}
+                  placeholder={form?.messagePlaceholder || ui.formMessagePlaceholder}
                   className={cn(input, 'min-h-[90px] resize-y')}
                 />
               </div>
@@ -112,7 +113,7 @@ export function LeadForm({
               disabled={state === 'sending'}
               className={cn(btnRed, 'mt-1.5 w-full cursor-pointer justify-center disabled:opacity-70')}
             >
-              {state === 'sending' ? 'Versturen…' : submitLabel} <Arrow />
+              {state === 'sending' ? ui.formSending : submitLabel} <Arrow />
             </button>
             {error && (
               <p className='mt-3 text-center text-[13px] text-red-ink' role='alert'>

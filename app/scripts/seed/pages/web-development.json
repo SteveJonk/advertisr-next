@@ -1,0 +1,389 @@
+{
+  "slug": "web-development",
+  "title": "Website laten bouwen",
+  "seo": {
+    "title": "Website laten bouwen",
+    "description": "Een mooie site is het startpunt, geen eindpunt. Wij bouwen snelle, overtuigende websites die bezoekers omzetten in aanvragen, met een CMS waar je zelf in kunt werken."
+  },
+  "content": [
+    {
+      "_type": "serviceHero",
+      "crumb": "Web development",
+      "eyebrow": "Web Development, Websites die converteren",
+      "title": {
+        "$t": [
+          {
+            "text": "Een website die ",
+            "marks": []
+          },
+          {
+            "text": "verkoopt",
+            "marks": [
+              "em"
+            ]
+          },
+          {
+            "text": ", niet alleen bestaat.",
+            "marks": []
+          }
+        ]
+      },
+      "lead": "Een mooie site is het startpunt, geen eindpunt. Wij bouwen snelle, overtuigende websites die bezoekers omzetten in aanvragen, met een CMS waar je zelf in kunt werken.",
+      "secondaryCta": {
+        "_type": "cta",
+        "label": "Bekijk onze aanpak",
+        "linkType": "external",
+        "href": "#aanpak"
+      },
+      "ticks": [
+        "Geen opstartkosten",
+        "Maandelijks opzegbaar",
+        "Direct contact met je marketeer"
+      ],
+      "visual": "site"
+    },
+    {
+      "_type": "marquee",
+      "items": [
+        "Maatwerk websites",
+        "Webshops",
+        "CMS & onderhoud",
+        "Snelheid & performance",
+        "SEO-technisch fundament",
+        "Landingspagina's",
+        "CRO & conversie",
+        "Koppelingen & integraties"
+      ]
+    },
+    {
+      "_type": "pain",
+      "eyebrow": "Herken je dit?",
+      "title": {
+        "$t": [
+          {
+            "text": "Een mooie site hebben en online geld verdienen zijn twee dingen.",
+            "marks": []
+          }
+        ]
+      },
+      "lead": "Dit zijn de zinnen die we het vaakst horen in een eerste gesprek.",
+      "items": [
+        {
+          "quote": "Onze site is jaren geleden gebouwd en niemand durft er nog aan te komen.",
+          "text": "Elke aanpassing kost weken en gaat via een externe partij die niet meer reageert. Bij ons werk je in een CMS dat gemaakt is om zelf in te muteren, teksten, foto's, pagina's, zonder developer nodig te hebben."
+        },
+        {
+          "quote": "Onze site is traag, zeker op mobiel.",
+          "text": "Een laadtijd van meer dan twee seconden kost je zichtbaar bezoekers, en Google straft het ook nog eens af in de zoekresultaten. Snelheid is bij ons een technisch uitgangspunt, geen bijzaak."
+        },
+        {
+          "quote": "We hebben geen idee of onze site eigenlijk werkt.",
+          "text": "Zonder kloppende tracking weet je niet welke pagina's bezoekers afhaken of welke bron daadwerkelijk aanvragen oplevert. Wij richten dat in vanaf dag één."
+        }
+      ],
+      "quote": {
+        "image": {
+          "$image": "/images/advertisr/marc-jonk-oprichter-van-advertisr-2.jpg",
+          "alt": "Marc Jonk, oprichter van Advertisr"
+        },
+        "line": {
+          "$t": [
+            {
+              "text": "Een website is geen visitekaartje. Het is je ",
+              "marks": []
+            },
+            {
+              "text": "hardstwerkende verkoper",
+              "marks": [
+                "em"
+              ]
+            },
+            {
+              "text": ", die alleen goed werkt als hij ook snel is en zelf onderhoudbaar blijft.",
+              "marks": []
+            }
+          ]
+        },
+        "signature": "Marc Jonk, oprichter Advertisr."
+      }
+    },
+    {
+      "_type": "funnel",
+      "anchor": "aanpak",
+      "eyebrow": "De aanpak",
+      "title": {
+        "$t": [
+          {
+            "text": "Van doel naar site, in drie lagen.",
+            "marks": []
+          }
+        ]
+      },
+      "body": "De meeste websites worden gebouwd om er goed uit te zien, niet om te presteren. Wij bouwen andersom: eerst het doel, dan de structuur die daarbij hoort, dan pas het ontwerp. Zo landt elke pagina op een concrete actie.",
+      "ghostLabel": "Wat betekent dit voor jouw site? →",
+      "layers": [
+        {
+          "tag": "Laag 1 · Strategie & structuur",
+          "title": "Bepalen wat de site moet doen",
+          "text": "Welke bezoeker moet waar landen, en welke actie moet hij ondernemen? We bouwen de sitemap en paginastructuur op basis van je doelgroepen en funnel, niet op basis van een sjabloon.",
+          "kpi": {
+            "$t": [
+              {
+                "text": "Sturen op: ",
+                "marks": []
+              },
+              {
+                "text": "paginastructuur, gebruikersreis, kernboodschap",
+                "marks": [
+                  "strong"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "tag": "Laag 2 · Ontwerp & bouw",
+          "title": "Vertrouwen en snelheid inbouwen",
+          "text": "Een strak, merkeigen ontwerp gebouwd op een snel, technisch fundament. Geen trage sjablonen of overbodige plugins, elke pagina laadt razendsnel, ook op mobiel.",
+          "kpi": {
+            "$t": [
+              {
+                "text": "Sturen op: ",
+                "marks": []
+              },
+              {
+                "text": "laadtijd, mobielvriendelijkheid, merkherkenning",
+                "marks": [
+                  "strong"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "tag": "Laag 3 · Conversie & beheer",
+          "title": "De aanvraag binnenhalen",
+          "text": "Duidelijke call-to-actions, slimme formulieren en kloppende tracking, zodat je precies ziet wat werkt. Daarna blijft het CMS van jou, met of zonder onze hulp.",
+          "kpi": {
+            "$t": [
+              {
+                "text": "Sturen op: ",
+                "marks": []
+              },
+              {
+                "text": "conversieratio, formulierinzendingen, uptime",
+                "marks": [
+                  "strong"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "_type": "deliverables",
+      "eyebrow": "Wat wij doen",
+      "title": {
+        "$t": [
+          {
+            "text": "Alles wat er nodig is om live te gaan.",
+            "marks": []
+          }
+        ]
+      },
+      "lead": "Geen losse onderdelen die je zelf moet samenvoegen. Wij pakken de volledige keten op, lees het als een menukaart, niet als een checklist.",
+      "photo": {
+        "image": {
+          "$image": "/images/advertisr/het-team-van-advertisr-aan-het-werk-op-k.jpg",
+          "alt": "Het team van Advertisr aan het werk op kantoor"
+        },
+        "title": "Eén team, geen doorgeefluik",
+        "text": "Strategie, ontwerp en development op dezelfde vloer, geen los ingehuurde freelancers per onderdeel."
+      },
+      "rows": [
+        {
+          "title": "Strategie & sitemap",
+          "text": "We bepalen welke pagina's er nodig zijn, wat elke pagina moet doen, en welke route bezoekers volgen, op basis van je doelgroepen, niet op basis van een sjabloon."
+        },
+        {
+          "title": "Ontwerp op maat",
+          "text": "Een visuele stijl die bij je merk past, uitgewerkt tot een compleet ontwerp per pagina, geen kant-en-klaar thema met een ander logo erop."
+        },
+        {
+          "title": "Development & CMS",
+          "text": "Een snel, technisch gedegen fundament met een CMS waarin je zelf teksten, afbeeldingen en pagina's kunt aanpassen zonder developer."
+        },
+        {
+          "title": "Tracking & meetbaarheid",
+          "text": "Conversiemetingen die kloppen, zodat je precies ziet welke pagina's presteren en waar bezoekers afhaken. Zonder dit is optimaliseren giswerk."
+        },
+        {
+          "title": "Testen & livegang",
+          "text": "Uitgebreid testen op snelheid, mobielvriendelijkheid en werking van formulieren, voordat we de knop omzetten en je site live gaat."
+        },
+        {
+          "title": "Onderhoud & doorontwikkeling",
+          "text": "Updates, kleine aanpassingen en doorontwikkeling na livegang. Je kunt dit zelf doen in het CMS, of bij ons beleggen, jouw keuze."
+        }
+      ],
+      "band": {
+        "title": {
+          "$t": [
+            {
+              "text": "Benieuwd wat jouw website nu laat liggen?",
+              "marks": []
+            }
+          ]
+        },
+        "text": "In je gratis groeiplan zie je waar je site het meeste conversie en snelheid laat liggen."
+      }
+    },
+    {
+      "_type": "mediaChips",
+      "image": {
+        "$image": "/images/advertisr/website-van-l-schuijt-klussenbedrijf-ont.jpg",
+        "alt": "Website van L. Schuijt Klussenbedrijf, ontworpen en gebouwd door Advertisr"
+      },
+      "badge": {
+        "title": "Design zit erbij",
+        "text": "Geen aparte designfactuur achteraf"
+      },
+      "eyebrow": "Design & build",
+      "title": {
+        "$t": [
+          {
+            "text": "Een mooie site die ook daadwerkelijk werkt.",
+            "marks": []
+          }
+        ]
+      },
+      "paragraphs": [
+        "Design zonder strategie is decoratie. Elke pagina die wij bouwen begint met de vraag: wat moet een bezoeker hier doen? Pas daarna komt de vormgeving, in lijn met je merk en geoptimaliseerd voor conversie.",
+        "We bouwen op een modern CMS dat je zelf begrijpt: teksten aanpassen, pagina's toevoegen, content beheren. Geen ontwikkelaar nodig voor elke kleine wijziging."
+      ],
+      "chips": [
+        "UX & wireframes",
+        "Custom design",
+        "Responsive development",
+        "Snelheid & Core Web Vitals",
+        "SEO-technisch fundament",
+        "Beheersvriendelijk CMS"
+      ],
+      "screenshot": true
+    },
+    {
+      "_type": "caseHighlight",
+      "eyebrow": "Bewijs",
+      "title": {
+        "$t": [
+          {
+            "text": "Zo pakt dat uit in de praktijk.",
+            "marks": []
+          }
+        ]
+      },
+      "image": {
+        "$image": "/images/advertisr/website-van-hart-huis-makelaardij-gebouw.png",
+        "alt": "Website van Hart & Huis Makelaardij, gebouwd door Advertisr"
+      },
+      "category": "Makelaardij, Web Development",
+      "name": "Hart & Huis Makelaardij",
+      "text": "Een nieuwe website die past bij hoe dit makelaarskantoor zelf werkt: persoonlijk, lokaal en zonder poespas. Snel geladen, duidelijke call-to-actions naar een waardebepaling en volledig zelf te beheren zonder developer nodig te hebben.",
+      "stats": [
+        {
+          "value": "9,6",
+          "label": "score op Funda"
+        },
+        {
+          "value": "<1s",
+          "label": "laadtijd op mobiel"
+        },
+        {
+          "value": "100%",
+          "label": "zelf te beheren"
+        }
+      ]
+    },
+    {
+      "_type": "faqs",
+      "eyebrow": "Veelgestelde vragen",
+      "title": {
+        "$t": [
+          {
+            "text": "Wat je waarschijnlijk wilt weten.",
+            "marks": []
+          }
+        ]
+      },
+      "$faqs": [
+        [
+          "Wat kost een nieuwe website bij Advertisr?",
+          "Dat hangt af van het aantal pagina's, of er een CMS en koppelingen nodig zijn, en of we ook content en fotografie verzorgen. In je groeiplan krijg je een concreet voorstel met een vaste projectprijs, zodat je vooraf precies weet waar je aan toe bent."
+        ],
+        [
+          "Hoe lang duurt het bouwen van een website?",
+          "Voor een gemiddelde bedrijfswebsite reken je op vier tot acht weken, van eerste gesprek tot livegang. Grotere sites met een webshop of maatwerkfunctionaliteit duren langer. We spreken vooraf een planning af, zodat je weet wanneer je site online gaat."
+        ],
+        [
+          "Kan ik zelf teksten en pagina's aanpassen?",
+          "Ja. We bouwen op een CMS dat gemaakt is om zelf in te muteren, zonder kennis van code. Bij oplevering krijg je een korte uitleg, zodat je direct zelfstandig aan de slag kunt."
+        ],
+        [
+          "Blijft de website van mij?",
+          "Altijd. Je bent eigenaar van de website, de content en het CMS. Stopt de samenwerking, dan blijft alles gewoon van jou."
+        ],
+        [
+          "Kunnen jullie ook onze huidige site verbeteren?",
+          "Ja, dat kan zowel als volledige vernieuwing als als gerichte verbetering op snelheid, conversie of techniek. In een eerste gesprek kijken we wat het meeste oplevert voor jouw situatie."
+        ],
+        [
+          "Wat gebeurt er na livegang?",
+          "De website blijft van jou en je kunt zelf verder muteren in het CMS. Wil je liever dat wij updates en doorontwikkeling verzorgen, dan kun je dat afzonderlijk bij ons beleggen."
+        ],
+        [
+          "Combineren jullie website en advertenties?",
+          "Ja, en dat raden we ook vaak aan. Een website die aansluit op je Meta of Google Ads-campagnes converteert aantoonbaar beter dan een los gebouwde site. Zo dekken we de volledige route van advertentie tot aanvraag."
+        ]
+      ]
+    },
+    {
+      "_type": "logos",
+      "eyebrow": "Vertrouwd door",
+      "title": {
+        "$t": [
+          {
+            "text": "Merken die hun website bij ons hebben laten bouwen.",
+            "marks": []
+          }
+        ]
+      },
+      "note": "Van horeca tot B2B-export."
+    },
+    {
+      "_type": "finalCta",
+      "anchor": "groeiplan",
+      "eyebrow": "Klaar om te groeien?",
+      "title": {
+        "$t": [
+          {
+            "text": "Ontvang je gratis groeiplan.",
+            "marks": []
+          }
+        ]
+      },
+      "lead": "Wij bellen je, brengen je huidige marketing in kaart en sturen een concreet plan met kansen, kanalen en aanpak. Volledig vrijblijvend.",
+      "bullets": [
+        "Reactie binnen 1 werkdag",
+        "15 minuten kennismaking, geen verkooppraatje",
+        "Concreet plan, geen vage belofte"
+      ],
+      "form": {
+        "interesse": "Web Development",
+        "messagePlaceholder": "Waar wil je mee groeien? Meer leads, meer omzet, meer naamsbekendheid...",
+        "hideMessage": false
+      },
+      "dots": false
+    }
+  ]
+}

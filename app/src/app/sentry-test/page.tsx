@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SentryTest } from '@/components/SentryTest';
-import { Wrap } from '@/components/ui/Wrap';
+import { Wrap } from '@/components/advertisr/ui';
 import { isSentryTestSecret } from '@/lib/sentry-test';
 
 /**

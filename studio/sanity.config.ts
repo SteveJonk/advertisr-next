@@ -2,7 +2,7 @@ import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemaTypes'
-import {structure} from './structure'
+import {SINGLETONS, structure} from './structure'
 
 /**
  * Project id and dataset come from the environment so the studio and the app
@@ -20,7 +20,7 @@ if (!projectId) {
 
 export default defineConfig({
   name: 'default',
-  title: process.env.SANITY_STUDIO_TITLE || 'Studio',
+  title: process.env.SANITY_STUDIO_TITLE || 'Advertisr',
 
   projectId,
   dataset,
@@ -29,5 +29,16 @@ export default defineConfig({
 
   schema: {
     types: schemaTypes,
+    // Singletons are opened from the menu; never offer them as "new document".
+    templates: (templates) => templates.filter(({schemaType}) => !SINGLETONS.includes(schemaType)),
+  },
+
+  document: {
+    actions: (actions, {schemaType}) =>
+      SINGLETONS.includes(schemaType)
+        ? actions.filter(
+            ({action}) => action && ['publish', 'discardChanges', 'restore'].includes(action),
+          )
+        : actions,
   },
 })

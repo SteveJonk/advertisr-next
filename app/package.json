@@ -10,14 +10,9 @@
     "typecheck": "tsc --noEmit",
     "typegen": "npm --prefix ../studio run typegen",
     "check:jsonld": "tsx scripts/check-jsonld.ts",
-    "check:form": "tsx scripts/check-form.ts",
     "seed": "tsx --env-file=.env scripts/seed.ts",
-    "seed:site": "tsx --env-file=.env scripts/seed.ts site",
-    "seed:forms": "tsx --env-file=.env scripts/seed.ts forms",
-    "seed:home": "tsx --env-file=.env scripts/seed.ts home",
-    "seed:about": "tsx --env-file=.env scripts/seed.ts about",
-    "seed:contact": "tsx --env-file=.env scripts/seed.ts contact",
-    "seed:nav": "tsx --env-file=.env scripts/seed.ts nav"
+    "reviews:backfill": "tsx --env-file=.env scripts/backfill-google-reviews.ts",
+    "reviews:backfill:dry": "tsx --env-file=.env scripts/backfill-google-reviews.ts --dry"
   },
   "dependencies": {
     "@sanity/image-url": "^2.1.1",

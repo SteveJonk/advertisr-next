@@ -8,6 +8,15 @@
 
 ## ✅ Done
 
+### Sanity page builder wired to every page (2026-11-11)
+- All 15 pages are `page` documents built from ~33 blocks (`studio/schemaTypes/blocks.ts` ↔ `app/src/components/PageBuilder.tsx` + `components/advertisr/sections.tsx`). Routes: `(site)/page.tsx` (home), `(site)/[slug]`, `(site)/kennisbank` (+ `[slug]` for articles), `(landing)/groeiplan`. Static page files and `lib/advertisr/*` deleted.
+- Documents: page, article (+ articleCategory), faq (referenced from `faqs` blocks), caseStudy, review, client, teamMember. Singletons: siteInformation (incl. ~50 `interfaceText` strings: buttons, form labels, badges, 404), navigation, footer, googleReviews.
+- No copy in code: everything comes from Sanity via `getSite()` (`lib/site.ts`) and `PAGE_QUERY`; no fallback strings. Exceptions: the animated illustrations' mock text (`visuals.tsx`) and the internal lead mail labels (`api/lead`).
+- Google reviews sync ported from SteveJonk/schuijt: `lib/google-reviews.ts`, `/api/google-reviews` (secret), studio panel `tools/GoogleReviewsSync.tsx`, daily cron in `app/vercel.json`, `npm run reviews:backfill` (SerpApi).
+- Removed template: old blocks, form builder (form/formField/formGeneralSettings, /api/submit-form, /api/test-mail, captcha), `(cms)` route, components/ui|layout|blocks|form, hooks, demo-content.
+- Seeded `y2l1clva/production` with the real copy (`npm run seed`: 138 docs, 75 FAQs, all images uploaded). Service pages were extracted from the old JSX into `app/scripts/seed/pages/*.json`; the rest is in `scripts/seed/content.ts`.
+- `next build` + `sanity build` pass; tsc/eslint clean; `npm run check:jsonld` passes.
+
 ### Advertisr. site from `app/design/*.html` → Next.js + Tailwind (2026-11-11)
 - 15 static routes, flat URLs: `/`, `/meta-ads`, `/google-ads`, `/seo-geo`, `/social-media-organisch`, `/web-development`, `/data-analytics`, `/marketing-automation`, `/ai-agent-workflows`, `/resultaten`, `/team`, `/contact`, `/kennisbank`, `/kennisbank/google-ads-voor-mkb`, `/groeiplan`
 - Route groups: `(site)` (Advertisr nav/footer), `(landing)` (/groeiplan: slim nav, slim footer, sticky mobile CTA), `(cms)` (the untouched Sanity template: `[slug]` + its header/footer). Root `layout.tsx` = html/body/fonts/tracking only.
@@ -22,20 +31,21 @@
 
 ## 🚀 Next phase
 
-**Goal:** User reviews the built site against the designs and gives parity feedback.
+**Goal:** User reviews the CMS-driven site + studio; fill the remaining real data.
 
 ### Open items / decisions for the user
-- Fill mail env (`MAIL_PROVIDER`, credentials, `MAIL_FROM_EMAIL`, `CONTACT_ADMIN_EMAIL`) so `/api/lead` sends; currently returns 503.
-- `app/.env` was created from `.env.example` with `NEXT_PUBLIC_SANITY_PROJECT_ID=placeholder` so dev/build run; replace with real Sanity project.
-- Placeholders straight from the designs: phone/WhatsApp numbers, booking link, LinkedIn/Instagram, voorwaarden/privacy, article share/source links, kennisbank cards except the Google Ads guide (`href='#'`). Search + "Meer artikelen laden" are visual only.
-- Case-study images still load from advertisr.nl (remotePatterns added).
-- Later: wire content to Sanity (`wire-sanity` skill) if the CMS should drive these pages.
+- Deploy the studio (`cd studio && npm run deploy`) so the new schema is live for editors; `studio/.env` was created locally (project y2l1clva).
+- Google reviews: set `GOOGLE_PLACES_API_KEY`, `GOOGLE_REVIEWS_SYNC_SECRET` (+ `CRON_SECRET` on Vercel) and fill the Place ID + website address on the studio's "Google reviews" page. The cron is in `app/vercel.json` (Vercel); on Netlify a scheduled function is needed instead. Badge score is seeded as 5,0 until the first sync.
+- Mail env for `/api/lead` still missing (returns 503).
+- Placeholders still in the content (now editable in the studio): phone/WhatsApp, booking link, LinkedIn/Instagram, legal links, article sources, the 10 kennisbank articles without a body (shown as cards linking to `#`).
+- Root `README.md` / `studio/README.md` still describe the template (seed:site, Form settings, check:form): rewrite.
+- Re-running `npm run seed` overwrites studio edits to the seeded documents: only for setting up a dataset.
 
 ---
 
 ## 📁 Active architecture
 
-- **Stack:** Next.js 16 App Router, React 19, Tailwind v4 (`@theme` in `app/src/app/globals.css`), Sanity (template pages only), next/font (Bricolage Grotesque + Inter)
+- **Stack:** Next.js 16 App Router, React 19, Tailwind v4 (`@theme` in `app/src/app/globals.css`), Sanity page builder for every page (typegen: `npm run typegen` in app), next/font (Bricolage Grotesque + Inter)
 - **Patterns:** reveal = `rv` utility + `<SiteEffects>` sets `data-in` (sibling-staggered); count-up = `<Count to>` / `[data-to]`; parallax = `[data-parallax]` + `[data-depth]`; inline-style paddings from the design are `!` utilities (e.g. `pt-5!`) so they beat the `max-sm:` defaults; breakpoints `max-dsk` (1080), `max-sm` (760), `max-mob` (520), others arbitrary `max-[900px]`.
 
 ---

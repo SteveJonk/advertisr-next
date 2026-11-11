@@ -1,325 +1,281 @@
-import { Benefits } from '@/components/blocks/Benefits';
-import { CrossLinks } from '@/components/blocks/CrossLinks';
-import { ContactForm, type ContactFormAside } from '@/components/blocks/ContactForm';
-import { CtaBand } from '@/components/blocks/CtaBand';
-import { Faq } from '@/components/blocks/Faq';
-import { Hero } from '@/components/blocks/Hero';
-import { Intro } from '@/components/blocks/Intro';
-import { MediaText } from '@/components/blocks/MediaText';
-import { PageHero } from '@/components/blocks/PageHero';
-import { Services } from '@/components/blocks/Services';
-import { Steps } from '@/components/blocks/Steps';
-import type { ContactIconName } from '@/components/ui/ContactIcon';
-import type { CaptchaProvider } from '@/lib/captcha';
-import { resolveFormText, toFormDefinition, type FormText } from '@/lib/form-fields';
-import { imageSrc, toImage, type SanityImage } from '@/sanity/image';
-import { resolveHref, type SanityLabeledLink, type SanityLink } from '@/lib/links';
-import type { Benefit } from '@/lib/demo-content';
+import { Fragment } from 'react';
+import { Compare } from '@/components/advertisr/Compare';
+import { btn, pic, Rich } from '@/components/advertisr/cms';
+import { FinalCta } from '@/components/advertisr/FinalCta';
+import { Logos } from '@/components/advertisr/Logos';
+import { Marquee } from '@/components/advertisr/Marquee';
+import { Reviews } from '@/components/advertisr/Reviews';
+import * as S from '@/components/advertisr/sections';
+import { mainCta, type B } from '@/components/advertisr/sections';
+import { CaseStudy, Crea, CtaBand, Deliverables, Faq, FloatStat, Funnel, Pain, ServiceHero } from '@/components/advertisr/service';
+import { Sec, Wrap } from '@/components/advertisr/ui';
+import { DashVisual, FlowVisual, JourneyVisual, PhoneVisual, SerpVisual, SiteVisual, SocialVisual } from '@/components/advertisr/visuals';
+import type { Site } from '@/lib/site';
 
-type SanityCta = SanityLabeledLink;
+type Any = { _type: string; _key: string };
 
-type PageBlock = {
-  _type: string;
-  _key: string;
-  [key: string]: unknown;
+const VISUALS = {
+  phone: PhoneVisual,
+  serp: SerpVisual,
+  site: SiteVisual,
+  dash: DashVisual,
+  journey: JourneyVisual,
+  flow: FlowVisual,
+  social: SocialVisual,
 };
 
-function toCta(cta: SanityCta | undefined | null) {
-  const href = resolveHref(cta);
-  if (!cta?.label || !href) return undefined;
-  return { label: cta.label, href };
+function ServiceHeroBlock({ b, site }: { b: B<'serviceHero'>; site: Site }) {
+  const Visual = b.visual && b.visual !== 'portal' ? VISUALS[b.visual] : null;
+  const shot = pic(b.image, 1280);
+  const portal = b.visual === 'portal';
+  return (
+    <ServiceHero
+      className={portal ? 'pt-[170px] max-sm:pt-[130px]' : undefined}
+      home={site.ui.crumbHome}
+      crumbs={[[site.ui.crumbServices ?? '', '/#diensten'], [b.crumb ?? '']]}
+      eyebrow={b.eyebrow}
+      title={<Rich value={b.title} />}
+      sub={b.lead}
+      primary={mainCta(b.primaryCta, site)}
+      ghost={btn(b.secondaryCta)}
+      ticks={b.ticks ?? []}
+      visual={
+        Visual ? (
+          <Visual />
+        ) : (
+          shot && (
+            <div className='rv relative'>
+              <S.Shot src={shot.src} alt={shot.alt} url={b.browserUrl} priority />
+              {(b.floatStats ?? []).map((f, i) => (
+                <FloatStat
+                  key={f._key}
+                  value={f.value}
+                  label={f.label ?? ''}
+                  className={i ? '-top-[22px] -right-[18px] max-[1000px]:hidden' : 'bottom-14 -left-[34px] max-[1000px]:hidden'}
+                />
+              ))}
+              <p className='mt-3 text-xs text-dim-2'>{b.caption}</p>
+            </div>
+          )
+        )
+      }
+    />
+  );
 }
 
 /**
- * Map one Sanity block onto its React component.
+ * Map one Sanity block onto its component. `prev` is the block before it:
+ * a few sections tighten their top padding after a particular neighbour,
+ * as the designs do, so that spacing never becomes an editor's setting.
  *
- * ADDING A BLOCK — four touchpoints, in this order:
- *   1. `studio/schemaTypes/blocks/<name>Type.ts`   — the fields
- *   2. `studio/schemaTypes/index.ts` + `pageBuilderType.ts` — register it
- *   3. `src/sanity/queries.ts`                     — project any link fields
- *   4. a `case` here + a component in `src/components/blocks/`
- *
- * Every field arrives untyped (`unknown`) because the block union is open, so
- * each case casts what it reads. Unknown types warn and render nothing rather
- * than throwing — a page keeps working while a new block is half-built.
+ * ADDING A BLOCK: `studio/schemaTypes/blocks.ts`, resolve references in
+ * `src/sanity/queries.ts`, run `npm run typegen`, then add a case here.
  */
-function renderBlock(block: PageBlock, path?: string) {
+function render(block: Any, site: Site, prev?: Any) {
+  const { ui } = site;
   switch (block._type) {
-    case 'hero': {
-      const slides = (block.slides as SanityImage[] | undefined)
-        ?.map((slide) => toImage(slide, 2400, 1600))
-        .filter((slide): slide is { src: string; alt: string } => Boolean(slide));
+    case 'homeHero':
+      return <S.HomeHero b={block as B<'homeHero'>} site={site} />;
+    case 'serviceHero':
+      return <ServiceHeroBlock b={block as B<'serviceHero'>} site={site} />;
+    case 'pageHero':
+      return <S.PageHero b={block as B<'pageHero'>} site={site} />;
+    case 'contactHero':
+      return <S.ContactHero b={block as B<'contactHero'>} site={site} />;
+    case 'groeiplanHero':
+      return <S.GroeiplanHero b={block as B<'groeiplanHero'>} site={site} />;
+    case 'articleIndex':
+      return <S.ArticleIndex b={block as B<'articleIndex'>} site={site} />;
+    case 'marquee':
+      return <Marquee items={(block as B<'marquee'>).items ?? []} />;
+    case 'compare': {
+      const b = block as B<'compare'>;
+      return <Compare {...b} title={<Rich value={b.title} />} rows={b.rows ?? []} />;
+    }
+    case 'pain': {
+      const b = block as B<'pain'>;
+      const image = pic(b.quote?.image, 160);
       return (
-        <Hero
-          key={block._key}
-          slides={slides}
-          eyebrow={block.eyebrow as string | undefined}
-          title={block.title as string | undefined}
-          titleHighlight={block.titleHighlight as string | undefined}
-          lead={block.lead as string | undefined}
-          primaryCta={toCta(block.primaryCta as SanityCta)}
-          secondaryCta={toCta(block.secondaryCta as SanityCta)}
-          badgeValue={block.badgeValue as string | undefined}
-          badgeLabel={block.badgeLabel as string | undefined}
+        <Pain
+          className={b.quote ? undefined : 'pb-[110px]'}
+          eyebrow={b.eyebrow}
+          title={<Rich value={b.title} />}
+          lead={b.lead}
+          items={(b.items ?? []).map((i) => ({ q: i.quote ?? '', text: i.text }))}
+          bridge={b.quote ? { img: image?.src, alt: image?.alt, line: <Rich value={b.quote.line} />, sig: b.quote.signature } : undefined}
         />
       );
     }
-    case 'intro': {
+    case 'funnel': {
+      const b = block as B<'funnel'>;
       return (
-        <Intro
-          key={block._key}
-          image={toImage(block.image as SanityImage, 800, 1000)}
-          stampValue={block.stampValue as string | undefined}
-          stampLabel={block.stampLabel as string | undefined}
-          eyebrow={block.eyebrow as string | undefined}
-          title={block.title as string | undefined}
-          titleHighlight={block.titleHighlight as string | undefined}
-          leads={block.leads as string[] | undefined}
-          facts={block.facts as { value: string; label: string }[] | undefined}
-          link={toCta(block.link as SanityCta)}
+        <Funnel
+          // After the overlapping founder quote the design leaves extra room.
+          className={prev?._type === 'pain' && (prev as B<'pain'>).quote ? undefined : 'pt-[110px]!'}
+          id={b.anchor ?? undefined}
+          eyebrow={b.eyebrow}
+          title={<Rich value={b.title} />}
+          body={b.body}
+          ghost={b.ghostLabel}
+          layers={(b.layers ?? []).map((l) => ({ tag: l.tag, title: l.title, text: l.text, kpi: l.kpi?.length ? <Rich value={l.kpi} /> : undefined }))}
         />
       );
     }
-    case 'services': {
-      const items = (
-        block.items as
-          | Array<{
-              label: string;
-              title: string;
-              description: string;
-              image: SanityImage;
-              link?: SanityLink;
-            }>
-          | undefined
-      )
-        ?.map((item, index) => {
-          const href = resolveHref(item.link);
-          if (!href) return null;
-          return {
-            label: item.label,
-            title: item.title,
-            description: item.description,
-            href,
-            image: toImage(item.image, 640, 768) ?? { src: '', alt: '' },
-            delay: (index === 0 ? undefined : index) as 1 | 2 | 3 | undefined,
-          };
-        })
-        .filter((item): item is NonNullable<typeof item> => Boolean(item));
-      const highlight = block.highlight as
-        | { badge?: string; title?: string; body?: string; cta?: SanityCta }
-        | undefined;
+    case 'deliverables': {
+      const b = block as B<'deliverables'>;
+      const photo = pic(b.photo?.image, 900);
       return (
-        <Services
-          key={block._key}
-          title={block.title as string | undefined}
-          lead={block.lead as string | undefined}
-          items={items}
-          cardLinkLabel={(block.cardLinkLabel as string | undefined) || undefined}
-          highlight={
-            highlight?.title
-              ? {
-                  badge: highlight.badge ?? '',
-                  title: highlight.title,
-                  body: highlight.body ?? '',
-                  cta: toCta(highlight.cta),
-                }
-              : undefined
-          }
+        <Deliverables
+          eyebrow={b.eyebrow}
+          title={<Rich value={b.title} />}
+          lead={b.lead}
+          photo={{ src: photo?.src, alt: photo?.alt, t: b.photo?.title, s: b.photo?.text }}
+          rows={(b.rows ?? []).map((r) => ({ title: r.title ?? '', text: r.text }))}
+          band={b.band ? { title: <Rich value={b.band.title} />, sub: b.band.text, cta: mainCta(b.band.cta, site) } : undefined}
         />
       );
     }
-    case 'mediaText': {
+    case 'mediaChips': {
+      const b = block as B<'mediaChips'>;
+      const image = pic(b.image, 1200);
       return (
-        <MediaText
-          key={block._key}
-          eyebrow={block.eyebrow as string | undefined}
-          title={block.title as string | undefined}
-          paragraphs={block.paragraphs as string[] | undefined}
-          cta={toCta(block.cta as SanityCta)}
-          image={toImage(block.image as SanityImage, 900, 720)}
+        <Crea
+          img={image?.src}
+          alt={image?.alt}
+          badge={{ t: b.badge?.title, s: b.badge?.text }}
+          eyebrow={b.eyebrow}
+          title={<Rich value={b.title} />}
+          paras={b.paragraphs ?? []}
+          chips={b.chips ?? undefined}
+          shot={!!b.screenshot}
         />
       );
     }
-    case 'pageHero': {
+    case 'caseHighlight': {
+      const b = block as B<'caseHighlight'>;
+      const image = pic(b.image, 1240);
       return (
-        <PageHero
-          key={block._key}
-          image={toImage(block.image as SanityImage, 2400, 1600)}
-          breadcrumbLabel={block.breadcrumbLabel as string | undefined}
-          eyebrow={block.eyebrow as string | undefined}
-          title={block.title as string | undefined}
-          titleHighlight={block.titleHighlight as string | undefined}
-          lead={block.lead as string | undefined}
-          primaryCta={toCta(block.primaryCta as SanityCta)}
-          secondaryCta={toCta(block.secondaryCta as SanityCta)}
+        <CaseStudy
+          eyebrow={b.eyebrow}
+          title={<Rich value={b.title} />}
+          img={image?.src}
+          alt={image?.alt}
+          cat={b.category}
+          name={b.name}
+          text={b.text}
+          stats={(b.stats ?? []).map((s) => [s.value ?? '', s.label ?? ''])}
         />
       );
     }
-    case 'benefits': {
+    case 'procSteps':
+      return <S.ProcSteps b={block as B<'procSteps'>} site={site} />;
+    case 'ctaBand': {
+      const b = block as B<'ctaBand'>;
       return (
-        <Benefits
-          key={block._key}
-          eyebrow={block.eyebrow as string | undefined}
-          title={block.title as string | undefined}
-          lead={block.lead as string | undefined}
-          image={toImage(block.image as SanityImage, 900, 1125)}
-          items={block.items as Benefit[] | undefined}
-        />
+        <Sec className='pt-0!'>
+          <Wrap>
+            <CtaBand className='mt-0!' title={<Rich value={b.title} />} sub={b.text} cta={mainCta(b.cta, site)} />
+          </Wrap>
+        </Sec>
       );
     }
-    case 'steps': {
-      const items = (
-        block.items as
-          | Array<{
-              number: string;
-              title: string;
-              body: string;
-              image: SanityImage;
-            }>
-          | undefined
-      )?.map((item) => ({
-        number: item.number,
-        title: item.title,
-        body: item.body,
-        image: imageSrc(item.image, 900, 1125) ?? '',
-      }));
-      return (
-        <Steps
-          key={block._key}
-          eyebrow={block.eyebrow as string | undefined}
-          title={block.title as string | undefined}
-          lead={block.lead as string | undefined}
-          cta={toCta(block.cta as SanityCta)}
-          items={items}
-        />
-      );
-    }
+    case 'quoteBand':
+      return <S.QuoteBand b={block as B<'quoteBand'>} site={site} />;
     case 'faqs': {
-      // FAQs are their own documents so one answer can be reused across pages.
-      const items = (
-        block.faqs as
-          | Array<{
-              title?: string;
-              answer?: string;
-              link?: SanityCta;
-              afterLink?: string;
-            }>
-          | undefined
-      )
-        ?.filter((faq) => faq?.title && faq?.answer)
-        .map((faq) => ({
-          question: faq.title!,
-          answer: faq.answer!,
-          link: toCta(faq.link),
-          afterLink: faq.afterLink,
-        }));
+      const b = block as B<'faqs'>;
       return (
         <Faq
-          key={block._key}
-          eyebrow={block.eyebrow as string | undefined}
-          title={block.title as string | undefined}
-          intro={block.intro as string | undefined}
-          link={toCta(block.link as SanityCta)}
-          items={items}
+          // Right under a case the design drops the top padding; on the grey band it gets a border.
+          className={b.soft ? 'border-t border-line bg-soft' : prev?._type === 'caseHighlight' ? 'pt-0!' : undefined}
+          eyebrow={b.eyebrow}
+          title={<Rich value={b.title} />}
+          items={(b.faqs ?? []).map((f) => ({ q: f.question, a: f.answer }))}
         />
       );
     }
-    case 'crossLinks': {
-      const items = (
-        block.items as
-          | Array<{ title?: string; body?: string; link?: SanityLink }>
-          | undefined
-      )
-        ?.map((item) => {
-          const href = resolveHref(item.link);
-          if (!item.title || !item.body || !href) return null;
-          return { title: item.title, body: item.body, href };
-        })
-        .filter((item): item is { title: string; body: string; href: string } =>
-          Boolean(item),
-        );
-      return <CrossLinks key={block._key} items={items} />;
+    case 'logos': {
+      const b = block as B<'logos'>;
+      const logos = (b.clients ?? []).flatMap((c) => {
+        const logo = pic(c.logo, 300);
+        return logo ? [{ src: logo.src, alt: c.name }] : [];
+      });
+      return <Logos eyebrow={b.eyebrow} title={<Rich value={b.title} />} note={b.note} logos={logos} />;
     }
-    case 'ctaBand': {
+    case 'reviews': {
+      const b = block as B<'reviews'>;
       return (
-        <CtaBand
-          key={block._key}
-          image={toImage(block.image as SanityImage, 2400, 1200)}
-          eyebrow={block.eyebrow as string | undefined}
-          title={block.title as string | undefined}
-          body={block.body as string | undefined}
-          primaryCta={toCta(block.primaryCta as SanityCta)}
-          secondaryCta={toCta(block.secondaryCta as SanityCta)}
+        <Reviews
+          // After a section with its own bottom padding the design tightens the gap.
+          className={prev?._type === 'caseList' ? 'pt-5!' : undefined}
+          eyebrow={b.eyebrow}
+          title={<Rich value={b.title} />}
+          items={(b.items ?? []).slice(0, b.count ?? 6)}
+          rating={site.rating}
+          ui={ui}
         />
       );
     }
-    case 'contactForm': {
-      const aside = block.aside as
-        | {
-            title?: string;
-            body?: string;
-            items?: Array<{ icon: ContactIconName; title: string; subtitle?: string }>;
-            cta?: SanityCta;
-          }
-        | undefined;
-      // Only the site key travels to the browser; the secret is read by the
-      // submit route, which never sends it anywhere.
-      const captcha = block.captcha as
-        | { captchaProvider?: string; recaptchaSiteKey?: string; turnstileSiteKey?: string }
-        | undefined;
-      const provider = captcha?.captchaProvider;
-      const siteKey =
-        provider === 'recaptcha'
-          ? captcha?.recaptchaSiteKey
-          : provider === 'turnstile'
-            ? captcha?.turnstileSiteKey
-            : undefined;
-
+    case 'finalCta': {
+      const b = block as B<'finalCta'>;
       return (
-        <ContactForm
-          key={block._key}
-          eyebrow={block.eyebrow as string | undefined}
-          title={block.title as string | undefined}
-          lead={block.lead as string | undefined}
-          note={block.note as string | undefined}
-          form={toFormDefinition(block.form)}
-          formText={resolveFormText(block.formText as Partial<FormText> | null | undefined)}
-          // What a hidden `{{path}}` field is filled with, so the mail says
-          // which page the form was sent from.
-          context={path ? { path } : undefined}
-          aside={
-            aside?.title
-              ? ({
-                  title: aside.title,
-                  body: aside.body ?? '',
-                  items: (aside.items ?? []).map((item) => ({
-                    icon: item.icon,
-                    title: item.title,
-                    subtitle: item.subtitle ?? '',
-                  })),
-                  cta: toCta(aside.cta),
-                } satisfies ContactFormAside)
-              : undefined
-          }
-          captcha={siteKey ? { provider: provider as CaptchaProvider, siteKey } : undefined}
+        <FinalCta
+          id={b.anchor ?? undefined}
+          eyebrow={b.eyebrow}
+          title={<Rich value={b.title} />}
+          lead={b.lead}
+          list={b.bullets}
+          ui={ui}
+          form={b.form}
+          backdrop={b.dots ? <S.Dots /> : undefined}
         />
       );
     }
+    case 'stages':
+      return <S.Stages b={block as B<'stages'>} site={site} />;
+    case 'caseCards':
+      return <S.CaseCards b={block as B<'caseCards'>} site={site} />;
+    case 'approach':
+      return <S.Approach b={block as B<'approach'>} site={site} />;
+    case 'statBand':
+      return <S.StatBand b={block as B<'statBand'>} site={site} />;
+    case 'homeTeam':
+      return <S.HomeTeam b={block as B<'homeTeam'>} site={site} />;
+    case 'teamGrid':
+      return <S.TeamGrid b={block as B<'teamGrid'>} site={site} />;
+    case 'story':
+      return <S.Story b={block as B<'story'>} site={site} />;
+    case 'caseList':
+      return <S.CaseList b={block as B<'caseList'>} site={site} />;
+    case 'contactMethods':
+      return <S.ContactMethods b={block as B<'contactMethods'>} site={site} />;
+    case 'infoCard':
+      return <S.InfoCard b={block as B<'infoCard'>} site={site} />;
+    case 'valueGrid':
+      return <S.ValueGrid b={block as B<'valueGrid'>} site={site} />;
+    case 'stepsMedia':
+      return <S.StepsMedia b={block as B<'stepsMedia'>} site={site} />;
+    case 'toolCards':
+      return <S.ToolCards b={block as B<'toolCards'>} site={site} />;
+    case 'stepCards':
+      return <S.StepCards b={block as B<'stepCards'>} site={site} />;
+    case 'features':
+      return <S.Features b={block as B<'features'>} site={site} />;
+    case 'pillars':
+      return <S.Pillars b={block as B<'pillars'>} site={site} />;
+    case 'output':
+      return <S.Output b={block as B<'output'>} site={site} />;
     default:
-      console.warn(`Unknown page builder block type: ${block._type}`);
+      console.warn(`Unknown page builder block: ${block._type}`);
       return null;
   }
 }
 
-export function PageBuilder({
-  content,
-  path,
-}: {
-  content?: PageBlock[] | null;
-  /** The page's own path, for blocks that record where they were used. */
-  path?: string;
-}) {
-  if (!Array.isArray(content) || content.length === 0) return null;
-
-  return <>{content.map((block) => renderBlock(block, path))}</>;
+export function PageBuilder({ content, site }: { content?: Any[] | null; site: Site }) {
+  return (
+    <>
+      {(content ?? []).map((block, i, all) => (
+        <Fragment key={block._key}>{render(block, site, all[i - 1])}</Fragment>
+      ))}
+    </>
+  );
 }

@@ -100,7 +100,7 @@ const MARK_DOTS = [
   [22, 5],
 ];
 
-export function Brand({ className }: { className?: string }) {
+export function Brand({ name, className }: { name: string; className?: string }) {
   return (
     <Link href='/' className={cn('flex items-center gap-[11px] font-display text-[21px] font-extrabold tracking-[-.03em]', className)}>
       <span className='relative size-[30px] shrink-0 rounded-lg bg-red'>
@@ -112,7 +112,7 @@ export function Brand({ className }: { className?: string }) {
           </g>
         </svg>
       </span>
-      Advertisr.
+      {name}
     </Link>
   );
 }
@@ -167,11 +167,11 @@ export function Count({ to }: { to: number }) {
 }
 
 /** "Home / … / Current" breadcrumb above a hero title. The last item has no href. */
-export function Crumb({ items }: { items: ([string, string] | [string])[] }) {
+export function Crumb({ home, items }: { home?: string; items: ([string, string] | [string])[] }) {
   return (
     <div className='rv mb-[22px] flex flex-wrap items-center gap-[9px] text-[13px] text-dim-2'>
       <Link href='/' className='hover:text-red-ink'>
-        Home
+        {home}
       </Link>
       {items.map(([label, href]) => (
         <Fragment key={label}>

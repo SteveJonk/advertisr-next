@@ -5,7 +5,7 @@ import type { Metadata } from 'next';
  */
 import { Bricolage_Grotesque, Inter } from 'next/font/google';
 import { TrackingScriptsBody, TrackingScriptsHead } from '@/components/TrackingScripts';
-import { SITE_URL } from '@/lib/site';
+import { getSite, SITE_URL } from '@/lib/site';
 import './globals.css';
 
 const display = Bricolage_Grotesque({
@@ -20,19 +20,21 @@ const sans = Inter({
   weight: ['400', '500', '600'],
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
-  title: {
-    default: 'Advertisr. | Marketing zonder gedoe.',
-    template: '%s | Advertisr.',
-  },
-  description: 'Online marketingbureau in Haarlem. Groeisystemen op Meta Ads, Google Ads en AI Agent Workflows.',
-  openGraph: { type: 'website', siteName: 'Advertisr.', locale: 'nl_NL' },
-};
+/** Site-wide defaults from Site information; each page's `seo` layers on top. */
+export async function generateMetadata(): Promise<Metadata> {
+  const site = await getSite();
+  return {
+    metadataBase: new URL(SITE_URL),
+    title: { default: site.defaultTitle, template: `%s | ${site.name}` },
+    description: site.description,
+    openGraph: { type: 'website', siteName: site.name },
+  };
+}
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const { language } = await getSite();
   return (
-    <html lang='nl' data-scroll-behavior='smooth' className={`${display.variable} ${sans.variable} h-full antialiased`}>
+    <html lang={language} data-scroll-behavior='smooth' className={`${display.variable} ${sans.variable} h-full antialiased`}>
       <head>
         <TrackingScriptsHead />
       </head>

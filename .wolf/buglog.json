@@ -63,6 +63,69 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-11-11T13:45:00Z"
+    },
+    {
+      "error_message": "Error parsing: app/package.json (tsx/next fail to start)",
+      "file": "app/package.json",
+      "root_cause": "Regex removal of scripts left a trailing comma after the last script",
+      "fix": "Removed the comma; validate with node -e require",
+      "tags": [
+        "json",
+        "package.json",
+        "scripts"
+      ],
+      "id": "bug-005",
+      "timestamp": "2026-11-11T14:08:59.716432",
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-11-11T14:08:59.716432"
+    },
+    {
+      "error_message": "Property '_id' does not exist on type '({ _key } & CaseStudyReference) | {...}'",
+      "file": "app/src/sanity/queries.ts",
+      "root_cause": "Typegen can't narrow `_type in [...] => {}` conditional projections, so resolved and unresolved shapes unioned",
+      "fix": "One conditional per block type (caseCards, caseList) sharing a projection string",
+      "tags": [
+        "sanity",
+        "typegen",
+        "groq"
+      ],
+      "id": "bug-006",
+      "timestamp": "2026-11-11T14:08:59.716432",
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-11-11T14:08:59.716432"
+    },
+    {
+      "error_message": "react-hooks/set-state-in-effect in Nav.tsx",
+      "file": "app/src/components/advertisr/Nav.tsx",
+      "root_cause": "Nav set CTA href from a DOM lookup inside useEffect",
+      "fix": "href=/groeiplan + onClick that scrolls to #groeiplan when the page has it",
+      "tags": [
+        "react",
+        "eslint",
+        "nav"
+      ],
+      "id": "bug-007",
+      "timestamp": "2026-11-11T14:08:59.716432",
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-11-11T14:08:59.716432"
+    },
+    {
+      "error_message": "check-jsonld AssertionError: addressCountry DE unexpected",
+      "file": "app/scripts/check-jsonld.ts",
+      "root_cause": "Python str.replace replaced every occurrence when adapting the test to the removed SITE_DEFAULTS",
+      "fix": "Restored addressCountry in the CMS-merged expectation",
+      "tags": [
+        "test",
+        "json-ld"
+      ],
+      "id": "bug-008",
+      "timestamp": "2026-11-11T14:08:59.716432",
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-11-11T14:08:59.716432"
     }
   ]
 }

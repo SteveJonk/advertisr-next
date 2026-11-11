@@ -1,49 +1,25 @@
-/**
- * The slug of the page that renders at `/`.
- *
- * The home page is an ordinary `page` document like any other, so every place
- * that turns a slug into a path — links, the sitemap, the `/home` redirect —
- * has to map this one slug to the root. Use `pathForSlug` rather than
- * repeating the check.
- */
+/** The slug of the page that renders at `/`. */
 export const HOME_SLUG = 'home';
 
 /** Turn a page slug into its path, mapping the home page onto `/`. */
-export function pathForSlug(slug: string): string {
+export function pathForSlug(slug: string, type: string = 'page'): string {
+  if (type === 'article') return `/kennisbank/${slug}`;
   return slug === HOME_SLUG ? '/' : `/${slug}`;
 }
 
 export type SanityLink = {
+  label?: string | null;
   linkType?: 'internal' | 'external' | null;
   href?: string | null;
-  internalLink?: { slug?: string | null } | null;
-};
+  internalLink?: { _type?: string | null; slug?: string | null } | null;
+} | null | undefined;
 
-export type SanityLabeledLink = SanityLink & {
-  label?: string | null;
-};
-
-/** Resolve a Sanity link/cta object to a usable href. */
-export function resolveHref(link: SanityLink | undefined | null): string | undefined {
+/** A Sanity button to an href: a referenced page or article, else the typed URL. */
+export function resolveHref(link: SanityLink): string | undefined {
   if (!link) return undefined;
   if (link.linkType === 'internal') {
     const slug = link.internalLink?.slug;
-    if (!slug) return undefined;
-    return pathForSlug(slug);
+    return slug ? pathForSlug(slug, link.internalLink?._type ?? 'page') : undefined;
   }
-  // External, or legacy plain-string href content
   return link.href || undefined;
-}
-
-/** Internal hrefs are the ones the Next router can handle itself. */
-export function isInternalHref(href: string): boolean {
-  return href.startsWith('/');
-}
-
-export function toLabeledHref(
-  link: SanityLabeledLink | undefined | null,
-): { label: string; href: string } | undefined {
-  const href = resolveHref(link);
-  if (!link?.label || !href) return undefined;
-  return { label: link.label, href };
 }

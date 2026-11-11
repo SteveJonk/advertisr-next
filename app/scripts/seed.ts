@@ -1,67 +1,56 @@
 /**
- * Seed Sanity content. Runs every target, or only the ones you name.
+ * Fills the dataset with the site's real content: settings, shared documents
+ * and every page. Idempotent: fixed ids, `createOrReplace`, images reused by
+ * filename. Re-running it OVERWRITES edits made in the studio to these
+ * documents, so run it to set up a dataset, not on a live one.
  *
- * Usage (from app/):
- *   npm run seed                 # everything
- *   npm run seed:home            # one page
- *   npm run seed:site            # the site information singleton
- *   npm run seed:forms           # form settings + the demo contact form
- *   npm run seed -- home nav
+ *   npm run seed
  *
- * Each target is idempotent and only touches its own documents, so seeding one
- * page leaves the others alone. Page content is defined per page in
- * scripts/seed/<page>.ts and comes from src/lib/demo-content.ts.
- *
- * ADDING A PAGE: create scripts/seed/<page>.ts exporting a `seed<Page>`
- * function, then register it in TARGETS below and add an npm script.
+ * Needs NEXT_PUBLIC_SANITY_PROJECT_ID and SANITY_API_WRITE_TOKEN in app/.env.
+ * Leaves alone what it did not write (Google reviews from the sync, say).
  */
-import {seedAbout} from './seed/about'
-import {seedContact} from './seed/contact'
-import {seedForms} from './seed/forms'
-import {seedHome} from './seed/home'
-import {seedNavigation} from './seed/navigation'
-import {seedSiteInformation} from './seed/site-information'
-import {projectRef} from './seed/shared'
+import { readdirSync, readFileSync } from 'node:fs';
+import path from 'node:path';
+import { articles, cases, categories, clients, googleReviews, pages, reviews, singletons, team } from './seed/content';
+import { client, faqDocs, resolve } from './seed/lib';
 
-const TARGETS = {
-  site: seedSiteInformation,
-  // Before the pages: the contact page references the form by id.
-  forms: seedForms,
-  home: seedHome,
-  about: seedAbout,
-  contact: seedContact,
-  // `nav` runs last by default: it links menu items to pages by slug, so the
-  // pages need to exist first.
-  nav: seedNavigation,
-} as const
+type Page = { slug: string; title: string; seo: Record<string, unknown>; content: unknown[] };
 
-type TargetName = keyof typeof TARGETS
-
-function parseTargets(args: string[]): TargetName[] {
-  if (args.length === 0) return Object.keys(TARGETS) as TargetName[]
-
-  const unknown = args.filter((arg) => !(arg in TARGETS))
-  if (unknown.length > 0) {
-    throw new Error(
-      `Unknown target(s): ${unknown.join(', ')}. Available: ${Object.keys(TARGETS).join(', ')}`,
-    )
-  }
-  return args as TargetName[]
-}
+const PAGES_DIR = path.join(process.cwd(), 'scripts/seed/pages');
+const extracted: Page[] = readdirSync(PAGES_DIR).map((f) => JSON.parse(readFileSync(path.join(PAGES_DIR, f), 'utf8')));
 
 async function main() {
-  const targets = parseTargets(process.argv.slice(2))
-  console.log(`Seeding Sanity project ${projectRef} — ${targets.join(', ')}\n`)
+  console.log(`Seeding ${client.config().projectId}/${client.config().dataset}`);
 
-  for (const target of targets) {
-    await TARGETS[target]()
-    console.log('')
+  const docs: Record<string, unknown>[] = [];
+  const add = async (doc: Record<string, unknown>) => docs.push((await resolve(doc, doc._id as string)) as Record<string, unknown>);
+
+  for (const doc of [...singletons, ...reviews, ...clients, ...team, ...cases, ...categories]) await add(doc);
+  for (const page of [...pages, ...extracted]) {
+    await add({
+      _id: `page-${page.slug}`,
+      _type: 'page',
+      title: page.title,
+      slug: { _type: 'slug', current: page.slug },
+      seo: { _type: 'seo', ...page.seo },
+      content: page.content,
+    });
   }
+  for (const doc of articles) await add(doc);
 
-  console.log('Done. Refresh the site to see the changes.')
+  // The Google settings are partly the sync's: only create them, never overwrite.
+  const tx = client.transaction().createIfNotExists(googleReviews);
+  for (const doc of [...faqDocs.values(), ...docs.filter((d) => d._type !== 'article')]) tx.createOrReplace(doc as never);
+  await tx.commit({ visibility: 'async' });
+
+  // Articles one by one, last first: the kennisbank lists the undated ones by
+  // creation time, so this keeps the order of the design.
+  for (const doc of docs.filter((d) => d._type === 'article').reverse()) await client.createOrReplace(doc as never);
+
+  console.log(`Done: ${docs.length + faqDocs.size + 1} documents (${faqDocs.size} FAQs).`);
 }
 
 main().catch((error) => {
-  console.error('\nSeed failed:', error.message || error)
-  process.exit(1)
-})
+  console.error(error instanceof Error ? error.message : error);
+  process.exit(1);
+});
