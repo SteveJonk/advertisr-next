@@ -15,6 +15,8 @@
 - Google reviews import follows the SteveJonk/schuijt pattern (Places API sync route + studio panel + cron + SerpApi backfill).
 
 ## Key Learnings
+- Forms are Sanity documents again (`form` + `formField`, singleton `formGeneralSettings` = Form settings with mail/spam/interface text). Blocks (`contactHero`, `groeiplanHero`, `finalCta`, `articleIndex.newsletter`) hold a `form` reference + `interesse`; a hidden field `{{interesse}}` / `{{path}}` picks those up. Everything posts to `/api/submit-form` (FORM_QUERY is the allow-list); mail env wins over the studio fallbacks. `npm run check:form` checks the round trip.
+- Shared form copy + public captcha key come via `getSite().forms` (SITE_QUERY), not per block.
 - Page content = `page` docs + page builder. Add a block: `studio/schemaTypes/blocks.ts` → resolve refs in `app/src/sanity/queries.ts` → `npm run typegen` (in app) → case in `PageBuilder.tsx` (+ component in `sections.tsx`). Block types come from `B<'type'>` in sections.tsx (generated PAGE_QUERY_RESULT).
 - Spacing that differs by neighbour (Funnel after Pain-with-quote, Faq after caseHighlight, Reviews after caseList) is derived from `prev` in PageBuilder, not an editor field.
 - `inlineText` (one-line Portable Text, em/strong) renders via `<Rich>` in `components/advertisr/cms.tsx`; `<Animated>` counts up the first number of a stat string.
@@ -34,6 +36,8 @@
 - No prettier config in app: format with `--single-quote --print-width 160` to match the repo style.
 
 ## Do-Not-Repeat
+- [2026-11-11] zsh: `"$R:app/x"` applies the `:a` modifier (and `:s`, `:h`, …) and unquoted `$args` is not word-split. Write `${R}:path`, and run arg-list loops under `bash -c`.
+- [2026-11-11] Only one `next dev` per folder (Next 16 lock): when another session's server holds :3000, verify against it (curl / browser on :3000) instead of starting a second one.
 - [2026-11-11] Env fallbacks must use `||`, not `??`: the Dockerfile turns every unset build-arg into an empty-string env var.
 
 <!-- Mistakes made and corrected. Each entry prevents the same mistake recurring. -->
@@ -45,6 +49,7 @@
 - [2026-11-11] BSD `sed` doesn't turn `\n` in the replacement into a newline: the edit silently did nothing. Use python for multi-line edits.
 
 ## Decision Log
+- [2026-11-11] Restored the template form builder at the user's request ("like it was when the repo started"), replacing the fixed LeadForm//api/lead. Per-service message placeholders were folded into 5 shared forms (groeiplan, groeiplan-landing, groeiplan-kort, contact, nieuwsbrief) instead of one form per page.
 - [2026-11-11] Hosting: plain Docker on own server (root@178.104.248.151), host-installed Caddy (user manages it, don't touch) proxies to 127.0.0.1:3000. Coolify dropped. Deploy = GH Actions SSH → ~/advertisr: scp deploy/compose.yml, pull, `up -d --wait`. User chose simple restart (~1-3s gap) over replica swap. GHCR package is public (no docker login). Runtime secrets live in ~/advertisr/app.env on the server; NEXT_PUBLIC_* are build-args from GitHub Variables.
 - [2026-11-11] WP import: single `category` kept (first WP tag), rest of tags as plain strings; categories merged with the seeded ones; placeholders kept (user choices).
 - [2026-11-11] Page builder with one block per design section (~33) rather than a few generic blocks: design parity; illustrations stay code (`visual` select).

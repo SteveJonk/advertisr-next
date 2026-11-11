@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-11-11T13:08:59.876Z
-> Files: 147 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-11-11T15:12:34.954Z
+> Files: 162 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -30,7 +30,7 @@
 
 ## .github/workflows/
 
-- `build-app-image.yml` — CI: Build App Image (~887 tok)
+- `build-app-image.yml` — CI: Build App Image (~1352 tok)
 - `deploy-sanity-studio.yml` — CI: Deploy Sanity Studio (~802 tok)
 
 ## .opencode/command/
@@ -105,21 +105,21 @@
 
 ## app/
 
-- `.DS_Store` (~2186 tok)
+- `.DS_Store` (~3824 tok)
 - `.gitignore` — Git ignore rules (~163 tok)
-- `Dockerfile` — Docker container definition (~294 tok)
+- `Dockerfile` — Docker container definition (~479 tok)
 - `eslint.config.mjs` — ESLint flat configuration (~124 tok)
 - `netlify.toml` (~228 tok)
-- `next-env.d.ts` — / <reference types="next" /> (~71 tok)
+- `next-env.d.ts` — / <reference types="next" /> (~72 tok)
 - `next.config.ts` — Next.js configuration (~518 tok)
-- `package-lock.json` — npm lock file (~208179 tok)
-- `package.json` — Node.js package manifest (~318 tok)
+- `package-lock.json` — npm lock file (~208545 tok)
+- `package.json` — Node.js package manifest (~388 tok)
 - `postcss.config.mjs` — Declares config (~26 tok)
 - `sentry.edge.config.ts` — Sentry for the edge runtime (middleware, edge routes). Imported by (~74 tok)
 - `sentry.options.ts` — One source of Sentry settings for the client, the server and the edge (~291 tok)
 - `sentry.server.config.ts` — Sentry for the Node.js server runtime. Imported by `src/instrumentation.ts`, (~69 tok)
 - `tsconfig.json` — TypeScript configuration (~192 tok)
-- `tsconfig.tsbuildinfo` (~85844 tok)
+- `tsconfig.tsbuildinfo` (~87676 tok)
 - `vercel.json` (~42 tok)
 
 ## app/design/
@@ -136,23 +136,38 @@
 ## app/scripts/
 
 - `backfill-google-reviews.ts` — One-off: imports ALL Google reviews (the daily sync only sees the 5 most relevant). (~310 tok)
-- `import-wordpress.ts` — One-off: imports the advertisr.nl WordPress posts as articles (first tag = category, HTML → Portable Text). `npm run import:wp [-- --dry]`. (~2200 tok)
+- `check-form.ts` — The smallest thing that fails when the CMS-driven form breaks. (~2709 tok)
+  - fn `names` L34-114 (~746 tok)
+  - fn `runFormQuery` L115-124 (~110 tok)
+  - fn `checkAllowList` L125-203 (~930 tok)
+  - fn `checkCaptcha` L204-248 (~527 tok)
 - `check-jsonld.ts` — The smallest thing that fails when the structured data quietly changes. (~2331 tok)
   - fn `node` L37-213 (~1994 tok)
-- `seed.ts` — Fills the dataset with the site's real content: settings, shared documents (~722 tok)
-  - fn `main` L22-57 (~431 tok)
+- `import-wordpress.ts` — One-off: imports the advertisr.nl WordPress posts as articles (first tag = category, HTML → Portable Text). `npm run import:wp [-- --dry]`. (~2725 tok)
+  - fn `doc` L73-73 (~18 tok)
+  - fn `text` L74-86 (~170 tok)
+  - fn `mapHref` L87-97 (~100 tok)
+  - fn `span` L98-102 (~27 tok)
+  - fn `bullet` L103-111 (~42 tok)
+  - fn `toBody` L112-185 (~805 tok)
+  - fn `main` L186-259 (~811 tok)
+- `seed.ts` — Fills the dataset with the site's real content: settings, shared documents (~772 tok)
+  - fn `main` L23-59 (~465 tok)
 
 ## app/scripts/seed/
 
-- `content.ts` — The site's real copy, as it was in the approved designs. The service pages (~17365 tok)
-  - fn `link` L17-236 (~3679 tok)
-  - fn `inlineCta` L237-407 (~3648 tok)
-  - fn `reviewsBlock` L408-408 (~45 tok)
-  - fn `logos` L409-409 (~41 tok)
-  - fn `faqs` L410-410 (~46 tok)
-  - fn `finalCta` L411-420 (~141 tok)
-  - fn `steps` L421-759 (~5597 tok)
-  - fn `shot` L760-974 (~4006 tok)
+- `content.ts` — The site's real copy, as it was in the approved designs. The service pages (~16925 tok)
+  - fn `link` L17-215 (~3356 tok)
+  - fn `inlineCta` L216-386 (~3648 tok)
+  - fn `reviewsBlock` L387-387 (~45 tok)
+  - fn `logos` L388-388 (~41 tok)
+  - fn `faqs` L389-389 (~46 tok)
+  - fn `finalCta` L390-400 (~156 tok)
+  - fn `steps` L401-735 (~5459 tok)
+  - fn `shot` L736-953 (~4011 tok)
+- `forms.ts` — The form documents and Form settings. No Sanity client in here, so `check:form` can import it. (~1138 tok)
+  - fn `field` L2-13 (~230 tok)
+  - fn `message` L14-93 (~878 tok)
 - `lib.ts` — Helpers for the seed: a write client, Portable Text from a light markup, (~1399 tok)
   - fn `hash` L29-33 (~59 tok)
   - fn `t` L34-47 (~112 tok)
@@ -168,16 +183,17 @@
 
 ## app/scripts/seed/pages/
 
-- `ai-agent-workflows.json` (~4144 tok)
-- `data-analytics.json` (~3828 tok)
-- `google-ads.json` (~4158 tok)
-- `marketing-automation.json` (~3762 tok)
-- `meta-ads.json` (~4089 tok)
-- `social-media-organisch.json` (~4707 tok)
-- `web-development.json` (~4036 tok)
+- `ai-agent-workflows.json` (~4123 tok)
+- `data-analytics.json` (~3795 tok)
+- `google-ads.json` (~4128 tok)
+- `marketing-automation.json` (~3741 tok)
+- `meta-ads.json` (~4060 tok)
+- `social-media-organisch.json` (~4683 tok)
+- `web-development.json` (~4006 tok)
 
 ## app/src/
 
+- `.DS_Store` (~2186 tok)
 - `instrumentation-client.ts` — Sentry in the browser. (~279 tok)
 - `instrumentation.ts` — Server-side instrumentation hook. Without `NEXT_PUBLIC_SENTRY_DSN` both (~207 tok)
 
@@ -186,7 +202,7 @@
 - `global-error.tsx` — Last-resort error boundary: it replaces the root layout, so it renders its (~239 tok)
 - `globals.css` — Styles: 6 rules, 73 vars, 2 media queries, 7 animations, 1 layers (~2286 tok)
 - `layout.tsx` — Site-wide defaults from Site information; each page's `seo` layers on top. (~455 tok)
-- `manifest.ts` — Declares manifest (~113 tok)
+- `manifest.ts` — Declares manifest (~197 tok)
 - `not-found.tsx` — NotFound (~188 tok)
 - `robots.ts` — Served at `/robots.txt`. (~150 tok)
 - `sitemap.ts` — Every page and every article with a body, straight from the CMS, with (~382 tok)
@@ -234,11 +250,6 @@
 
 - `route.ts` — Liveness check for uptime monitors and load balancers: 200 while the server (~105 tok)
 
-## app/src/app/api/lead/
-
-- `route.ts` — The Advertisr. lead form ("Ontvang je gratis groeiplan"), posted by (~805 tok)
-  - fn `POST` L25-79 (~557 tok)
-
 ## app/src/app/api/revalidate/
 
 - `route.ts` — Expires the cached Sanity reads. Two callers: (~732 tok)
@@ -251,6 +262,20 @@
 
 - `route.ts` — Always fails, on purpose: called from `/sentry-test` to check that server (~163 tok)
 
+## app/src/app/api/submit-form/
+
+- `route.ts` — Bigger uploads are rejected rather than silently dropped from the mail. (~2131 tok)
+  - fn `fail` L16-20 (~57 tok)
+  - fn `splitEmails` L21-27 (~42 tok)
+  - fn `POST` L28-203 (~1850 tok)
+
+## app/src/app/api/test-mail/
+
+- `route.ts` — Sends one test mail with the published Form settings — the "Send test mail" (~1051 tok)
+  - fn `reply` L32-35 (~39 tok)
+  - fn `OPTIONS` L36-39 (~28 tok)
+  - fn `POST` L40-92 (~650 tok)
+
 ## app/src/app/sentry-test/
 
 - `page.tsx` — Served at `/sentry-test?secret=<SENTRY_TEST_SECRET>`: checks the Sentry connection (~382 tok)
@@ -262,10 +287,10 @@
   - fn `cmsMetadata` L20-26 (~115 tok)
   - fn `CmsPage` L27-50 (~201 tok)
 - `JsonLd.tsx` — Put one graph into the page. (~98 tok)
-- `PageBuilder.tsx` — Map one Sanity block onto its component. `prev` is the block before it: (~2962 tok)
+- `PageBuilder.tsx` — Map one Sanity block onto its component. `prev` is the block before it: (~2973 tok)
   - fn `ServiceHeroBlock` L27-73 (~487 tok)
-  - fn `render` L74-272 (~2089 tok)
-  - fn `PageBuilder` L273-282 (~75 tok)
+  - fn `render` L74-273 (~2100 tok)
+  - fn `PageBuilder` L274-283 (~75 tok)
 - `SentryTest.tsx` — Buttons that raise a deliberate error in the browser and on the server, so (~679 tok)
   - fn `SentryTest` L14-70 (~549 tok)
 - `TrackingScripts.tsx` — Google Tag Manager and the Meta (Facebook) pixel, both opt-in. (~866 tok)
@@ -274,13 +299,14 @@
 
 ## app/src/components/advertisr/
 
-- `ArticleCard.tsx` — Line icons for the category art; the category document picks one and a colour. (~2056 tok)
-  - fn `shortDate` L90-94 (~83 tok)
-  - fn `hrefOf` L95-96 (~29 tok)
-  - fn `CategoryArt` L97-112 (~209 tok)
-  - fn `Avatar` L113-130 (~163 tok)
-  - fn `PillarCard` L131-165 (~434 tok)
-  - fn `ArticleCard` L166-190 (~355 tok)
+- `ArticleCard.tsx` — Line icons for the category art; the category document picks one and a colour. (~2157 tok)
+  - fn `shortDate` L91-95 (~83 tok)
+  - fn `hrefOf` L96-98 (~48 tok)
+  - fn `CardArt` L99-107 (~90 tok)
+  - fn `CategoryArt` L108-123 (~209 tok)
+  - fn `Avatar` L124-141 (~163 tok)
+  - fn `PillarCard` L142-176 (~429 tok)
+  - fn `ArticleCard` L177-201 (~349 tok)
 - `CaseCard.tsx` — Dark photo card with a category pill, title and two stats. (~654 tok)
   - fn `CaseCard` L14-52 (~568 tok)
 - `cms.tsx` — Helpers that turn Sanity field values into what the design components take. (~672 tok)
@@ -294,11 +320,17 @@
 - `FinalCta.tsx` — Extra background layer (seo-geo puts the dot grid here). (~526 tok)
   - fn `FinalCta` L15-45 (~402 tok)
 - `Footer.tsx` — Footer (~468 tok)
-- `kennisbank.tsx` — Kennisbank client bits: ArticleFilter context (search + category), FilterItem/Group/Empty (hide, never unmount), SearchBox, Pills, NewsletterForm. (~748 tok)
-  - fn `Pills` L9-31 (~226 tok)
-  - fn `NewsletterForm` L32-74 (~444 tok)
-- `LeadForm.tsx` — The `form` object on a block; empty fields fall back to the defaults in Site information. (~1563 tok)
-  - fn `LeadForm` L39-130 (~1174 tok)
+- `kennisbank.tsx` — Kennisbank client bits: ArticleFilter context (search + category), FilterItem/Group/Empty (hide, never unmount), SearchBox, Pills, NewsletterForm. (~1088 tok)
+  - fn `useFilter` L10-16 (~79 tok)
+  - fn `ArticleFilter` L17-30 (~216 tok)
+  - fn `FilterItem` L31-35 (~68 tok)
+  - fn `FilterGroup` L36-40 (~65 tok)
+  - fn `FilterEmpty` L41-44 (~54 tok)
+  - fn `SearchBox` L45-68 (~282 tok)
+  - fn `Pills` L69-91 (~210 tok)
+- `LeadForm.tsx` — The block's resolved `form->` reference. (~625 tok)
+  - fn `LeadForm` L22-51 (~310 tok)
+  - fn `NewsletterForm` L52-65 (~112 tok)
 - `Logos.tsx` — "Vertrouwd door" band with the endless logo strip. (~560 tok)
   - fn `Logos` L6-46 (~511 tok)
 - `Marquee.tsx` — Pill strip that scrolls forever (doubled so the loop is seamless). (~309 tok)
@@ -307,7 +339,7 @@
 - `Reviews.tsx` — A tone for reviews without one (Google imports), stable per name. (~798 tok)
   - fn `toneFor` L20-25 (~64 tok)
   - fn `Reviews` L26-81 (~573 tok)
-- `sections.tsx` — The default red button: the block's own, else "Ontvang mijn groeiplan" to the page's form. (~14706 tok)
+- `sections.tsx` — The default red button: the block's own, else "Ontvang mijn groeiplan" to the page's form. (~14816 tok)
   - fn `HomeHero` L41-109 (~1084 tok)
   - fn `Stages` L110-166 (~1151 tok)
   - fn `CaseCards` L167-189 (~218 tok)
@@ -318,23 +350,23 @@
   - fn `TeamGrid` L366-403 (~496 tok)
   - fn `Story` L404-441 (~512 tok)
   - fn `CaseList` L442-516 (~994 tok)
-  - fn `ContactHero` L517-562 (~579 tok)
+  - fn `ContactHero` L517-562 (~585 tok)
   - fn `ContactMethods` L563-586 (~318 tok)
   - fn `InfoCard` L587-614 (~392 tok)
-  - fn `GroeiplanHero` L615-682 (~838 tok)
-  - fn `ValueGrid` L683-704 (~280 tok)
-  - fn `StepsMedia` L705-749 (~725 tok)
-  - fn `QuoteBand` L750-767 (~190 tok)
-  - fn `Dots` L768-774 (~64 tok)
-  - fn `Shot` L775-793 (~269 tok)
-  - fn `ToolCards` L794-843 (~736 tok)
-  - fn `StepCards` L844-866 (~339 tok)
-  - fn `Tick` L867-876 (~112 tok)
-  - fn `Features` L877-939 (~781 tok)
-  - fn `Pillars` L940-961 (~286 tok)
-  - fn `Output` L962-979 (~226 tok)
-  - fn `ProcSteps` L980-994 (~132 tok)
-  - fn `ArticleIndex` L995-1092 (~1261 tok)
+  - fn `GroeiplanHero` L615-683 (~848 tok)
+  - fn `ValueGrid` L684-705 (~280 tok)
+  - fn `StepsMedia` L706-750 (~725 tok)
+  - fn `QuoteBand` L751-768 (~190 tok)
+  - fn `Dots` L769-775 (~64 tok)
+  - fn `Shot` L776-794 (~269 tok)
+  - fn `ToolCards` L795-844 (~736 tok)
+  - fn `StepCards` L845-867 (~339 tok)
+  - fn `Tick` L868-877 (~112 tok)
+  - fn `Features` L878-940 (~781 tok)
+  - fn `Pillars` L941-962 (~286 tok)
+  - fn `Output` L963-980 (~226 tok)
+  - fn `ProcSteps` L981-995 (~132 tok)
+  - fn `ArticleIndex` L996-1109 (~1336 tok)
 - `service.tsx` — Dark "Wat levert … op?" band with a CTA button. (~6171 tok)
   - fn `CtaBand` L18-40 (~238 tok)
   - fn `FloatStat` L41-54 (~153 tok)
@@ -381,10 +413,31 @@
   - fn `FlowVisual` L287-344 (~631 tok)
   - fn `SocialVisual` L345-403 (~700 tok)
 
+## app/src/components/form/
+
+- `Captcha.tsx` — Public half of the spam-check settings — the secret stays server-side. (~1344 tok)
+  - fn `loadScript` L38-64 (~309 tok)
+  - fn `Captcha` L65-142 (~644 tok)
+- `fields.tsx` — `card` is the lead-form card, `inline` a single row (the newsletter). (~1471 tok)
+  - fn `autoComplete` L29-38 (~113 tok)
+  - fn `linkify` L39-56 (~140 tok)
+  - fn `FormField` L57-156 (~920 tok)
+- `FormRenderer.tsx` — Shared copy from Form settings: button fallbacks, progress, errors. (~3057 tok)
+  - fn `SuccessPanel` L54-81 (~340 tok)
+  - fn `FormRenderer` L82-277 (~2195 tok)
+
 ## app/src/lib/
 
+- `captcha.ts` — Server half of the form spam check. No Next.js in here, so the verdicts can (~498 tok)
 - `cn.ts` — Exports cn (~37 tok)
 - `env.ts` — Sanity connection details and analytics ids, read from the environment. (~380 tok)
+- `form-fields.ts` — Shape and layout rules for CMS-authored forms. No React in here, so the (~1937 tok)
+  - fn `resolveFormText` L29-105 (~649 tok)
+  - fn `toRedirect` L106-120 (~167 tok)
+  - fn `toSteps` L121-132 (~123 tok)
+  - fn `fillTokens` L133-144 (~126 tok)
+  - fn `toFieldRows` L145-163 (~182 tok)
+  - fn `toFormDefinition` L164-209 (~464 tok)
 - `form-mail.ts` — The mails `POST /api/submit-form` sends. (~1688 tok)
   - fn `escapeHtml` L16-27 (~92 tok)
   - fn `color` L28-32 (~62 tok)
@@ -417,18 +470,18 @@
   - fn `webPageJsonLd` L234-260 (~333 tok)
   - fn `pageJsonLd` L261-267 (~59 tok)
 - `links.ts` — The slug of the page that renders at `/`. (~269 tok)
-- `mail.ts` — Mail sending for `/api/lead`: Mailjet's or Resend's HTTP API, or an SMTP (~2023 tok)
-  - fn `sendViaMailjet` L35-72 (~359 tok)
-  - fn `sendViaResend` L73-109 (~388 tok)
-  - fn `sendViaSmtp` L110-138 (~264 tok)
-  - fn `sendMail` L139-148 (~122 tok)
-  - fn `resolveMailSettings` L149-199 (~579 tok)
-  - fn `missingMailMessage` L200-203 (~56 tok)
+- `mail.ts` — Mail sending for `/api/submit-form` and `/api/test-mail`: Mailjet's or (~2209 tok)
+  - fn `sendViaMailjet` L39-76 (~359 tok)
+  - fn `sendViaResend` L77-113 (~388 tok)
+  - fn `sendViaSmtp` L114-142 (~264 tok)
+  - fn `sendMail` L143-153 (~137 tok)
+  - fn `resolveMailSettings` L154-206 (~686 tok)
+  - fn `missingMailMessage` L207-210 (~67 tok)
 - `secret.ts` — Constant-time compare; hashing first evens out the lengths. (~94 tok)
 - `sentry-test.ts` — Guards `/sentry-test` and `/api/sentry-test`: both answer 404 unless (~182 tok)
 - `site-url.ts` — The site's public origin, without a trailing slash. From the environment: (~85 tok)
-- `site.ts` — The site's public origin, without a trailing slash. From the environment: (~899 tok)
-  - fn `mailtoHref` L84-87 (~24 tok)
+- `site.ts` — The site's public origin, without a trailing slash. From the environment: (~1085 tok)
+  - fn `mailtoHref` L95-98 (~24 tok)
 
 ## app/src/sanity/
 
@@ -437,42 +490,47 @@
 - `image-loader.ts` — Quality for the Sanity CDN; with `auto=format` that usually ends up WebP/AVIF. (~426 tok)
 - `image.ts` — An image field can exist in Sanity without a file — only an `alt` filled (~480 tok)
 - `metadata.ts` — The OG image for a `seo` object, sized for social cards. (~444 tok)
-- `queries.ts` — A button: pull the referenced page's type and slug up so `resolveHref` can build the path. (~1041 tok)
-- `sanity.types.ts` — --------------------------------------------------------------------------------- (~19596 tok)
-- `schema.json` (~59724 tok)
+- `queries.ts` — A button: pull the referenced page's type and slug up so `resolveHref` can build the path. (~1698 tok)
+- `sanity.types.ts` — --------------------------------------------------------------------------------- (~23856 tok)
+- `schema.json` (~63533 tok)
+
+## deploy/
+
+- `compose.yml` — Production compose for the app on the own server (127.0.0.1:3000, healthcheck on /api/health, env_file app.env, image from .env APP_IMAGE) (~219 tok)
 
 ## studio/
 
 - `.gitignore` — Git ignore rules (~143 tok)
 - `eslint.config.mjs` — ESLint flat configuration (~21 tok)
-- `package-lock.json` — npm lock file (~171738 tok)
+- `package-lock.json` — npm lock file (~179098 tok)
 - `package.json` — Node.js package manifest (~301 tok)
 - `README.md` — Project documentation (~427 tok)
 - `sanity.cli.ts` — Typegen runs from the studio — the CLI needs a studio project root — but (~270 tok)
 - `sanity.config.ts` — Project id and dataset come from the environment so the studio and the app (~394 tok)
-- `structure.ts` — Documents that exist exactly once. They get a fixed `_id` and a top-level (~708 tok)
+- `structure.ts` — Documents that exist exactly once. They get a fixed `_id` and a top-level (~776 tok)
 - `tsconfig.json` — TypeScript configuration (~120 tok)
-- `tsconfig.tsbuildinfo` (~35971 tok)
+- `tsconfig.tsbuildinfo` (~43604 tok)
 
 ## studio/.sanity/runtime/
 
-- `app.js` — This file is auto-generated on 'sanity dev' (~87 tok)
-- `index.html` — Sanity Studio (~2316 tok)
+- `app.js` — This file is auto-generated on 'sanity dev' (~88 tok)
+- `index.html` — Sanity Studio (~2522 tok)
 
 ## studio/schemaTypes/
 
-- `blocks.ts` — Every section of the Advertisr. design is one block here. The renderer is (~2847 tok)
+- `blocks.ts` — Every section of the Advertisr. design is one block here. The renderer is (~2889 tok)
   - fn `plain` L13-15 (~41 tok)
   - fn `block` L16-28 (~105 tok)
   - fn `anchor` L29-31 (~39 tok)
   - fn `badge` L32-32 (~18 tok)
   - fn `band` L33-33 (~45 tok)
   - fn `steps` L34-34 (~18 tok)
-  - fn `quote` L35-36 (~24 tok)
-  - fn `form` L37-197 (~2390 tok)
-- `documents.ts` — Fields the Google sync owns: read-only on a synced review, it would overwrite them anyway. (~2594 tok)
-  - fn `slug` L12-156 (~1718 tok)
-  - fn `fromGoogle` L157-230 (~718 tok)
+  - fn `quote` L35-37 (~50 tok)
+  - fn `formRef` L38-45 (~71 tok)
+  - fn `form` L46-198 (~2336 tok)
+- `documents.ts` — Fields the Google sync owns: read-only on a synced review, it would overwrite them anyway. (~2630 tok)
+  - fn `slug` L12-157 (~1753 tok)
+  - fn `fromGoogle` L158-231 (~718 tok)
 - `fields.ts` — Short-hands for the field shapes every block repeats. They return plain (~1101 tok)
   - fn `rules` L19-19 (~31 tok)
   - fn `common` L20-27 (~79 tok)
@@ -490,10 +548,16 @@
   - fn `obj` L85-88 (~65 tok)
   - fn `head` L89-90 (~30 tok)
   - fn `stat` L91-92 (~75 tok)
-- `index.ts` — Every schema type the studio knows about. Blocks live in `blocks.ts`. (~234 tok)
+- `form.ts` — Multi-step forms keep their fields under `steps`, simple ones under `fields`. (~2633 tok)
+  - fn `isSteps` L5-281 (~2575 tok)
+- `formField.ts` — Hide a setting unless the field's input type is one of these. (~1306 tok)
+- `formSettings.ts` — Mail and spam settings shared by every `form`. A singleton. (~3391 tok)
+  - fn `captchaOf` L19-23 (~72 tok)
+  - fn `captchaKeyFields` L24-335 (~3093 tok)
+- `index.ts` — Every schema type the studio knows about. Blocks live in `blocks.ts`. (~287 tok)
 - `objects.ts` — A line of text where a phrase can be highlighted. In headings `em` is the (~1271 tok)
-- `singletons.ts` — One fieldset per area of the site, so the long list stays findable. (~2471 tok)
-  - fn `link` L9-219 (~2360 tok)
+- `singletons.ts` — One fieldset per area of the site, so the long list stays findable. (~2214 tok)
+  - fn `link` L9-196 (~2103 tok)
 
 ## studio/tools/
 
@@ -503,6 +567,10 @@
 - `GoogleReviewsSync.tsx` — The buttons on the "Google reviews" page: a dry run (shows what the sync (~1864 tok)
   - fn `readSecret` L47-54 (~35 tok)
   - fn `GoogleReviewsSync` L55-176 (~1439 tok)
+- `MailTest.tsx` — "Send test mail" on Form settings → Mail. Calls the app's `/api/test-mail`, (~1421 tok)
+  - fn `readStored` L30-37 (~36 tok)
+  - fn `store` L38-45 (~51 tok)
+  - fn `MailTest` L46-158 (~1070 tok)
 - `mediaData.ts` — Queries, types and formatting helpers for the Media panel (`MediaTool.tsx`). (~2204 tok)
   - fn `chunk` L61-131 (~530 tok)
   - fn `typeLabel` L132-135 (~25 tok)
@@ -522,7 +590,3 @@
   - fn `MediaCard` L422-457 (~284 tok)
   - fn `MediaDetail` L458-629 (~1435 tok)
 - `panelStyles.ts` — Shared inline styles for custom studio panels — the parts that any panel (~335 tok)
-
-## deploy/
-
-- `compose.yml` — Production compose for the app on the own server (127.0.0.1:3000, healthcheck on /api/health, env_file app.env, image from .env APP_IMAGE) (~250 tok)

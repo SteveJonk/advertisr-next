@@ -12,6 +12,7 @@
 import { readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { articles, cases, categories, clients, googleReviews, pages, reviews, singletons, team } from './seed/content';
+import { formSettings, forms } from './seed/forms';
 import { client, faqDocs, resolve } from './seed/lib';
 
 type Page = { slug: string; title: string; seo: Record<string, unknown>; content: unknown[] };
@@ -25,7 +26,7 @@ async function main() {
   const docs: Record<string, unknown>[] = [];
   const add = async (doc: Record<string, unknown>) => docs.push((await resolve(doc, doc._id as string)) as Record<string, unknown>);
 
-  for (const doc of [...singletons, ...reviews, ...clients, ...team, ...cases, ...categories]) await add(doc);
+  for (const doc of [...singletons, ...forms, ...reviews, ...clients, ...team, ...cases, ...categories]) await add(doc);
   for (const page of [...pages, ...extracted]) {
     await add({
       _id: `page-${page.slug}`,
@@ -39,7 +40,8 @@ async function main() {
   for (const doc of articles) await add(doc);
 
   // The Google settings are partly the sync's: only create them, never overwrite.
-  const tx = client.transaction().createIfNotExists(googleReviews);
+  // The Form settings may hold the editor's mail setup: only create them too.
+  const tx = client.transaction().createIfNotExists(googleReviews).createIfNotExists(formSettings);
   for (const doc of [...faqDocs.values(), ...docs.filter((d) => d._type !== 'article')]) tx.createOrReplace(doc as never);
   await tx.commit({ visibility: 'async' });
 
@@ -47,7 +49,7 @@ async function main() {
   // creation time, so this keeps the order of the design.
   for (const doc of docs.filter((d) => d._type === 'article').reverse()) await client.createOrReplace(doc as never);
 
-  console.log(`Done: ${docs.length + faqDocs.size + 1} documents (${faqDocs.size} FAQs).`);
+  console.log(`Done: ${docs.length + faqDocs.size + 2} documents (${faqDocs.size} FAQs).`);
 }
 
 main().catch((error) => {

@@ -180,6 +180,39 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-11-11T16:00:00Z"
+    },
+    {
+      "id": "bug-012",
+      "timestamp": "2026-11-11T16:12:35",
+      "error_message": "All form things are lost from Sanity (form builder, Form settings); forms were hard-coded",
+      "file": "studio/schemaTypes/form.ts, app/src/app/api/submit-form/route.ts",
+      "root_cause": "87de3f7 removed the template form builder and replaced it with a fixed-field LeadForm + /api/lead and env-only mail settings",
+      "fix": "Restored form/formField/formGeneralSettings schemas, MailTest panel, /api/submit-form, /api/test-mail, captcha, FormRenderer (restyled); blocks reference form docs; migrated dataset (5 forms)",
+      "tags": [
+        "sanity",
+        "forms",
+        "mail",
+        "regression"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-11-11T16:12:35"
+    },
+    {
+      "id": "bug-013",
+      "timestamp": "2026-11-11T16:12:35",
+      "error_message": "git show \"$R:app/...\" fails: unknown revision '87de3f7^pp/...' / curl $args sends one argument",
+      "file": "(shell)",
+      "root_cause": "zsh treats $VAR:a / :s / :h etc. as history modifiers and does not word-split unquoted $args",
+      "fix": "Use ${R}:path and run word-split loops under bash -c",
+      "tags": [
+        "zsh",
+        "shell",
+        "git"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-11-11T16:12:35"
     }
   ]
 }

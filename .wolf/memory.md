@@ -46,3 +46,9 @@
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
 | 16:00 | Deploy to own server: build-args, deploy/compose.yml, SSH deploy job, dropped Coolify; ?? → || env fallbacks | .github/workflows/build-app-image.yml, app/Dockerfile, deploy/compose.yml, app/src/lib/env.ts, app/sentry.options.ts | tsc ok, compose valid, not run in CI yet | ~6k |
+
+## Session: 2026-11-11 16:01
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 15:30 | Restored Sanity form builder (form/formField/Form settings/MailTest), /api/submit-form + /api/test-mail, FormRenderer restyled; blocks reference forms; /api/lead removed; dataset migrated (5 forms) | studio/schemaTypes/form*.ts, app/src/components/form/*, LeadForm.tsx, queries.ts, seed/forms.ts | tsc/eslint/check:form/check:jsonld/schema validate pass; verified on :3000 | ~60k |

@@ -2,11 +2,17 @@
 
 > Single source of truth for resuming work. Read this FIRST when starting a session.
 > Update this file at the end of every work phase so the next `/clear` resumes in 1 read.
-> Last updated: 2026-11-11
+> Last updated: 2026-11-11 (forms restored)
 
 ---
 
 ## ✅ Done
+
+### Sanity form builder restored + wired to every form (2026-11-11)
+- Studio: `form` documents (fields or steps, buttons, small print `note`, confirmation/redirect, per-form mail), `formField`, singleton **Form settings** (`formGeneralSettings`: mail provider + fallback credentials, mail design, spam check reCAPTCHA/Turnstile, shared interface text) with the "Send test mail" panel (`tools/MailTest.tsx`). Menu: Forms + Form settings.
+- Blocks `contactHero`, `groeiplanHero`, `finalCta` and `articleIndex.newsletter` reference a form + `interesse` (fills hidden field `{{interesse}}`; `{{path}}` = page). Form labels/newsletter strings removed from Site information → interface text.
+- App: `/api/submit-form` (FORM_QUERY allow-list, honeypot `fax`, captcha, attachments, copy to sender) and `/api/test-mail` back; `/api/lead` deleted. `components/form/FormRenderer.tsx` + `fields.tsx` restyled (variants `card`, `inline`); `LeadForm`/`NewsletterForm` wrap it. Shared copy + public captcha key via `getSite().forms`. Mail env wins over Form settings.
+- Dataset migrated: 5 forms (`form-groeiplan`, `-landing`, `-kort`, `form-contact`, `form-nieuwsbrief`) + Form settings; all page blocks linked. Seed data in `app/scripts/seed/forms.ts`; `npm run check:form` restored.
 
 ### WordPress posts imported into Sanity (2026-11-11)
 - `npm run import:wp` (`app/scripts/import-wordpress.ts`, `--dry` to preview) pulls the 13 posts from the advertisr.nl WP REST API; 12 imported as `article-<wp slug>` (the Google Ads MKB guide was already seeded and is skipped).
@@ -46,7 +52,8 @@
 - Imported articles have no `intro`, FAQs or related articles; WP excerpts were poor so `excerpt` = Yoast meta description.
 - Deploy the studio (`cd studio && npm run deploy`) so the new schema is live for editors; `studio/.env` was created locally (project y2l1clva).
 - Google reviews: set `GOOGLE_PLACES_API_KEY`, `GOOGLE_REVIEWS_SYNC_SECRET` (+ `CRON_SECRET` on Vercel) and fill the Place ID + website address on the studio's "Google reviews" page. The cron is in `app/vercel.json` (Vercel); on Netlify a scheduled function is needed instead. Badge score is seeded as 5,0 until the first sync.
-- Mail env for `/api/lead` still missing (returns 503).
+- Mail env for `/api/submit-form` still missing (returns 500). Set MAILJET_* (or provider) + CONTACT_ADMIN_EMAIL + MAIL_TEST_SECRET; deploy the studio so editors get Forms/Form settings.
+- Per-service message placeholders on the lead forms were folded into the shared `form-groeiplan` placeholder; make extra forms in the studio if a page needs its own.
 - Placeholders still in the content (now editable in the studio): phone/WhatsApp, booking link, LinkedIn/Instagram, legal links, article sources, the 10 kennisbank articles without a body (shown as cards linking to `#`).
 - Root `README.md` / `studio/README.md` still describe the template (seed:site, Form settings, check:form): rewrite.
 - Re-running `npm run seed` overwrites studio edits to the seeded documents: only for setting up a dataset.

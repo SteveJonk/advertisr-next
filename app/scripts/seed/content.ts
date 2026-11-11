@@ -39,27 +39,6 @@ export const singletons = [
       ratedOnGoogle: 'Beoordeeld op Google',
       onGoogle: 'op Google',
       googleReview: 'Google review',
-      formName: 'Naam',
-      formNamePlaceholder: 'Voor- en achternaam',
-      formCompany: 'Bedrijfsnaam',
-      formCompanyPlaceholder: 'Jouw bedrijf',
-      formEmail: 'E-mailadres',
-      formEmailPlaceholder: 'jij@bedrijf.nl',
-      formPhone: 'Telefoonnummer',
-      formPhonePlaceholder: '06 - 12345678',
-      formWebsite: 'Website',
-      formWebsitePlaceholder: 'www.jouwbedrijf.nl',
-      formMessage: 'Grootste marketingvraag',
-      formMessagePlaceholder: 'Waar wil je mee groeien? Meer leads, meer omzet, meer naamsbekendheid...',
-      formSubmit: 'Ontvang mijn groeiplan',
-      formSending: 'Versturen…',
-      formFine: 'Geen spam. Je gegevens worden alleen gebruikt om je groeiplan voor te bereiden.',
-      formSuccessTitle: 'Bedankt, we hebben je aanvraag.',
-      formSuccessBody: 'We nemen binnen 1 werkdag contact met je op.',
-      formError: 'Versturen lukt nu niet. Probeer het later opnieuw of mail ons op info@advertisr.nl.',
-      newsletterButton: 'Aanmelden',
-      newsletterSuccess: 'Bedankt, je staat op de lijst.',
-      newsletterError: 'Aanmelden lukt nu niet. Probeer het later opnieuw.',
       pillarBadge: '📖 Pillar gids',
       readingTime: 'min leestijd',
       updated: 'Bijgewerkt',
@@ -408,14 +387,15 @@ const COMPARE = {
 const reviewsBlock = (title = 'Wat klanten zeggen op Google.', count = 6) => ({ _type: 'reviews', eyebrow: 'Wat klanten zeggen', title: t(title), count });
 const logos = (title: string, note = 'Van horeca tot makelaardij.') => ({ _type: 'logos', eyebrow: 'Vertrouwd door', title: t(title), note });
 const faqs = (title: string, list: [string, string][], soft = false) => ({ _type: 'faqs', eyebrow: 'Veelgestelde vragen', title: t(title), $faqs: list, soft });
-const finalCta = (o: { eyebrow?: string; title?: string; lead: string; bullets?: string[]; form: Record<string, unknown>; dots?: boolean }) => ({
+const finalCta = (o: { eyebrow?: string; title?: string; lead: string; bullets?: string[]; form?: string; interesse?: string; dots?: boolean }) => ({
   _type: 'finalCta',
   anchor: 'groeiplan',
   eyebrow: o.eyebrow ?? 'Klaar om te groeien?',
   title: t(o.title ?? 'Ontvang je gratis groeiplan.'),
   lead: o.lead,
   bullets: o.bullets ?? ['Reactie binnen 1 werkdag', '15 minuten kennismaking, geen verkooppraatje', 'Concreet plan, geen vage belofte'],
-  form: o.form,
+  form: ref(o.form ?? 'form-groeiplan'),
+  interesse: o.interesse,
   dots: o.dots ?? false,
 });
 const steps = (list: string[][]) => list.map(([title, text]) => ({ title, text }));
@@ -509,7 +489,6 @@ const home = {
     reviewsBlock('Waarom ze blijven.', 10),
     finalCta({
       lead: 'Wij bellen je, brengen je huidige marketing in kaart en sturen een concreet plan met kansen, kanalen en aanpak. Volledig vrijblijvend.',
-      form: {},
     }),
   ],
 };
@@ -565,7 +544,7 @@ const teamPage = {
     finalCta({
       eyebrow: 'Zin om kennis te maken?',
       lead: 'Je eerste gesprek voer je met Marc. Geen intake door een junior, geen script. Gewoon een eerlijk gesprek over wat wél en niet gaat werken.',
-      form: { interesse: 'Team / Over ons', messagePlaceholder: 'Waar wil je hulp bij?' },
+      interesse: 'Team / Over ons',
     }),
   ],
 };
@@ -607,7 +586,7 @@ const results = {
     finalCta({
       eyebrow: 'Wil jij de volgende case worden?',
       lead: 'Wij bellen je, brengen je situatie in kaart en sturen een concreet plan met kansen en aanpak. Volledig vrijblijvend.',
-      form: { interesse: 'Resultaten', messagePlaceholder: 'Waar wil je hulp bij?' },
+      interesse: 'Resultaten',
     }),
   ],
 };
@@ -636,13 +615,8 @@ const contact = {
       ].map(([icon, label, value, href]) => ({ icon, label, value, href: href || undefined })),
       ticks: ['Geen verkooppraatje', 'Vrijblijvend gesprek', 'Reactie van een mens, geen bot'],
       anchor: 'contactformulier',
-      form: {
-        interesse: 'Contactpagina',
-        messageLabel: 'Waar kunnen we mee helpen?',
-        messagePlaceholder: 'Vertel kort waar je tegenaan loopt of wat je zoekt...',
-        submitLabel: 'Verstuur bericht',
-        fine: 'Geen spam. Je gegevens worden alleen gebruikt om contact met je op te nemen.',
-      },
+      form: ref('form-contact'),
+      interesse: 'Contactpagina',
     },
     {
       _type: 'contactMethods',
@@ -694,7 +668,8 @@ const groeiplan = {
       mini: [['5.0', 'score op Google reviews'], ['164', 'leads/maand voor PPExport'], ['+30%', 'omzetgroei bij Ciao Italia']].map(([value, label]) => ({ value, label })),
       anchor: 'plan',
       formIntro: 'Vraag hem hieronder aan',
-      form: { messagePlaceholder: 'Waar wil je meer klanten uit halen? Meta Ads, Google Ads, SEO...', submitLabel: 'Ontvang mijn gratis groeiplan' },
+      form: ref('form-groeiplan-landing'),
+      interesse: 'Groeiplan',
       floatStats: [
         { value: '5,0', label: 'gemiddeld op Google', stars: true },
         { value: '15 min', label: 'persoonlijk gesprek', stars: false },
@@ -752,7 +727,8 @@ const groeiplan = {
       title: 'Vraag nu je gratis groeiplan aan.',
       lead: 'Twee minuten invullen, wij nemen contact op. Geen verplichtingen, geen verkooppraatje.',
       bullets: ['Reactie binnen 1 werkdag', '15 minuten kennismaking', 'Concreet plan, geen vage belofte'],
-      form: { hideMessage: true, submitLabel: 'Ontvang mijn gratis groeiplan' },
+      form: 'form-groeiplan-kort',
+      interesse: 'Groeiplan',
     }),
   ],
 };
@@ -932,7 +908,7 @@ const seoGeo = {
       eyebrow: 'Klaar voor de volgende stap?',
       lead: 'We kijken eerlijk naar je website, laten het portaal zien en vertellen wat we verwachten van Blogr., Pagr. of beide. Volledig vrijblijvend.',
       bullets: ['Reactie binnen 1 werkdag', '15 minuten kennismaking, geen verkooppraatje', 'Eerlijk advies over wat het jou oplevert'],
-      form: { interesse: 'SEO & GEO', messagePlaceholder: 'Waar wil je mee groeien? Meer vindbaarheid, meer aanvragen, zichtbaar in ChatGPT...' },
+      interesse: 'SEO & GEO',
       dots: true,
     }),
   ],
@@ -965,6 +941,7 @@ const kennisbank = {
       newsletter: {
         title: 'Blijf op de hoogte.',
         text: 'Eén keer per maand een nieuw artikel of praktische tip in je inbox. Geen spam, geen verkooppraatje.',
+        form: ref('form-nieuwsbrief'),
         interesse: 'Nieuwsbrief',
       },
     },
@@ -972,3 +949,4 @@ const kennisbank = {
 };
 
 export const pages = [home, teamPage, results, contact, groeiplan, seoGeo, kennisbank];
+

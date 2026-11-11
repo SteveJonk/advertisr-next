@@ -34,19 +34,19 @@ const band = () => obj('band', [inline('title'), txt('text', {rows: 2}), cta('ct
 const steps = () => list('steps', [str('title'), txt('text')])
 const quote = () => obj('quote', [img('image'), inline('line'), str('signature')])
 
-const form = () =>
-  obj(
-    'form',
-    [
-      str('interesse', {description: 'Sent along with the lead, e.g. "Meta Ads".'}),
-      str('messageLabel', {description: 'Empty = the default from Site information.'}),
-      str('messagePlaceholder'),
-      bool('hideMessage', {title: 'Without the message field'}),
-      str('submitLabel'),
-      str('fine', {title: 'Small print'}),
-    ],
-    {title: 'Lead form'},
-  )
+/** A form from Forms; `interesse` fills a hidden field whose value is {{interesse}}. */
+const formRef = () =>
+  defineField({
+    name: 'form',
+    type: 'reference',
+    to: [{type: 'form'}],
+    description: 'The form to show. Its fields, buttons and confirmation are managed under Forms.',
+    validation: (r) => r.required(),
+  })
+const form = () => [
+  formRef(),
+  str('interesse', {description: 'Sent along with the submission ({{interesse}} in a hidden field), e.g. "Meta Ads".'}),
+]
 
 export const BLOCKS = [
   // Openers
@@ -84,7 +84,7 @@ export const BLOCKS = [
     list('quick', [str('icon', {description: 'An emoji.'}), str('label'), str('value'), str('href')], {title: 'Contact details', preview: {title: 'label', subtitle: 'value'}}),
     strings('ticks'),
     anchor('contactformulier'),
-    form(),
+    ...form(),
   ]),
   block('groeiplanHero', 'Groeiplan hero', [
     str('badge'),
@@ -94,7 +94,7 @@ export const BLOCKS = [
     list('mini', [str('value'), str('label')], {title: 'Small figures'}),
     anchor('plan'),
     str('formIntro', {title: 'Above the form'}),
-    form(),
+    ...form(),
     list('floatStats', [str('value'), str('label'), bool('stars')], {title: 'Figures on the form'}),
   ]),
   block('articleIndex', 'Kennisbank overview', [
@@ -109,7 +109,7 @@ export const BLOCKS = [
     obj('latest', head(false), {title: 'Latest articles heading'}),
     str('loadMoreLabel'),
     band(),
-    obj('newsletter', [str('title'), txt('text', {rows: 2}), str('interesse', {description: 'Sent along with the sign-up.'})]),
+    obj('newsletter', [str('title'), txt('text', {rows: 2}), ...form()]),
   ]),
 
   // Shared sections
@@ -138,7 +138,7 @@ export const BLOCKS = [
   block('faqs', 'FAQ', [...head(false), refs('faqs', 'faq', {title: 'Questions'}), bool('soft', {title: 'On the grey band'})]),
   block('logos', 'Client logos', [...head(false), str('note')]),
   block('reviews', 'Reviews', [...head(false), num('count', {initialValue: 6, description: 'How many reviews to show.'})]),
-  block('finalCta', 'Lead form section', [anchor('groeiplan'), ...head(), strings('bullets'), form(), bool('dots', {title: 'Dotted background'})]),
+  block('finalCta', 'Lead form section', [anchor('groeiplan'), ...head(), strings('bullets'), ...form(), bool('dots', {title: 'Dotted background'})]),
 
   // Home
   block('stages', 'Four stages', [

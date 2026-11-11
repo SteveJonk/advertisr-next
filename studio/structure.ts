@@ -1,5 +1,6 @@
 import {BlockElementIcon} from '@sanity/icons/BlockElement'
 import {CogIcon} from '@sanity/icons/Cog'
+import {EnvelopeIcon} from '@sanity/icons/Envelope'
 import {ImagesIcon} from '@sanity/icons/Images'
 import {MenuIcon} from '@sanity/icons/Menu'
 import {RefreshIcon} from '@sanity/icons/Refresh'
@@ -13,9 +14,9 @@ import {MediaLibrary} from './tools/MediaTool'
  * menu entry, and are left out of the generic list so they cannot be created
  * twice.
  */
-export const SINGLETONS = ['siteInformation', 'navigation', 'footer', 'googleReviews']
+export const SINGLETONS = ['siteInformation', 'navigation', 'footer', 'googleReviews', 'formGeneralSettings']
 
-const LISTED = ['page', 'article', 'articleCategory', 'faq', 'caseStudy', 'review', 'client', 'teamMember']
+const LISTED = ['page', 'article', 'articleCategory', 'faq', 'caseStudy', 'review', 'client', 'teamMember', 'form']
 
 export const structure: StructureResolver = (S) => {
   const singleton = (id: string, title: string, icon: typeof CogIcon) =>
@@ -34,6 +35,9 @@ export const structure: StructureResolver = (S) => {
       S.documentTypeListItem('client').title('Client logos'),
       S.documentTypeListItem('review').title('Reviews'),
       singleton('googleReviews', 'Google reviews', StarIcon),
+      S.divider(),
+      S.documentTypeListItem('form').title('Forms').icon(EnvelopeIcon),
+      singleton('formGeneralSettings', 'Form settings', CogIcon),
       S.divider(),
       singleton('siteInformation', 'Site information', CogIcon),
       singleton('navigation', 'Navigation', MenuIcon),

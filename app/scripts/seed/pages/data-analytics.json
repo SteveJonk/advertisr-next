@@ -379,11 +379,10 @@
         "Concreet plan, geen vage belofte"
       ],
       "form": {
-        "interesse": "Data & Analytics",
-        "messagePlaceholder": "Waar wil je meer grip op krijgen? Tracking, rapportage, overzicht tussen kanalen...",
-        "hideMessage": false
+        "$ref": "form-groeiplan"
       },
-      "dots": false
+      "dots": false,
+      "interesse": "Data & Analytics"
     }
   ]
 }

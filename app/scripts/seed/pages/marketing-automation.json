@@ -379,11 +379,10 @@
         "Concreet plan, geen vage belofte"
       ],
       "form": {
-        "interesse": "Marketing Automation",
-        "messagePlaceholder": "Waar loopt de opvolging van leads nu vast?",
-        "hideMessage": false
+        "$ref": "form-groeiplan"
       },
-      "dots": false
+      "dots": false,
+      "interesse": "Marketing Automation"
     }
   ]
 }

@@ -6,8 +6,8 @@ import type { PAGE_QUERY_RESULT } from '@/sanity/sanity.types';
 import { ArticleCard, PillarCard, type ArticleCardData } from './ArticleCard';
 import { CaseCard } from './CaseCard';
 import { Animated, btn, pic, Rich } from './cms';
-import { ArticleFilter, FilterEmpty, FilterGroup, FilterItem, NewsletterForm, Pills, SearchBox } from './kennisbank';
-import { LeadForm } from './LeadForm';
+import { ArticleFilter, FilterEmpty, FilterGroup, FilterItem, Pills, SearchBox } from './kennisbank';
+import { LeadForm, NewsletterForm } from './LeadForm';
 import { BridgeQuote, CtaBand, FloatStat, frame, ProcRow, type Cta } from './service';
 import { Ambient, BtnGhost, BtnRed, Crumb, Eyebrow, Sec, SecHead, Wrap } from './ui';
 
@@ -554,7 +554,7 @@ export function ContactHero({ b, site }: P<'contactHero'>) {
             ))}
           </div>
         </div>
-        <LeadForm id={b.anchor ?? undefined} ui={site.ui} form={b.form} />
+        <LeadForm id={b.anchor ?? undefined} site={site} form={b.form} interesse={b.interesse} />
       </Wrap>
     </header>
   );
@@ -652,8 +652,9 @@ export function GroeiplanHero({ b, site }: P<'groeiplanHero'>) {
         </div>
         <LeadForm
           id={b.anchor ?? undefined}
-          ui={site.ui}
+          site={site}
           form={b.form}
+          interesse={b.interesse}
           intro={
             b.formIntro && (
               <Eyebrow rv={false} className='mb-2.5'>
@@ -1096,7 +1097,7 @@ export function ArticleIndex({ b, site }: P<'articleIndex'>) {
                   <h3 className='text-2xl tracking-[-.02em]'>{b.newsletter.title}</h3>
                   <p className='mt-2 max-w-100 text-[14.5px] text-dim'>{b.newsletter.text}</p>
                 </div>
-                <NewsletterForm ui={site.ui} interesse={b.newsletter.interesse} />
+                <NewsletterForm site={site} form={b.newsletter.form} interesse={b.newsletter.interesse} />
               </div>
             </div>
           </Wrap>

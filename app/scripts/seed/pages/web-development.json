@@ -379,11 +379,10 @@
         "Concreet plan, geen vage belofte"
       ],
       "form": {
-        "interesse": "Web Development",
-        "messagePlaceholder": "Waar wil je mee groeien? Meer leads, meer omzet, meer naamsbekendheid...",
-        "hideMessage": false
+        "$ref": "form-groeiplan"
       },
-      "dots": false
+      "dots": false,
+      "interesse": "Web Development"
     }
   ]
 }

@@ -224,8 +224,9 @@ function render(block: Any, site: Site, prev?: Any) {
           title={<Rich value={b.title} />}
           lead={b.lead}
           list={b.bullets}
-          ui={ui}
+          site={site}
           form={b.form}
+          interesse={b.interesse}
           backdrop={b.dots ? <S.Dots /> : undefined}
         />
       );

@@ -6,6 +6,12 @@ const link = /* groq */ `{
   internalLink->{ _type, "slug": slug.current }
 }`;
 
+/**
+ * Which spam check Form settings picked. Older documents only have the
+ * `recaptchaEnabled` switch; they keep reCAPTCHA until a provider is chosen.
+ */
+const captchaProvider = /* groq */ `"captchaProvider": coalesce(captchaProvider, select(recaptchaEnabled => "recaptcha", "none"))`;
+
 const articleCard = /* groq */ `{
   _id,
   title,
@@ -18,6 +24,27 @@ const articleCard = /* groq */ `{
   "hasBody": count(body) > 0,
   category->{ title, color, icon },
   author->{ name, photo }
+}`;
+
+/**
+ * Everything the renderer needs to draw a form. Fields are flat objects, so
+ * they are spread wholesale; only the redirect button needs resolving.
+ */
+const formDoc = /* groq */ `form->{
+  _id,
+  title,
+  showTitle,
+  mode,
+  fields[],
+  steps[]{ title, fields[] },
+  submitButtonText,
+  nextButtonText,
+  backButtonText,
+  note,
+  successTitle,
+  successBody,
+  redirectAfterSubmit,
+  redirectLink${link}
 }`;
 
 const faqs = /* groq */ `faqs[]->{ _id, question, answer }`;
@@ -42,6 +69,8 @@ export const PAGE_QUERY = defineQuery(`
       cta${link},
       band{ ..., cta${link} },
       closing{ ..., cta${link} },
+      defined(form) => { "form": ${formDoc} },
+      defined(newsletter) => { newsletter{ ..., "form": ${formDoc} } },
       _type == "faqs" => { "faqs": ${faqs} },
       _type == "caseCards" => { "cases": ${caseDocs} },
       _type == "caseList" => { "cases": ${caseDocs} },
@@ -112,5 +141,62 @@ export const SITE_QUERY = defineQuery(`{
   },
   "nav": *[_type == "navigation" && _id == "navigation"][0]{ links, ctaLabel, landingCtaLabel },
   "footer": *[_type == "footer" && _id == "footer"][0]{ columns, legal, copyright },
-  "google": *[_type == "googleReviews" && _id == "googleReviews"][0]{ rating, userRatingCount, googleMapsUri }
+  "google": *[_type == "googleReviews" && _id == "googleReviews"][0]{ rating, userRatingCount, googleMapsUri },
+  // The public half of Form settings; the secrets stay in FORM_SETTINGS_QUERY.
+  "forms": *[_type == "formGeneralSettings" && _id == "formGeneralSettings"][0]{
+    ${captchaProvider},
+    recaptchaSiteKey,
+    turnstileSiteKey,
+    formText
+  }
 }`);
+
+/**
+ * What the submit route needs: the mail settings plus a flat list of every
+ * field the form declares (both modes collapse to one list). That list is the
+ * server's allow-list: a key the browser posts that is not in it never
+ * reaches the mail.
+ */
+export const FORM_QUERY = defineQuery(`
+  *[_id == $formId && _type == "form"][0]{
+    _id,
+    title,
+    mailRecipients,
+    mailSubject,
+    mailMessage,
+    sendCopyToSubmitter,
+    copySubject,
+    copyMessage,
+    "fields": select(
+      mode == "steps" => steps[].fields[]{label, name, type, isRequired},
+      fields[]{label, name, type, isRequired}
+    )
+  }
+`);
+
+/** Shared mail and spam settings. Server-side only: it carries secrets. */
+export const FORM_SETTINGS_QUERY = defineQuery(`
+  *[_type == "formGeneralSettings" && _id == "formGeneralSettings"][0]{
+    adminEmail,
+    fromEmail,
+    fromName,
+    mailLogo,
+    primaryColor,
+    textColor,
+    mailProvider,
+    mailjetApiKey,
+    mailjetApiSecret,
+    resendApiKey,
+    smtpHost,
+    smtpPort,
+    smtpSecurity,
+    smtpUser,
+    smtpPassword,
+    confirmationSubject,
+    confirmationMessage,
+    ${captchaProvider},
+    recaptchaSecretKey,
+    turnstileSecretKey,
+    formText
+  }
+`);

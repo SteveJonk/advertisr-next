@@ -3,18 +3,18 @@
   "created_at": "2026-11-11T10:36:49.843Z",
   "lifetime": {
     "total_tokens_estimated": 20664,
-    "total_reads": 17,
+    "total_reads": 21,
     "total_writes": 0,
-    "total_sessions": 6,
+    "total_sessions": 7,
     "anatomy_hits": 3,
-    "anatomy_misses": 14,
+    "anatomy_misses": 18,
     "repeated_reads_blocked": 0,
     "estimated_savings_vs_bare_cli": 600,
-    "real_input_tokens": 2640,
-    "real_output_tokens": 1639216,
-    "real_cache_read_tokens": 418313745,
-    "real_cache_creation_tokens": 4128980,
-    "real_api_calls": 1294
+    "real_input_tokens": 2940,
+    "real_output_tokens": 1739256,
+    "real_cache_read_tokens": 447481881,
+    "real_cache_creation_tokens": 4512284,
+    "real_api_calls": 1443
   },
   "sessions": [
     {
@@ -381,6 +381,78 @@
         "cache_read_input_tokens": 6493109,
         "cache_creation_input_tokens": 116675,
         "api_calls": 46
+      }
+    },
+    {
+      "id": "session-2026-11-11-1601",
+      "agent": "claude",
+      "started": "2026-11-11T15:01:39.354Z",
+      "ended": "2026-11-11T15:13:03.784Z",
+      "reads": [
+        {
+          "file": "/Users/stevejonk/.claude/projects/-Users-stevejonk-Documents-Prive-Projecten-advertisr-next/8fff9ac5-978f-4596-b55f-a54061a817bc/tool-results/bpihbatch.txt",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/private/tmp/claude-501/-Users-stevejonk--claude-spares-spare-YGZDmn/8fff9ac5-978f-4596-b55f-a54061a817bc/scratchpad/old-app.txt",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 0,
+        "reads_count": 2,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      },
+      "real_usage": {
+        "input_tokens": 148,
+        "output_tokens": 49983,
+        "cache_read_input_tokens": 14460359,
+        "cache_creation_input_tokens": 191649,
+        "api_calls": 74
+      }
+    },
+    {
+      "id": "session-2026-11-11-1601",
+      "agent": "claude",
+      "started": "2026-11-11T15:01:39.354Z",
+      "ended": "2026-11-11T15:14:10.030Z",
+      "reads": [
+        {
+          "file": "/Users/stevejonk/.claude/projects/-Users-stevejonk-Documents-Prive-Projecten-advertisr-next/8fff9ac5-978f-4596-b55f-a54061a817bc/tool-results/bpihbatch.txt",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/private/tmp/claude-501/-Users-stevejonk--claude-spares-spare-YGZDmn/8fff9ac5-978f-4596-b55f-a54061a817bc/scratchpad/old-app.txt",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 0,
+        "reads_count": 2,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      },
+      "real_usage": {
+        "input_tokens": 152,
+        "output_tokens": 50057,
+        "cache_read_input_tokens": 14707777,
+        "cache_creation_input_tokens": 191655,
+        "api_calls": 75
       }
     }
   ],

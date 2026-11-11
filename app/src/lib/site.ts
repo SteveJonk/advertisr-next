@@ -3,6 +3,8 @@ import { safeFetch } from '@/sanity/client';
 import { sanityCache } from '@/sanity/fetch';
 import { SITE_QUERY } from '@/sanity/queries';
 import type { SITE_QUERY_RESULT } from '@/sanity/sanity.types';
+import type { FormCaptcha } from '@/components/form/Captcha';
+import { resolveFormText, type FormText } from '@/lib/form-fields';
 
 /**
  * The site's public origin, without a trailing slash. From the environment:
@@ -35,6 +37,8 @@ export type Site = {
   footer: { columns: { title: string; links: Link[] }[]; legal: Link[]; copyright: string };
   /** The Google score as the badges print it ("5,0"), or '' before the first sync. */
   rating: string;
+  /** Form settings: the copy every form shares, and the public spam-check key. */
+  forms: { text: FormText; captcha?: FormCaptcha };
 };
 
 const links = (items: { label?: string; href?: string }[] | null | undefined): Link[] =>
@@ -51,6 +55,9 @@ export const getSite = cache(async (): Promise<Site> => {
   const data = await safeFetch<SITE_QUERY_RESULT>(SITE_QUERY, {}, sanityCache);
   const info = data?.info;
   const rating = data?.google?.rating;
+  const forms = data?.forms;
+  const provider = forms?.captchaProvider;
+  const siteKey = provider === 'recaptcha' ? forms?.recaptchaSiteKey : provider === 'turnstile' ? forms?.turnstileSiteKey : null;
 
   return {
     name: info?.name ?? '',
@@ -78,6 +85,10 @@ export const getSite = cache(async (): Promise<Site> => {
       copyright: data?.footer?.copyright ?? '',
     },
     rating: rating ? rating.toFixed(1).replace('.', ',') : '',
+    forms: {
+      text: resolveFormText(forms?.formText),
+      captcha: siteKey && (provider === 'recaptcha' || provider === 'turnstile') ? { provider, siteKey } : undefined,
+    },
   };
 });
 

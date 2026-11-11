@@ -1,25 +1,15 @@
-'use client';
-
-import { usePathname } from 'next/navigation';
-import { useId, useState, type FormEvent, type ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import { FormRenderer } from '@/components/form/FormRenderer';
 import { cn } from '@/lib/cn';
-import type { Ui } from '@/lib/site';
-import { Arrow, btnRed } from './ui';
-
-/** The `form` object on a block; empty fields fall back to the defaults in Site information. */
-export type FormSettings = {
-  interesse?: string | null;
-  messageLabel?: string | null;
-  messagePlaceholder?: string | null;
-  /** Drops the message field (the short groeiplan forms). */
-  hideMessage?: boolean | null;
-  submitLabel?: string | null;
-  fine?: string | null;
-} | null;
+import { toFormDefinition } from '@/lib/form-fields';
+import type { Site } from '@/lib/site';
 
 export type LeadFormProps = {
-  ui: Ui;
-  form?: FormSettings;
+  site: Site;
+  /** The block's resolved `form->` reference. */
+  form?: unknown;
+  /** Fills a hidden field whose value is {{interesse}}. */
+  interesse?: string | null;
   id?: string;
   className?: string;
   /** Shown above the fields, inside the card. */
@@ -28,42 +18,9 @@ export type LeadFormProps = {
   children?: ReactNode;
 };
 
-const input = cn(
-  'w-full rounded-[11px] border border-line-2 bg-soft px-[15px] py-[13px] font-sans text-[14.5px] text-ink',
-  'transition-[border-color,background,box-shadow] duration-200 placeholder:text-dim-2',
-  'focus:border-red focus:bg-white focus:shadow-[0_0_0_4px_rgba(255,57,81,.12)] focus:outline-none',
-);
-const label = 'mb-2 block text-[12.5px] font-semibold tracking-[.05em] text-dim';
-
-/** The "groeiplan" lead form; posts to /api/lead, which mails it. */
-export function LeadForm({ ui, form, id: anchor, className, intro, children }: LeadFormProps) {
-  const interesse = form?.interesse;
-  const fine = form?.fine || ui.formFine;
-  const submitLabel = form?.submitLabel || ui.formSubmit;
-  const id = useId();
-  const path = usePathname();
-  const [state, setState] = useState<'idle' | 'sending' | 'sent'>('idle');
-  const [error, setError] = useState('');
-
-  async function onSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setState('sending');
-    setError('');
-    const res = await fetch('/api/lead', { method: 'POST', body: new FormData(e.currentTarget) }).catch(() => null);
-    if (res?.ok) return setState('sent');
-    setState('idle');
-    setError(ui.formError ?? '');
-  }
-
-  const field = (name: string, text: string | undefined, props: Record<string, unknown> = {}) => (
-    <div className='mb-[18px]'>
-      <label htmlFor={`${id}-${name}`} className={label}>
-        {text}
-      </label>
-      <input id={`${id}-${name}`} name={name} className={input} {...props} />
-    </div>
-  );
-
+/** The red-framed card around a Sanity form; the form posts to /api/submit-form. */
+export function LeadForm({ site, form, interesse, id: anchor, className, intro, children }: LeadFormProps) {
+  const definition = toFormDefinition(form);
   return (
     <div
       id={anchor}
@@ -75,55 +32,33 @@ export function LeadForm({ ui, form, id: anchor, className, intro, children }: L
       {children}
       <div className='rounded-[22px] bg-white px-[42px] py-11 max-sm:px-6 max-sm:py-8'>
         {intro}
-        {state === 'sent' ? (
-          <div className='py-10 text-center' role='status'>
-            <h3 className='text-[26px] tracking-[-.03em]'>{ui.formSuccessTitle}</h3>
-            <p className='mt-3 text-[15px] text-dim'>{ui.formSuccessBody}</p>
-          </div>
+        {definition ? (
+          <FormRenderer
+            form={definition}
+            text={site.forms.text}
+            captcha={site.forms.captcha}
+            context={{ interesse: interesse ?? '' }}
+          />
         ) : (
-          <form onSubmit={onSubmit}>
-            <div className='grid grid-cols-2 gap-4 max-sm:grid-cols-1'>
-              {field('name', ui.formName, { type: 'text', placeholder: ui.formNamePlaceholder, required: true, autoComplete: 'name' })}
-              {field('company', ui.formCompany, { type: 'text', placeholder: ui.formCompanyPlaceholder, autoComplete: 'organization' })}
-            </div>
-            <div className='grid grid-cols-2 gap-4 max-sm:grid-cols-1'>
-              {field('email', ui.formEmail, { type: 'email', placeholder: ui.formEmailPlaceholder, required: true, autoComplete: 'email' })}
-              {field('phone', ui.formPhone, { type: 'tel', placeholder: ui.formPhonePlaceholder, autoComplete: 'tel' })}
-            </div>
-            {field('website', ui.formWebsite, { type: 'text', placeholder: ui.formWebsitePlaceholder, autoComplete: 'url' })}
-            {!form?.hideMessage && (
-              <div className='mb-[18px]'>
-                <label htmlFor={`${id}-message`} className={label}>
-                  {form?.messageLabel || ui.formMessage}
-                </label>
-                <textarea
-                  id={`${id}-message`}
-                  name='message'
-                  placeholder={form?.messagePlaceholder || ui.formMessagePlaceholder}
-                  className={cn(input, 'min-h-[90px] resize-y')}
-                />
-              </div>
-            )}
-            {interesse && <input type='hidden' name='interesse' value={interesse} />}
-            <input type='hidden' name='page' value={path} />
-            {/* Honeypot, hidden from people and assistive tech. */}
-            <input type='text' name='fax' tabIndex={-1} autoComplete='off' aria-hidden='true' className='hidden' />
-            <button
-              type='submit'
-              disabled={state === 'sending'}
-              className={cn(btnRed, 'mt-1.5 w-full cursor-pointer justify-center disabled:opacity-70')}
-            >
-              {state === 'sending' ? ui.formSending : submitLabel} <Arrow />
-            </button>
-            {error && (
-              <p className='mt-3 text-center text-[13px] text-red-ink' role='alert'>
-                {error}
-              </p>
-            )}
-            <p className='mt-4 text-center text-xs text-dim-2'>{fine}</p>
-          </form>
+          // The block exists but no form is picked yet; say so instead of an empty card.
+          <p className='text-dim-2'>No form is connected to this block yet.</p>
         )}
       </div>
     </div>
+  );
+}
+
+/** The kennisbank's one-row newsletter sign-up: the same renderer, inline. */
+export function NewsletterForm({ site, form, interesse }: Pick<LeadFormProps, 'site' | 'form' | 'interesse'>) {
+  const definition = toFormDefinition(form);
+  if (!definition) return null;
+  return (
+    <FormRenderer
+      form={definition}
+      text={site.forms.text}
+      captcha={site.forms.captcha}
+      variant='inline'
+      context={{ interesse: interesse ?? '' }}
+    />
   );
 }

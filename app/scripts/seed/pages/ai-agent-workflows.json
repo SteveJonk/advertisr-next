@@ -383,11 +383,10 @@
         "Concreet plan, geen vage belofte"
       ],
       "form": {
-        "interesse": "AI Agent Workflows",
-        "messagePlaceholder": "Welk proces kost nu nog te veel handwerk?",
-        "hideMessage": false
+        "$ref": "form-groeiplan"
       },
-      "dots": false
+      "dots": false,
+      "interesse": "AI Agent Workflows"
     }
   ]
 }

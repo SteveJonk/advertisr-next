@@ -1,9 +1,13 @@
 import nodemailer from 'nodemailer';
+import type { FORM_SETTINGS_QUERY_RESULT } from '@/sanity/sanity.types';
 
 /**
- * Mail sending for `/api/lead`: Mailjet's or Resend's HTTP API, or an SMTP
- * server, picked by MAIL_PROVIDER. Everything comes from the environment: a
- * dataset is readable by anyone with the project id.
+ * Mail sending for `/api/submit-form` and `/api/test-mail`: Mailjet's or
+ * Resend's HTTP API, or the client's own SMTP server, picked by Form settings →
+ * Mail provider.
+ *
+ * Env wins over the studio settings throughout: a dataset is readable by
+ * anyone with the project id, so credentials belong in the environment.
  */
 
 export type MailMessage = {
@@ -143,18 +147,19 @@ export function sendMail(transport: MailTransport, message: MailMessage) {
 }
 
 /**
- * Provider, credentials and sender from the environment. `transport` is null
- * when incomplete, and `missing` names the env vars to set.
+ * Provider, credentials and sender from env + Form settings. `transport` is
+ * null when incomplete, and `missing` names what to set (by env var; each also
+ * has a field in Form settings).
  */
-export function resolveMailSettings(fromName: string) {
-  const provider = process.env.MAIL_PROVIDER || 'mailjet';
+export function resolveMailSettings(settings: FORM_SETTINGS_QUERY_RESULT | null, siteName: string) {
+  const provider = process.env.MAIL_PROVIDER || settings?.mailProvider || 'mailjet';
   const missing: string[] = [];
   let transport: MailTransport | null = null;
   if (provider === 'smtp') {
-    const host = process.env.SMTP_HOST;
-    const security = (process.env.SMTP_SECURITY || 'starttls') as SmtpSecurity;
-    const user = process.env.SMTP_USER || undefined;
-    const password = process.env.SMTP_PASSWORD || undefined;
+    const host = process.env.SMTP_HOST || settings?.smtpHost;
+    const security = (process.env.SMTP_SECURITY || settings?.smtpSecurity || 'starttls') as SmtpSecurity;
+    const user = process.env.SMTP_USER || settings?.smtpUser || undefined;
+    const password = process.env.SMTP_PASSWORD || settings?.smtpPassword || undefined;
     if (!host) missing.push('SMTP_HOST');
     if (!(security in SMTP_PORTS)) missing.push('SMTP_SECURITY (ssl, starttls or none)');
     // Encrypted servers always want a login; 'none' is for local relays/sinks.
@@ -166,31 +171,33 @@ export function resolveMailSettings(fromName: string) {
       transport = {
         provider,
         host,
-        port: Number(process.env.SMTP_PORT) || undefined,
+        port: Number(process.env.SMTP_PORT) || settings?.smtpPort || undefined,
         security,
         user,
         password,
       };
     }
   } else if (provider === 'resend') {
-    const apiKey = process.env.RESEND_API_KEY;
+    const apiKey = process.env.RESEND_API_KEY || settings?.resendApiKey;
     if (!apiKey) missing.push('RESEND_API_KEY');
     else transport = { provider, apiKey };
   } else {
-    const apiKey = process.env.MAILJET_API_KEY;
-    const apiSecret = process.env.MAILJET_API_SECRET;
+    const apiKey = process.env.MAILJET_API_KEY || settings?.mailjetApiKey;
+    const apiSecret = process.env.MAILJET_API_SECRET || settings?.mailjetApiSecret;
     if (!apiKey) missing.push('MAILJET_API_KEY');
     if (!apiSecret) missing.push('MAILJET_API_SECRET');
     if (apiKey && apiSecret) transport = { provider: 'mailjet', apiKey, apiSecret };
   }
 
-  const adminEmail = process.env.CONTACT_ADMIN_EMAIL;
+  const adminEmail = process.env.CONTACT_ADMIN_EMAIL || settings?.adminEmail;
   // Mailjet, Resend and most SMTP servers only accept a sender they know; fall back to
   // the recipient, which is the one address known to belong to this account.
   const fromEmail =
     process.env.MAIL_FROM_EMAIL ||
     process.env.MAILJET_FROM_EMAIL ||
+    settings?.fromEmail ||
     adminEmail;
+  const fromName = settings?.fromName || siteName;
   if (!fromEmail) missing.push('MAIL_FROM_EMAIL');
 
   return { provider, transport, adminEmail, fromEmail, fromName, missing };
@@ -198,5 +205,5 @@ export function resolveMailSettings(fromName: string) {
 
 /** "Missing mail settings: …" for the response and the logs. */
 export function missingMailMessage(provider: string, missing: string[]) {
-  return `Mail (${provider}) is not configured. Missing: ${missing.join(', ')}. Set these in the hosting environment.`;
+  return `Mail (${provider}) is not configured. Missing: ${missing.join(', ')}. Set these in the hosting environment or in the studio under Form settings.`;
 }

@@ -15,24 +15,6 @@
 export declare const internalGroqTypeReferenceTo: unique symbol;
 
 // Source: ../app/src/sanity/schema.json
-export type Form = {
-  interesse?: string;
-  messageLabel?: string;
-  messagePlaceholder?: string;
-  hideMessage?: boolean;
-  submitLabel?: string;
-  fine?: string;
-};
-
-export type GroeiplanHeroForm = {
-  interesse?: string;
-  messageLabel?: string;
-  messagePlaceholder?: string;
-  hideMessage?: boolean;
-  submitLabel?: string;
-  fine?: string;
-};
-
 export type Featured = {
   eyebrow?: string;
   title?: InlineText;
@@ -50,9 +32,17 @@ export type Band = {
   cta?: Cta;
 };
 
+export type FormReference = {
+  _ref: string;
+  _type: "reference";
+  _weak?: boolean;
+  [internalGroqTypeReferenceTo]?: "form";
+};
+
 export type Newsletter = {
   title?: string;
   text?: string;
+  form: FormReference;
   interesse?: string;
 };
 
@@ -83,15 +73,6 @@ export type QuoteBandQuote = {
   image?: QuoteBandQuoteImage;
   line?: InlineText;
   signature?: string;
-};
-
-export type FinalCtaForm = {
-  interesse?: string;
-  messageLabel?: string;
-  messagePlaceholder?: string;
-  hideMessage?: boolean;
-  submitLabel?: string;
-  fine?: string;
 };
 
 export type StagesBand = {
@@ -452,7 +433,8 @@ export type FinalCta = {
   title?: InlineText;
   lead?: string;
   bullets?: Array<string>;
-  form?: FinalCtaForm;
+  form: FormReference;
+  interesse?: string;
   dots?: boolean;
 };
 
@@ -654,7 +636,8 @@ export type GroeiplanHero = {
   }>;
   anchor?: string;
   formIntro?: string;
-  form?: GroeiplanHeroForm;
+  form: FormReference;
+  interesse?: string;
   floatStats?: Array<{
     value?: string;
     label?: string;
@@ -680,7 +663,8 @@ export type ContactHero = {
   }>;
   ticks?: Array<string>;
   anchor?: string;
-  form?: Form;
+  form: FormReference;
+  interesse?: string;
 };
 
 export type PageHero = {
@@ -892,6 +876,31 @@ export type PageBuilder = Array<
     } & Output)
 >;
 
+export type FormField = {
+  _type: "formField";
+  label: string;
+  name: string;
+  type:
+    | "text"
+    | "email"
+    | "tel"
+    | "url"
+    | "textarea"
+    | "select"
+    | "radio"
+    | "checkbox"
+    | "file"
+    | "hidden";
+  defaultValue?: string;
+  width?: "full" | "half";
+  isRequired?: boolean;
+  placeholder?: string;
+  helpText?: string;
+  selectOptions?: Array<string>;
+  radioOptions?: Array<string>;
+  checkboxOptions?: Array<string>;
+};
+
 export type ArticleBody = Array<
   | {
       children?: Array<{
@@ -993,6 +1002,73 @@ export type InlineText = Array<{
   _type: "block";
   _key: string;
 }>;
+
+export type FormGeneralSettings = {
+  _id: string;
+  _type: "formGeneralSettings";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  adminEmail: string;
+  fromEmail?: string;
+  fromName?: string;
+  confirmationSubject: string;
+  confirmationMessage?: string;
+  mailProvider?: "mailjet" | "resend" | "smtp";
+  mailjetApiKey?: string;
+  mailjetApiSecret?: string;
+  resendApiKey?: string;
+  smtpHost?: string;
+  smtpSecurity?: "starttls" | "ssl" | "none";
+  smtpPort?: number;
+  smtpUser?: string;
+  smtpPassword?: string;
+  mailTest?: string;
+  mailLogo?: {
+    asset: SanityImageAssetReference;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  primaryColor?: string;
+  textColor?: string;
+  captchaProvider?: "none" | "recaptcha" | "turnstile";
+  recaptchaEnabled?: boolean;
+  recaptchaSiteKey?: string;
+  recaptchaSecretKey?: string;
+  turnstileSiteKey?: string;
+  turnstileSecretKey?: string;
+  formText?: {
+    submitButtonText?: string;
+    nextButtonText?: string;
+    backButtonText?: string;
+    sendingText?: string;
+    stepCounter?: string;
+    recaptchaPrompt?: string;
+    recaptchaFailed?: string;
+    sendFailed?: string;
+    requiredField?: string;
+    fileTooLarge?: string;
+    emptyForm?: string;
+  };
+};
+
+export type SanityImageCrop = {
+  _type: "sanity.imageCrop";
+  top: number;
+  bottom: number;
+  left: number;
+  right: number;
+};
+
+export type SanityImageHotspot = {
+  _type: "sanity.imageHotspot";
+  x: number;
+  y: number;
+  height: number;
+  width: number;
+};
 
 export type GoogleReviews = {
   _id: string;
@@ -1096,27 +1172,6 @@ export type SiteInformation = {
     ratedOnGoogle?: string;
     onGoogle?: string;
     googleReview?: string;
-    formName?: string;
-    formNamePlaceholder?: string;
-    formCompany?: string;
-    formCompanyPlaceholder?: string;
-    formEmail?: string;
-    formEmailPlaceholder?: string;
-    formPhone?: string;
-    formPhonePlaceholder?: string;
-    formWebsite?: string;
-    formWebsitePlaceholder?: string;
-    formMessage?: string;
-    formMessagePlaceholder?: string;
-    formSubmit?: string;
-    formSending?: string;
-    formFine?: string;
-    formSuccessTitle?: string;
-    formSuccessBody?: string;
-    formError?: string;
-    newsletterButton?: string;
-    newsletterSuccess?: string;
-    newsletterError?: string;
     pillarBadge?: string;
     readingTime?: string;
     updated?: string;
@@ -1138,22 +1193,6 @@ export type SiteInformation = {
     notFoundBody?: string;
     notFoundButtonLabel?: string;
   };
-};
-
-export type SanityImageCrop = {
-  _type: "sanity.imageCrop";
-  top: number;
-  bottom: number;
-  left: number;
-  right: number;
-};
-
-export type SanityImageHotspot = {
-  _type: "sanity.imageHotspot";
-  x: number;
-  y: number;
-  height: number;
-  width: number;
 };
 
 export type Client = {
@@ -1346,6 +1385,46 @@ export type Page = {
   content?: PageBuilder;
 };
 
+export type Form = {
+  _id: string;
+  _type: "form";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title: string;
+  showTitle?: boolean;
+  mode: "simple" | "steps";
+  fields?: Array<
+    {
+      _key: string;
+    } & FormField
+  >;
+  steps?: Array<{
+    title?: string;
+    fields: Array<
+      {
+        _key: string;
+      } & FormField
+    >;
+    _type: "formStep";
+    _key: string;
+  }>;
+  submitButtonText: string;
+  nextButtonText?: string;
+  backButtonText?: string;
+  note?: string;
+  redirectAfterSubmit?: boolean;
+  redirectLink?: Cta;
+  successTitle?: string;
+  successBody?: string;
+  mailRecipients?: string;
+  mailSubject?: string;
+  mailMessage?: string;
+  sendCopyToSubmitter?: boolean;
+  copySubject?: string;
+  copyMessage?: string;
+};
+
 export type SanityImagePaletteSwatch = {
   _type: "sanity.imagePaletteSwatch";
   background?: string;
@@ -1444,18 +1523,16 @@ export type Geopoint = {
 };
 
 export type AllSanitySchemaTypes =
-  | Form
-  | GroeiplanHeroForm
   | Featured
   | Latest
   | Band
+  | FormReference
   | Newsletter
   | Quote
   | Photo
   | DeliverablesBand
   | Badge
   | QuoteBandQuote
-  | FinalCtaForm
   | StagesBand
   | Closing
   | HomeTeamBadge
@@ -1508,18 +1585,20 @@ export type AllSanitySchemaTypes =
   | ServiceHero
   | HomeHero
   | PageBuilder
+  | FormField
   | ArticleBody
   | Seo
   | PageReference
   | ArticleReference
   | Cta
   | InlineText
+  | FormGeneralSettings
+  | SanityImageCrop
+  | SanityImageHotspot
   | GoogleReviews
   | Footer
   | Navigation
   | SiteInformation
-  | SanityImageCrop
-  | SanityImageHotspot
   | Client
   | Review
   | CaseStudy
@@ -1530,6 +1609,7 @@ export type AllSanitySchemaTypes =
   | ArticleCategory
   | Slug
   | Page
+  | Form
   | SanityImagePaletteSwatch
   | SanityImagePalette
   | SanityImageDimensions
@@ -1541,7 +1621,7 @@ export type AllSanitySchemaTypes =
 
 // Source: ../app/src/sanity/queries.ts
 // Variable: PAGE_QUERY
-// Query: *[_type == "page" && slug.current == $slug][0]{    _id,    title,    "slug": slug.current,    seo,    content[]{      ...,      primaryCta{  ...,  internalLink->{ _type, "slug": slug.current }},      secondaryCta{  ...,  internalLink->{ _type, "slug": slug.current }},      cta{  ...,  internalLink->{ _type, "slug": slug.current }},      band{ ..., cta{  ...,  internalLink->{ _type, "slug": slug.current }} },      closing{ ..., cta{  ...,  internalLink->{ _type, "slug": slug.current }} },      _type == "faqs" => { "faqs": faqs[]->{ _id, question, answer } },      _type == "caseCards" => { "cases": cases[]->{ _id, name, category, badge, eyebrow, headline, summary, image, stats, tags, url } },      _type == "caseList" => { "cases": cases[]->{ _id, name, category, badge, eyebrow, headline, summary, image, stats, tags, url } },      _type == "teamGrid" => { "members": members[]->{ _id, name, role, bio, photo } },      _type == "logos" => {        "clients": *[_type == "client" && defined(logo.asset)] | order(coalesce(sortOrder, 999) asc){ _id, name, logo }      },      _type == "reviews" => {        "items": *[_type == "review" && hidden != true] | order(coalesce(sortOrder, 9999) asc, publishedAt desc)[0...30]{ _id, name, text, tone }      },      _type == "articleIndex" => {        "articles": *[_type == "article" && defined(slug.current)] | order(coalesce(updatedAt, publishedAt, _createdAt) desc){  _id,  title,  "slug": slug.current,  excerpt,  image,  featured,  minutes,  updatedAt,  "hasBody": count(body) > 0,  category->{ title, color, icon },  author->{ name, photo }},        "categories": *[_type == "articleCategory"] | order(coalesce(sortOrder, 999) asc).title      }    }  }
+// Query: *[_type == "page" && slug.current == $slug][0]{    _id,    title,    "slug": slug.current,    seo,    content[]{      ...,      primaryCta{  ...,  internalLink->{ _type, "slug": slug.current }},      secondaryCta{  ...,  internalLink->{ _type, "slug": slug.current }},      cta{  ...,  internalLink->{ _type, "slug": slug.current }},      band{ ..., cta{  ...,  internalLink->{ _type, "slug": slug.current }} },      closing{ ..., cta{  ...,  internalLink->{ _type, "slug": slug.current }} },      defined(form) => { "form": form->{  _id,  title,  showTitle,  mode,  fields[],  steps[]{ title, fields[] },  submitButtonText,  nextButtonText,  backButtonText,  note,  successTitle,  successBody,  redirectAfterSubmit,  redirectLink{  ...,  internalLink->{ _type, "slug": slug.current }}} },      defined(newsletter) => { newsletter{ ..., "form": form->{  _id,  title,  showTitle,  mode,  fields[],  steps[]{ title, fields[] },  submitButtonText,  nextButtonText,  backButtonText,  note,  successTitle,  successBody,  redirectAfterSubmit,  redirectLink{  ...,  internalLink->{ _type, "slug": slug.current }}} } },      _type == "faqs" => { "faqs": faqs[]->{ _id, question, answer } },      _type == "caseCards" => { "cases": cases[]->{ _id, name, category, badge, eyebrow, headline, summary, image, stats, tags, url } },      _type == "caseList" => { "cases": cases[]->{ _id, name, category, badge, eyebrow, headline, summary, image, stats, tags, url } },      _type == "teamGrid" => { "members": members[]->{ _id, name, role, bio, photo } },      _type == "logos" => {        "clients": *[_type == "client" && defined(logo.asset)] | order(coalesce(sortOrder, 999) asc){ _id, name, logo }      },      _type == "reviews" => {        "items": *[_type == "review" && hidden != true] | order(coalesce(sortOrder, 9999) asc, publishedAt desc)[0...30]{ _id, name, text, tone }      },      _type == "articleIndex" => {        "articles": *[_type == "article" && defined(slug.current)] | order(coalesce(updatedAt, publishedAt, _createdAt) desc){  _id,  title,  "slug": slug.current,  excerpt,  image,  featured,  minutes,  updatedAt,  "hasBody": count(body) > 0,  category->{ title, color, icon },  author->{ name, photo }},        "categories": *[_type == "articleCategory"] | order(coalesce(sortOrder, 999) asc).title      }    }  }
 export type PAGE_QUERY_RESULT = {
   _id: string;
   title: string;
@@ -1621,6 +1701,129 @@ export type PAGE_QUERY_RESULT = {
           } | null;
         } | null;
         newsletter?: Newsletter;
+        primaryCta: null;
+        secondaryCta: null;
+        cta: null;
+        closing: null;
+        articles: Array<{
+          _id: string;
+          title: string;
+          slug: string;
+          excerpt: string | null;
+          image: {
+            asset?: SanityImageAssetReference;
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          } | null;
+          featured: boolean | null;
+          minutes: number | null;
+          updatedAt: string | null;
+          hasBody: boolean | null;
+          category: {
+            title: string;
+            color: string | null;
+            icon:
+              "bars" | "nodes" | "play" | "search" | "spark" | "target" | null;
+          } | null;
+          author: {
+            name: string;
+            photo: {
+              asset?: SanityImageAssetReference;
+              media?: unknown;
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              alt?: string;
+              _type: "image";
+            } | null;
+          } | null;
+        }>;
+        categories: Array<string>;
+      }
+    | {
+        _key: string;
+        _type: "articleIndex";
+        crumb?: string;
+        eyebrow?: string;
+        title?: InlineText;
+        lead?: string;
+        searchLabel?: string;
+        searchPlaceholder?: string;
+        searchButton?: string;
+        allLabel?: string;
+        noResults?: string;
+        featured?: Featured;
+        latest?: Latest;
+        loadMoreLabel?: string;
+        band: {
+          title?: InlineText;
+          text?: string;
+          cta: {
+            _type: "cta";
+            label?: string;
+            linkType?: "external" | "internal";
+            internalLink:
+              | {
+                  _type: "article";
+                  slug: string;
+                }
+              | {
+                  _type: "page";
+                  slug: string;
+                }
+              | null;
+            href?: string;
+          } | null;
+        } | null;
+        newsletter: {
+          title?: string;
+          text?: string;
+          form: {
+            _id: string;
+            title: string;
+            showTitle: boolean | null;
+            mode: "simple" | "steps";
+            fields: Array<
+              {
+                _key: string;
+              } & FormField
+            > | null;
+            steps: Array<{
+              title: string | null;
+              fields: Array<
+                {
+                  _key: string;
+                } & FormField
+              >;
+            }> | null;
+            submitButtonText: string;
+            nextButtonText: string | null;
+            backButtonText: string | null;
+            note: string | null;
+            successTitle: string | null;
+            successBody: string | null;
+            redirectAfterSubmit: boolean | null;
+            redirectLink: {
+              _type: "cta";
+              label?: string;
+              linkType?: "external" | "internal";
+              internalLink:
+                | {
+                    _type: "article";
+                    slug: string;
+                  }
+                | {
+                    _type: "page";
+                    slug: string;
+                  }
+                | null;
+              href?: string;
+            } | null;
+          };
+          interesse?: string;
+        } | null;
         primaryCta: null;
         secondaryCta: null;
         cta: null;
@@ -1820,7 +2023,49 @@ export type PAGE_QUERY_RESULT = {
         }>;
         ticks?: Array<string>;
         anchor?: string;
-        form?: Form;
+        form: {
+          _id: string;
+          title: string;
+          showTitle: boolean | null;
+          mode: "simple" | "steps";
+          fields: Array<
+            {
+              _key: string;
+            } & FormField
+          > | null;
+          steps: Array<{
+            title: string | null;
+            fields: Array<
+              {
+                _key: string;
+              } & FormField
+            >;
+          }> | null;
+          submitButtonText: string;
+          nextButtonText: string | null;
+          backButtonText: string | null;
+          note: string | null;
+          successTitle: string | null;
+          successBody: string | null;
+          redirectAfterSubmit: boolean | null;
+          redirectLink: {
+            _type: "cta";
+            label?: string;
+            linkType?: "external" | "internal";
+            internalLink:
+              | {
+                  _type: "article";
+                  slug: string;
+                }
+              | {
+                  _type: "page";
+                  slug: string;
+                }
+              | null;
+            href?: string;
+          } | null;
+        };
+        interesse?: string;
         primaryCta: null;
         secondaryCta: null;
         cta: null;
@@ -1969,7 +2214,49 @@ export type PAGE_QUERY_RESULT = {
         title?: InlineText;
         lead?: string;
         bullets?: Array<string>;
-        form?: FinalCtaForm;
+        form: {
+          _id: string;
+          title: string;
+          showTitle: boolean | null;
+          mode: "simple" | "steps";
+          fields: Array<
+            {
+              _key: string;
+            } & FormField
+          > | null;
+          steps: Array<{
+            title: string | null;
+            fields: Array<
+              {
+                _key: string;
+              } & FormField
+            >;
+          }> | null;
+          submitButtonText: string;
+          nextButtonText: string | null;
+          backButtonText: string | null;
+          note: string | null;
+          successTitle: string | null;
+          successBody: string | null;
+          redirectAfterSubmit: boolean | null;
+          redirectLink: {
+            _type: "cta";
+            label?: string;
+            linkType?: "external" | "internal";
+            internalLink:
+              | {
+                  _type: "article";
+                  slug: string;
+                }
+              | {
+                  _type: "page";
+                  slug: string;
+                }
+              | null;
+            href?: string;
+          } | null;
+        };
+        interesse?: string;
         dots?: boolean;
         primaryCta: null;
         secondaryCta: null;
@@ -2014,7 +2301,49 @@ export type PAGE_QUERY_RESULT = {
         }>;
         anchor?: string;
         formIntro?: string;
-        form?: GroeiplanHeroForm;
+        form: {
+          _id: string;
+          title: string;
+          showTitle: boolean | null;
+          mode: "simple" | "steps";
+          fields: Array<
+            {
+              _key: string;
+            } & FormField
+          > | null;
+          steps: Array<{
+            title: string | null;
+            fields: Array<
+              {
+                _key: string;
+              } & FormField
+            >;
+          }> | null;
+          submitButtonText: string;
+          nextButtonText: string | null;
+          backButtonText: string | null;
+          note: string | null;
+          successTitle: string | null;
+          successBody: string | null;
+          redirectAfterSubmit: boolean | null;
+          redirectLink: {
+            _type: "cta";
+            label?: string;
+            linkType?: "external" | "internal";
+            internalLink:
+              | {
+                  _type: "article";
+                  slug: string;
+                }
+              | {
+                  _type: "page";
+                  slug: string;
+                }
+              | null;
+            href?: string;
+          } | null;
+        };
+        interesse?: string;
         floatStats?: Array<{
           value?: string;
           label?: string;
@@ -2832,7 +3161,7 @@ export type ARTICLE_SLUGS_QUERY_RESULT = Array<{
 
 // Source: ../app/src/sanity/queries.ts
 // Variable: SITE_QUERY
-// Query: {  "info": *[_type == "siteInformation" && _id == "siteInformation"][0]{    name,    defaultTitle,    description,    language,    email,    phone,    city,    address,    addressCountry,    socialLinks,    "logoUrl": logo.asset->url,    interfaceText  },  "nav": *[_type == "navigation" && _id == "navigation"][0]{ links, ctaLabel, landingCtaLabel },  "footer": *[_type == "footer" && _id == "footer"][0]{ columns, legal, copyright },  "google": *[_type == "googleReviews" && _id == "googleReviews"][0]{ rating, userRatingCount, googleMapsUri }}
+// Query: {  "info": *[_type == "siteInformation" && _id == "siteInformation"][0]{    name,    defaultTitle,    description,    language,    email,    phone,    city,    address,    addressCountry,    socialLinks,    "logoUrl": logo.asset->url,    interfaceText  },  "nav": *[_type == "navigation" && _id == "navigation"][0]{ links, ctaLabel, landingCtaLabel },  "footer": *[_type == "footer" && _id == "footer"][0]{ columns, legal, copyright },  "google": *[_type == "googleReviews" && _id == "googleReviews"][0]{ rating, userRatingCount, googleMapsUri },  // The public half of Form settings; the secrets stay in FORM_SETTINGS_QUERY.  "forms": *[_type == "formGeneralSettings" && _id == "formGeneralSettings"][0]{    "captchaProvider": coalesce(captchaProvider, select(recaptchaEnabled => "recaptcha", "none")),    recaptchaSiteKey,    turnstileSiteKey,    formText  }}
 export type SITE_QUERY_RESULT = {
   info: {
     name: string;
@@ -2857,27 +3186,6 @@ export type SITE_QUERY_RESULT = {
       ratedOnGoogle?: string;
       onGoogle?: string;
       googleReview?: string;
-      formName?: string;
-      formNamePlaceholder?: string;
-      formCompany?: string;
-      formCompanyPlaceholder?: string;
-      formEmail?: string;
-      formEmailPlaceholder?: string;
-      formPhone?: string;
-      formPhonePlaceholder?: string;
-      formWebsite?: string;
-      formWebsitePlaceholder?: string;
-      formMessage?: string;
-      formMessagePlaceholder?: string;
-      formSubmit?: string;
-      formSending?: string;
-      formFine?: string;
-      formSuccessTitle?: string;
-      formSuccessBody?: string;
-      formError?: string;
-      newsletterButton?: string;
-      newsletterSuccess?: string;
-      newsletterError?: string;
       pillarBadge?: string;
       readingTime?: string;
       updated?: string;
@@ -2936,16 +3244,111 @@ export type SITE_QUERY_RESULT = {
     userRatingCount: number | null;
     googleMapsUri: string | null;
   } | null;
+  forms: {
+    captchaProvider: "none" | "recaptcha" | "turnstile";
+    recaptchaSiteKey: string | null;
+    turnstileSiteKey: string | null;
+    formText: {
+      submitButtonText?: string;
+      nextButtonText?: string;
+      backButtonText?: string;
+      sendingText?: string;
+      stepCounter?: string;
+      recaptchaPrompt?: string;
+      recaptchaFailed?: string;
+      sendFailed?: string;
+      requiredField?: string;
+      fileTooLarge?: string;
+      emptyForm?: string;
+    } | null;
+  } | null;
 };
+
+// Source: ../app/src/sanity/queries.ts
+// Variable: FORM_QUERY
+// Query: *[_id == $formId && _type == "form"][0]{    _id,    title,    mailRecipients,    mailSubject,    mailMessage,    sendCopyToSubmitter,    copySubject,    copyMessage,    "fields": select(      mode == "steps" => steps[].fields[]{label, name, type, isRequired},      fields[]{label, name, type, isRequired}    )  }
+export type FORM_QUERY_RESULT = {
+  _id: string;
+  title: string;
+  mailRecipients: string | null;
+  mailSubject: string | null;
+  mailMessage: string | null;
+  sendCopyToSubmitter: boolean | null;
+  copySubject: string | null;
+  copyMessage: string | null;
+  fields: Array<{
+    label: string;
+    name: string;
+    type:
+      | "checkbox"
+      | "email"
+      | "file"
+      | "hidden"
+      | "radio"
+      | "select"
+      | "tel"
+      | "text"
+      | "textarea"
+      | "url";
+    isRequired: boolean | null;
+  }> | null;
+} | null;
+
+// Source: ../app/src/sanity/queries.ts
+// Variable: FORM_SETTINGS_QUERY
+// Query: *[_type == "formGeneralSettings" && _id == "formGeneralSettings"][0]{    adminEmail,    fromEmail,    fromName,    mailLogo,    primaryColor,    textColor,    mailProvider,    mailjetApiKey,    mailjetApiSecret,    resendApiKey,    smtpHost,    smtpPort,    smtpSecurity,    smtpUser,    smtpPassword,    confirmationSubject,    confirmationMessage,    "captchaProvider": coalesce(captchaProvider, select(recaptchaEnabled => "recaptcha", "none")),    recaptchaSecretKey,    turnstileSecretKey,    formText  }
+export type FORM_SETTINGS_QUERY_RESULT = {
+  adminEmail: string;
+  fromEmail: string | null;
+  fromName: string | null;
+  mailLogo: {
+    asset: SanityImageAssetReference;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  } | null;
+  primaryColor: string | null;
+  textColor: string | null;
+  mailProvider: "mailjet" | "resend" | "smtp" | null;
+  mailjetApiKey: string | null;
+  mailjetApiSecret: string | null;
+  resendApiKey: string | null;
+  smtpHost: string | null;
+  smtpPort: number | null;
+  smtpSecurity: "none" | "ssl" | "starttls" | null;
+  smtpUser: string | null;
+  smtpPassword: string | null;
+  confirmationSubject: string;
+  confirmationMessage: string | null;
+  captchaProvider: "none" | "recaptcha" | "turnstile";
+  recaptchaSecretKey: string | null;
+  turnstileSecretKey: string | null;
+  formText: {
+    submitButtonText?: string;
+    nextButtonText?: string;
+    backButtonText?: string;
+    sendingText?: string;
+    stepCounter?: string;
+    recaptchaPrompt?: string;
+    recaptchaFailed?: string;
+    sendFailed?: string;
+    requiredField?: string;
+    fileTooLarge?: string;
+    emptyForm?: string;
+  } | null;
+} | null;
 
 // Query TypeMap
 declare global {
   interface SanityQueries {
-    '\n  *[_type == "page" && slug.current == $slug][0]{\n    _id,\n    title,\n    "slug": slug.current,\n    seo,\n    content[]{\n      ...,\n      primaryCta{\n  ...,\n  internalLink->{ _type, "slug": slug.current }\n},\n      secondaryCta{\n  ...,\n  internalLink->{ _type, "slug": slug.current }\n},\n      cta{\n  ...,\n  internalLink->{ _type, "slug": slug.current }\n},\n      band{ ..., cta{\n  ...,\n  internalLink->{ _type, "slug": slug.current }\n} },\n      closing{ ..., cta{\n  ...,\n  internalLink->{ _type, "slug": slug.current }\n} },\n      _type == "faqs" => { "faqs": faqs[]->{ _id, question, answer } },\n      _type == "caseCards" => { "cases": cases[]->{ _id, name, category, badge, eyebrow, headline, summary, image, stats, tags, url } },\n      _type == "caseList" => { "cases": cases[]->{ _id, name, category, badge, eyebrow, headline, summary, image, stats, tags, url } },\n      _type == "teamGrid" => { "members": members[]->{ _id, name, role, bio, photo } },\n      _type == "logos" => {\n        "clients": *[_type == "client" && defined(logo.asset)] | order(coalesce(sortOrder, 999) asc){ _id, name, logo }\n      },\n      _type == "reviews" => {\n        "items": *[_type == "review" && hidden != true] | order(coalesce(sortOrder, 9999) asc, publishedAt desc)[0...30]{ _id, name, text, tone }\n      },\n      _type == "articleIndex" => {\n        "articles": *[_type == "article" && defined(slug.current)] | order(coalesce(updatedAt, publishedAt, _createdAt) desc){\n  _id,\n  title,\n  "slug": slug.current,\n  excerpt,\n  image,\n  featured,\n  minutes,\n  updatedAt,\n  "hasBody": count(body) > 0,\n  category->{ title, color, icon },\n  author->{ name, photo }\n},\n        "categories": *[_type == "articleCategory"] | order(coalesce(sortOrder, 999) asc).title\n      }\n    }\n  }\n': PAGE_QUERY_RESULT;
+    '\n  *[_type == "page" && slug.current == $slug][0]{\n    _id,\n    title,\n    "slug": slug.current,\n    seo,\n    content[]{\n      ...,\n      primaryCta{\n  ...,\n  internalLink->{ _type, "slug": slug.current }\n},\n      secondaryCta{\n  ...,\n  internalLink->{ _type, "slug": slug.current }\n},\n      cta{\n  ...,\n  internalLink->{ _type, "slug": slug.current }\n},\n      band{ ..., cta{\n  ...,\n  internalLink->{ _type, "slug": slug.current }\n} },\n      closing{ ..., cta{\n  ...,\n  internalLink->{ _type, "slug": slug.current }\n} },\n      defined(form) => { "form": form->{\n  _id,\n  title,\n  showTitle,\n  mode,\n  fields[],\n  steps[]{ title, fields[] },\n  submitButtonText,\n  nextButtonText,\n  backButtonText,\n  note,\n  successTitle,\n  successBody,\n  redirectAfterSubmit,\n  redirectLink{\n  ...,\n  internalLink->{ _type, "slug": slug.current }\n}\n} },\n      defined(newsletter) => { newsletter{ ..., "form": form->{\n  _id,\n  title,\n  showTitle,\n  mode,\n  fields[],\n  steps[]{ title, fields[] },\n  submitButtonText,\n  nextButtonText,\n  backButtonText,\n  note,\n  successTitle,\n  successBody,\n  redirectAfterSubmit,\n  redirectLink{\n  ...,\n  internalLink->{ _type, "slug": slug.current }\n}\n} } },\n      _type == "faqs" => { "faqs": faqs[]->{ _id, question, answer } },\n      _type == "caseCards" => { "cases": cases[]->{ _id, name, category, badge, eyebrow, headline, summary, image, stats, tags, url } },\n      _type == "caseList" => { "cases": cases[]->{ _id, name, category, badge, eyebrow, headline, summary, image, stats, tags, url } },\n      _type == "teamGrid" => { "members": members[]->{ _id, name, role, bio, photo } },\n      _type == "logos" => {\n        "clients": *[_type == "client" && defined(logo.asset)] | order(coalesce(sortOrder, 999) asc){ _id, name, logo }\n      },\n      _type == "reviews" => {\n        "items": *[_type == "review" && hidden != true] | order(coalesce(sortOrder, 9999) asc, publishedAt desc)[0...30]{ _id, name, text, tone }\n      },\n      _type == "articleIndex" => {\n        "articles": *[_type == "article" && defined(slug.current)] | order(coalesce(updatedAt, publishedAt, _createdAt) desc){\n  _id,\n  title,\n  "slug": slug.current,\n  excerpt,\n  image,\n  featured,\n  minutes,\n  updatedAt,\n  "hasBody": count(body) > 0,\n  category->{ title, color, icon },\n  author->{ name, photo }\n},\n        "categories": *[_type == "articleCategory"] | order(coalesce(sortOrder, 999) asc).title\n      }\n    }\n  }\n': PAGE_QUERY_RESULT;
     '\n  *[_type == "page" && defined(slug.current)]{ "slug": slug.current, _updatedAt }\n': PAGE_SLUGS_QUERY_RESULT;
     '\n  *[_type == "article" && slug.current == $slug][0]{\n    _id,\n    title,\n    "slug": slug.current,\n    intro,\n    excerpt,\n    minutes,\n    publishedAt,\n    updatedAt,\n    featured,\n    crumbLabel,\n    tags,\n    sources,\n    ctaTitle,\n    ctaText,\n    seo,\n    category->{ title, color, icon },\n    author->{ name, photo, authorTitle, authorBio },\n    body[]{ ..., _type == "inlineCta" => { cta{\n  ...,\n  internalLink->{ _type, "slug": slug.current }\n} } },\n    "faqs": faqs[]->{ _id, question, answer },\n    "related": related[]->{\n  _id,\n  title,\n  "slug": slug.current,\n  excerpt,\n  image,\n  featured,\n  minutes,\n  updatedAt,\n  "hasBody": count(body) > 0,\n  category->{ title, color, icon },\n  author->{ name, photo }\n}\n  }\n': ARTICLE_QUERY_RESULT;
     '\n  *[_type == "article" && defined(slug.current) && count(body) > 0]{ "slug": slug.current, _updatedAt }\n': ARTICLE_SLUGS_QUERY_RESULT;
-    '{\n  "info": *[_type == "siteInformation" && _id == "siteInformation"][0]{\n    name,\n    defaultTitle,\n    description,\n    language,\n    email,\n    phone,\n    city,\n    address,\n    addressCountry,\n    socialLinks,\n    "logoUrl": logo.asset->url,\n    interfaceText\n  },\n  "nav": *[_type == "navigation" && _id == "navigation"][0]{ links, ctaLabel, landingCtaLabel },\n  "footer": *[_type == "footer" && _id == "footer"][0]{ columns, legal, copyright },\n  "google": *[_type == "googleReviews" && _id == "googleReviews"][0]{ rating, userRatingCount, googleMapsUri }\n}': SITE_QUERY_RESULT;
+    '{\n  "info": *[_type == "siteInformation" && _id == "siteInformation"][0]{\n    name,\n    defaultTitle,\n    description,\n    language,\n    email,\n    phone,\n    city,\n    address,\n    addressCountry,\n    socialLinks,\n    "logoUrl": logo.asset->url,\n    interfaceText\n  },\n  "nav": *[_type == "navigation" && _id == "navigation"][0]{ links, ctaLabel, landingCtaLabel },\n  "footer": *[_type == "footer" && _id == "footer"][0]{ columns, legal, copyright },\n  "google": *[_type == "googleReviews" && _id == "googleReviews"][0]{ rating, userRatingCount, googleMapsUri },\n  // The public half of Form settings; the secrets stay in FORM_SETTINGS_QUERY.\n  "forms": *[_type == "formGeneralSettings" && _id == "formGeneralSettings"][0]{\n    "captchaProvider": coalesce(captchaProvider, select(recaptchaEnabled => "recaptcha", "none")),\n    recaptchaSiteKey,\n    turnstileSiteKey,\n    formText\n  }\n}': SITE_QUERY_RESULT;
+    '\n  *[_id == $formId && _type == "form"][0]{\n    _id,\n    title,\n    mailRecipients,\n    mailSubject,\n    mailMessage,\n    sendCopyToSubmitter,\n    copySubject,\n    copyMessage,\n    "fields": select(\n      mode == "steps" => steps[].fields[]{label, name, type, isRequired},\n      fields[]{label, name, type, isRequired}\n    )\n  }\n': FORM_QUERY_RESULT;
+    '\n  *[_type == "formGeneralSettings" && _id == "formGeneralSettings"][0]{\n    adminEmail,\n    fromEmail,\n    fromName,\n    mailLogo,\n    primaryColor,\n    textColor,\n    mailProvider,\n    mailjetApiKey,\n    mailjetApiSecret,\n    resendApiKey,\n    smtpHost,\n    smtpPort,\n    smtpSecurity,\n    smtpUser,\n    smtpPassword,\n    confirmationSubject,\n    confirmationMessage,\n    "captchaProvider": coalesce(captchaProvider, select(recaptchaEnabled => "recaptcha", "none")),\n    recaptchaSecretKey,\n    turnstileSecretKey,\n    formText\n  }\n': FORM_SETTINGS_QUERY_RESULT;
   }
 }
 // Lets @sanity/client releases that predate the global registry read it too

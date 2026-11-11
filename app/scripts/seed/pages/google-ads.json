@@ -383,11 +383,10 @@
         "Concreet plan, geen vage belofte"
       ],
       "form": {
-        "interesse": "Google Ads",
-        "messagePlaceholder": "Waar wil je mee groeien? Meer leads, meer omzet, meer naamsbekendheid...",
-        "hideMessage": false
+        "$ref": "form-groeiplan"
       },
-      "dots": false
+      "dots": false,
+      "interesse": "Google Ads"
     }
   ]
 }

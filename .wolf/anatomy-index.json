@@ -1,12 +1,12 @@
 {
   "version": 1,
   "meta": {
-    "lastScanned": "2026-11-11T13:08:59.876Z",
-    "fileCount": 147,
+    "lastScanned": "2026-11-11T15:12:34.954Z",
+    "fileCount": 162,
     "hits": 0,
     "misses": 0,
-    "renderedHash": "c2fc93cd15c60b19636843ae05d7c6d03294a073a7af3584c47e1962e1f8b7e3",
-    "storeUpdatedAt": "2026-11-11T13:08:59.877Z"
+    "renderedHash": "954191ff4dd0466f31b528afd2f5bf622b43b90d0110ee00d1d95735581f4071",
+    "storeUpdatedAt": "2026-11-11T15:12:34.956Z"
   },
   "files": {
     ".claude/commands/reframe.md": {
@@ -15,7 +15,7 @@
       "hash": "17a75695be5d4629",
       "size": 2221,
       "mtimeMs": 1794393410377.4504,
-      "updatedAt": "2026-11-11T13:08:59.807Z",
+      "updatedAt": "2026-11-11T15:12:34.862Z",
       "source": "scan"
     },
     ".claude/commands/security-audit.md": {
@@ -24,7 +24,7 @@
       "hash": "e6f7e0b7337c9c86",
       "size": 2060,
       "mtimeMs": 1794393410376.9766,
-      "updatedAt": "2026-11-11T13:08:59.807Z",
+      "updatedAt": "2026-11-11T15:12:34.863Z",
       "source": "scan"
     },
     ".claude/launch.json": {
@@ -32,8 +32,8 @@
       "tokens": 48,
       "hash": "2809eb3b8cff780b",
       "size": 166,
-      "mtimeMs": 1794395825315.9492,
-      "updatedAt": "2026-11-11T13:08:59.808Z",
+      "mtimeMs": 1794409816289.3132,
+      "updatedAt": "2026-11-11T15:12:34.864Z",
       "source": "scan"
     },
     ".claude/rules/openwolf.md": {
@@ -42,7 +42,7 @@
       "hash": "6d735b2c1c54a916",
       "size": 1323,
       "mtimeMs": 1794393409856.7244,
-      "updatedAt": "2026-11-11T13:08:59.809Z",
+      "updatedAt": "2026-11-11T15:12:34.865Z",
       "source": "scan"
     },
     ".claude/settings.json": {
@@ -51,7 +51,7 @@
       "hash": "f68759bb50af5ee4",
       "size": 1799,
       "mtimeMs": 1794393409856.2285,
-      "updatedAt": "2026-11-11T13:08:59.809Z",
+      "updatedAt": "2026-11-11T15:12:34.866Z",
       "source": "scan"
     },
     ".cursor/rules/openwolf.mdc": {
@@ -60,34 +60,34 @@
       "hash": "25a895da2047ef4d",
       "size": 323,
       "mtimeMs": 1794393410371.6802,
-      "updatedAt": "2026-11-11T13:08:59.810Z",
+      "updatedAt": "2026-11-11T15:12:34.866Z",
       "source": "scan"
     },
     ".DS_Store": {
       "description": "",
       "tokens": 2732,
-      "hash": "088a3f5b2fecd9d5",
+      "hash": "c381cea7862a61d5",
       "size": 10244,
-      "mtimeMs": 1794393565213.4434,
-      "updatedAt": "2026-11-11T13:08:59.810Z",
+      "mtimeMs": 1794404284072.698,
+      "updatedAt": "2026-11-11T15:12:34.866Z",
       "source": "scan"
     },
     ".github/workflows/build-app-image.yml": {
       "description": "CI: Build App Image",
-      "tokens": 887,
-      "hash": "bf84c04ea3934b66",
-      "size": 3110,
-      "mtimeMs": 1794390052527.4417,
-      "updatedAt": "2026-11-11T13:08:59.810Z",
+      "tokens": 1352,
+      "hash": "7a834279de5ffe37",
+      "size": 4736,
+      "mtimeMs": 1794406929170.4458,
+      "updatedAt": "2026-11-11T15:12:34.867Z",
       "source": "scan"
     },
     ".github/workflows/deploy-sanity-studio.yml": {
       "description": "CI: Deploy Sanity Studio",
       "tokens": 802,
-      "hash": "b8ec5d2427fea54e",
+      "hash": "456533d3acd40534",
       "size": 2809,
-      "mtimeMs": 1794390052527.5488,
-      "updatedAt": "2026-11-11T13:08:59.811Z",
+      "mtimeMs": 1794404426211.5242,
+      "updatedAt": "2026-11-11T15:12:34.868Z",
       "source": "scan"
     },
     ".opencode/command/reframe.md": {
@@ -96,7 +96,7 @@
       "hash": "17a75695be5d4629",
       "size": 2221,
       "mtimeMs": 1794393410378.034,
-      "updatedAt": "2026-11-11T13:08:59.811Z",
+      "updatedAt": "2026-11-11T15:12:34.868Z",
       "source": "scan"
     },
     ".opencode/command/security-audit.md": {
@@ -105,7 +105,7 @@
       "hash": "e6f7e0b7337c9c86",
       "size": 2060,
       "mtimeMs": 1794393410377.7788,
-      "updatedAt": "2026-11-11T13:08:59.811Z",
+      "updatedAt": "2026-11-11T15:12:34.868Z",
       "source": "scan"
     },
     ".opencode/plugin/openwolf/anatomy.ts": {
@@ -114,7 +114,7 @@
       "hash": "de2a14445289179f",
       "size": 10257,
       "mtimeMs": 1794393410342.726,
-      "updatedAt": "2026-11-11T13:08:59.813Z",
+      "updatedAt": "2026-11-11T15:12:34.871Z",
       "source": "scan",
       "symbols": [
         {
@@ -230,7 +230,7 @@
       "hash": "0193b1022c8e098b",
       "size": 1881,
       "mtimeMs": 1794393410347.6611,
-      "updatedAt": "2026-11-11T13:08:59.814Z",
+      "updatedAt": "2026-11-11T15:12:34.871Z",
       "source": "scan",
       "symbols": [
         {
@@ -311,7 +311,7 @@
       "hash": "5044a1f76c74f535",
       "size": 3782,
       "mtimeMs": 1794393410348.0132,
-      "updatedAt": "2026-11-11T13:08:59.814Z",
+      "updatedAt": "2026-11-11T15:12:34.872Z",
       "source": "scan"
     },
     ".opencode/plugin/openwolf/post-read.ts": {
@@ -320,7 +320,7 @@
       "hash": "1bc80c56ad0cfd32",
       "size": 2200,
       "mtimeMs": 1794393410352.7798,
-      "updatedAt": "2026-11-11T13:08:59.814Z",
+      "updatedAt": "2026-11-11T15:12:34.872Z",
       "source": "scan",
       "symbols": [
         {
@@ -338,7 +338,7 @@
       "hash": "02ba6ccd8d82475c",
       "size": 11300,
       "mtimeMs": 1794393410353.4028,
-      "updatedAt": "2026-11-11T13:08:59.815Z",
+      "updatedAt": "2026-11-11T15:12:34.873Z",
       "source": "scan",
       "symbols": [
         {
@@ -405,7 +405,7 @@
       "hash": "88c051b64b073c6a",
       "size": 2401,
       "mtimeMs": 1794393410353.7964,
-      "updatedAt": "2026-11-11T13:08:59.816Z",
+      "updatedAt": "2026-11-11T15:12:34.874Z",
       "source": "scan",
       "symbols": [
         {
@@ -423,7 +423,7 @@
       "hash": "c3b34d216601e76f",
       "size": 4092,
       "mtimeMs": 1794393410357.3738,
-      "updatedAt": "2026-11-11T13:08:59.816Z",
+      "updatedAt": "2026-11-11T15:12:34.874Z",
       "source": "scan",
       "symbols": [
         {
@@ -469,7 +469,7 @@
       "hash": "dda2df097f6d5874",
       "size": 3340,
       "mtimeMs": 1794393410357.9602,
-      "updatedAt": "2026-11-11T13:08:59.816Z",
+      "updatedAt": "2026-11-11T15:12:34.874Z",
       "source": "scan",
       "symbols": [
         {
@@ -508,7 +508,7 @@
       "hash": "5f8633a3904ee5ce",
       "size": 5057,
       "mtimeMs": 1794393410358.333,
-      "updatedAt": "2026-11-11T13:08:59.817Z",
+      "updatedAt": "2026-11-11T15:12:34.875Z",
       "source": "scan",
       "symbols": [
         {
@@ -547,7 +547,7 @@
       "hash": "47f4dfb03abf55f9",
       "size": 757,
       "mtimeMs": 1794393410362.7014,
-      "updatedAt": "2026-11-11T13:08:59.817Z",
+      "updatedAt": "2026-11-11T15:12:34.875Z",
       "source": "scan"
     },
     ".opencode/plugin/openwolf.ts": {
@@ -556,7 +556,7 @@
       "hash": "a29f91aadb9a324d",
       "size": 261,
       "mtimeMs": 1794393410363.553,
-      "updatedAt": "2026-11-11T13:08:59.818Z",
+      "updatedAt": "2026-11-11T15:12:34.876Z",
       "source": "scan"
     },
     "AGENTS.md": {
@@ -565,16 +565,16 @@
       "hash": "8c90778623bf50ac",
       "size": 271,
       "mtimeMs": 1794393410363.9883,
-      "updatedAt": "2026-11-11T13:08:59.818Z",
+      "updatedAt": "2026-11-11T15:12:34.876Z",
       "source": "scan"
     },
     "app/.DS_Store": {
       "description": "",
-      "tokens": 2186,
-      "hash": "b6f86e4461f109de",
-      "size": 8196,
-      "mtimeMs": 1794401479554.8765,
-      "updatedAt": "2026-11-11T13:08:59.818Z",
+      "tokens": 3824,
+      "hash": "8cc856c2182d7a92",
+      "size": 14340,
+      "mtimeMs": 1794403958312.9841,
+      "updatedAt": "2026-11-11T15:12:34.877Z",
       "source": "scan"
     },
     "app/.gitignore": {
@@ -582,8 +582,8 @@
       "tokens": 163,
       "hash": "96eff0801b968969",
       "size": 611,
-      "mtimeMs": 1794398864465.6233,
-      "updatedAt": "2026-11-11T13:08:59.819Z",
+      "mtimeMs": 1794404284088.0645,
+      "updatedAt": "2026-11-11T15:12:34.877Z",
       "source": "scan"
     },
     "app/design/contact.html": {
@@ -592,7 +592,7 @@
       "hash": "8ebbe8f97f00f952",
       "size": 70063,
       "mtimeMs": 1794393500111.2412,
-      "updatedAt": "2026-11-11T13:08:59.820Z",
+      "updatedAt": "2026-11-11T15:12:34.878Z",
       "source": "scan"
     },
     "app/design/google-ads-voor-mkb.html": {
@@ -601,7 +601,7 @@
       "hash": "960d52a7b9984fab",
       "size": 884273,
       "mtimeMs": 1794393474886.8423,
-      "updatedAt": "2026-11-11T13:08:59.824Z",
+      "updatedAt": "2026-11-11T15:12:34.882Z",
       "source": "scan"
     },
     "app/design/resultaten.html": {
@@ -610,16 +610,16 @@
       "hash": "48c1f124acc4df27",
       "size": 989946,
       "mtimeMs": 1794393492910.6975,
-      "updatedAt": "2026-11-11T13:08:59.830Z",
+      "updatedAt": "2026-11-11T15:12:34.887Z",
       "source": "scan"
     },
     "app/Dockerfile": {
       "description": "Docker container definition",
-      "tokens": 294,
-      "hash": "c8a0488797cac4e8",
-      "size": 1100,
-      "mtimeMs": 1794390052528.2185,
-      "updatedAt": "2026-11-11T13:08:59.831Z",
+      "tokens": 479,
+      "hash": "f03aca4f3c06f93e",
+      "size": 1795,
+      "mtimeMs": 1794406638390.499,
+      "updatedAt": "2026-11-11T15:12:34.888Z",
       "source": "scan"
     },
     "app/eslint.config.mjs": {
@@ -628,7 +628,7 @@
       "hash": "870f1adccecf3051",
       "size": 465,
       "mtimeMs": 1794390052528.3674,
-      "updatedAt": "2026-11-11T13:08:59.831Z",
+      "updatedAt": "2026-11-11T15:12:34.888Z",
       "source": "scan"
     },
     "app/netlify.toml": {
@@ -637,16 +637,16 @@
       "hash": "0ec233d7301739f1",
       "size": 798,
       "mtimeMs": 1794390052528.5366,
-      "updatedAt": "2026-11-11T13:08:59.832Z",
+      "updatedAt": "2026-11-11T15:12:34.889Z",
       "source": "scan"
     },
     "app/next-env.d.ts": {
       "description": "/ <reference types=\"next\" />",
-      "tokens": 71,
-      "hash": "7b550dda9686c16f",
-      "size": 247,
-      "mtimeMs": 1794402427360.7644,
-      "updatedAt": "2026-11-11T13:08:59.832Z",
+      "tokens": 72,
+      "hash": "7ad303e40d4fddf4",
+      "size": 251,
+      "mtimeMs": 1794403263044.0115,
+      "updatedAt": "2026-11-11T15:12:34.889Z",
       "source": "scan"
     },
     "app/next.config.ts": {
@@ -654,26 +654,26 @@
       "tokens": 518,
       "hash": "92db21e35dc2c962",
       "size": 1811,
-      "mtimeMs": 1794395734663.3943,
-      "updatedAt": "2026-11-11T13:08:59.832Z",
+      "mtimeMs": 1794404284088.7983,
+      "updatedAt": "2026-11-11T15:12:34.889Z",
       "source": "scan"
     },
     "app/package-lock.json": {
       "description": "npm lock file",
-      "tokens": 208179,
-      "hash": "f83b600e7d61d7e4",
-      "size": 728625,
-      "mtimeMs": 1794390081768.3713,
-      "updatedAt": "2026-11-11T13:08:59.835Z",
+      "tokens": 208545,
+      "hash": "bd07530e36ce89df",
+      "size": 729907,
+      "mtimeMs": 1794404284092.08,
+      "updatedAt": "2026-11-11T15:12:34.892Z",
       "source": "scan"
     },
     "app/package.json": {
       "description": "Node.js package manifest",
-      "tokens": 318,
-      "hash": "9a069279b83d655e",
-      "size": 1113,
-      "mtimeMs": 1794401964249.7986,
-      "updatedAt": "2026-11-11T13:08:59.835Z",
+      "tokens": 388,
+      "hash": "9c8991be0f3980af",
+      "size": 1357,
+      "mtimeMs": 1794409855513.776,
+      "updatedAt": "2026-11-11T15:12:34.892Z",
       "source": "scan"
     },
     "app/postcss.config.mjs": {
@@ -682,7 +682,7 @@
       "hash": "dfac7ac2d86d326a",
       "size": 94,
       "mtimeMs": 1794390052530.723,
-      "updatedAt": "2026-11-11T13:08:59.835Z",
+      "updatedAt": "2026-11-11T15:12:34.892Z",
       "source": "scan"
     },
     "app/public/images/advertisr/groovy-anton.webp": {
@@ -690,8 +690,8 @@
       "tokens": 14840,
       "hash": "58a9c1c700e3a158",
       "size": 58638,
-      "mtimeMs": 1794395374942.2917,
-      "updatedAt": "2026-11-11T13:08:59.837Z",
+      "mtimeMs": 1794404284109.1318,
+      "updatedAt": "2026-11-11T15:12:34.895Z",
       "source": "scan"
     },
     "app/public/images/advertisr/maxim-s-fashion-plus.webp": {
@@ -699,8 +699,8 @@
       "tokens": 20856,
       "hash": "8c7b53b4333fba51",
       "size": 82592,
-      "mtimeMs": 1794395374939.4417,
-      "updatedAt": "2026-11-11T13:08:59.840Z",
+      "mtimeMs": 1794404284155.0625,
+      "updatedAt": "2026-11-11T15:12:34.897Z",
       "source": "scan"
     },
     "app/scripts/backfill-google-reviews.ts": {
@@ -708,17 +708,56 @@
       "tokens": 310,
       "hash": "30e87c59c54ee24a",
       "size": 1085,
-      "mtimeMs": 1794401902338.977,
-      "updatedAt": "2026-11-11T13:08:59.840Z",
+      "mtimeMs": 1794404284188.9695,
+      "updatedAt": "2026-11-11T15:12:34.898Z",
       "source": "scan"
+    },
+    "app/scripts/check-form.ts": {
+      "description": "The smallest thing that fails when the CMS-driven form breaks.",
+      "tokens": 2709,
+      "hash": "0b1f76ba059ac4fb",
+      "size": 9493,
+      "mtimeMs": 1794409863982.1318,
+      "updatedAt": "2026-11-11T15:12:34.898Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "names",
+          "kind": "fn",
+          "startLine": 34,
+          "endLine": 114,
+          "tokens": 746
+        },
+        {
+          "name": "runFormQuery",
+          "kind": "fn",
+          "startLine": 115,
+          "endLine": 124,
+          "tokens": 110
+        },
+        {
+          "name": "checkAllowList",
+          "kind": "fn",
+          "startLine": 125,
+          "endLine": 203,
+          "tokens": 930
+        },
+        {
+          "name": "checkCaptcha",
+          "kind": "fn",
+          "startLine": 204,
+          "endLine": 248,
+          "tokens": 527
+        }
+      ]
     },
     "app/scripts/check-jsonld.ts": {
       "description": "The smallest thing that fails when the structured data quietly changes.",
       "tokens": 2331,
       "hash": "3345b74076ae3c51",
       "size": 8167,
-      "mtimeMs": 1794401976166.199,
-      "updatedAt": "2026-11-11T13:08:59.841Z",
+      "mtimeMs": 1794404284189.6348,
+      "updatedAt": "2026-11-11T15:12:34.899Z",
       "source": "scan",
       "symbols": [
         {
@@ -730,70 +769,155 @@
         }
       ]
     },
+    "app/scripts/import-wordpress.ts": {
+      "description": "One-off: imports the advertisr.nl WordPress posts as articles (first tag = category, HTML → Portable Text). `npm run import:wp [-- --dry]`.",
+      "tokens": 2725,
+      "hash": "03555370ff96a1d6",
+      "size": 9557,
+      "mtimeMs": 1794404284190.1768,
+      "updatedAt": "2026-11-11T15:12:34.899Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "doc",
+          "kind": "fn",
+          "startLine": 73,
+          "endLine": 73,
+          "tokens": 18
+        },
+        {
+          "name": "text",
+          "kind": "fn",
+          "startLine": 74,
+          "endLine": 86,
+          "tokens": 170
+        },
+        {
+          "name": "mapHref",
+          "kind": "fn",
+          "startLine": 87,
+          "endLine": 97,
+          "tokens": 100
+        },
+        {
+          "name": "span",
+          "kind": "fn",
+          "startLine": 98,
+          "endLine": 102,
+          "tokens": 27
+        },
+        {
+          "name": "bullet",
+          "kind": "fn",
+          "startLine": 103,
+          "endLine": 111,
+          "tokens": 42
+        },
+        {
+          "name": "toBody",
+          "kind": "fn",
+          "startLine": 112,
+          "endLine": 185,
+          "tokens": 805
+        },
+        {
+          "name": "main",
+          "kind": "fn",
+          "startLine": 186,
+          "endLine": 259,
+          "tokens": 811
+        }
+      ]
+    },
     "app/scripts/seed/content.ts": {
       "description": "The site's real copy, as it was in the approved designs. The service pages",
-      "tokens": 17365,
-      "hash": "503006cf3432c3cf",
-      "size": 60924,
-      "mtimeMs": 1794402319569.69,
-      "updatedAt": "2026-11-11T13:08:59.842Z",
+      "tokens": 16925,
+      "hash": "3c1e7a480f6d0809",
+      "size": 59381,
+      "mtimeMs": 1794409863981.2344,
+      "updatedAt": "2026-11-11T15:12:34.900Z",
       "source": "scan",
       "symbols": [
         {
           "name": "link",
           "kind": "fn",
           "startLine": 17,
-          "endLine": 236,
-          "tokens": 3679
+          "endLine": 215,
+          "tokens": 3356
         },
         {
           "name": "inlineCta",
           "kind": "fn",
-          "startLine": 237,
-          "endLine": 407,
+          "startLine": 216,
+          "endLine": 386,
           "tokens": 3648
         },
         {
           "name": "reviewsBlock",
           "kind": "fn",
-          "startLine": 408,
-          "endLine": 408,
+          "startLine": 387,
+          "endLine": 387,
           "tokens": 45
         },
         {
           "name": "logos",
           "kind": "fn",
-          "startLine": 409,
-          "endLine": 409,
+          "startLine": 388,
+          "endLine": 388,
           "tokens": 41
         },
         {
           "name": "faqs",
           "kind": "fn",
-          "startLine": 410,
-          "endLine": 410,
+          "startLine": 389,
+          "endLine": 389,
           "tokens": 46
         },
         {
           "name": "finalCta",
           "kind": "fn",
-          "startLine": 411,
-          "endLine": 420,
-          "tokens": 141
+          "startLine": 390,
+          "endLine": 400,
+          "tokens": 156
         },
         {
           "name": "steps",
           "kind": "fn",
-          "startLine": 421,
-          "endLine": 759,
-          "tokens": 5597
+          "startLine": 401,
+          "endLine": 735,
+          "tokens": 5459
         },
         {
           "name": "shot",
           "kind": "fn",
-          "startLine": 760,
-          "endLine": 974,
-          "tokens": 4006
+          "startLine": 736,
+          "endLine": 953,
+          "tokens": 4011
+        }
+      ]
+    },
+    "app/scripts/seed/forms.ts": {
+      "description": "The form documents and Form settings. No Sanity client in here, so `check:form` can import it.",
+      "tokens": 1138,
+      "hash": "7f3d4995b837aa58",
+      "size": 3982,
+      "mtimeMs": 1794409863981.4722,
+      "updatedAt": "2026-11-11T15:12:34.900Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "field",
+          "kind": "fn",
+          "startLine": 2,
+          "endLine": 13,
+          "tokens": 230
+        },
+        {
+          "name": "message",
+          "kind": "fn",
+          "startLine": 14,
+          "endLine": 93,
+          "tokens": 878
         }
       ]
     },
@@ -802,8 +926,8 @@
       "tokens": 1399,
       "hash": "982c2c6abfa62407",
       "size": 4903,
-      "mtimeMs": 1794401662490.745,
-      "updatedAt": "2026-11-11T13:08:59.842Z",
+      "mtimeMs": 1794404284192.2627,
+      "updatedAt": "2026-11-11T15:12:34.900Z",
       "source": "scan",
       "symbols": [
         {
@@ -887,82 +1011,82 @@
     },
     "app/scripts/seed/pages/ai-agent-workflows.json": {
       "description": "",
-      "tokens": 4144,
-      "hash": "d38ec10827baab00",
-      "size": 14522,
-      "mtimeMs": 1794401619015.8296,
-      "updatedAt": "2026-11-11T13:08:59.842Z",
+      "tokens": 4123,
+      "hash": "7c8a7de591bdd861",
+      "size": 14449,
+      "mtimeMs": 1794409718159.2869,
+      "updatedAt": "2026-11-11T15:12:34.901Z",
       "source": "scan"
     },
     "app/scripts/seed/pages/data-analytics.json": {
       "description": "",
-      "tokens": 3828,
-      "hash": "143126f9c1e61a52",
-      "size": 13415,
-      "mtimeMs": 1794401619022.224,
-      "updatedAt": "2026-11-11T13:08:59.843Z",
+      "tokens": 3795,
+      "hash": "919f1b71c31a34a1",
+      "size": 13300,
+      "mtimeMs": 1794409718163.8877,
+      "updatedAt": "2026-11-11T15:12:34.901Z",
       "source": "scan"
     },
     "app/scripts/seed/pages/google-ads.json": {
       "description": "",
-      "tokens": 4158,
-      "hash": "037f5c285020cac3",
-      "size": 14568,
-      "mtimeMs": 1794401619008.915,
-      "updatedAt": "2026-11-11T13:08:59.843Z",
+      "tokens": 4128,
+      "hash": "5ae8b59a764ceb10",
+      "size": 14464,
+      "mtimeMs": 1794409718166.9478,
+      "updatedAt": "2026-11-11T15:12:34.902Z",
       "source": "scan"
     },
     "app/scripts/seed/pages/marketing-automation.json": {
       "description": "",
-      "tokens": 3762,
-      "hash": "04f2f64f6d183121",
-      "size": 13176,
-      "mtimeMs": 1794401619028.6301,
-      "updatedAt": "2026-11-11T13:08:59.843Z",
+      "tokens": 3741,
+      "hash": "cfc310a833c64df8",
+      "size": 13102,
+      "mtimeMs": 1794409718160.8506,
+      "updatedAt": "2026-11-11T15:12:34.902Z",
       "source": "scan"
     },
     "app/scripts/seed/pages/meta-ads.json": {
       "description": "",
-      "tokens": 4089,
-      "hash": "16e545da995cb5f8",
-      "size": 14333,
-      "mtimeMs": 1794401619002.412,
-      "updatedAt": "2026-11-11T13:08:59.844Z",
+      "tokens": 4060,
+      "hash": "39a7953cbb9006dc",
+      "size": 14229,
+      "mtimeMs": 1794409718162.4995,
+      "updatedAt": "2026-11-11T15:12:34.903Z",
       "source": "scan"
     },
     "app/scripts/seed/pages/social-media-organisch.json": {
       "description": "",
-      "tokens": 4707,
-      "hash": "a7cf1044c49a0cdb",
-      "size": 16510,
-      "mtimeMs": 1794401619039.8103,
-      "updatedAt": "2026-11-11T13:08:59.844Z",
+      "tokens": 4683,
+      "hash": "45480775e809a8bb",
+      "size": 16424,
+      "mtimeMs": 1794409718165.6677,
+      "updatedAt": "2026-11-11T15:12:34.903Z",
       "source": "scan"
     },
     "app/scripts/seed/pages/web-development.json": {
       "description": "",
-      "tokens": 4036,
-      "hash": "f4719251c8599cc3",
-      "size": 14132,
-      "mtimeMs": 1794401619034.0876,
-      "updatedAt": "2026-11-11T13:08:59.844Z",
+      "tokens": 4006,
+      "hash": "97dee28cd29cbb63",
+      "size": 14028,
+      "mtimeMs": 1794409718168.359,
+      "updatedAt": "2026-11-11T15:12:34.905Z",
       "source": "scan"
     },
     "app/scripts/seed.ts": {
       "description": "Fills the dataset with the site's real content: settings, shared documents",
-      "tokens": 722,
-      "hash": "5caa417bde2a8b09",
-      "size": 2526,
-      "mtimeMs": 1794401879528.2656,
-      "updatedAt": "2026-11-11T13:08:59.844Z",
+      "tokens": 772,
+      "hash": "ab26d67d0bf13da9",
+      "size": 2699,
+      "mtimeMs": 1794409863981.6301,
+      "updatedAt": "2026-11-11T15:12:34.906Z",
       "source": "scan",
       "symbols": [
         {
           "name": "main",
           "kind": "fn",
-          "startLine": 22,
-          "endLine": 57,
-          "tokens": 431
+          "startLine": 23,
+          "endLine": 59,
+          "tokens": 465
         }
       ]
     },
@@ -972,16 +1096,16 @@
       "hash": "a1c8602a5143bb25",
       "size": 256,
       "mtimeMs": 1794390052532.78,
-      "updatedAt": "2026-11-11T13:08:59.845Z",
+      "updatedAt": "2026-11-11T15:12:34.906Z",
       "source": "scan"
     },
     "app/sentry.options.ts": {
       "description": "One source of Sentry settings for the client, the server and the edge",
       "tokens": 291,
-      "hash": "a8271f36f1fc1bd9",
+      "hash": "44a2186e4ccd5c52",
       "size": 1020,
-      "mtimeMs": 1794390052532.8755,
-      "updatedAt": "2026-11-11T13:08:59.845Z",
+      "mtimeMs": 1794406654933.0151,
+      "updatedAt": "2026-11-11T15:12:34.906Z",
       "source": "scan"
     },
     "app/sentry.server.config.ts": {
@@ -990,7 +1114,16 @@
       "hash": "cd70f1e833d830dd",
       "size": 240,
       "mtimeMs": 1794390052532.969,
-      "updatedAt": "2026-11-11T13:08:59.845Z",
+      "updatedAt": "2026-11-11T15:12:34.907Z",
+      "source": "scan"
+    },
+    "app/src/.DS_Store": {
+      "description": "",
+      "tokens": 2186,
+      "hash": "7f935109dc369bd7",
+      "size": 8196,
+      "mtimeMs": 1794404204648.8394,
+      "updatedAt": "2026-11-11T15:12:34.907Z",
       "source": "scan"
     },
     "app/src/app/(landing)/groeiplan/page.tsx": {
@@ -998,8 +1131,8 @@
       "tokens": 82,
       "hash": "a81130a6f1e41b1b",
       "size": 287,
-      "mtimeMs": 1794402002271.4636,
-      "updatedAt": "2026-11-11T13:08:59.846Z",
+      "mtimeMs": 1794404284198.401,
+      "updatedAt": "2026-11-11T15:12:34.907Z",
       "source": "scan"
     },
     "app/src/app/(landing)/layout.tsx": {
@@ -1007,8 +1140,8 @@
       "tokens": 533,
       "hash": "a16a4ca347c215d5",
       "size": 1864,
-      "mtimeMs": 1794401266998.6814,
-      "updatedAt": "2026-11-11T13:08:59.846Z",
+      "mtimeMs": 1794404284199.1755,
+      "updatedAt": "2026-11-11T15:12:34.908Z",
       "source": "scan",
       "symbols": [
         {
@@ -1025,8 +1158,8 @@
       "tokens": 356,
       "hash": "c4e52a526804918c",
       "size": 1245,
-      "mtimeMs": 1794402002274.725,
-      "updatedAt": "2026-11-11T13:08:59.846Z",
+      "mtimeMs": 1794404284199.8247,
+      "updatedAt": "2026-11-11T15:12:34.908Z",
       "source": "scan"
     },
     "app/src/app/(site)/kennisbank/[slug]/page.tsx": {
@@ -1034,8 +1167,8 @@
       "tokens": 4316,
       "hash": "c45e31de2a58612d",
       "size": 15109,
-      "mtimeMs": 1794402319570.7664,
-      "updatedAt": "2026-11-11T13:08:59.847Z",
+      "mtimeMs": 1794404284200.7031,
+      "updatedAt": "2026-11-11T15:12:34.908Z",
       "source": "scan",
       "symbols": [
         {
@@ -1087,8 +1220,8 @@
       "tokens": 81,
       "hash": "ed837eb98993899d",
       "size": 283,
-      "mtimeMs": 1794402002268.3254,
-      "updatedAt": "2026-11-11T13:08:59.847Z",
+      "mtimeMs": 1794404284201.333,
+      "updatedAt": "2026-11-11T15:12:34.908Z",
       "source": "scan"
     },
     "app/src/app/(site)/layout.tsx": {
@@ -1096,8 +1229,8 @@
       "tokens": 155,
       "hash": "2adc2f66a79cd6ed",
       "size": 542,
-      "mtimeMs": 1794401266994.7295,
-      "updatedAt": "2026-11-11T13:08:59.847Z",
+      "mtimeMs": 1794404284201.738,
+      "updatedAt": "2026-11-11T15:12:34.909Z",
       "source": "scan"
     },
     "app/src/app/(site)/page.tsx": {
@@ -1105,8 +1238,8 @@
       "tokens": 70,
       "hash": "5c0045648fced77d",
       "size": 244,
-      "mtimeMs": 1794402002264.8384,
-      "updatedAt": "2026-11-11T13:08:59.848Z",
+      "mtimeMs": 1794404284202.2417,
+      "updatedAt": "2026-11-11T15:12:34.909Z",
       "source": "scan"
     },
     "app/src/app/api/google-reviews/route.ts": {
@@ -1114,8 +1247,8 @@
       "tokens": 787,
       "hash": "07257dc54102c36f",
       "size": 2758,
-      "mtimeMs": 1794401901827.5405,
-      "updatedAt": "2026-11-11T13:08:59.848Z",
+      "mtimeMs": 1794404284202.7842,
+      "updatedAt": "2026-11-11T15:12:34.909Z",
       "source": "scan",
       "symbols": [
         {
@@ -1147,26 +1280,8 @@
       "hash": "df196ad005aa19cc",
       "size": 366,
       "mtimeMs": 1794390052533.6838,
-      "updatedAt": "2026-11-11T13:08:59.848Z",
+      "updatedAt": "2026-11-11T15:12:34.909Z",
       "source": "scan"
-    },
-    "app/src/app/api/lead/route.ts": {
-      "description": "The Advertisr. lead form (\"Ontvang je gratis groeiplan\"), posted by",
-      "tokens": 805,
-      "hash": "f3b484d6fbe05f22",
-      "size": 2818,
-      "mtimeMs": 1794402475669.3303,
-      "updatedAt": "2026-11-11T13:08:59.849Z",
-      "source": "scan",
-      "symbols": [
-        {
-          "name": "POST",
-          "kind": "fn",
-          "startLine": 25,
-          "endLine": 79,
-          "tokens": 557
-        }
-      ]
     },
     "app/src/app/api/revalidate/route.ts": {
       "description": "Expires the cached Sanity reads. Two callers:",
@@ -1174,7 +1289,7 @@
       "hash": "202b331b2fe71f71",
       "size": 2562,
       "mtimeMs": 1794390052533.861,
-      "updatedAt": "2026-11-11T13:08:59.849Z",
+      "updatedAt": "2026-11-11T15:12:34.909Z",
       "source": "scan",
       "symbols": [
         {
@@ -1213,8 +1328,72 @@
       "hash": "fb2255b940e45556",
       "size": 570,
       "mtimeMs": 1794390052534.0115,
-      "updatedAt": "2026-11-11T13:08:59.849Z",
+      "updatedAt": "2026-11-11T15:12:34.910Z",
       "source": "scan"
+    },
+    "app/src/app/api/submit-form/route.ts": {
+      "description": "Bigger uploads are rejected rather than silently dropped from the mail.",
+      "tokens": 2131,
+      "hash": "e8129d7bfdd167b3",
+      "size": 7462,
+      "mtimeMs": 1794409557461.753,
+      "updatedAt": "2026-11-11T15:12:34.910Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "fail",
+          "kind": "fn",
+          "startLine": 16,
+          "endLine": 20,
+          "tokens": 57
+        },
+        {
+          "name": "splitEmails",
+          "kind": "fn",
+          "startLine": 21,
+          "endLine": 27,
+          "tokens": 42
+        },
+        {
+          "name": "POST",
+          "kind": "fn",
+          "startLine": 28,
+          "endLine": 203,
+          "tokens": 1850
+        }
+      ]
+    },
+    "app/src/app/api/test-mail/route.ts": {
+      "description": "Sends one test mail with the published Form settings — the \"Send test mail\"",
+      "tokens": 1051,
+      "hash": "ca70b53f0a4def19",
+      "size": 3680,
+      "mtimeMs": 1794409557462.0393,
+      "updatedAt": "2026-11-11T15:12:34.911Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "reply",
+          "kind": "fn",
+          "startLine": 32,
+          "endLine": 35,
+          "tokens": 39
+        },
+        {
+          "name": "OPTIONS",
+          "kind": "fn",
+          "startLine": 36,
+          "endLine": 39,
+          "tokens": 28
+        },
+        {
+          "name": "POST",
+          "kind": "fn",
+          "startLine": 40,
+          "endLine": 92,
+          "tokens": 650
+        }
+      ]
     },
     "app/src/app/global-error.tsx": {
       "description": "Last-resort error boundary: it replaces the root layout, so it renders its",
@@ -1222,7 +1401,7 @@
       "hash": "43ef850981c27370",
       "size": 836,
       "mtimeMs": 1794390052534.4355,
-      "updatedAt": "2026-11-11T13:08:59.849Z",
+      "updatedAt": "2026-11-11T15:12:34.911Z",
       "source": "scan"
     },
     "app/src/app/globals.css": {
@@ -1230,8 +1409,8 @@
       "tokens": 2286,
       "hash": "762c1a94765eb29a",
       "size": 8006,
-      "mtimeMs": 1794397033240.346,
-      "updatedAt": "2026-11-11T13:08:59.850Z",
+      "mtimeMs": 1794404284205.4844,
+      "updatedAt": "2026-11-11T15:12:34.911Z",
       "source": "scan"
     },
     "app/src/app/layout.tsx": {
@@ -1239,17 +1418,17 @@
       "tokens": 455,
       "hash": "ce375e6e7ac97a6d",
       "size": 1592,
-      "mtimeMs": 1794402263890.9812,
-      "updatedAt": "2026-11-11T13:08:59.850Z",
+      "mtimeMs": 1794404284207.7017,
+      "updatedAt": "2026-11-11T15:12:34.911Z",
       "source": "scan"
     },
     "app/src/app/manifest.ts": {
       "description": "Declares manifest",
-      "tokens": 113,
-      "hash": "77a25b347071def2",
-      "size": 394,
-      "mtimeMs": 1794402447957.6118,
-      "updatedAt": "2026-11-11T13:08:59.850Z",
+      "tokens": 197,
+      "hash": "af82e6c0e8a3e1db",
+      "size": 689,
+      "mtimeMs": 1794404284208.2935,
+      "updatedAt": "2026-11-11T15:12:34.912Z",
       "source": "scan"
     },
     "app/src/app/not-found.tsx": {
@@ -1257,8 +1436,8 @@
       "tokens": 188,
       "hash": "b5252efaac8beaae",
       "size": 655,
-      "mtimeMs": 1794402072761.8445,
-      "updatedAt": "2026-11-11T13:08:59.851Z",
+      "mtimeMs": 1794404284208.8232,
+      "updatedAt": "2026-11-11T15:12:34.912Z",
       "source": "scan"
     },
     "app/src/app/robots.ts": {
@@ -1267,7 +1446,7 @@
       "hash": "32a9a14000924349",
       "size": 526,
       "mtimeMs": 1794390052535.3433,
-      "updatedAt": "2026-11-11T13:08:59.851Z",
+      "updatedAt": "2026-11-11T15:12:34.912Z",
       "source": "scan"
     },
     "app/src/app/sentry-test/page.tsx": {
@@ -1275,8 +1454,8 @@
       "tokens": 382,
       "hash": "02d70d72ac011e67",
       "size": 1335,
-      "mtimeMs": 1794401025197.406,
-      "updatedAt": "2026-11-11T13:08:59.851Z",
+      "mtimeMs": 1794404284209.4412,
+      "updatedAt": "2026-11-11T15:12:34.912Z",
       "source": "scan"
     },
     "app/src/app/sitemap.ts": {
@@ -1284,60 +1463,67 @@
       "tokens": 382,
       "hash": "ffd2e0abf6bd98cb",
       "size": 1337,
-      "mtimeMs": 1794402072764.7744,
-      "updatedAt": "2026-11-11T13:08:59.851Z",
+      "mtimeMs": 1794404284209.9087,
+      "updatedAt": "2026-11-11T15:12:34.912Z",
       "source": "scan"
     },
     "app/src/components/advertisr/ArticleCard.tsx": {
       "description": "Line icons for the category art; the category document picks one and a colour.",
-      "tokens": 2056,
-      "hash": "8c49d8d39c51d83b",
-      "size": 7195,
-      "mtimeMs": 1794401290536.997,
-      "updatedAt": "2026-11-11T13:08:59.851Z",
+      "tokens": 2157,
+      "hash": "f183d6f671f3c4b1",
+      "size": 7550,
+      "mtimeMs": 1794404284212.2007,
+      "updatedAt": "2026-11-11T15:12:34.913Z",
       "source": "scan",
       "symbols": [
         {
           "name": "shortDate",
           "kind": "fn",
-          "startLine": 90,
-          "endLine": 94,
+          "startLine": 91,
+          "endLine": 95,
           "tokens": 83
         },
         {
           "name": "hrefOf",
           "kind": "fn",
-          "startLine": 95,
-          "endLine": 96,
-          "tokens": 29
+          "startLine": 96,
+          "endLine": 98,
+          "tokens": 48
+        },
+        {
+          "name": "CardArt",
+          "kind": "fn",
+          "startLine": 99,
+          "endLine": 107,
+          "tokens": 90
         },
         {
           "name": "CategoryArt",
           "kind": "fn",
-          "startLine": 97,
-          "endLine": 112,
+          "startLine": 108,
+          "endLine": 123,
           "tokens": 209
         },
         {
           "name": "Avatar",
           "kind": "fn",
-          "startLine": 113,
-          "endLine": 130,
+          "startLine": 124,
+          "endLine": 141,
           "tokens": 163
         },
         {
           "name": "PillarCard",
           "kind": "fn",
-          "startLine": 131,
-          "endLine": 165,
-          "tokens": 434
+          "startLine": 142,
+          "endLine": 176,
+          "tokens": 429
         },
         {
           "name": "ArticleCard",
           "kind": "fn",
-          "startLine": 166,
-          "endLine": 190,
-          "tokens": 355
+          "startLine": 177,
+          "endLine": 201,
+          "tokens": 349
         }
       ]
     },
@@ -1346,8 +1532,8 @@
       "tokens": 654,
       "hash": "93e3691d42b41dab",
       "size": 2287,
-      "mtimeMs": 1794401246158.747,
-      "updatedAt": "2026-11-11T13:08:59.852Z",
+      "mtimeMs": 1794404284212.817,
+      "updatedAt": "2026-11-11T15:12:34.913Z",
       "source": "scan",
       "symbols": [
         {
@@ -1364,8 +1550,8 @@
       "tokens": 672,
       "hash": "224afc555c58ca7e",
       "size": 2356,
-      "mtimeMs": 1794401143785.4792,
-      "updatedAt": "2026-11-11T13:08:59.852Z",
+      "mtimeMs": 1794404284217.5693,
+      "updatedAt": "2026-11-11T15:12:34.913Z",
       "source": "scan",
       "symbols": [
         {
@@ -1410,8 +1596,8 @@
       "tokens": 614,
       "hash": "b02492915615d3bf",
       "size": 2147,
-      "mtimeMs": 1794401246154.8557,
-      "updatedAt": "2026-11-11T13:08:59.852Z",
+      "mtimeMs": 1794404284213.2493,
+      "updatedAt": "2026-11-11T15:12:34.913Z",
       "source": "scan",
       "symbols": [
         {
@@ -1428,8 +1614,8 @@
       "tokens": 526,
       "hash": "6c38345c2c23cfdb",
       "size": 1839,
-      "mtimeMs": 1794401219507.2563,
-      "updatedAt": "2026-11-11T13:08:59.852Z",
+      "mtimeMs": 1794404284213.6318,
+      "updatedAt": "2026-11-11T15:12:34.913Z",
       "source": "scan",
       "symbols": [
         {
@@ -1446,50 +1632,92 @@
       "tokens": 468,
       "hash": "ca1feaf8db760f33",
       "size": 1638,
-      "mtimeMs": 1794401246162.483,
-      "updatedAt": "2026-11-11T13:08:59.853Z",
+      "mtimeMs": 1794404284213.9553,
+      "updatedAt": "2026-11-11T15:12:34.913Z",
       "source": "scan"
     },
     "app/src/components/advertisr/kennisbank.tsx": {
-      "description": "Category pills. Like the design, they only mark the active one; filtering comes with real content.",
-      "tokens": 748,
-      "hash": "5198d9facb6bb6cf",
-      "size": 2617,
-      "mtimeMs": 1794401312463.5376,
-      "updatedAt": "2026-11-11T13:08:59.853Z",
+      "description": "Kennisbank client bits: ArticleFilter context (search + category), FilterItem/Group/Empty (hide, never unmount), SearchBox, Pills, NewsletterForm.",
+      "tokens": 1088,
+      "hash": "532cc00d33e65923",
+      "size": 3806,
+      "mtimeMs": 1794409648539.7996,
+      "updatedAt": "2026-11-11T15:12:34.913Z",
       "source": "scan",
       "symbols": [
         {
-          "name": "Pills",
+          "name": "useFilter",
           "kind": "fn",
-          "startLine": 9,
-          "endLine": 31,
-          "tokens": 226
+          "startLine": 10,
+          "endLine": 16,
+          "tokens": 79
         },
         {
-          "name": "NewsletterForm",
+          "name": "ArticleFilter",
           "kind": "fn",
-          "startLine": 32,
-          "endLine": 74,
-          "tokens": 444
+          "startLine": 17,
+          "endLine": 30,
+          "tokens": 216
+        },
+        {
+          "name": "FilterItem",
+          "kind": "fn",
+          "startLine": 31,
+          "endLine": 35,
+          "tokens": 68
+        },
+        {
+          "name": "FilterGroup",
+          "kind": "fn",
+          "startLine": 36,
+          "endLine": 40,
+          "tokens": 65
+        },
+        {
+          "name": "FilterEmpty",
+          "kind": "fn",
+          "startLine": 41,
+          "endLine": 44,
+          "tokens": 54
+        },
+        {
+          "name": "SearchBox",
+          "kind": "fn",
+          "startLine": 45,
+          "endLine": 68,
+          "tokens": 282
+        },
+        {
+          "name": "Pills",
+          "kind": "fn",
+          "startLine": 69,
+          "endLine": 91,
+          "tokens": 210
         }
       ]
     },
     "app/src/components/advertisr/LeadForm.tsx": {
-      "description": "The `form` object on a block; empty fields fall back to the defaults in Site information.",
-      "tokens": 1563,
-      "hash": "1007a9a05de5fc73",
-      "size": 5468,
-      "mtimeMs": 1794401196805.363,
-      "updatedAt": "2026-11-11T13:08:59.853Z",
+      "description": "The block's resolved `form->` reference.",
+      "tokens": 625,
+      "hash": "889efcd66c0291fb",
+      "size": 2186,
+      "mtimeMs": 1794409648541.0088,
+      "updatedAt": "2026-11-11T15:12:34.913Z",
       "source": "scan",
       "symbols": [
         {
           "name": "LeadForm",
           "kind": "fn",
-          "startLine": 39,
-          "endLine": 130,
-          "tokens": 1174
+          "startLine": 22,
+          "endLine": 51,
+          "tokens": 310
+        },
+        {
+          "name": "NewsletterForm",
+          "kind": "fn",
+          "startLine": 52,
+          "endLine": 65,
+          "tokens": 112
         }
       ]
     },
@@ -1498,8 +1726,8 @@
       "tokens": 560,
       "hash": "858ff9ca1211b298",
       "size": 1957,
-      "mtimeMs": 1794401219514.9873,
-      "updatedAt": "2026-11-11T13:08:59.853Z",
+      "mtimeMs": 1794404284214.6433,
+      "updatedAt": "2026-11-11T15:12:34.914Z",
       "source": "scan",
       "symbols": [
         {
@@ -1516,8 +1744,8 @@
       "tokens": 309,
       "hash": "b54bc49444c43632",
       "size": 1080,
-      "mtimeMs": 1794395812466.3005,
-      "updatedAt": "2026-11-11T13:08:59.853Z",
+      "mtimeMs": 1794404284215.1514,
+      "updatedAt": "2026-11-11T15:12:34.914Z",
       "source": "scan"
     },
     "app/src/components/advertisr/Nav.tsx": {
@@ -1525,8 +1753,8 @@
       "tokens": 980,
       "hash": "0d2c94d6376e6f32",
       "size": 3439,
-      "mtimeMs": 1794402106520.2131,
-      "updatedAt": "2026-11-11T13:08:59.854Z",
+      "mtimeMs": 1794404284215.483,
+      "updatedAt": "2026-11-11T15:12:34.914Z",
       "source": "scan",
       "symbols": [
         {
@@ -1543,8 +1771,8 @@
       "tokens": 798,
       "hash": "bc5c1d75352beb3e",
       "size": 2814,
-      "mtimeMs": 1794401219511.2234,
-      "updatedAt": "2026-11-11T13:08:59.854Z",
+      "mtimeMs": 1794404284215.9204,
+      "updatedAt": "2026-11-11T15:12:34.914Z",
       "source": "scan",
       "symbols": [
         {
@@ -1565,11 +1793,11 @@
     },
     "app/src/components/advertisr/sections.tsx": {
       "description": "The default red button: the block's own, else \"Ontvang mijn groeiplan\" to the page's form.",
-      "tokens": 14706,
-      "hash": "716965ed1a8928e1",
-      "size": 51495,
-      "mtimeMs": 1794401470292.9973,
-      "updatedAt": "2026-11-11T13:08:59.855Z",
+      "tokens": 14816,
+      "hash": "cde11354315209ec",
+      "size": 51879,
+      "mtimeMs": 1794409648540.4355,
+      "updatedAt": "2026-11-11T15:12:34.915Z",
       "source": "scan",
       "symbols": [
         {
@@ -1647,7 +1875,7 @@
           "kind": "fn",
           "startLine": 517,
           "endLine": 562,
-          "tokens": 579
+          "tokens": 585
         },
         {
           "name": "ContactMethods",
@@ -1667,99 +1895,99 @@
           "name": "GroeiplanHero",
           "kind": "fn",
           "startLine": 615,
-          "endLine": 682,
-          "tokens": 838
+          "endLine": 683,
+          "tokens": 848
         },
         {
           "name": "ValueGrid",
           "kind": "fn",
-          "startLine": 683,
-          "endLine": 704,
+          "startLine": 684,
+          "endLine": 705,
           "tokens": 280
         },
         {
           "name": "StepsMedia",
           "kind": "fn",
-          "startLine": 705,
-          "endLine": 749,
+          "startLine": 706,
+          "endLine": 750,
           "tokens": 725
         },
         {
           "name": "QuoteBand",
           "kind": "fn",
-          "startLine": 750,
-          "endLine": 767,
+          "startLine": 751,
+          "endLine": 768,
           "tokens": 190
         },
         {
           "name": "Dots",
           "kind": "fn",
-          "startLine": 768,
-          "endLine": 774,
+          "startLine": 769,
+          "endLine": 775,
           "tokens": 64
         },
         {
           "name": "Shot",
           "kind": "fn",
-          "startLine": 775,
-          "endLine": 793,
+          "startLine": 776,
+          "endLine": 794,
           "tokens": 269
         },
         {
           "name": "ToolCards",
           "kind": "fn",
-          "startLine": 794,
-          "endLine": 843,
+          "startLine": 795,
+          "endLine": 844,
           "tokens": 736
         },
         {
           "name": "StepCards",
           "kind": "fn",
-          "startLine": 844,
-          "endLine": 866,
+          "startLine": 845,
+          "endLine": 867,
           "tokens": 339
         },
         {
           "name": "Tick",
           "kind": "fn",
-          "startLine": 867,
-          "endLine": 876,
+          "startLine": 868,
+          "endLine": 877,
           "tokens": 112
         },
         {
           "name": "Features",
           "kind": "fn",
-          "startLine": 877,
-          "endLine": 939,
+          "startLine": 878,
+          "endLine": 940,
           "tokens": 781
         },
         {
           "name": "Pillars",
           "kind": "fn",
-          "startLine": 940,
-          "endLine": 961,
+          "startLine": 941,
+          "endLine": 962,
           "tokens": 286
         },
         {
           "name": "Output",
           "kind": "fn",
-          "startLine": 962,
-          "endLine": 979,
+          "startLine": 963,
+          "endLine": 980,
           "tokens": 226
         },
         {
           "name": "ProcSteps",
           "kind": "fn",
-          "startLine": 980,
-          "endLine": 994,
+          "startLine": 981,
+          "endLine": 995,
           "tokens": 132
         },
         {
           "name": "ArticleIndex",
           "kind": "fn",
-          "startLine": 995,
-          "endLine": 1092,
-          "tokens": 1261
+          "startLine": 996,
+          "endLine": 1109,
+          "tokens": 1336
         }
       ]
     },
@@ -1768,8 +1996,8 @@
       "tokens": 6171,
       "hash": "6e22c1cc7ce83d3b",
       "size": 21603,
-      "mtimeMs": 1794402091860.2292,
-      "updatedAt": "2026-11-11T13:08:59.855Z",
+      "mtimeMs": 1794404284220.4812,
+      "updatedAt": "2026-11-11T15:12:34.916Z",
       "source": "scan",
       "symbols": [
         {
@@ -1870,8 +2098,8 @@
       "tokens": 322,
       "hash": "2b49c4bc81d441dc",
       "size": 1130,
-      "mtimeMs": 1794402053457.282,
-      "updatedAt": "2026-11-11T13:08:59.855Z",
+      "mtimeMs": 1794404284216.352,
+      "updatedAt": "2026-11-11T15:12:34.916Z",
       "source": "scan"
     },
     "app/src/components/advertisr/SiteEffects.tsx": {
@@ -1879,8 +2107,8 @@
       "tokens": 1080,
       "hash": "62c88e530cf6801d",
       "size": 3779,
-      "mtimeMs": 1794395594577.6345,
-      "updatedAt": "2026-11-11T13:08:59.856Z",
+      "mtimeMs": 1794404284216.725,
+      "updatedAt": "2026-11-11T15:12:34.916Z",
       "source": "scan",
       "symbols": [
         {
@@ -1897,8 +2125,8 @@
       "tokens": 631,
       "hash": "7d79978e5189acf0",
       "size": 2208,
-      "mtimeMs": 1794401312463.875,
-      "updatedAt": "2026-11-11T13:08:59.856Z",
+      "mtimeMs": 1794404284217.1604,
+      "updatedAt": "2026-11-11T15:12:34.916Z",
       "source": "scan",
       "symbols": [
         {
@@ -1915,8 +2143,8 @@
       "tokens": 1887,
       "hash": "7821481b51881a0b",
       "size": 6606,
-      "mtimeMs": 1794401151419.7717,
-      "updatedAt": "2026-11-11T13:08:59.856Z",
+      "mtimeMs": 1794404284221.1055,
+      "updatedAt": "2026-11-11T15:12:34.916Z",
       "source": "scan",
       "symbols": [
         {
@@ -2017,8 +2245,8 @@
       "tokens": 4996,
       "hash": "af0ff9bd9204bcc1",
       "size": 17534,
-      "mtimeMs": 1794396911644.788,
-      "updatedAt": "2026-11-11T13:08:59.857Z",
+      "mtimeMs": 1794404284221.6177,
+      "updatedAt": "2026-11-11T15:12:34.917Z",
       "source": "scan",
       "symbols": [
         {
@@ -2105,8 +2333,8 @@
       "tokens": 560,
       "hash": "553665c7137e0230",
       "size": 1957,
-      "mtimeMs": 1794402002255.5974,
-      "updatedAt": "2026-11-11T13:08:59.857Z",
+      "mtimeMs": 1794404284210.5688,
+      "updatedAt": "2026-11-11T15:12:34.917Z",
       "source": "scan",
       "symbols": [
         {
@@ -2132,22 +2360,104 @@
         }
       ]
     },
+    "app/src/components/form/Captcha.tsx": {
+      "description": "Public half of the spam-check settings — the secret stays server-side.",
+      "tokens": 1344,
+      "hash": "ee96da47c574505b",
+      "size": 4711,
+      "mtimeMs": 1794409444506.9607,
+      "updatedAt": "2026-11-11T15:12:34.917Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "loadScript",
+          "kind": "fn",
+          "startLine": 38,
+          "endLine": 64,
+          "tokens": 309
+        },
+        {
+          "name": "Captcha",
+          "kind": "fn",
+          "startLine": 65,
+          "endLine": 142,
+          "tokens": 644
+        }
+      ]
+    },
+    "app/src/components/form/fields.tsx": {
+      "description": "`card` is the lead-form card, `inline` a single row (the newsletter).",
+      "tokens": 1471,
+      "hash": "22545bab21c5aaf8",
+      "size": 5147,
+      "mtimeMs": 1794409579835.827,
+      "updatedAt": "2026-11-11T15:12:34.918Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "autoComplete",
+          "kind": "fn",
+          "startLine": 29,
+          "endLine": 38,
+          "tokens": 113
+        },
+        {
+          "name": "linkify",
+          "kind": "fn",
+          "startLine": 39,
+          "endLine": 56,
+          "tokens": 140
+        },
+        {
+          "name": "FormField",
+          "kind": "fn",
+          "startLine": 57,
+          "endLine": 156,
+          "tokens": 920
+        }
+      ]
+    },
+    "app/src/components/form/FormRenderer.tsx": {
+      "description": "Shared copy from Form settings: button fallbacks, progress, errors.",
+      "tokens": 3057,
+      "hash": "2ae9f9f0bebf38c9",
+      "size": 10719,
+      "mtimeMs": 1794409608482.179,
+      "updatedAt": "2026-11-11T15:12:34.918Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "SuccessPanel",
+          "kind": "fn",
+          "startLine": 54,
+          "endLine": 81,
+          "tokens": 340
+        },
+        {
+          "name": "FormRenderer",
+          "kind": "fn",
+          "startLine": 82,
+          "endLine": 277,
+          "tokens": 2195
+        }
+      ]
+    },
     "app/src/components/JsonLd.tsx": {
       "description": "Put one graph into the page.",
       "tokens": 98,
       "hash": "2f919953f124cec0",
       "size": 342,
       "mtimeMs": 1794390052536.0186,
-      "updatedAt": "2026-11-11T13:08:59.857Z",
+      "updatedAt": "2026-11-11T15:12:34.918Z",
       "source": "scan"
     },
     "app/src/components/PageBuilder.tsx": {
       "description": "Map one Sanity block onto its component. `prev` is the block before it:",
-      "tokens": 2962,
-      "hash": "b8662bc8658282c4",
-      "size": 10365,
-      "mtimeMs": 1794401514482.731,
-      "updatedAt": "2026-11-11T13:08:59.857Z",
+      "tokens": 2973,
+      "hash": "98cc32b580734e18",
+      "size": 10403,
+      "mtimeMs": 1794409641496.7097,
+      "updatedAt": "2026-11-11T15:12:34.918Z",
       "source": "scan",
       "symbols": [
         {
@@ -2161,14 +2471,14 @@
           "name": "render",
           "kind": "fn",
           "startLine": 74,
-          "endLine": 272,
-          "tokens": 2089
+          "endLine": 273,
+          "tokens": 2100
         },
         {
           "name": "PageBuilder",
           "kind": "fn",
-          "startLine": 273,
-          "endLine": 282,
+          "startLine": 274,
+          "endLine": 283,
           "tokens": 75
         }
       ]
@@ -2178,8 +2488,8 @@
       "tokens": 679,
       "hash": "433f1375f75e377a",
       "size": 2383,
-      "mtimeMs": 1794401025197.02,
-      "updatedAt": "2026-11-11T13:08:59.857Z",
+      "mtimeMs": 1794404284211.5554,
+      "updatedAt": "2026-11-11T15:12:34.919Z",
       "source": "scan",
       "symbols": [
         {
@@ -2197,7 +2507,7 @@
       "hash": "0a7755b4be8a0b61",
       "size": 3032,
       "mtimeMs": 1794390052536.7144,
-      "updatedAt": "2026-11-11T13:08:59.858Z",
+      "updatedAt": "2026-11-11T15:12:34.919Z",
       "source": "scan",
       "symbols": [
         {
@@ -2222,7 +2532,7 @@
       "hash": "fd8bd47a20347fe6",
       "size": 976,
       "mtimeMs": 1794390052540.9365,
-      "updatedAt": "2026-11-11T13:08:59.858Z",
+      "updatedAt": "2026-11-11T15:12:34.919Z",
       "source": "scan"
     },
     "app/src/instrumentation.ts": {
@@ -2231,7 +2541,16 @@
       "hash": "a53714662dd6eff4",
       "size": 722,
       "mtimeMs": 1794390052541.0354,
-      "updatedAt": "2026-11-11T13:08:59.858Z",
+      "updatedAt": "2026-11-11T15:12:34.919Z",
+      "source": "scan"
+    },
+    "app/src/lib/captcha.ts": {
+      "description": "Server half of the form spam check. No Next.js in here, so the verdicts can",
+      "tokens": 498,
+      "hash": "6b850a4085b904ec",
+      "size": 1744,
+      "mtimeMs": 1794409444431.9075,
+      "updatedAt": "2026-11-11T15:12:34.919Z",
       "source": "scan"
     },
     "app/src/lib/cn.ts": {
@@ -2240,17 +2559,70 @@
       "hash": "ec1499e69cf8ab14",
       "size": 129,
       "mtimeMs": 1794390052541.536,
-      "updatedAt": "2026-11-11T13:08:59.858Z",
+      "updatedAt": "2026-11-11T15:12:34.919Z",
       "source": "scan"
     },
     "app/src/lib/env.ts": {
       "description": "Sanity connection details and analytics ids, read from the environment.",
       "tokens": 380,
-      "hash": "8e87940b279b29c7",
+      "hash": "523b6b7176430ca4",
       "size": 1336,
-      "mtimeMs": 1794390052541.9514,
-      "updatedAt": "2026-11-11T13:08:59.859Z",
+      "mtimeMs": 1794406649683.789,
+      "updatedAt": "2026-11-11T15:12:34.919Z",
       "source": "scan"
+    },
+    "app/src/lib/form-fields.ts": {
+      "description": "Shape and layout rules for CMS-authored forms. No React in here, so the",
+      "tokens": 1937,
+      "hash": "62eaa40e5e595e80",
+      "size": 6786,
+      "mtimeMs": 1794409545401.0234,
+      "updatedAt": "2026-11-11T15:12:34.920Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "resolveFormText",
+          "kind": "fn",
+          "startLine": 29,
+          "endLine": 105,
+          "tokens": 649
+        },
+        {
+          "name": "toRedirect",
+          "kind": "fn",
+          "startLine": 106,
+          "endLine": 120,
+          "tokens": 167
+        },
+        {
+          "name": "toSteps",
+          "kind": "fn",
+          "startLine": 121,
+          "endLine": 132,
+          "tokens": 123
+        },
+        {
+          "name": "fillTokens",
+          "kind": "fn",
+          "startLine": 133,
+          "endLine": 144,
+          "tokens": 126
+        },
+        {
+          "name": "toFieldRows",
+          "kind": "fn",
+          "startLine": 145,
+          "endLine": 163,
+          "tokens": 182
+        },
+        {
+          "name": "toFormDefinition",
+          "kind": "fn",
+          "startLine": 164,
+          "endLine": 209,
+          "tokens": 464
+        }
+      ]
     },
     "app/src/lib/form-mail.ts": {
       "description": "The mails `POST /api/submit-form` sends.",
@@ -2258,7 +2630,7 @@
       "hash": "b537639e4583d7d2",
       "size": 5910,
       "mtimeMs": 1794390052542.2058,
-      "updatedAt": "2026-11-11T13:08:59.859Z",
+      "updatedAt": "2026-11-11T15:12:34.920Z",
       "source": "scan",
       "symbols": [
         {
@@ -2303,8 +2675,8 @@
       "tokens": 3395,
       "hash": "82aebd9ec80f27cc",
       "size": 11888,
-      "mtimeMs": 1794401901291.881,
-      "updatedAt": "2026-11-11T13:08:59.859Z",
+      "mtimeMs": 1794404284222.1494,
+      "updatedAt": "2026-11-11T15:12:34.920Z",
       "source": "scan",
       "symbols": [
         {
@@ -2377,8 +2749,8 @@
       "tokens": 2941,
       "hash": "701f34c6600f4088",
       "size": 10307,
-      "mtimeMs": 1794401948035.3474,
-      "updatedAt": "2026-11-11T13:08:59.859Z",
+      "mtimeMs": 1794404284222.63,
+      "updatedAt": "2026-11-11T15:12:34.921Z",
       "source": "scan",
       "symbols": [
         {
@@ -2486,60 +2858,60 @@
       "tokens": 269,
       "hash": "b3ff02bc6c7950ac",
       "size": 941,
-      "mtimeMs": 1794401133170.4187,
-      "updatedAt": "2026-11-11T13:08:59.860Z",
+      "mtimeMs": 1794404284223.1855,
+      "updatedAt": "2026-11-11T15:12:34.921Z",
       "source": "scan"
     },
     "app/src/lib/mail.ts": {
-      "description": "Mail sending for `/api/lead`: Mailjet's or Resend's HTTP API, or an SMTP",
-      "tokens": 2023,
-      "hash": "e55da887ce659ead",
-      "size": 7080,
-      "mtimeMs": 1794401035589.7356,
-      "updatedAt": "2026-11-11T13:08:59.860Z",
+      "description": "Mail sending for `/api/submit-form` and `/api/test-mail`: Mailjet's or",
+      "tokens": 2209,
+      "hash": "acffb5aba234a69a",
+      "size": 7734,
+      "mtimeMs": 1794409502950.3582,
+      "updatedAt": "2026-11-11T15:12:34.921Z",
       "source": "scan",
       "symbols": [
         {
           "name": "sendViaMailjet",
           "kind": "fn",
-          "startLine": 35,
-          "endLine": 72,
+          "startLine": 39,
+          "endLine": 76,
           "tokens": 359
         },
         {
           "name": "sendViaResend",
           "kind": "fn",
-          "startLine": 73,
-          "endLine": 109,
+          "startLine": 77,
+          "endLine": 113,
           "tokens": 388
         },
         {
           "name": "sendViaSmtp",
           "kind": "fn",
-          "startLine": 110,
-          "endLine": 138,
+          "startLine": 114,
+          "endLine": 142,
           "tokens": 264
         },
         {
           "name": "sendMail",
           "kind": "fn",
-          "startLine": 139,
-          "endLine": 148,
-          "tokens": 122
+          "startLine": 143,
+          "endLine": 153,
+          "tokens": 137
         },
         {
           "name": "resolveMailSettings",
           "kind": "fn",
-          "startLine": 149,
-          "endLine": 199,
-          "tokens": 579
+          "startLine": 154,
+          "endLine": 206,
+          "tokens": 686
         },
         {
           "name": "missingMailMessage",
           "kind": "fn",
-          "startLine": 200,
-          "endLine": 203,
-          "tokens": 56
+          "startLine": 207,
+          "endLine": 210,
+          "tokens": 67
         }
       ]
     },
@@ -2549,7 +2921,7 @@
       "hash": "64ead4d2f84da32b",
       "size": 328,
       "mtimeMs": 1794390052542.6687,
-      "updatedAt": "2026-11-11T13:08:59.860Z",
+      "updatedAt": "2026-11-11T15:12:34.921Z",
       "source": "scan"
     },
     "app/src/lib/sentry-test.ts": {
@@ -2558,7 +2930,7 @@
       "hash": "1ec0fdb113ba1ffb",
       "size": 637,
       "mtimeMs": 1794390052542.7517,
-      "updatedAt": "2026-11-11T13:08:59.860Z",
+      "updatedAt": "2026-11-11T15:12:34.921Z",
       "source": "scan"
     },
     "app/src/lib/site-url.ts": {
@@ -2566,24 +2938,24 @@
       "tokens": 85,
       "hash": "991d1674b12841ce",
       "size": 295,
-      "mtimeMs": 1794401947851.8257,
-      "updatedAt": "2026-11-11T13:08:59.860Z",
+      "mtimeMs": 1794404284224.7773,
+      "updatedAt": "2026-11-11T15:12:34.921Z",
       "source": "scan"
     },
     "app/src/lib/site.ts": {
       "description": "The site's public origin, without a trailing slash. From the environment:",
-      "tokens": 899,
-      "hash": "e881ac2f13d47c2f",
-      "size": 3145,
-      "mtimeMs": 1794401948034.923,
-      "updatedAt": "2026-11-11T13:08:59.861Z",
+      "tokens": 1085,
+      "hash": "270d31c1b028d2a3",
+      "size": 3796,
+      "mtimeMs": 1794409617295.383,
+      "updatedAt": "2026-11-11T15:12:34.922Z",
       "source": "scan",
       "symbols": [
         {
           "name": "mailtoHref",
           "kind": "fn",
-          "startLine": 84,
-          "endLine": 87,
+          "startLine": 95,
+          "endLine": 98,
           "tokens": 24
         }
       ]
@@ -2594,7 +2966,7 @@
       "hash": "3224719ec2ccece7",
       "size": 1055,
       "mtimeMs": 1794390052543.0579,
-      "updatedAt": "2026-11-11T13:08:59.861Z",
+      "updatedAt": "2026-11-11T15:12:34.922Z",
       "source": "scan"
     },
     "app/src/sanity/fetch.ts": {
@@ -2603,7 +2975,7 @@
       "hash": "0b24cc64edbf9e5d",
       "size": 848,
       "mtimeMs": 1794390052543.189,
-      "updatedAt": "2026-11-11T13:08:59.861Z",
+      "updatedAt": "2026-11-11T15:12:34.922Z",
       "source": "scan"
     },
     "app/src/sanity/image-loader.ts": {
@@ -2612,7 +2984,7 @@
       "hash": "7582a22c511ca176",
       "size": 1488,
       "mtimeMs": 1794390052543.3054,
-      "updatedAt": "2026-11-11T13:08:59.861Z",
+      "updatedAt": "2026-11-11T15:12:34.922Z",
       "source": "scan"
     },
     "app/src/sanity/image.ts": {
@@ -2621,7 +2993,7 @@
       "hash": "a9d4b36e089e43ca",
       "size": 1680,
       "mtimeMs": 1794390052543.404,
-      "updatedAt": "2026-11-11T13:08:59.861Z",
+      "updatedAt": "2026-11-11T15:12:34.922Z",
       "source": "scan"
     },
     "app/src/sanity/metadata.ts": {
@@ -2629,35 +3001,35 @@
       "tokens": 444,
       "hash": "905789fd8df405a9",
       "size": 1551,
-      "mtimeMs": 1794402002251.828,
-      "updatedAt": "2026-11-11T13:08:59.861Z",
+      "mtimeMs": 1794404284226.04,
+      "updatedAt": "2026-11-11T15:12:34.922Z",
       "source": "scan"
     },
     "app/src/sanity/queries.ts": {
       "description": "A button: pull the referenced page's type and slug up so `resolveHref` can build the path.",
-      "tokens": 1041,
-      "hash": "d027583fd2b604e7",
-      "size": 3643,
-      "mtimeMs": 1794402386581.4165,
-      "updatedAt": "2026-11-11T13:08:59.861Z",
+      "tokens": 1698,
+      "hash": "a48d679b7b16fa86",
+      "size": 5943,
+      "mtimeMs": 1794409517693.331,
+      "updatedAt": "2026-11-11T15:12:34.922Z",
       "source": "scan"
     },
     "app/src/sanity/sanity.types.ts": {
       "description": "---------------------------------------------------------------------------------",
-      "tokens": 19596,
-      "hash": "be1fc3b3b4265a38",
-      "size": 68583,
-      "mtimeMs": 1794402400962.033,
-      "updatedAt": "2026-11-11T13:08:59.863Z",
+      "tokens": 23856,
+      "hash": "324cdb13c397f02b",
+      "size": 83494,
+      "mtimeMs": 1794409536687.9922,
+      "updatedAt": "2026-11-11T15:12:34.924Z",
       "source": "scan"
     },
     "app/src/sanity/schema.json": {
       "description": "",
-      "tokens": 59724,
-      "hash": "5315f6ad361eb24d",
-      "size": 209034,
-      "mtimeMs": 1794402399233.334,
-      "updatedAt": "2026-11-11T13:08:59.864Z",
+      "tokens": 63533,
+      "hash": "edab05029c16b60c",
+      "size": 222365,
+      "mtimeMs": 1794409533871.135,
+      "updatedAt": "2026-11-11T15:12:34.926Z",
       "source": "scan"
     },
     "app/tsconfig.json": {
@@ -2666,16 +3038,16 @@
       "hash": "5c51df4c59f4510d",
       "size": 670,
       "mtimeMs": 1794390052544.494,
-      "updatedAt": "2026-11-11T13:08:59.864Z",
+      "updatedAt": "2026-11-11T15:12:34.926Z",
       "source": "scan"
     },
     "app/tsconfig.tsbuildinfo": {
       "description": "",
-      "tokens": 85844,
-      "hash": "abec84bcfa6930a6",
-      "size": 321912,
-      "mtimeMs": 1794402496197.979,
-      "updatedAt": "2026-11-11T13:08:59.865Z",
+      "tokens": 87676,
+      "hash": "b3236c30a4d522c0",
+      "size": 328782,
+      "mtimeMs": 1794409871995.0615,
+      "updatedAt": "2026-11-11T15:12:34.927Z",
       "source": "scan"
     },
     "app/vercel.json": {
@@ -2683,8 +3055,8 @@
       "tokens": 42,
       "hash": "3373c2d91203e80d",
       "size": 147,
-      "mtimeMs": 1794401902339.491,
-      "updatedAt": "2026-11-11T13:08:59.865Z",
+      "mtimeMs": 1794404284231.2192,
+      "updatedAt": "2026-11-11T15:12:34.928Z",
       "source": "scan"
     },
     "CLAUDE.md": {
@@ -2693,7 +3065,16 @@
       "hash": "b1ca356fa9d5f3a6",
       "size": 225,
       "mtimeMs": 1794393409861.0525,
-      "updatedAt": "2026-11-11T13:08:59.866Z",
+      "updatedAt": "2026-11-11T15:12:34.928Z",
+      "source": "scan"
+    },
+    "deploy/compose.yml": {
+      "description": "Production compose for the app on the own server (127.0.0.1:3000, healthcheck on /api/health, env_file app.env, image from .env APP_IMAGE)",
+      "tokens": 219,
+      "hash": "88566032f4f1cf49",
+      "size": 765,
+      "mtimeMs": 1794406929077.368,
+      "updatedAt": "2026-11-11T15:12:34.929Z",
       "source": "scan"
     },
     "README.md": {
@@ -2702,7 +3083,7 @@
       "hash": "c44f06a63e7c0d58",
       "size": 31270,
       "mtimeMs": 1794390052527.7104,
-      "updatedAt": "2026-11-11T13:08:59.866Z",
+      "updatedAt": "2026-11-11T15:12:34.929Z",
       "source": "scan"
     },
     "studio/.gitignore": {
@@ -2711,25 +3092,25 @@
       "hash": "b07fe2b926636cc1",
       "size": 537,
       "mtimeMs": 1794390052544.8176,
-      "updatedAt": "2026-11-11T13:08:59.866Z",
+      "updatedAt": "2026-11-11T15:12:34.929Z",
       "source": "scan"
     },
     "studio/.sanity/runtime/app.js": {
       "description": "This file is auto-generated on 'sanity dev'",
-      "tokens": 87,
-      "hash": "8efdad20830ad340",
-      "size": 303,
-      "mtimeMs": 1794402440723.959,
-      "updatedAt": "2026-11-11T13:08:59.867Z",
+      "tokens": 88,
+      "hash": "a53197cb851c8d07",
+      "size": 307,
+      "mtimeMs": 1794404385835.1943,
+      "updatedAt": "2026-11-11T15:12:34.931Z",
       "source": "scan"
     },
     "studio/.sanity/runtime/index.html": {
       "description": "Sanity Studio",
-      "tokens": 2316,
-      "hash": "2d9e304bcfe67fce",
-      "size": 8688,
-      "mtimeMs": 1794402440723.2737,
-      "updatedAt": "2026-11-11T13:08:59.867Z",
+      "tokens": 2522,
+      "hash": "bfbc0f5915725d6d",
+      "size": 9461,
+      "mtimeMs": 1794404385833.4229,
+      "updatedAt": "2026-11-11T15:12:34.932Z",
       "source": "scan"
     },
     "studio/eslint.config.mjs": {
@@ -2738,25 +3119,25 @@
       "hash": "c5807d719bd7e7fe",
       "size": 78,
       "mtimeMs": 1794390052545.0388,
-      "updatedAt": "2026-11-11T13:08:59.867Z",
+      "updatedAt": "2026-11-11T15:12:34.932Z",
       "source": "scan"
     },
     "studio/package-lock.json": {
       "description": "npm lock file",
-      "tokens": 171738,
-      "hash": "6b8df2182ca68269",
-      "size": 601081,
-      "mtimeMs": 1794392033873.924,
-      "updatedAt": "2026-11-11T13:08:59.869Z",
+      "tokens": 179098,
+      "hash": "a32fa009739874bc",
+      "size": 626841,
+      "mtimeMs": 1794405273582.2075,
+      "updatedAt": "2026-11-11T15:12:34.940Z",
       "source": "scan"
     },
     "studio/package.json": {
       "description": "Node.js package manifest",
       "tokens": 301,
-      "hash": "be311e0cb10e6e95",
-      "size": 1051,
-      "mtimeMs": 1794390052547.3113,
-      "updatedAt": "2026-11-11T13:08:59.869Z",
+      "hash": "9d8af531cb762c39",
+      "size": 1053,
+      "mtimeMs": 1794404284235.9062,
+      "updatedAt": "2026-11-11T15:12:34.941Z",
       "source": "scan"
     },
     "studio/README.md": {
@@ -2765,7 +3146,7 @@
       "hash": "3dbf91d1dea727f3",
       "size": 1720,
       "mtimeMs": 1794390052544.9297,
-      "updatedAt": "2026-11-11T13:08:59.869Z",
+      "updatedAt": "2026-11-11T15:12:34.941Z",
       "source": "scan"
     },
     "studio/sanity.cli.ts": {
@@ -2774,7 +3155,7 @@
       "hash": "0d56f29c93d9de3c",
       "size": 946,
       "mtimeMs": 1794390052547.432,
-      "updatedAt": "2026-11-11T13:08:59.869Z",
+      "updatedAt": "2026-11-11T15:12:34.942Z",
       "source": "scan"
     },
     "studio/sanity.config.ts": {
@@ -2782,17 +3163,17 @@
       "tokens": 394,
       "hash": "036cb52be1af034c",
       "size": 1379,
-      "mtimeMs": 1794401149309.747,
-      "updatedAt": "2026-11-11T13:08:59.869Z",
+      "mtimeMs": 1794404284236.5166,
+      "updatedAt": "2026-11-11T15:12:34.942Z",
       "source": "scan"
     },
     "studio/schemaTypes/blocks.ts": {
       "description": "Every section of the Advertisr. design is one block here. The renderer is",
-      "tokens": 2847,
-      "hash": "90e0e6e340a3e177",
-      "size": 9962,
-      "mtimeMs": 1794401514483.1707,
-      "updatedAt": "2026-11-11T13:08:59.870Z",
+      "tokens": 2889,
+      "hash": "883de05d7abea218",
+      "size": 10109,
+      "mtimeMs": 1794409458257.265,
+      "updatedAt": "2026-11-11T15:12:34.942Z",
       "source": "scan",
       "symbols": [
         {
@@ -2841,39 +3222,46 @@
           "name": "quote",
           "kind": "fn",
           "startLine": 35,
-          "endLine": 36,
-          "tokens": 24
+          "endLine": 37,
+          "tokens": 50
+        },
+        {
+          "name": "formRef",
+          "kind": "fn",
+          "startLine": 38,
+          "endLine": 45,
+          "tokens": 71
         },
         {
           "name": "form",
           "kind": "fn",
-          "startLine": 37,
-          "endLine": 197,
-          "tokens": 2390
+          "startLine": 46,
+          "endLine": 198,
+          "tokens": 2336
         }
       ]
     },
     "studio/schemaTypes/documents.ts": {
       "description": "Fields the Google sync owns: read-only on a synced review, it would overwrite them anyway.",
-      "tokens": 2594,
-      "hash": "dcde469b57105476",
-      "size": 9086,
-      "mtimeMs": 1794400764892.7095,
-      "updatedAt": "2026-11-11T13:08:59.870Z",
+      "tokens": 2630,
+      "hash": "d81fc0463a6f2c56",
+      "size": 9211,
+      "mtimeMs": 1794404284237.846,
+      "updatedAt": "2026-11-11T15:12:34.942Z",
       "source": "scan",
       "symbols": [
         {
           "name": "slug",
           "kind": "fn",
           "startLine": 12,
-          "endLine": 156,
-          "tokens": 1718
+          "endLine": 157,
+          "tokens": 1753
         },
         {
           "name": "fromGoogle",
           "kind": "fn",
-          "startLine": 157,
-          "endLine": 230,
+          "startLine": 158,
+          "endLine": 231,
           "tokens": 718
         }
       ]
@@ -2883,8 +3271,8 @@
       "tokens": 1101,
       "hash": "9cb9fcc42cd3f986",
       "size": 3857,
-      "mtimeMs": 1794400705403.574,
-      "updatedAt": "2026-11-11T13:08:59.870Z",
+      "mtimeMs": 1794404284238.3936,
+      "updatedAt": "2026-11-11T15:12:34.942Z",
       "source": "scan",
       "symbols": [
         {
@@ -3001,13 +3389,65 @@
         }
       ]
     },
+    "studio/schemaTypes/form.ts": {
+      "description": "Multi-step forms keep their fields under `steps`, simple ones under `fields`.",
+      "tokens": 2633,
+      "hash": "9ceb581a44ffbae9",
+      "size": 9218,
+      "mtimeMs": 1794409466035.6013,
+      "updatedAt": "2026-11-11T15:12:34.942Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "isSteps",
+          "kind": "fn",
+          "startLine": 5,
+          "endLine": 281,
+          "tokens": 2575
+        }
+      ]
+    },
+    "studio/schemaTypes/formField.ts": {
+      "description": "Hide a setting unless the field's input type is one of these.",
+      "tokens": 1306,
+      "hash": "2cb8c42eae5fee0a",
+      "size": 4571,
+      "mtimeMs": 1794409444224.359,
+      "updatedAt": "2026-11-11T15:12:34.943Z",
+      "source": "scan"
+    },
+    "studio/schemaTypes/formSettings.ts": {
+      "description": "Mail and spam settings shared by every `form`. A singleton.",
+      "tokens": 3391,
+      "hash": "9498fd4e1a379a7e",
+      "size": 11880,
+      "mtimeMs": 1794409466035.9497,
+      "updatedAt": "2026-11-11T15:12:34.945Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "captchaOf",
+          "kind": "fn",
+          "startLine": 19,
+          "endLine": 23,
+          "tokens": 72
+        },
+        {
+          "name": "captchaKeyFields",
+          "kind": "fn",
+          "startLine": 24,
+          "endLine": 335,
+          "tokens": 3093
+        }
+      ]
+    },
     "studio/schemaTypes/index.ts": {
       "description": "Every schema type the studio knows about. Blocks live in `blocks.ts`.",
-      "tokens": 234,
-      "hash": "3c9ba3f232dbee1c",
-      "size": 819,
-      "mtimeMs": 1794400896743.6716,
-      "updatedAt": "2026-11-11T13:08:59.870Z",
+      "tokens": 287,
+      "hash": "c008d626bd29ff0d",
+      "size": 1004,
+      "mtimeMs": 1794409474587.662,
+      "updatedAt": "2026-11-11T15:12:34.945Z",
       "source": "scan"
     },
     "studio/schemaTypes/objects.ts": {
@@ -3015,35 +3455,35 @@
       "tokens": 1271,
       "hash": "e4256a74bd754508",
       "size": 4450,
-      "mtimeMs": 1794400721956.9187,
-      "updatedAt": "2026-11-11T13:08:59.870Z",
+      "mtimeMs": 1794404284239.588,
+      "updatedAt": "2026-11-11T15:12:34.945Z",
       "source": "scan"
     },
     "studio/schemaTypes/singletons.ts": {
       "description": "One fieldset per area of the site, so the long list stays findable.",
-      "tokens": 2471,
-      "hash": "50f613fbc375b8d0",
-      "size": 8652,
-      "mtimeMs": 1794402319568.7478,
-      "updatedAt": "2026-11-11T13:08:59.870Z",
+      "tokens": 2214,
+      "hash": "d4277fb688578ece",
+      "size": 7751,
+      "mtimeMs": 1794409484909.4673,
+      "updatedAt": "2026-11-11T15:12:34.946Z",
       "source": "scan",
       "symbols": [
         {
           "name": "link",
           "kind": "fn",
           "startLine": 9,
-          "endLine": 219,
-          "tokens": 2360
+          "endLine": 196,
+          "tokens": 2103
         }
       ]
     },
     "studio/structure.ts": {
       "description": "Documents that exist exactly once. They get a fixed `_id` and a top-level",
-      "tokens": 708,
-      "hash": "97d235e810706e45",
-      "size": 2475,
-      "mtimeMs": 1794400927125.8616,
-      "updatedAt": "2026-11-11T13:08:59.870Z",
+      "tokens": 776,
+      "hash": "94ae00b99c91a7ed",
+      "size": 2715,
+      "mtimeMs": 1794409474588.0266,
+      "updatedAt": "2026-11-11T15:12:34.947Z",
       "source": "scan"
     },
     "studio/tools/ClearCache.tsx": {
@@ -3052,7 +3492,7 @@
       "hash": "3645d2bedc7a051d",
       "size": 3586,
       "mtimeMs": 1794390052550.7715,
-      "updatedAt": "2026-11-11T13:08:59.870Z",
+      "updatedAt": "2026-11-11T15:12:34.947Z",
       "source": "scan",
       "symbols": [
         {
@@ -3076,8 +3516,8 @@
       "tokens": 1864,
       "hash": "9e1a97455e0faad1",
       "size": 6538,
-      "mtimeMs": 1794400926993.1943,
-      "updatedAt": "2026-11-11T13:08:59.871Z",
+      "mtimeMs": 1794404284241.4983,
+      "updatedAt": "2026-11-11T15:12:34.947Z",
       "source": "scan",
       "symbols": [
         {
@@ -3096,13 +3536,45 @@
         }
       ]
     },
+    "studio/tools/MailTest.tsx": {
+      "description": "\"Send test mail\" on Form settings → Mail. Calls the app's `/api/test-mail`,",
+      "tokens": 1421,
+      "hash": "386bda3ae99b6f86",
+      "size": 4983,
+      "mtimeMs": 1794409444289.8306,
+      "updatedAt": "2026-11-11T15:12:34.947Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "readStored",
+          "kind": "fn",
+          "startLine": 30,
+          "endLine": 37,
+          "tokens": 36
+        },
+        {
+          "name": "store",
+          "kind": "fn",
+          "startLine": 38,
+          "endLine": 45,
+          "tokens": 51
+        },
+        {
+          "name": "MailTest",
+          "kind": "fn",
+          "startLine": 46,
+          "endLine": 158,
+          "tokens": 1070
+        }
+      ]
+    },
     "studio/tools/mediaData.ts": {
       "description": "Queries, types and formatting helpers for the Media panel (`MediaTool.tsx`).",
       "tokens": 2204,
       "hash": "4698cae5d5284149",
       "size": 7734,
-      "mtimeMs": 1794400896734.4988,
-      "updatedAt": "2026-11-11T13:08:59.871Z",
+      "mtimeMs": 1794404284242.1516,
+      "updatedAt": "2026-11-11T15:12:34.947Z",
       "source": "scan",
       "symbols": [
         {
@@ -3197,7 +3669,7 @@
       "hash": "9c537d6dbd51c896",
       "size": 4958,
       "mtimeMs": 1794390052551.2275,
-      "updatedAt": "2026-11-11T13:08:59.871Z",
+      "updatedAt": "2026-11-11T15:12:34.948Z",
       "source": "scan"
     },
     "studio/tools/MediaTool.tsx": {
@@ -3206,7 +3678,7 @@
       "hash": "7a97af01128ac2c8",
       "size": 19992,
       "mtimeMs": 1794390052551.0024,
-      "updatedAt": "2026-11-11T13:08:59.871Z",
+      "updatedAt": "2026-11-11T15:12:34.948Z",
       "source": "scan",
       "symbols": [
         {
@@ -3238,7 +3710,7 @@
       "hash": "e809be7d33595a60",
       "size": 1174,
       "mtimeMs": 1794390052551.3206,
-      "updatedAt": "2026-11-11T13:08:59.872Z",
+      "updatedAt": "2026-11-11T15:12:34.948Z",
       "source": "scan"
     },
     "studio/tsconfig.json": {
@@ -3247,16 +3719,16 @@
       "hash": "e5a67d7d8cdee156",
       "size": 417,
       "mtimeMs": 1794390052551.4233,
-      "updatedAt": "2026-11-11T13:08:59.872Z",
+      "updatedAt": "2026-11-11T15:12:34.948Z",
       "source": "scan"
     },
     "studio/tsconfig.tsbuildinfo": {
       "description": "",
-      "tokens": 35971,
-      "hash": "e8708c9dd845dd59",
-      "size": 134889,
-      "mtimeMs": 1794402113538.7,
-      "updatedAt": "2026-11-11T13:08:59.873Z",
+      "tokens": 43604,
+      "hash": "813fa11960289e3d",
+      "size": 163514,
+      "mtimeMs": 1794409478857.2405,
+      "updatedAt": "2026-11-11T15:12:34.950Z",
       "source": "scan"
     }
   }

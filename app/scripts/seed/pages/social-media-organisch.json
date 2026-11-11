@@ -493,11 +493,10 @@
         "Concreet plan, geen vage belofte"
       ],
       "form": {
-        "interesse": "Social Media Organisch",
-        "messagePlaceholder": "Waar loopt het nu vast? Tijd, ideeën, consistentie...",
-        "hideMessage": false
+        "$ref": "form-groeiplan"
       },
-      "dots": false
+      "dots": false,
+      "interesse": "Social Media Organisch"
     }
   ]
 }
