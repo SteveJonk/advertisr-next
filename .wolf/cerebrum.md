@@ -40,6 +40,7 @@
 - No prettier config in app: format with `--single-quote --print-width 160` to match the repo style.
 
 ## Do-Not-Repeat
+- [2026-11-11] Clipping off-screen layers: use `overflow-clip`, not `overflow-hidden`. hidden is still scrollable, so focus()/scrollIntoView inside it shifts content (mobile drawer jumped).
 - [2026-11-11] `fixed` children inside the Nav break once it gets `backdrop-blur` (backdrop-filter makes it their containing block). Render overlays/drawers outside <nav>.
 - [2026-11-11] Don't toggle `visibility` on a panel you focus into on open: focus() runs before it's visible and silently fails. Use `inert` for the closed state.
 - [2026-11-11] No Prettier config in the repo: bare `npx prettier --write` rewrites files to double quotes. Code style is single quotes + jsx single quotes + long lines; use `--single-quote --jsx-single-quote --print-width 180` or don't run it.

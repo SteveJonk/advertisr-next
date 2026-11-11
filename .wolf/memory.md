@@ -112,3 +112,9 @@
 |------|--------|---------|---------|--------|
 | 22:00 | Kennisbank load-more: ArticleFilter pages 'latest' 9 at a time, LoadMore button hides when done; ghost class exported from ui.tsx | kennisbank.tsx, sections.tsx, ui.tsx | verified 9→12, button hides | ~4k |
 | 22:06 | Design vs app side-by-side audit (15 pages, desktop+mobile, puppeteer+sharp in scratchpad) | app/design/*.html vs :3000 | report delivered in chat; no code changed | ~60k |
+
+## Session: 2026-11-11 22:03
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 22:03 | Fix jumpy mobile drawer: overflow-clip + preventScroll focus | Nav.tsx | fixed, repro verified in playwright | ~3k |

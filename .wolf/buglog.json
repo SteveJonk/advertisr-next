@@ -305,6 +305,25 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-11-11T00:00:00Z"
+    },
+    {
+      "id": "bug-019",
+      "timestamp": "2026-11-11T00:00:00Z",
+      "error_message": "Mobile menu animation jumpy: jumps left-to-right, then into position instead of sliding in from the right",
+      "file": "app/src/components/advertisr/Nav.tsx",
+      "root_cause": "Drawer's clipping layer used overflow:hidden, which is still programmatically scrollable; focusing the close button while the drawer was translated off-screen scrolled the layer ~200px, shifting the drawer left before the slide.",
+      "fix": "overflow-clip on the clipping layer (not scrollable) + focus({ preventScroll: true })",
+      "tags": [
+        "mobile",
+        "drawer",
+        "nav",
+        "animation",
+        "overflow",
+        "focus"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-11-11T00:00:00Z"
     }
   ]
 }
