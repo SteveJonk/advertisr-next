@@ -3,18 +3,18 @@
   "created_at": "2026-11-11T10:36:49.843Z",
   "lifetime": {
     "total_tokens_estimated": 20664,
-    "total_reads": 16,
+    "total_reads": 17,
     "total_writes": 0,
     "total_sessions": 4,
     "anatomy_hits": 3,
-    "anatomy_misses": 13,
+    "anatomy_misses": 14,
     "repeated_reads_blocked": 0,
     "estimated_savings_vs_bare_cli": 600,
-    "real_input_tokens": 2546,
-    "real_output_tokens": 1609139,
-    "real_cache_read_tokens": 411820636,
-    "real_cache_creation_tokens": 4012305,
-    "real_api_calls": 1248
+    "real_input_tokens": 2640,
+    "real_output_tokens": 1639216,
+    "real_cache_read_tokens": 418313745,
+    "real_cache_creation_tokens": 4128980,
+    "real_api_calls": 1294
   },
   "sessions": [
     {
@@ -351,6 +351,36 @@
         "cache_read_input_tokens": 5978828,
         "cache_creation_input_tokens": 115304,
         "api_calls": 43
+      }
+    },
+    {
+      "id": "session-2026-11-11-1424",
+      "agent": "claude",
+      "started": "2026-11-11T13:24:37.638Z",
+      "ended": "2026-11-11T13:35:09.956Z",
+      "reads": [
+        {
+          "file": "/Users/stevejonk/Documents/Prive Projecten/advertisr-next/app/scripts/import-wordpress.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 0,
+        "reads_count": 1,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      },
+      "real_usage": {
+        "input_tokens": 94,
+        "output_tokens": 30077,
+        "cache_read_input_tokens": 6493109,
+        "cache_creation_input_tokens": 116675,
+        "api_calls": 46
       }
     }
   ],
