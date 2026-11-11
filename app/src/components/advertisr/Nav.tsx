@@ -38,7 +38,7 @@ export function Nav({ site, landing = false }: { site: Pick<Site, 'name' | 'nav'
     const burger = burgerRef.current;
     window.addEventListener('keydown', onKey);
     document.documentElement.style.overflow = 'hidden';
-    closeRef.current?.focus();
+    closeRef.current?.focus({ preventScroll: true });
     return () => {
       window.removeEventListener('keydown', onKey);
       document.documentElement.style.overflow = '';
@@ -125,8 +125,8 @@ export function Nav({ site, landing = false }: { site: Pick<Site, 'name' | 'nav'
               open ? 'visible opacity-100' : 'invisible opacity-0',
             )}
           />
-          {/* Clipping layer: an off-screen fixed drawer widens the page on mobile browsers (zoomed-out, "desktop" look). */}
-          <div className='pointer-events-none fixed inset-0 z-120 overflow-hidden min-[770px]:hidden'>
+          {/* Clipping layer: an off-screen fixed drawer widens the page on mobile browsers (zoomed-out, "desktop" look). clip, not hidden: hidden is scrollable, so focusing the close button scrolled it and the drawer jumped. */}
+          <div className='pointer-events-none fixed inset-0 z-120 overflow-clip min-[770px]:hidden'>
           <div
             id='mobile-menu'
             role='dialog'
