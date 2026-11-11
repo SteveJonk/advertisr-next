@@ -1,0 +1,389 @@
+{
+  "slug": "data-analytics",
+  "title": "Data & analytics",
+  "seo": {
+    "title": "Data & analytics",
+    "description": "Een dashboard vol grafieken zegt niets als niemand uitlegt wat erin staat. Wij zetten tracking, dashboards en rapportage zo neer dat je precies weet welke euro waar naartoe gaat, en wat hij oplevert."
+  },
+  "content": [
+    {
+      "_type": "serviceHero",
+      "crumb": "Data & analytics",
+      "eyebrow": "Data & Analytics, Sturen op cijfers die kloppen",
+      "title": {
+        "$t": [
+          {
+            "text": "Cijfers die je iets ",
+            "marks": []
+          },
+          {
+            "text": "vertellen",
+            "marks": [
+              "em"
+            ]
+          },
+          {
+            "text": ", geen ruis.",
+            "marks": []
+          }
+        ]
+      },
+      "lead": "Een dashboard vol grafieken zegt niets als niemand uitlegt wat erin staat. Wij zetten tracking, dashboards en rapportage zo neer dat je precies weet welke euro waar naartoe gaat, en wat hij oplevert.",
+      "secondaryCta": {
+        "_type": "cta",
+        "label": "Bekijk onze aanpak",
+        "linkType": "external",
+        "href": "#aanpak"
+      },
+      "ticks": [
+        "Geen opstartkosten",
+        "Maandelijks opzegbaar",
+        "Direct contact met je marketeer"
+      ],
+      "visual": "dash"
+    },
+    {
+      "_type": "marquee",
+      "items": [
+        "Conversietracking",
+        "Dashboards",
+        "GA4",
+        "Attributiemodellen",
+        "Rapportage",
+        "Server-side tracking",
+        "KPI-monitoring",
+        "Data-visualisatie"
+      ]
+    },
+    {
+      "_type": "pain",
+      "eyebrow": "Herken je dit?",
+      "title": {
+        "$t": [
+          {
+            "text": "Je hebt cijfers. Overzicht heb je niet.",
+            "marks": []
+          }
+        ]
+      },
+      "lead": "Dit zijn de zinnen die we het vaakst horen in een eerste gesprek.",
+      "items": [
+        {
+          "quote": "We hebben Analytics wel geïnstalleerd, maar niemand kijkt ernaar.",
+          "text": "Een tool die niemand opent, levert niks op. Wij bouwen een dashboard dat je daadwerkelijk maandelijks doorneemt, met uitleg erbij."
+        },
+        {
+          "quote": "We weten niet welke advertentie echt een klant oplevert.",
+          "text": "Zonder kloppende attributie optimaliseer je op de verkeerde signalen. Wij richten de meting zo in dat je ziet welk kanaal daadwerkelijk bijdraagt, niet alleen welk kanaal de laatste klik pakte."
+        },
+        {
+          "quote": "We sturen eigenlijk op gevoel, niet op cijfers.",
+          "text": "Dat werkt, tot het misgaat. Met een kloppend dashboard zie je op tijd of een campagne omslaat, in plaats van dat achteraf te ontdekken."
+        }
+      ],
+      "quote": {
+        "image": {
+          "$image": "/images/advertisr/marc-jonk-oprichter-van-advertisr.jpg",
+          "alt": "Marc Jonk, oprichter van Advertisr"
+        },
+        "line": {
+          "$t": [
+            {
+              "text": "Een dashboard is geen doel op zich. Het doel is dat jij binnen ",
+              "marks": []
+            },
+            {
+              "text": "dertig seconden",
+              "marks": [
+                "em"
+              ]
+            },
+            {
+              "text": " weet of het goed gaat, en waarom.",
+              "marks": []
+            }
+          ]
+        },
+        "signature": "Marc Jonk, oprichter Advertisr."
+      }
+    },
+    {
+      "_type": "funnel",
+      "anchor": "aanpak",
+      "eyebrow": "De aanpak",
+      "title": {
+        "$t": [
+          {
+            "text": "Van losse cijfers naar overzicht.",
+            "marks": []
+          }
+        ]
+      },
+      "body": "De meeste bedrijven hebben data, maar geen overzicht. Wij bouwen dat in drie lagen op, van een technisch kloppend fundament tot een gesprek waarin je precies weet waarom een cijfer omhoog of omlaag ging.",
+      "ghostLabel": "Wat betekent dit voor jouw kanalen? →",
+      "layers": [
+        {
+          "tag": "Laag 1 · Fundament",
+          "title": "Tracking die klopt",
+          "text": "GA4, server-side tracking en conversiemeting per kanaal correct ingericht, zodat elk cijfer daarna ook echt ergens op gebaseerd is.",
+          "kpi": {
+            "$t": [
+              {
+                "text": "Sturen op: ",
+                "marks": []
+              },
+              {
+                "text": "datakwaliteit, dekking van conversiepunten",
+                "marks": [
+                  "strong"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "tag": "Laag 2 · Overzicht",
+          "title": "Eén dashboard, alle kanalen",
+          "text": "Meta, Google, je website en mail bij elkaar in één overzicht, zodat je niet meer tussen vijf tabbladen hoeft te schakelen.",
+          "kpi": {
+            "$t": [
+              {
+                "text": "Sturen op: ",
+                "marks": []
+              },
+              {
+                "text": "volledigheid, actualiteit van cijfers",
+                "marks": [
+                  "strong"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "tag": "Laag 3 · Sturing",
+          "title": "Duiding, niet alleen data",
+          "text": "Een maandelijks gesprek waarin we uitleggen wat er gebeurde, waarom, en welk besluit daaruit volgt.",
+          "kpi": {
+            "$t": [
+              {
+                "text": "Sturen op: ",
+                "marks": []
+              },
+              {
+                "text": "besluiten die je erop baseert",
+                "marks": [
+                  "strong"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "_type": "deliverables",
+      "eyebrow": "Wat wij doen",
+      "title": {
+        "$t": [
+          {
+            "text": "Alles wat er nodig is om te kunnen sturen.",
+            "marks": []
+          }
+        ]
+      },
+      "lead": "Geen losse rapportjes die je zelf moet interpreteren. Wij pakken de volledige keten op, lees het als een menukaart, niet als een checklist.",
+      "photo": {
+        "image": {
+          "$image": "/images/advertisr/het-team-van-advertisr-bouwt-automatiser.jpg",
+          "alt": "Het team van Advertisr werkt aan dashboards en tracking"
+        },
+        "title": "Eén team, geen doorgeefluik",
+        "text": "Strategie, techniek en rapportage op dezelfde vloer, geen losse data-consultant die eenmalig langskomt."
+      },
+      "rows": [
+        {
+          "title": "Tracking-audit",
+          "text": "We controleren of conversies, events en kanalen correct worden gemeten, en waar data nu wegvalt of dubbel wordt geteld."
+        },
+        {
+          "title": "GA4 & server-side tracking",
+          "text": "Een technisch fundament dat klopt, ook nu browsers en cookiebeperkingen metingen steeds lastiger maken."
+        },
+        {
+          "title": "Eén centraal dashboard",
+          "text": "Alle kanalen, van Meta en Google tot je website en mail, samen in één overzicht dat je zelf ook begrijpt."
+        },
+        {
+          "title": "Attributie & kanaalinzicht",
+          "text": "Zien welk kanaal daadwerkelijk aan een klant bijdraagt, niet alleen welk kanaal toevallig de laatste klik pakte."
+        },
+        {
+          "title": "Maandelijkse rapportage",
+          "text": "Cijfers mét toelichting in een gesprek, in plaats van een pdf die je zelf moet doorspitten."
+        },
+        {
+          "title": "Doorontwikkeling",
+          "text": "Dashboards en meetpunten groeien mee zodra er een nieuw kanaal, nieuwe doelstelling of nieuwe campagne bijkomt."
+        }
+      ],
+      "band": {
+        "title": {
+          "$t": [
+            {
+              "text": "Benieuwd welke cijfers je nu mist?",
+              "marks": []
+            }
+          ]
+        },
+        "text": "In je gratis groeiplan zie je precies welke tracking en dashboards het meeste inzicht opleveren."
+      }
+    },
+    {
+      "_type": "mediaChips",
+      "image": {
+        "$image": "/images/advertisr/het-team-van-advertisr-bouwt-workflows-o.jpg",
+        "alt": "Het team van Advertisr bespreekt rapportages"
+      },
+      "badge": {
+        "title": "Rapportage zit erbij",
+        "text": "Geen aparte data-factuur achteraf"
+      },
+      "eyebrow": "Rapportage",
+      "title": {
+        "$t": [
+          {
+            "text": "Cijfers die je zelf ook snapt.",
+            "marks": []
+          }
+        ]
+      },
+      "paragraphs": [
+        "Een rapport vol vaktermen en vanity metrics helpt niemand. Wij vertalen data naar wat het voor jouw bedrijf betekent: meer aanvragen, lagere kosten per klant, of een kanaal dat eindelijk uit de rode cijfers komt.",
+        "We bouwen het dashboard in de tools die jij al gebruikt of kunt gebruiken, en lichten het elke maand persoonlijk toe."
+      ],
+      "chips": [
+        "GA4",
+        "Server-side tracking",
+        "Dashboards",
+        "Attributiemodellen",
+        "KPI-rapportage",
+        "Kanaaloverzicht"
+      ],
+      "screenshot": false
+    },
+    {
+      "_type": "caseHighlight",
+      "eyebrow": "Bewijs",
+      "title": {
+        "$t": [
+          {
+            "text": "We meten het ook voor onszelf.",
+            "marks": []
+          }
+        ]
+      },
+      "image": {
+        "$image": "/images/advertisr/het-team-van-advertisr-op-kantoor-in-haa.jpg",
+        "alt": "Het team van Advertisr op kantoor in Haarlem"
+      },
+      "category": "Advertisr, eigen dashboards",
+      "name": "Hoe wij het zelf inrichten",
+      "text": "We volgen onze eigen leads, kanalen en campagnes in hetzelfde soort dashboard dat we voor klanten bouwen, zodat we weten wat werkt voordat we het adviseren.",
+      "stats": [
+        {
+          "value": "5.0",
+          "label": "score op Google reviews"
+        },
+        {
+          "value": "1",
+          "label": "dashboard voor alle kanalen"
+        },
+        {
+          "value": "0",
+          "label": "losse spreadsheets per platform"
+        }
+      ]
+    },
+    {
+      "_type": "faqs",
+      "eyebrow": "Veelgestelde vragen",
+      "title": {
+        "$t": [
+          {
+            "text": "Wat je waarschijnlijk wilt weten.",
+            "marks": []
+          }
+        ]
+      },
+      "$faqs": [
+        [
+          "Wat kost Data & Analytics bij Advertisr?",
+          "Dat hangt af van het aantal kanalen dat we moeten koppelen en hoe uitgebreid het dashboard moet zijn. In je groeiplan krijg je een concreet voorstel, met een eenmalige inrichtingsprijs en een vast bedrag voor doorlopend beheer en rapportage."
+        ],
+        [
+          "Moet ik overstappen op nieuwe tools?",
+          "Meestal niet. We werken met de platforms die je al gebruikt, zoals Google Analytics 4, en bouwen daaromheen. Alleen als de basis echt tekortschiet, adviseren we een verandering, en dat bespreken we altijd eerst met je."
+        ],
+        [
+          "Wat is het verschil met gewoon zelf Analytics gebruiken?",
+          "Analytics registreert data. Wij zorgen dat die data klopt, brengen alle kanalen samen in één overzicht, en leggen elke maand uit wat het betekent. Dat laatste is waar de meeste bedrijven vastlopen."
+        ],
+        [
+          "Kunnen jullie ook rapporteren over kanalen die niet bij jullie lopen?",
+          "Ja. We nemen graag alle relevante kanalen mee in het dashboard, ook als wij die zelf niet beheren, zodat je één compleet overzicht hebt in plaats van losse rapportages per bureau."
+        ],
+        [
+          "Wat gebeurt er met mijn data?",
+          "Je data en accounts blijven van jou. Wij krijgen beheerrechten om de tracking en dashboards in te richten en te onderhouden, maar de eigendom verandert niet."
+        ],
+        [
+          "Hoe vaak krijg ik rapportage?",
+          "Standaard maandelijks, met een persoonlijke toelichting. Heb je liever een andere frequentie, dan stemmen we dat af op wat voor jouw bedrijf werkt."
+        ],
+        [
+          "Zit ik ergens aan vast?",
+          "Nee. We werken bewust zonder langlopende contracten. De samenwerking is maandelijks opzegbaar met een opzegtermijn van één kalendermaand."
+        ]
+      ]
+    },
+    {
+      "_type": "logos",
+      "eyebrow": "Vertrouwd door",
+      "title": {
+        "$t": [
+          {
+            "text": "Merken die hun cijfers bij ons neerleggen.",
+            "marks": []
+          }
+        ]
+      },
+      "note": "Van horeca tot makelaardij."
+    },
+    {
+      "_type": "finalCta",
+      "anchor": "groeiplan",
+      "eyebrow": "Klaar om te sturen op cijfers?",
+      "title": {
+        "$t": [
+          {
+            "text": "Ontvang je gratis groeiplan.",
+            "marks": []
+          }
+        ]
+      },
+      "lead": "Wij bellen je, brengen je huidige tracking en rapportage in kaart en sturen een concreet plan met kansen en aanpak. Volledig vrijblijvend.",
+      "bullets": [
+        "Reactie binnen 1 werkdag",
+        "15 minuten kennismaking, geen verkooppraatje",
+        "Concreet plan, geen vage belofte"
+      ],
+      "form": {
+        "interesse": "Data & Analytics",
+        "messagePlaceholder": "Waar wil je meer grip op krijgen? Tracking, rapportage, overzicht tussen kanalen...",
+        "hideMessage": false
+      },
+      "dots": false
+    }
+  ]
+}

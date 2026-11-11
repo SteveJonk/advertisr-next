@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { renderFormMail } from '@/lib/form-mail';
 import { missingMailMessage, resolveMailSettings, sendMail } from '@/lib/mail';
+import { getSite } from '@/lib/site';
 
 /**
  * The Advertisr. lead form ("Ontvang je gratis groeiplan"), posted by
@@ -23,7 +24,7 @@ const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(request: Request) {
   const form = await request.formData().catch(() => null);
-  if (!form) return NextResponse.json({ error: 'Ongeldig verzoek.' }, { status: 400 });
+  if (!form) return NextResponse.json({ error: 'Invalid request.' }, { status: 400 });
 
   // Honeypot: real visitors never see or fill this field.
   if (String(form.get('fax') ?? '')) return NextResponse.json({ ok: true });
@@ -38,14 +39,15 @@ export async function POST(request: Request) {
   ) as Record<(typeof FIELDS)[number][0], string>;
 
   if (!values.name || !EMAIL.test(values.email)) {
-    return NextResponse.json({ error: 'Vul je naam en een geldig e-mailadres in.' }, { status: 422 });
+    return NextResponse.json({ error: 'Name and a valid e-mail address are required.' }, { status: 422 });
   }
 
-  const settings = resolveMailSettings(null);
+  const site = await getSite();
+  const settings = resolveMailSettings(site.name);
   if (!settings.transport || !settings.adminEmail || !settings.fromEmail) {
     const missing = settings.adminEmail ? settings.missing : [...settings.missing, 'CONTACT_ADMIN_EMAIL'];
     console.error(missingMailMessage(settings.provider, missing));
-    return NextResponse.json({ error: 'Versturen lukt nu niet. Mail ons op info@advertisr.nl.' }, { status: 503 });
+    return NextResponse.json({ error: 'Mail is not configured.' }, { status: 503 });
   }
 
   const title = `Nieuwe groeiplan-aanvraag van ${values.name}`;
@@ -53,7 +55,7 @@ export async function POST(request: Request) {
     title,
     intro: 'Via het formulier op de website.',
     answers: FIELDS.filter(([key]) => values[key]).map(([key, label]) => ({ label, value: values[key] })),
-    branding: { primaryColor: '#FF3951', textColor: '#0E0E12', footer: 'Advertisr.' },
+    branding: { primaryColor: '#FF3951', textColor: '#0E0E12', footer: site.name },
   });
 
   try {
@@ -69,7 +71,7 @@ export async function POST(request: Request) {
     });
   } catch (error) {
     console.error('Lead mail failed', error);
-    return NextResponse.json({ error: 'Versturen lukt nu niet. Mail ons op info@advertisr.nl.' }, { status: 502 });
+    return NextResponse.json({ error: 'Sending failed.' }, { status: 502 });
   }
 
   return NextResponse.json({ ok: true });

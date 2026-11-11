@@ -1,208 +1,116 @@
 import { defineQuery } from 'next-sanity';
 
-/**
- * Resolve internal page references on link/cta objects.
- *
- * A link in the studio is either an external URL or a reference to a `page`
- * document; this projection pulls the referenced slug up so `resolveHref` in
- * `src/lib/links.ts` can turn either shape into an href.
- */
-const linkExpansion = /* groq */ `{
+/** A button: pull the referenced page's type and slug up so `resolveHref` can build the path. */
+const link = /* groq */ `{
   ...,
-  internalLink->{
-    "slug": slug.current
-  }
+  internalLink->{ _type, "slug": slug.current }
 }`;
 
-/**
- * Which spam check Form settings picked. Older documents only have the
- * `recaptchaEnabled` switch; they keep reCAPTCHA until a provider is chosen.
- */
-const captchaProvider = /* groq */ `"captchaProvider": coalesce(captchaProvider, select(recaptchaEnabled => "recaptcha", "none"))`;
-
-/**
- * Everything the renderer needs to draw a form.
- *
- * `fields[]` and `steps[]` are spread wholesale — a form field is a flat object
- * with no references in it, so there is nothing to resolve. Only the redirect
- * link needs expanding.
- */
-const formProjection = /* groq */ `{
+const articleCard = /* groq */ `{
   _id,
   title,
-  showTitle,
-  mode,
-  fields[],
-  steps[]{
-    title,
-    fields[]
-  },
-  submitButtonText,
-  nextButtonText,
-  backButtonText,
-  successTitle,
-  successBody,
-  redirectAfterSubmit,
-  redirectLink${linkExpansion}
+  "slug": slug.current,
+  excerpt,
+  image,
+  featured,
+  minutes,
+  updatedAt,
+  "hasBody": count(body) > 0,
+  category->{ title, color, icon },
+  author->{ name, photo }
 }`;
 
+const faqs = /* groq */ `faqs[]->{ _id, question, answer }`;
+
+const caseDocs = /* groq */ `cases[]->{ _id, name, category, badge, eyebrow, headline, summary, image, stats, tags, url }`;
+
 /**
- * One page and its blocks.
- *
- * The `content[]` projection spreads every block wholesale (`...`) and then
- * re-projects the fields that need resolving — links, referenced documents.
- * When you add a block with a link field, add its field name here or the href
- * will arrive as an unresolved reference.
+ * One page and its blocks. Blocks are spread wholesale (`...`); what follows
+ * resolves the parts that are references or live in other documents:
+ * buttons, FAQs, case studies, team members, client logos, reviews, articles.
  */
 export const PAGE_QUERY = defineQuery(`
   *[_type == "page" && slug.current == $slug][0]{
     _id,
     title,
-    slug,
+    "slug": slug.current,
     seo,
     content[]{
       ...,
-      primaryCta${linkExpansion},
-      secondaryCta${linkExpansion},
-      link${linkExpansion},
-      cta${linkExpansion},
-      highlight{
-        ...,
-        cta${linkExpansion}
+      primaryCta${link},
+      secondaryCta${link},
+      cta${link},
+      band{ ..., cta${link} },
+      closing{ ..., cta${link} },
+      _type == "faqs" => { "faqs": ${faqs} },
+      _type == "caseCards" => { "cases": ${caseDocs} },
+      _type == "caseList" => { "cases": ${caseDocs} },
+      _type == "teamGrid" => { "members": members[]->{ _id, name, role, bio, photo } },
+      _type == "logos" => {
+        "clients": *[_type == "client" && defined(logo.asset)] | order(coalesce(sortOrder, 999) asc){ _id, name, logo }
       },
-      items[]{
-        ...,
-        link${linkExpansion},
-        cta${linkExpansion}
+      _type == "reviews" => {
+        "items": *[_type == "review" && hidden != true] | order(coalesce(sortOrder, 9999) asc, publishedAt desc)[0...30]{ _id, name, text, tone }
       },
-      // The form lives in its own document so several pages can share it, and
-      // the public half of the spam-check settings rides along — the secret
-      // stays server-side, in the submit route.
-      _type == "contactForm" => {
-        form->${formProjection},
-        // The panel's own CTA is nested, so the top-level link projections do
-        // not reach it — an internal link would arrive as a bare reference.
-        aside{
-          ...,
-          cta${linkExpansion}
-        },
-        "captcha": *[_type == "formGeneralSettings"][0]{
-          ${captchaProvider},
-          recaptchaSiteKey,
-          turnstileSiteKey
-        },
-        "formText": *[_type == "formGeneralSettings"][0].formText
-      },
-      _type == "faqs" => {
-        ...,
-        faqs[]->{
-          ...,
-          link${linkExpansion}
-        },
-        link${linkExpansion}
+      _type == "articleIndex" => {
+        "articles": *[_type == "article" && defined(slug.current)] | order(coalesce(updatedAt, publishedAt, _createdAt) desc)${articleCard},
+        "categories": *[_type == "articleCategory"] | order(coalesce(sortOrder, 999) asc).title
       }
     }
   }
 `);
 
-/** Slugs of every page, for generateStaticParams and the sitemap. */
 export const PAGE_SLUGS_QUERY = defineQuery(`
-  *[_type == "page" && defined(slug.current)]{
-    "slug": slug.current,
-    _updatedAt
-  }
+  *[_type == "page" && defined(slug.current)]{ "slug": slug.current, _updatedAt }
 `);
 
-export const NAVIGATION_QUERY = defineQuery(`
-  *[_id == "navigation"][0]{
-    navLeft[]${linkExpansion},
-    navRight[]${linkExpansion}
-  }
-`);
-
-/**
- * The site's own details — name, contact, language, social profiles — plus the
- * fixed copy in the header, footer and 404 page.
- *
- * Every field is optional in the studio; `resolveSiteInformation` in
- * `src/lib/site.ts` lays what comes back over the defaults, so an empty field
- * falls back rather than rendering blank.
- */
-export const SITE_INFORMATION_QUERY = defineQuery(`
-  *[_id == "siteInformation"][0]{
-    name,
-    description,
-    language,
-    phone,
-    email,
-    address,
-    addressCountry,
-    badges,
-    // Only the URLs: they become sameAs in the structured data.
-    "socialLinks": socialLinks[].url,
-    "logoUrl": logo.asset->url,
-    interfaceText
-  }
-`);
-
-export const FOOTER_QUERY = defineQuery(`
-  *[_id == "footer"][0]{
-    linkGroups[]{
-      title,
-      links[]${linkExpansion}
-    },
-    copyright
-  }
-`);
-
-/**
- * What the submit route needs: the mail settings, plus a flat list of every
- * field the form declares — both modes collapse to the same shape here.
- *
- * This list is the server's allow-list. A key the browser posts that is not in
- * it never reaches the mail, so it has to stay in step with what the renderer
- * draws; `npm run check:form` asserts exactly that.
- */
-export const FORM_QUERY = defineQuery(`
-  *[_id == $formId && _type == "form"][0]{
+export const ARTICLE_QUERY = defineQuery(`
+  *[_type == "article" && slug.current == $slug][0]{
     _id,
     title,
-    mailRecipients,
-    mailSubject,
-    mailMessage,
-    sendCopyToSubmitter,
-    copySubject,
-    copyMessage,
-    "fields": select(
-      mode == "steps" => steps[].fields[]{label, name, type, isRequired},
-      fields[]{label, name, type, isRequired}
-    )
+    "slug": slug.current,
+    intro,
+    excerpt,
+    minutes,
+    publishedAt,
+    updatedAt,
+    featured,
+    crumbLabel,
+    tags,
+    sources,
+    ctaTitle,
+    ctaText,
+    seo,
+    category->{ title, color, icon },
+    author->{ name, photo, authorTitle, authorBio },
+    body[]{ ..., _type == "inlineCta" => { cta${link} } },
+    "faqs": ${faqs},
+    "related": related[]->${articleCard}
   }
 `);
 
-/** Shared mail and spam settings. Server-side only — it carries secrets. */
-export const FORM_SETTINGS_QUERY = defineQuery(`
-  *[_type == "formGeneralSettings"][0]{
-    adminEmail,
-    fromEmail,
-    fromName,
-    mailLogo,
-    primaryColor,
-    textColor,
-    mailProvider,
-    mailjetApiKey,
-    mailjetApiSecret,
-    resendApiKey,
-    smtpHost,
-    smtpPort,
-    smtpSecurity,
-    smtpUser,
-    smtpPassword,
-    confirmationSubject,
-    confirmationMessage,
-    ${captchaProvider},
-    recaptchaSecretKey,
-    turnstileSecretKey,
-    formText
-  }
+/** Only articles with a body get a page; the rest are cards. */
+export const ARTICLE_SLUGS_QUERY = defineQuery(`
+  *[_type == "article" && defined(slug.current) && count(body) > 0]{ "slug": slug.current, _updatedAt }
 `);
+
+/** Everything around the content: site details, interface text, nav, footer and the Google score. */
+export const SITE_QUERY = defineQuery(`{
+  "info": *[_type == "siteInformation" && _id == "siteInformation"][0]{
+    name,
+    defaultTitle,
+    description,
+    language,
+    email,
+    phone,
+    city,
+    address,
+    addressCountry,
+    socialLinks,
+    "logoUrl": logo.asset->url,
+    interfaceText
+  },
+  "nav": *[_type == "navigation" && _id == "navigation"][0]{ links, ctaLabel, landingCtaLabel },
+  "footer": *[_type == "footer" && _id == "footer"][0]{ columns, legal, copyright },
+  "google": *[_type == "googleReviews" && _id == "googleReviews"][0]{ rating, userRatingCount, googleMapsUri }
+}`);

@@ -3,25 +3,16 @@ import { LeadForm, type LeadFormProps } from './LeadForm';
 import { Eyebrow, Wrap } from './ui';
 
 type FinalCtaProps = LeadFormProps & {
-  id?: string;
-  eyebrow?: string;
+  eyebrow?: string | null;
   title?: ReactNode;
   lead?: ReactNode;
-  list?: string[];
-  /** Extra background layer (seo-geo puts an ambient ring here). */
+  list?: string[] | null;
+  /** Extra background layer (seo-geo puts the dot grid here). */
   backdrop?: ReactNode;
 };
 
 /** Closing "Ontvang je gratis groeiplan" band with the lead form. */
-export function FinalCta({
-  id = 'groeiplan',
-  eyebrow = 'Klaar om te groeien?',
-  title = 'Ontvang je gratis groeiplan.',
-  lead = 'Wij bellen je, brengen je huidige marketing in kaart en sturen een concreet plan met kansen, kanalen en aanpak. Volledig vrijblijvend.',
-  list = ['Reactie binnen 1 werkdag', '15 minuten kennismaking, geen verkooppraatje', 'Concreet plan, geen vage belofte'],
-  backdrop,
-  ...form
-}: FinalCtaProps) {
+export function FinalCta({ id, eyebrow, title, lead, list, backdrop, ...form }: FinalCtaProps) {
   return (
     <section
       id={id}
@@ -35,7 +26,7 @@ export function FinalCta({
             <h2 className='rv mt-[18px] mb-5 text-[clamp(34px,4vw,50px)] tracking-[-.038em]'>{title}</h2>
             <p className='rv mb-7 max-w-115 text-[17px] text-dim'>{lead}</p>
             <div className='rv flex flex-col gap-3.5'>
-              {list.map((item) => (
+              {(list ?? []).map((item) => (
                 <div
                   key={item}
                   className="flex items-center gap-3 text-[14.5px] text-dim before:size-[7px] before:shrink-0 before:rounded-full before:bg-red before:shadow-[0_0_0_4px_rgba(255,57,81,.16)] before:content-['']"

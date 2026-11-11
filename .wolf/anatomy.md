@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-11-11T11:40:22.954Z
-> Files: 207 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-11-11T13:08:59.876Z
+> Files: 147 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
@@ -106,20 +106,21 @@
 ## app/
 
 - `.DS_Store` (~2186 tok)
-- `.gitignore` — Git ignore rules (~147 tok)
+- `.gitignore` — Git ignore rules (~163 tok)
 - `Dockerfile` — Docker container definition (~294 tok)
 - `eslint.config.mjs` — ESLint flat configuration (~124 tok)
 - `netlify.toml` (~228 tok)
-- `next-env.d.ts` — / <reference types="next" /> (~72 tok)
+- `next-env.d.ts` — / <reference types="next" /> (~71 tok)
 - `next.config.ts` — Next.js configuration (~518 tok)
 - `package-lock.json` — npm lock file (~208179 tok)
-- `package.json` — Node.js package manifest (~389 tok)
+- `package.json` — Node.js package manifest (~318 tok)
 - `postcss.config.mjs` — Declares config (~26 tok)
 - `sentry.edge.config.ts` — Sentry for the edge runtime (middleware, edge routes). Imported by (~74 tok)
 - `sentry.options.ts` — One source of Sentry settings for the client, the server and the edge (~291 tok)
 - `sentry.server.config.ts` — Sentry for the Node.js server runtime. Imported by `src/instrumentation.ts`, (~69 tok)
 - `tsconfig.json` — TypeScript configuration (~192 tok)
-- `tsconfig.tsbuildinfo` (~89355 tok)
+- `tsconfig.tsbuildinfo` (~85844 tok)
+- `vercel.json` (~42 tok)
 
 ## app/design/
 
@@ -134,49 +135,46 @@
 
 ## app/scripts/
 
-- `check-form.ts` — The smallest thing that fails when the CMS-driven form breaks. (~2733 tok)
-  - fn `names` L34-114 (~746 tok)
-  - fn `runFormQuery` L115-124 (~110 tok)
-  - fn `checkAllowList` L125-206 (~948 tok)
-  - fn `checkCaptcha` L207-251 (~527 tok)
-- `check-jsonld.ts` — The smallest thing that fails when the structured data quietly changes. (~2615 tok)
-  - fn `node` L37-230 (~2266 tok)
-- `seed.ts` — Seed Sanity content. Runs every target, or only the ones you name. (~630 tok)
-  - fn `parseTargets` L40-51 (~106 tok)
-  - fn `main` L52-68 (~119 tok)
+- `backfill-google-reviews.ts` — One-off: imports ALL Google reviews (the daily sync only sees the 5 most relevant). (~310 tok)
+- `import-wordpress.ts` — One-off: imports the advertisr.nl WordPress posts as articles (first tag = category, HTML → Portable Text). `npm run import:wp [-- --dry]`. (~2200 tok)
+- `check-jsonld.ts` — The smallest thing that fails when the structured data quietly changes. (~2331 tok)
+  - fn `node` L37-213 (~1994 tok)
+- `seed.ts` — Fills the dataset with the site's real content: settings, shared documents (~722 tok)
+  - fn `main` L22-57 (~431 tok)
 
 ## app/scripts/seed/
 
-- `about.ts` — Seeds the second page — /about. (~980 tok)
-  - fn `buildAboutContent` L29-113 (~753 tok)
-  - fn `seedAbout` L114-124 (~76 tok)
-- `contact.ts` — Seeds /contact — the page the demo form actually lives on. (~527 tok)
-  - fn `buildContactContent` L12-51 (~352 tok)
-  - fn `seedContact` L52-56 (~40 tok)
-- `forms.ts` — Seeds the shared form settings and one working contact form. (~588 tok)
-  - fn `upsertFormSettings` L19-35 (~151 tok)
-  - fn `upsertContactForm` L36-58 (~191 tok)
-  - fn `seedForms` L59-64 (~34 tok)
-- `home.ts` — Seeds the home page. (~902 tok)
-  - fn `buildHomeContent` L13-104 (~798 tok)
-  - fn `seedHome` L105-109 (~36 tok)
-- `navigation.ts` — Seeds the navigation and footer singletons. (~684 tok)
-  - fn `navLinkExternal` L10-18 (~47 tok)
-  - fn `navLinkInternal` L19-27 (~66 tok)
-  - fn `pageIdBySlug` L28-35 (~70 tok)
-  - fn `pageLink` L36-40 (~50 tok)
-  - fn `upsertNavigation` L41-56 (~140 tok)
-  - fn `upsertFooter` L57-82 (~192 tok)
-  - fn `seedNavigation` L83-88 (~38 tok)
-- `shared.ts` — Shared Sanity write helpers for the per-page seed scripts in this folder. (~1358 tok)
-  - fn `key` L44-50 (~48 tok)
-  - fn `externalLink` L51-54 (~34 tok)
-  - fn `cta` L55-66 (~87 tok)
-  - fn `contentTypeFor` L67-70 (~36 tok)
-  - fn `uploadImage` L71-105 (~253 tok)
-  - fn `upsertFaq` L106-138 (~276 tok)
-  - fn `upsertPage` L139-162 (~191 tok)
-- `site-information.ts` — The `siteInformation` singleton, filled from the defaults in (~356 tok)
+- `content.ts` — The site's real copy, as it was in the approved designs. The service pages (~17365 tok)
+  - fn `link` L17-236 (~3679 tok)
+  - fn `inlineCta` L237-407 (~3648 tok)
+  - fn `reviewsBlock` L408-408 (~45 tok)
+  - fn `logos` L409-409 (~41 tok)
+  - fn `faqs` L410-410 (~46 tok)
+  - fn `finalCta` L411-420 (~141 tok)
+  - fn `steps` L421-759 (~5597 tok)
+  - fn `shot` L760-974 (~4006 tok)
+- `lib.ts` — Helpers for the seed: a write client, Portable Text from a light markup, (~1399 tok)
+  - fn `hash` L29-33 (~59 tok)
+  - fn `t` L34-47 (~112 tok)
+  - fn `block` L48-59 (~104 tok)
+  - fn `p` L60-60 (~19 tok)
+  - fn `h2` L61-61 (~26 tok)
+  - fn `li` L62-63 (~29 tok)
+  - fn `cta` L64-64 (~31 tok)
+  - fn `img` L65-65 (~21 tok)
+  - fn `ref` L66-69 (~28 tok)
+  - fn `upload` L70-92 (~286 tok)
+  - fn `resolve` L93-122 (~356 tok)
+
+## app/scripts/seed/pages/
+
+- `ai-agent-workflows.json` (~4144 tok)
+- `data-analytics.json` (~3828 tok)
+- `google-ads.json` (~4158 tok)
+- `marketing-automation.json` (~3762 tok)
+- `meta-ads.json` (~4089 tok)
+- `social-media-organisch.json` (~4707 tok)
+- `web-development.json` (~4036 tok)
 
 ## app/src/
 
@@ -187,122 +185,50 @@
 
 - `global-error.tsx` — Last-resort error boundary: it replaces the root layout, so it renders its (~239 tok)
 - `globals.css` — Styles: 6 rules, 73 vars, 2 media queries, 7 animations, 1 layers (~2286 tok)
-- `layout.tsx` — display (~428 tok)
-- `manifest.json` (~46 tok)
-- `not-found.tsx` — NotFound (~246 tok)
+- `layout.tsx` — Site-wide defaults from Site information; each page's `seo` layers on top. (~455 tok)
+- `manifest.ts` — Declares manifest (~113 tok)
+- `not-found.tsx` — NotFound (~188 tok)
 - `robots.ts` — Served at `/robots.txt`. (~150 tok)
-- `sitemap.ts` — The static Advertisr. routes, plus every CMS page listed from the CMS itself. (~467 tok)
-
-## app/src/app/(cms)/
-
-- `layout.tsx` — Site-wide metadata defaults, from the `siteInformation` singleton. (~914 tok)
-  - fn `generateMetadata` L22-53 (~193 tok)
-  - fn `asNavLinks` L54-58 (~74 tok)
-  - fn `CmsLayout` L59-92 (~348 tok)
-
-## app/src/app/(cms)/[slug]/
-
-- `page.tsx` — Every CMS page except the home page renders through this one route — there (~603 tok)
-  - fn `generateMetadata` L23-32 (~69 tok)
-  - fn `SanityPage` L33-74 (~292 tok)
+- `sitemap.ts` — Every page and every article with a body, straight from the CMS, with (~382 tok)
 
 ## app/src/app/(landing)/
 
-- `layout.tsx` — Stripped-down chrome for the /groeiplan landing page: no menu, a slim footer and a sticky CTA on phones. (~522 tok)
-  - fn `LandingLayout` L8-43 (~419 tok)
+- `layout.tsx` — Stripped-down chrome for the /groeiplan landing page: no menu, a slim footer and a sticky CTA on phones. (~533 tok)
+  - fn `LandingLayout` L9-43 (~415 tok)
 
 ## app/src/app/(landing)/groeiplan/
 
-- `page.tsx` — metadata (~3255 tok)
-  - fn `GrowthPlanPage` L69-242 (~2345 tok)
+- `page.tsx` — The `groeiplan` page document, in the landing layout of this route group. (~82 tok)
 
 ## app/src/app/(site)/
 
-- `layout.tsx` — Chrome for the Advertisr. pages (everything except /groeiplan and the CMS routes). (~132 tok)
-- `page.tsx` — STAGES (~5312 tok)
-  - fn `Hero` L123-218 (~1327 tok)
-  - fn `Services` L219-281 (~1206 tok)
-  - fn `Cases` L282-300 (~147 tok)
-  - fn `Approach` L301-335 (~522 tok)
-  - fn `StatBand` L336-358 (~214 tok)
-  - fn `Team` L359-405 (~667 tok)
-  - fn `HomePage` L406-434 (~186 tok)
+- `layout.tsx` — Chrome for the Advertisr. pages (everything except /groeiplan). (~155 tok)
+- `page.tsx` — generateMetadata (~70 tok)
 
-## app/src/app/(site)/ai-agent-workflows/
+## app/src/app/(site)/[slug]/
 
-- `page.tsx` — metadata (~3532 tok)
-  - fn `Page` L14-244 (~3337 tok)
-
-## app/src/app/(site)/contact/
-
-- `page.tsx` — metadata (~2194 tok)
-  - fn `ContactPage` L51-161 (~1523 tok)
-
-## app/src/app/(site)/data-analytics/
-
-- `page.tsx` — metadata (~3189 tok)
-  - fn `Page` L14-232 (~2996 tok)
-
-## app/src/app/(site)/google-ads/
-
-- `page.tsx` — metadata (~3549 tok)
-  - fn `Page` L14-244 (~3362 tok)
+- `page.tsx` — Pages with a route of their own: the home page, the kennisbank and the landing page. (~356 tok)
 
 ## app/src/app/(site)/kennisbank/
 
-- `page.tsx` — metadata (~1402 tok)
-  - fn `KnowledgeBasePage` L13-115 (~1229 tok)
+- `page.tsx` — A route of its own because `kennisbank/[slug]` claims the segment. (~81 tok)
 
-## app/src/app/(site)/kennisbank/google-ads-voor-mkb/
+## app/src/app/(site)/kennisbank/[slug]/
 
-- `page.tsx` — Long-form body styles, as the design's `.art-prose`. (~6888 tok)
-  - fn `InlineCta` L105-124 (~423 tok)
-  - fn `Box` L125-133 (~61 tok)
-  - fn `ArticlePage` L134-466 (~5197 tok)
+- `page.tsx` — "Wat kost Google Ads?" → "wat-kost-google-ads", the h2's id for the table of contents. (~4316 tok)
+  - fn `getArticle` L26-27 (~26 tok)
+  - fn `generateStaticParams` L28-32 (~60 tok)
+  - fn `generateMetadata` L33-43 (~162 tok)
+  - fn `anchor` L44-52 (~63 tok)
+  - fn `textOf` L53-122 (~1290 tok)
+  - fn `ArticlePage` L123-294 (~2339 tok)
 
-## app/src/app/(site)/marketing-automation/
+## app/src/app/api/google-reviews/
 
-- `page.tsx` — metadata (~3116 tok)
-  - fn `Page` L14-230 (~2922 tok)
-
-## app/src/app/(site)/meta-ads/
-
-- `page.tsx` — metadata (~3482 tok)
-  - fn `Page` L14-244 (~3300 tok)
-
-## app/src/app/(site)/resultaten/
-
-- `page.tsx` — metadata (~2924 tok)
-  - fn `ResultsPage` L102-225 (~1569 tok)
-
-## app/src/app/(site)/seo-geo/
-
-- `page.tsx` — Browser-framed screenshot of the Advertisr portal. (~6029 tok)
-  - fn `Shot` L19-47 (~287 tok)
-  - fn `HeroShot` L48-232 (~2401 tok)
-  - fn `Tools` L233-289 (~787 tok)
-  - fn `Steps` L290-318 (~365 tok)
-  - fn `Tick` L319-328 (~112 tok)
-  - fn `Features` L329-368 (~438 tok)
-  - fn `Page` L369-483 (~1385 tok)
-
-## app/src/app/(site)/social-media-organisch/
-
-- `page.tsx` — metadata (~4228 tok)
-  - fn `Pillars` L38-65 (~322 tok)
-  - fn `Output` L66-87 (~259 tok)
-  - fn `Month` L88-98 (~69 tok)
-  - fn `Page` L99-322 (~2976 tok)
-
-## app/src/app/(site)/team/
-
-- `page.tsx` — metadata (~2544 tok)
-  - fn `TeamPage` L58-189 (~1742 tok)
-
-## app/src/app/(site)/web-development/
-
-- `page.tsx` — metadata (~3430 tok)
-  - fn `Page` L14-241 (~3246 tok)
+- `route.ts` — Syncs the Google reviews into Sanity — see `src/lib/google-reviews.ts`. (~787 tok)
+  - fn `reply` L29-32 (~36 tok)
+  - fn `OPTIONS` L33-36 (~28 tok)
+  - fn `POST` L37-68 (~402 tok)
 
 ## app/src/app/api/health/
 
@@ -310,8 +236,8 @@
 
 ## app/src/app/api/lead/
 
-- `route.ts` — The Advertisr. lead form ("Ontvang je gratis groeiplan"), posted by (~804 tok)
-  - fn `POST` L24-77 (~566 tok)
+- `route.ts` — The Advertisr. lead form ("Ontvang je gratis groeiplan"), posted by (~805 tok)
+  - fn `POST` L25-79 (~557 tok)
 
 ## app/src/app/api/revalidate/
 
@@ -325,84 +251,110 @@
 
 - `route.ts` — Always fails, on purpose: called from `/sentry-test` to check that server (~163 tok)
 
-## app/src/app/api/submit-form/
-
-- `route.ts` — Bigger uploads are rejected rather than silently dropped from the mail. (~2065 tok)
-  - fn `fail` L15-19 (~57 tok)
-  - fn `splitEmails` L20-26 (~42 tok)
-  - fn `POST` L27-198 (~1795 tok)
-
-## app/src/app/api/test-mail/
-
-- `route.ts` — Sends one test mail with the published Form settings — the "Send test mail" (~1033 tok)
-  - fn `reply` L31-34 (~39 tok)
-  - fn `OPTIONS` L35-38 (~28 tok)
-  - fn `POST` L39-91 (~644 tok)
-
 ## app/src/app/sentry-test/
 
-- `page.tsx` — Served at `/sentry-test?secret=<SENTRY_TEST_SECRET>`: checks the Sentry connection (~380 tok)
+- `page.tsx` — Served at `/sentry-test?secret=<SENTRY_TEST_SECRET>`: checks the Sentry connection (~382 tok)
 
 ## app/src/components/
 
+- `CmsPage.tsx` — Every page is a `page` document rendered through the page builder; the (~560 tok)
+  - fn `getPage` L18-19 (~24 tok)
+  - fn `cmsMetadata` L20-26 (~115 tok)
+  - fn `CmsPage` L27-50 (~201 tok)
 - `JsonLd.tsx` — Put one graph into the page. (~98 tok)
-- `PageBuilder.tsx` — Map one Sanity block onto its React component. (~3274 tok)
-  - fn `toCta` L27-45 (~229 tok)
-  - fn `renderBlock` L46-313 (~2622 tok)
-  - fn `PageBuilder` L314-326 (~92 tok)
-- `SentryTest.tsx` — Buttons that raise a deliberate error in the browser and on the server, so (~686 tok)
-  - fn `SentryTest` L14-70 (~556 tok)
+- `PageBuilder.tsx` — Map one Sanity block onto its component. `prev` is the block before it: (~2962 tok)
+  - fn `ServiceHeroBlock` L27-73 (~487 tok)
+  - fn `render` L74-272 (~2089 tok)
+  - fn `PageBuilder` L273-282 (~75 tok)
+- `SentryTest.tsx` — Buttons that raise a deliberate error in the browser and on the server, so (~679 tok)
+  - fn `SentryTest` L14-70 (~549 tok)
 - `TrackingScripts.tsx` — Google Tag Manager and the Meta (Facebook) pixel, both opt-in. (~866 tok)
   - fn `TrackingScriptsHead` L21-62 (~399 tok)
   - fn `TrackingScriptsBody` L63-92 (~222 tok)
 
 ## app/src/components/advertisr/
 
-- `ArticleCard.tsx` — Placeholder art per category: tinted glow + line icon + dot grid. (~1711 tok)
-  - fn `CategoryArt` L75-89 (~180 tok)
-  - fn `Avatar` L90-106 (~143 tok)
-  - fn `PillarCard` L107-133 (~372 tok)
-  - fn `ArticleCard` L134-156 (~336 tok)
-- `CaseCard.tsx` — Dark photo card with a category pill, title and two stats. (~628 tok)
-  - fn `CaseCard` L13-49 (~553 tok)
-- `Compare.tsx` — "Bureaus zetten er vaak een laag tussen. Wij niet." comparison table. (~784 tok)
-  - fn `Compare` L16-66 (~549 tok)
-- `FinalCta.tsx` — Extra background layer (seo-geo puts an ambient ring here). (~622 tok)
-  - fn `FinalCta` L16-54 (~496 tok)
-- `Footer.tsx` — COLUMNS (~603 tok)
-  - fn `Footer` L29-61 (~370 tok)
-- `kennisbank.tsx` — Category pills. Like the design, they only mark the active one; filtering comes with real content. (~728 tok)
-  - fn `Pills` L8-30 (~226 tok)
-  - fn `NewsletterForm` L31-73 (~435 tok)
-- `LeadForm.tsx` — null drops the message field (the short groeiplan hero form). (~1536 tok)
-  - fn `LeadForm` L31-129 (~1222 tok)
-- `Logos.tsx` — The design has two exports of the logo set; the service pages use the second. (~894 tok)
-  - fn `Logos` L28-64 (~588 tok)
+- `ArticleCard.tsx` — Line icons for the category art; the category document picks one and a colour. (~2056 tok)
+  - fn `shortDate` L90-94 (~83 tok)
+  - fn `hrefOf` L95-96 (~29 tok)
+  - fn `CategoryArt` L97-112 (~209 tok)
+  - fn `Avatar` L113-130 (~163 tok)
+  - fn `PillarCard` L131-165 (~434 tok)
+  - fn `ArticleCard` L166-190 (~355 tok)
+- `CaseCard.tsx` — Dark photo card with a category pill, title and two stats. (~654 tok)
+  - fn `CaseCard` L14-52 (~568 tok)
+- `cms.tsx` — Helpers that turn Sanity field values into what the design components take. (~672 tok)
+  - fn `Rich` L17-31 (~139 tok)
+  - fn `plain` L32-38 (~79 tok)
+  - fn `pic` L39-44 (~68 tok)
+  - fn `btn` L45-54 (~116 tok)
+  - fn `Animated` L55-66 (~76 tok)
+- `Compare.tsx` — "Bureaus zetten er vaak een laag tussen. Wij niet." comparison table. (~614 tok)
+  - fn `Compare` L7-63 (~541 tok)
+- `FinalCta.tsx` — Extra background layer (seo-geo puts the dot grid here). (~526 tok)
+  - fn `FinalCta` L15-45 (~402 tok)
+- `Footer.tsx` — Footer (~468 tok)
+- `kennisbank.tsx` — Category pills. Like the design, they only mark the active one; filtering comes with real content. (~748 tok)
+  - fn `Pills` L9-31 (~226 tok)
+  - fn `NewsletterForm` L32-74 (~444 tok)
+- `LeadForm.tsx` — The `form` object on a block; empty fields fall back to the defaults in Site information. (~1563 tok)
+  - fn `LeadForm` L39-130 (~1174 tok)
+- `Logos.tsx` — "Vertrouwd door" band with the endless logo strip. (~560 tok)
+  - fn `Logos` L6-46 (~511 tok)
 - `Marquee.tsx` — Pill strip that scrolls forever (doubled so the loop is seamless). (~309 tok)
-- `Nav.tsx` — Fixed top bar; frosted once the page scrolls past 20px. Links hide below (~878 tok)
-  - fn `activeLabel` L10-19 (~115 tok)
-  - fn `Nav` L20-74 (~687 tok)
-- `Reviews.tsx` — Google-review masonry. The homepage shows all ten, other pages the first six. (~658 tok)
-  - fn `Reviews` L17-63 (~531 tok)
-- `service.tsx` — Dark "Wat levert … op?" band with a CTA button. (~6170 tok)
-  - fn `CtaBand` L16-48 (~254 tok)
-  - fn `FloatStat` L49-62 (~153 tok)
-  - fn `ServiceHero` L63-114 (~535 tok)
-  - fn `BridgeQuote` L115-137 (~414 tok)
-  - fn `Pain` L138-184 (~566 tok)
-  - fn `Funnel` L185-250 (~1005 tok)
-  - fn `LedgerRow` L251-270 (~371 tok)
-  - fn `Deliverables` L271-316 (~655 tok)
-  - fn `Crea` L317-409 (~842 tok)
-  - fn `CaseStudy` L410-449 (~414 tok)
-  - fn `FaqList` L450-467 (~246 tok)
-  - fn `Faq` L468-487 (~120 tok)
-  - fn `ProcRow` L488-506 (~298 tok)
+- `Nav.tsx` — Fixed top bar; frosted once the page scrolls past 20px. Links hide below (~980 tok)
+  - fn `Nav` L16-81 (~817 tok)
+- `Reviews.tsx` — A tone for reviews without one (Google imports), stable per name. (~798 tok)
+  - fn `toneFor` L20-25 (~64 tok)
+  - fn `Reviews` L26-81 (~573 tok)
+- `sections.tsx` — The default red button: the block's own, else "Ontvang mijn groeiplan" to the page's form. (~14706 tok)
+  - fn `HomeHero` L41-109 (~1084 tok)
+  - fn `Stages` L110-166 (~1151 tok)
+  - fn `CaseCards` L167-189 (~218 tok)
+  - fn `Approach` L190-225 (~545 tok)
+  - fn `StatBand` L226-248 (~234 tok)
+  - fn `HomeTeam` L249-290 (~524 tok)
+  - fn `PageHero` L291-365 (~883 tok)
+  - fn `TeamGrid` L366-403 (~496 tok)
+  - fn `Story` L404-441 (~512 tok)
+  - fn `CaseList` L442-516 (~994 tok)
+  - fn `ContactHero` L517-562 (~579 tok)
+  - fn `ContactMethods` L563-586 (~318 tok)
+  - fn `InfoCard` L587-614 (~392 tok)
+  - fn `GroeiplanHero` L615-682 (~838 tok)
+  - fn `ValueGrid` L683-704 (~280 tok)
+  - fn `StepsMedia` L705-749 (~725 tok)
+  - fn `QuoteBand` L750-767 (~190 tok)
+  - fn `Dots` L768-774 (~64 tok)
+  - fn `Shot` L775-793 (~269 tok)
+  - fn `ToolCards` L794-843 (~736 tok)
+  - fn `StepCards` L844-866 (~339 tok)
+  - fn `Tick` L867-876 (~112 tok)
+  - fn `Features` L877-939 (~781 tok)
+  - fn `Pillars` L940-961 (~286 tok)
+  - fn `Output` L962-979 (~226 tok)
+  - fn `ProcSteps` L980-994 (~132 tok)
+  - fn `ArticleIndex` L995-1092 (~1261 tok)
+- `service.tsx` — Dark "Wat levert … op?" band with a CTA button. (~6171 tok)
+  - fn `CtaBand` L18-40 (~238 tok)
+  - fn `FloatStat` L41-54 (~153 tok)
+  - fn `ServiceHero` L55-110 (~518 tok)
+  - fn `BridgeQuote` L111-135 (~427 tok)
+  - fn `Pain` L136-182 (~563 tok)
+  - fn `Funnel` L183-248 (~1002 tok)
+  - fn `LedgerRow` L249-268 (~376 tok)
+  - fn `Deliverables` L269-314 (~654 tok)
+  - fn `Crea` L315-407 (~864 tok)
+  - fn `CaseStudy` L408-447 (~405 tok)
+  - fn `FaqList` L448-465 (~246 tok)
+  - fn `Faq` L466-477 (~111 tok)
+  - fn `ProcRow` L478-496 (~298 tok)
+- `Share.tsx` — Share on LinkedIn and copy-link buttons in the article header. (~322 tok)
 - `SiteEffects.tsx` — The designs' page script, ported once for every page: (~1080 tok)
   - fn `SiteEffects` L14-103 (~938 tok)
-- `Toc.tsx` — Sticky table of contents with scrollspy; a toggle button replaces the label below 900px. (~628 tok)
-  - fn `Toc` L7-53 (~574 tok)
-- `ui.tsx` — Content width shell: 1240px, 40px gutter (22px on phones). (~1876 tok)
+- `Toc.tsx` — Sticky table of contents with scrollspy; a toggle button replaces the label below 900px. (~631 tok)
+  - fn `Toc` L7-53 (~577 tok)
+- `ui.tsx` — Content width shell: 1240px, 40px gutter (22px on phones). (~1887 tok)
   - fn `Wrap` L6-10 (~68 tok)
   - fn `Sec` L11-14 (~49 tok)
   - fn `Eyebrow` L15-30 (~146 tok)
@@ -410,12 +362,12 @@
   - fn `Arrow` L60-63 (~37 tok)
   - fn `BtnRed` L64-71 (~66 tok)
   - fn `BtnGhost` L72-102 (~171 tok)
-  - fn `Brand` L103-120 (~191 tok)
+  - fn `Brand` L103-120 (~196 tok)
   - fn `Check` L121-130 (~135 tok)
   - fn `Ambient` L131-140 (~202 tok)
   - fn `GoogleG` L141-164 (~280 tok)
   - fn `Count` L165-169 (~50 tok)
-  - fn `Crumb` L170-191 (~176 tok)
+  - fn `Crumb` L170-191 (~183 tok)
 - `visuals.tsx` — Index that advances every `ms`, unless the visitor prefers reduced motion. (~4996 tok)
   - fn `useCycle` L12-21 (~91 tok)
   - fn `Stage` L22-29 (~138 tok)
@@ -429,145 +381,54 @@
   - fn `FlowVisual` L287-344 (~631 tok)
   - fn `SocialVisual` L345-403 (~700 tok)
 
-## app/src/components/blocks/
-
-- `Benefits.tsx` — DEFAULTS — renders chart (~1257 tok)
-  - fn `BenefitIcon` L32-117 (~570 tok)
-  - fn `Benefits` L118-165 (~501 tok)
-- `ContactForm.tsx` — The form itself, from the referenced `form` document. (~1272 tok)
-  - fn `ContactForm` L50-130 (~852 tok)
-- `CrossLinks.tsx` — DEFAULTS (~631 tok)
-  - fn `CrossLinks` L21-63 (~502 tok)
-- `CtaBand.tsx` — DEFAULTS (~668 tok)
-  - fn `CtaBand` L30-83 (~478 tok)
-- `Faq.tsx` — DEFAULTS (~1065 tok)
-  - fn `Faq` L26-100 (~890 tok)
-- `Hero.tsx` — DEFAULTS (~1682 tok)
-  - fn `Hero` L40-185 (~1424 tok)
-- `Intro.tsx` — DEFAULTS (~1316 tok)
-  - fn `renderHighlightedTitle` L40-63 (~136 tok)
-  - fn `Intro` L64-158 (~921 tok)
-- `MediaText.tsx` — Text column with a supporting photo on the right. (~620 tok)
-  - fn `MediaText` L32-82 (~411 tok)
-- `PageHero.tsx` — DEFAULTS (~1058 tok)
-  - fn `PageHero` L31-125 (~864 tok)
-- `Services.tsx` — Under each card; `{{service}}` becomes the card label. (~1642 tok)
-  - fn `ServiceCardItem` L61-110 (~469 tok)
-  - fn `Services` L111-175 (~733 tok)
-- `Steps.tsx` — DEFAULTS (~1660 tok)
-  - fn `stepImageSrc` L34-37 (~34 tok)
-  - fn `Steps` L38-159 (~1403 tok)
-
-## app/src/components/form/
-
-- `Captcha.tsx` — Public half of the spam-check settings — the secret stays server-side. (~1344 tok)
-  - fn `loadScript` L38-64 (~309 tok)
-  - fn `Captcha` L65-142 (~644 tok)
-- `fields.tsx` — `stacked` is the roomy page form, `compact` fits a narrow card or sidebar. (~1728 tok)
-  - fn `selectCaret` L41-51 (~128 tok)
-  - fn `linkify` L52-73 (~153 tok)
-  - fn `FormField` L74-180 (~965 tok)
-- `FormRenderer.tsx` — Shared copy from Form settings — button fallbacks, progress, errors. (~3475 tok)
-  - fn `IconArrowRight` L67-74 (~66 tok)
-  - fn `SuccessPanel` L75-118 (~459 tok)
-  - fn `FormRenderer` L119-340 (~2291 tok)
-
-## app/src/components/layout/
-
-- `SiteFooter.tsx` — From `getSiteInformation()`; the defaults stand in when not passed. (~1223 tok)
-  - fn `FooterLinkList` L14-37 (~204 tok)
-  - fn `SiteFooter` L38-127 (~932 tok)
-- `SiteHeader.tsx` — isActivePath (~1525 tok)
-  - fn `isActivePath` L11-15 (~53 tok)
-  - fn `DesktopNav` L16-57 (~350 tok)
-  - fn `Burger` L58-110 (~342 tok)
-  - fn `SiteHeader` L111-175 (~681 tok)
-
-## app/src/components/ui/
-
-- `ArrowLink.tsx` — Standalone text link with circular arrow (renders as `<a>`). (~546 tok)
-  - fn `ArrowLink` L34-57 (~154 tok)
-  - fn `ArrowLinkLabel` L58-73 (~93 tok)
-- `Button.tsx` — Class string for anything that should look like a button (e.g. a `<button>`). (~520 tok)
-  - fn `buttonClass` L34-41 (~60 tok)
-  - fn `Button` L42-68 (~126 tok)
-- `ContactIcon.tsx` — Phone / WhatsApp / mail / map-pin, for the contact panel beside a form. (~570 tok)
-  - fn `ContactIcon` L9-60 (~507 tok)
-- `Eyebrow.tsx` — Accent tone for dark backgrounds where plain white reads too cold. (~192 tok)
-- `IconArrow.tsx` — IconArrow (~203 tok)
-- `Image.tsx` — next/image, but Sanity images are resized by the Sanity CDN (see (~196 tok)
-- `Lead.tsx` — Lead (~91 tok)
-- `LogoMark.tsx` — From `siteInformation`; falls back to the default when not passed. (~478 tok)
-- `Reveal.tsx` — delayClass (~252 tok)
-- `RevealLink.tsx` — delayClass (~277 tok)
-- `SectionHead.tsx` — SectionHead (~160 tok)
-- `Wrap.tsx` — Site content width shell. (~119 tok)
-
-## app/src/hooks/
-
-- `useActiveStep.ts` — Tracks which step list item is closest to ~42% viewport height. (~316 tok)
-- `useMobileNav.ts` — Exports useMobileNav (~282 tok)
-- `useRevealOnScroll.ts` — Exports useRevealOnScroll (~259 tok)
-- `useStickyTopbar.ts` — Exports useStickyTopbar (~236 tok)
-
 ## app/src/lib/
 
-- `captcha.ts` — Server half of the form spam check. No Next.js in here, so the verdicts can (~498 tok)
-- `chrome.ts` — Scroll threshold (px) before the topbar gets the stuck state. (~62 tok)
 - `cn.ts` — Exports cn (~37 tok)
-- `demo-content.ts` — Demo copy for every block. (~3960 tok)
 - `env.ts` — Sanity connection details and analytics ids, read from the environment. (~380 tok)
-- `form-fields.ts` — Shape and layout rules for CMS-authored forms. No React in here, so the (~1976 tok)
-  - fn `resolveFormText` L30-106 (~619 tok)
-  - fn `toRedirect` L107-121 (~159 tok)
-  - fn `toSteps` L122-133 (~123 tok)
-  - fn `fillTokens` L134-145 (~126 tok)
-  - fn `toFieldRows` L146-164 (~182 tok)
-  - fn `toFormDefinition` L165-208 (~446 tok)
 - `form-mail.ts` — The mails `POST /api/submit-form` sends. (~1688 tok)
   - fn `escapeHtml` L16-27 (~92 tok)
   - fn `color` L28-32 (~62 tok)
   - fn `tint` L33-50 (~156 tok)
   - fn `renderText` L51-82 (~230 tok)
   - fn `renderFormMail` L83-169 (~990 tok)
-- `json-ld.ts` — Structured data (schema.org JSON-LD), built from what is in the CMS. (~2953 tok)
-  - fn `absoluteUrl` L32-42 (~123 tok)
-  - fn `prune` L43-67 (~295 tok)
-  - fn `serializeJsonLd` L68-72 (~54 tok)
-  - fn `jsonLdGraph` L73-96 (~278 tok)
-  - fn `postalAddress` L97-123 (~287 tok)
-  - fn `organizationJsonLd` L124-138 (~129 tok)
-  - fn `websiteJsonLd` L139-150 (~82 tok)
-  - fn `siteJsonLd` L151-161 (~126 tok)
-  - fn `breadcrumbJsonLd` L162-180 (~154 tok)
-  - fn `faqQuestions` L181-198 (~192 tok)
-  - fn `pageFaqs` L199-215 (~188 tok)
-  - fn `pageBreadcrumbLabel` L216-242 (~257 tok)
-  - fn `webPageJsonLd` L243-269 (~341 tok)
-  - fn `pageJsonLd` L270-276 (~59 tok)
-- `links.ts` — The slug of the page that renders at `/`. (~446 tok)
-- `mail.ts` — Mail sending for `/api/submit-form` and `/api/test-mail`: Mailjet's or (~2219 tok)
-  - fn `sendViaMailjet` L40-77 (~359 tok)
-  - fn `sendViaResend` L78-114 (~388 tok)
-  - fn `sendViaSmtp` L115-143 (~264 tok)
-  - fn `sendMail` L144-154 (~137 tok)
-  - fn `resolveMailSettings` L155-207 (~684 tok)
-  - fn `missingMailMessage` L208-211 (~67 tok)
+- `google-reviews.ts` — Pulls the business's rating and reviews from the Google Places API (New) (~3395 tok)
+  - class `SyncError` L81-89 (~39 tok)
+  - fn `writeClient` L90-105 (~156 tok)
+  - fn `documentId` L106-110 (~57 tok)
+  - fn `fetchPlace` L111-133 (~318 tok)
+  - fn `fetchAllReviews` L134-179 (~544 tok)
+  - fn `toFields` L180-198 (~208 tok)
+  - fn `differs` L199-210 (~153 tok)
+  - fn `syncGoogleReviews` L211-292 (~1096 tok)
+  - fn `patchConfig` L293-300 (~122 tok)
+- `json-ld.ts` — Structured data (schema.org JSON-LD), built from what is in the CMS. (~2941 tok)
+  - fn `absoluteUrl` L33-43 (~123 tok)
+  - fn `prune` L44-68 (~295 tok)
+  - fn `serializeJsonLd` L69-73 (~54 tok)
+  - fn `jsonLdGraph` L74-97 (~278 tok)
+  - fn `postalAddress` L98-124 (~279 tok)
+  - fn `organizationJsonLd` L125-139 (~160 tok)
+  - fn `websiteJsonLd` L140-151 (~113 tok)
+  - fn `siteJsonLd` L152-162 (~158 tok)
+  - fn `breadcrumbJsonLd` L163-181 (~154 tok)
+  - fn `faqQuestions` L182-198 (~174 tok)
+  - fn `pageFaqs` L199-209 (~121 tok)
+  - fn `pageBreadcrumbLabel` L210-233 (~248 tok)
+  - fn `webPageJsonLd` L234-260 (~333 tok)
+  - fn `pageJsonLd` L261-267 (~59 tok)
+- `links.ts` — The slug of the page that renders at `/`. (~269 tok)
+- `mail.ts` — Mail sending for `/api/lead`: Mailjet's or Resend's HTTP API, or an SMTP (~2023 tok)
+  - fn `sendViaMailjet` L35-72 (~359 tok)
+  - fn `sendViaResend` L73-109 (~388 tok)
+  - fn `sendViaSmtp` L110-138 (~264 tok)
+  - fn `sendMail` L139-148 (~122 tok)
+  - fn `resolveMailSettings` L149-199 (~579 tok)
+  - fn `missingMailMessage` L200-203 (~56 tok)
 - `secret.ts` — Constant-time compare; hashing first evens out the lengths. (~94 tok)
 - `sentry-test.ts` — Guards `/sentry-test` and `/api/sentry-test`: both answer 404 unless (~182 tok)
-- `site.ts` — Site-wide details, and the defaults they fall back to. (~1562 tok)
-  - fn `text` L87-90 (~33 tok)
-  - fn `list` L91-105 (~154 tok)
-  - fn `resolveSiteInformation` L106-122 (~230 tok)
-  - fn `withDefaults` L123-135 (~116 tok)
-  - fn `telHref` L136-139 (~29 tok)
-  - fn `mailtoHref` L140-150 (~63 tok)
-
-## app/src/lib/advertisr/
-
-- `articles.ts` — Kennisbank content. Only the Google Ads guide has a page so far; the rest link to '#' as in the design. (~1164 tok)
-- `nav.ts` — Every service page, in the footer's order. (~362 tok)
-- `reviews.ts` — Exports REVIEWS (~583 tok)
+- `site-url.ts` — The site's public origin, without a trailing slash. From the environment: (~85 tok)
+- `site.ts` — The site's public origin, without a trailing slash. From the environment: (~899 tok)
+  - fn `mailtoHref` L84-87 (~24 tok)
 
 ## app/src/sanity/
 
@@ -575,13 +436,10 @@
 - `fetch.ts` — Every Sanity read that feeds a page carries this one tag. A publish in the (~243 tok)
 - `image-loader.ts` — Quality for the Sanity CDN; with `auto=format` that usually ends up WebP/AVIF. (~426 tok)
 - `image.ts` — An image field can exist in Sanity without a file — only an `alt` filled (~480 tok)
-- `metadata.ts` — The OG image for a page's `seo` object, sized for social cards. (~678 tok)
-  - fn `seoImageUrl` L19-40 (~228 tok)
-  - fn `pageMetadata` L41-70 (~305 tok)
-- `queries.ts` — Resolve internal page references on link/cta objects. (~1540 tok)
-- `sanity.types.ts` — --------------------------------------------------------------------------------- (~10644 tok)
-- `schema.json` (~27621 tok)
-- `site-information.ts` — The site's details, with defaults filled in where the CMS is empty. (~316 tok)
+- `metadata.ts` — The OG image for a `seo` object, sized for social cards. (~444 tok)
+- `queries.ts` — A button: pull the referenced page's type and slug up so `resolveHref` can build the path. (~1041 tok)
+- `sanity.types.ts` — --------------------------------------------------------------------------------- (~19596 tok)
+- `schema.json` (~59724 tok)
 
 ## studio/
 
@@ -591,69 +449,73 @@
 - `package.json` — Node.js package manifest (~301 tok)
 - `README.md` — Project documentation (~427 tok)
 - `sanity.cli.ts` — Typegen runs from the studio — the CLI needs a studio project root — but (~270 tok)
-- `sanity.config.ts` — Project id and dataset come from the environment so the studio and the app (~267 tok)
-- `structure.ts` — Documents that exist exactly once. They get a fixed `_id` and a top-level (~799 tok)
+- `sanity.config.ts` — Project id and dataset come from the environment so the studio and the app (~394 tok)
+- `structure.ts` — Documents that exist exactly once. They get a fixed `_id` and a top-level (~708 tok)
 - `tsconfig.json` — TypeScript configuration (~120 tok)
+- `tsconfig.tsbuildinfo` (~35971 tok)
+
+## studio/.sanity/runtime/
+
+- `app.js` — This file is auto-generated on 'sanity dev' (~87 tok)
+- `index.html` — Sanity Studio (~2316 tok)
 
 ## studio/schemaTypes/
 
-- `faqType.ts` — Exports faqType (~238 tok)
-- `footerType.ts` — Exports footerType (~584 tok)
-- `formGeneralSettingsType.ts` — Mail and spam settings shared by every `form`. A singleton. (~3396 tok)
-  - fn `captchaOf` L19-23 (~72 tok)
-  - fn `captchaKeyFields` L24-335 (~3098 tok)
-- `formType.ts` — Multi-step forms keep their fields under `steps`, simple ones under `fields`. (~2578 tok)
-  - fn `isSteps` L5-274 (~2520 tok)
-- `index.ts` — Every schema type the studio knows about. (~527 tok)
-- `navigationType.ts` — Exports navigationType (~363 tok)
-- `pageBuilderType.ts` — The block list editors can insert on a page. (~238 tok)
-- `pageType.ts` — Exports pageType (~213 tok)
-- `siteInformationType.ts` — Who the site belongs to: the details that appear in the header, the footer (~1300 tok)
-
-## studio/schemaTypes/blocks/
-
-- `benefitsType.ts` — Exports benefitsType (~643 tok)
-- `contactFormType.ts` — A form from Forms, with a contact panel beside it. (~798 tok)
-- `crossLinksType.ts` — Exports crossLinksType (~319 tok)
-- `ctaBandType.ts` — Exports ctaBandType (~338 tok)
-- `faqsType.ts` — Exports faqsType (~264 tok)
-- `heroType.ts` — Exports heroType (~640 tok)
-- `introType.ts` — Exports introType (~687 tok)
-- `mediaTextType.ts` — Exports mediaTextType (~346 tok)
-- `pageHeroType.ts` — Exports pageHeroType (~483 tok)
-- `servicesType.ts` — Exports servicesType (~753 tok)
-- `stepsType.ts` — Exports stepsType (~457 tok)
-
-## studio/schemaTypes/objects/
-
-- `ctaType.ts` — Exports ctaType (~94 tok)
-- `formFieldType.ts` — Hide a setting unless the field's input type is one of these. (~1306 tok)
-- `linkFields.ts` — Shared internal/external link fields for `link` and `cta` objects. (~407 tok)
-- `linkType.ts` — Exports linkType (~54 tok)
-- `seoType.ts` — Exports seoType (~245 tok)
+- `blocks.ts` — Every section of the Advertisr. design is one block here. The renderer is (~2847 tok)
+  - fn `plain` L13-15 (~41 tok)
+  - fn `block` L16-28 (~105 tok)
+  - fn `anchor` L29-31 (~39 tok)
+  - fn `badge` L32-32 (~18 tok)
+  - fn `band` L33-33 (~45 tok)
+  - fn `steps` L34-34 (~18 tok)
+  - fn `quote` L35-36 (~24 tok)
+  - fn `form` L37-197 (~2390 tok)
+- `documents.ts` — Fields the Google sync owns: read-only on a synced review, it would overwrite them anyway. (~2594 tok)
+  - fn `slug` L12-156 (~1718 tok)
+  - fn `fromGoogle` L157-230 (~718 tok)
+- `fields.ts` — Short-hands for the field shapes every block repeats. They return plain (~1101 tok)
+  - fn `rules` L19-19 (~31 tok)
+  - fn `common` L20-27 (~79 tok)
+  - fn `str` L28-30 (~39 tok)
+  - fn `txt` L31-34 (~66 tok)
+  - fn `inline` L35-37 (~41 tok)
+  - fn `img` L38-47 (~98 tok)
+  - fn `cta` L48-50 (~38 tok)
+  - fn `bool` L51-53 (~42 tok)
+  - fn `num` L54-57 (~57 tok)
+  - fn `strings` L58-61 (~57 tok)
+  - fn `paragraphs` L62-65 (~70 tok)
+  - fn `list` L66-81 (~136 tok)
+  - fn `refs` L82-84 (~57 tok)
+  - fn `obj` L85-88 (~65 tok)
+  - fn `head` L89-90 (~30 tok)
+  - fn `stat` L91-92 (~75 tok)
+- `index.ts` — Every schema type the studio knows about. Blocks live in `blocks.ts`. (~234 tok)
+- `objects.ts` — A line of text where a phrase can be highlighted. In headings `em` is the (~1271 tok)
+- `singletons.ts` — One fieldset per area of the site, so the long list stays findable. (~2471 tok)
+  - fn `link` L9-219 (~2360 tok)
 
 ## studio/tools/
 
 - `ClearCache.tsx` — "Refresh website": expires the website's cached Sanity content right now, (~1023 tok)
   - fn `readSecret` L26-33 (~35 tok)
   - fn `ClearCache` L34-116 (~754 tok)
-- `MailTest.tsx` — "Send test mail" on Form settings → Mail. Calls the app's `/api/test-mail`, (~1421 tok)
-  - fn `readStored` L30-37 (~36 tok)
-  - fn `store` L38-45 (~51 tok)
-  - fn `MailTest` L46-158 (~1070 tok)
-- `mediaData.ts` — Queries, types and formatting helpers for the Media panel (`MediaTool.tsx`). (~2190 tok)
-  - fn `chunk` L61-129 (~516 tok)
-  - fn `typeLabel` L130-133 (~25 tok)
-  - fn `isImage` L134-138 (~71 tok)
-  - fn `uploadKind` L139-142 (~38 tok)
-  - fn `formatBytes` L143-151 (~103 tok)
-  - fn `formatDate` L152-158 (~74 tok)
-  - fn `formatDimensions` L159-164 (~70 tok)
-  - fn `displayName` L165-176 (~95 tok)
-  - fn `matchesSearch` L177-202 (~213 tok)
-  - fn `matchesFilter` L203-218 (~136 tok)
-  - fn `dedupeUsage` L219-234 (~165 tok)
-  - fn `thumbnailUrl` L235-238 (~36 tok)
+- `GoogleReviewsSync.tsx` — The buttons on the "Google reviews" page: a dry run (shows what the sync (~1864 tok)
+  - fn `readSecret` L47-54 (~35 tok)
+  - fn `GoogleReviewsSync` L55-176 (~1439 tok)
+- `mediaData.ts` — Queries, types and formatting helpers for the Media panel (`MediaTool.tsx`). (~2204 tok)
+  - fn `chunk` L61-131 (~530 tok)
+  - fn `typeLabel` L132-135 (~25 tok)
+  - fn `isImage` L136-140 (~71 tok)
+  - fn `uploadKind` L141-144 (~38 tok)
+  - fn `formatBytes` L145-153 (~103 tok)
+  - fn `formatDate` L154-160 (~74 tok)
+  - fn `formatDimensions` L161-166 (~70 tok)
+  - fn `displayName` L167-178 (~95 tok)
+  - fn `matchesSearch` L179-204 (~213 tok)
+  - fn `matchesFilter` L205-220 (~136 tok)
+  - fn `dedupeUsage` L221-236 (~165 tok)
+  - fn `thumbnailUrl` L237-240 (~36 tok)
 - `mediaStyles.ts` — The Media panel's own styles, on top of `panelStyles.ts`. Same approach — (~1416 tok)
 - `MediaTool.tsx` — The media library in the studio: every upload in one place, searchable, with (~5698 tok)
   - fn `MediaLibrary` L78-421 (~3196 tok)

@@ -5,7 +5,7 @@
  * ignoring it for weeks. Five things carry the weight here:
  *   1. `prune` drops empty fields but keeps the `@id` references intact —
  *      without those references the graph falls apart;
- *   2. the organisation takes CMS values and falls back to `site.ts` per field;
+ *   2. the organisation is built from the CMS values, empty ones dropped;
  *   3. a page with questions is ALSO an FAQPage, with exactly those questions;
  *   4. a page node has one path to the organisation, never two;
  *   5. the breadcrumb starts at Home and matches the visible one.
@@ -31,7 +31,7 @@ import {
   websiteJsonLd,
   type JsonLdNode,
 } from '@/lib/json-ld';
-import { SITE_DEFAULTS, SITE_URL, resolveSiteInformation } from '@/lib/site';
+import { SITE_URL } from '@/lib/site-url';
 
 /** The node with this `@type` from a graph — `@type` may also be a list. */
 function node(graph: JsonLdNode | null, type: string): JsonLdNode {
@@ -67,60 +67,43 @@ assert.equal(absoluteUrl('about'), `${SITE_URL}/about`);
 assert.equal(absoluteUrl('/about'), `${SITE_URL}/about`);
 assert.equal(absoluteUrl('https://elsewhere.example/x'), 'https://elsewhere.example/x');
 
-// 2. Organisation: address parsing, site.ts fallback, CMS values win.
-assert.deepEqual(postalAddress(['Prinsengracht 263', '1016 GV Amsterdam']), {
+// 2. Organisation: address parsing, CMS values, empty fields dropped.
+assert.deepEqual(prune(postalAddress(['Prinsengracht 263', '1016 GV Amsterdam'])), {
   '@type': 'PostalAddress',
   streetAddress: 'Prinsengracht 263',
   postalCode: '1016 GV',
   addressLocality: 'Amsterdam',
-  addressCountry: SITE_DEFAULTS.addressCountry,
 });
-assert.deepEqual(postalAddress(['Chausseestrasse 1', '10115 Berlin']), {
+assert.deepEqual(prune(postalAddress(['Chausseestrasse 1', '10115 Berlin'])), {
   '@type': 'PostalAddress',
   streetAddress: 'Chausseestrasse 1',
   postalCode: '10115',
   addressLocality: 'Berlin',
-  addressCountry: SITE_DEFAULTS.addressCountry,
 });
 // Without a recognisable postcode line everything stays street — better than guessing.
-assert.deepEqual(postalAddress(['Somewhere 1']), {
+assert.deepEqual(prune(postalAddress(['Somewhere 1'])), {
   '@type': 'PostalAddress',
   streetAddress: 'Somewhere 1',
-  addressCountry: SITE_DEFAULTS.addressCountry,
 });
 assert.equal(postalAddress([]), undefined);
 assert.equal(postalAddress(null), undefined);
 
-const defaults = resolveSiteInformation(null);
-const fallback = organizationJsonLd(defaults);
-assert.equal(fallback['@id'], ORGANIZATION_ID);
-assert.equal(fallback.name, SITE_DEFAULTS.name);
-assert.equal(fallback.telephone, SITE_DEFAULTS.phone);
-assert.equal(prune(fallback)!.sameAs, undefined, 'no social links, no sameAs');
+const base = { name: 'Advertisr.', description: '', phone: '', email: '', address: [], addressCountry: 'NL', logoUrl: null, socialLinks: [], language: 'nl' };
+const defaults = base;
+const empty = prune(organizationJsonLd(base))!;
+assert.equal(empty['@id'], ORGANIZATION_ID);
+assert.equal(empty.telephone, undefined, 'an empty field is dropped');
+assert.equal(empty.sameAs, undefined, 'no social links, no sameAs');
 
-// The CMS wins field by field; anything an editor left blank falls back, and an
-// unreachable CMS (null) is the same as every field being blank.
-const merged = resolveSiteInformation({
+const merged = {
+  ...base,
   name: 'Other Co',
   phone: '  +31 (0)20 000 0000  ',
-  description: '   ',
-  address: ['Chausseestrasse 1', '10115 Berlin', null],
-  socialLinks: ['https://example.com/profile', null, ''],
+  address: ['Chausseestrasse 1', '10115 Berlin'],
+  socialLinks: ['https://example.com/profile'],
+  addressCountry: 'DE',
   language: 'de',
-});
-assert.equal(merged.name, 'Other Co');
-assert.equal(merged.phone, '+31 (0)20 000 0000', 'values are trimmed');
-assert.equal(merged.description, SITE_DEFAULTS.description, 'a blank field falls back');
-assert.equal(merged.email, SITE_DEFAULTS.email, 'a missing field falls back');
-assert.deepEqual(merged.address, ['Chausseestrasse 1', '10115 Berlin']);
-assert.deepEqual(merged.socialLinks, ['https://example.com/profile']);
-assert.deepEqual(
-  resolveSiteInformation({ address: [], badges: [null, ''] }).address,
-  [...SITE_DEFAULTS.address],
-  'an emptied list falls back too',
-);
-assert.deepEqual(resolveSiteInformation(null).socialLinks, [], 'sameAs has nothing to fall back to');
-
+};
 const fromCms = prune(organizationJsonLd(merged)) as JsonLdNode;
 assert.equal(fromCms.name, 'Other Co');
 assert.equal(fromCms.telephone, '+31 (0)20 000 0000');
@@ -130,11 +113,11 @@ assert.deepEqual(fromCms.address, {
   streetAddress: 'Chausseestrasse 1',
   postalCode: '10115',
   addressLocality: 'Berlin',
-  addressCountry: SITE_DEFAULTS.addressCountry,
+  addressCountry: 'DE',
 });
 
 assert.deepEqual(websiteJsonLd(defaults).publisher, { '@id': ORGANIZATION_ID });
-assert.equal(websiteJsonLd(defaults).inLanguage, SITE_DEFAULTS.language);
+assert.equal(websiteJsonLd(defaults).inLanguage, 'nl');
 assert.equal(websiteJsonLd(merged).inLanguage, 'de', 'the language follows the CMS');
 
 const site = siteJsonLd(defaults);
@@ -143,14 +126,14 @@ assert.equal(node(site, 'WebSite')['@id'], WEBSITE_ID);
 
 // 3. A page with questions is also an FAQPage, with exactly those questions.
 const content = [
-  { _type: 'pageHero', breadcrumbLabel: 'About' },
+  { _type: 'pageHero', crumb: 'About' },
   { _type: 'intro', title: 'Not a question' },
   {
     _type: 'faqs',
     faqs: [
-      { title: 'What do you do?', answer: 'Design and engineering.' },
-      { title: 'Where are you?', answer: 'Amsterdam.' },
-      { title: 'Half filled', answer: null },
+      { question: 'What do you do?', answer: 'Design and engineering.' },
+      { question: 'Where are you?', answer: 'Amsterdam.' },
+      { question: 'Half filled', answer: null },
     ],
   },
 ];
@@ -179,7 +162,7 @@ const about = pageJsonLd({
 const aboutPage = node(about, 'WebPage');
 assert.deepEqual(aboutPage['@type'], ['WebPage', 'FAQPage']);
 assert.equal(aboutPage['@id'], `${SITE_URL}/about#page`);
-assert.equal(aboutPage.inLanguage, SITE_DEFAULTS.language);
+assert.equal(aboutPage.inLanguage, 'nl');
 assert.equal(
   (pageJsonLd({ path: '/x', language: 'de' })?.['@graph'] as JsonLdNode[])[0].inLanguage,
   'de',

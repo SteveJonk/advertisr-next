@@ -1,0 +1,393 @@
+{
+  "slug": "meta-ads",
+  "title": "Meta Ads uitbesteden",
+  "seo": {
+    "title": "Meta Ads uitbesteden",
+    "description": "Meta Ads werken alleen als creatie, doelgroep en funnel kloppen. Wij bouwen alle drie, van het eerste sfeerbeeld tot de lead die automatisch in je CRM landt."
+  },
+  "content": [
+    {
+      "_type": "serviceHero",
+      "crumb": "Meta Ads",
+      "eyebrow": "Meta Ads, Facebook & Instagram",
+      "title": {
+        "$t": [
+          {
+            "text": "Advertenties waar mensen ",
+            "marks": []
+          },
+          {
+            "text": "voor stoppen",
+            "marks": [
+              "em"
+            ]
+          },
+          {
+            "text": " met scrollen.",
+            "marks": []
+          }
+        ]
+      },
+      "lead": "Meta Ads werken alleen als creatie, doelgroep en funnel kloppen. Wij bouwen alle drie, van het eerste sfeerbeeld tot de lead die automatisch in je CRM landt.",
+      "secondaryCta": {
+        "_type": "cta",
+        "label": "Bekijk onze aanpak",
+        "linkType": "external",
+        "href": "#aanpak"
+      },
+      "ticks": [
+        "Geen opstartkosten",
+        "Maandelijks opzegbaar",
+        "Direct contact met je marketeer"
+      ],
+      "visual": "phone"
+    },
+    {
+      "_type": "marquee",
+      "items": [
+        "Instagram Ads",
+        "Facebook Ads",
+        "Reels & video",
+        "Carrousels",
+        "Retargeting",
+        "Doelgroepopbouw",
+        "Creatie & copy",
+        "Conversietracking"
+      ]
+    },
+    {
+      "_type": "pain",
+      "eyebrow": "Herken je dit?",
+      "title": {
+        "$t": [
+          {
+            "text": "Adverteren op Meta is makkelijk. Er geld mee verdienen niet.",
+            "marks": []
+          }
+        ]
+      },
+      "lead": "Dit zijn de zinnen die we het vaakst horen in een eerste gesprek.",
+      "items": [
+        {
+          "quote": "Ik weet eigenlijk niet wat die gasten dóén.",
+          "text": "Weken niks horen en dan een factuur. Bij ons zit je in een vaste app-groep en spreek je maandelijks de marketeer die zelf in je account werkt, niet een accountmanager die het navertelt."
+        },
+        {
+          "quote": "Ik zie wel klikken, maar geen klanten.",
+          "text": "Verkeer is geen resultaat. Zonder kloppende conversiemeting weet je nooit welke campagne daadwerkelijk omzet oplevert, en optimaliseer je dus op de verkeerde cijfers."
+        },
+        {
+          "quote": "Leads komen binnen, maar blijven liggen.",
+          "text": "Een lead die pas na drie dagen wordt gebeld is meestal al weg. Wij automatiseren de opvolging vanaf het moment dat het formulier wordt ingevuld."
+        }
+      ],
+      "quote": {
+        "image": {
+          "$image": "/images/advertisr/marc-jonk-oprichter-van-advertisr-2.jpg",
+          "alt": "Marc Jonk, oprichter van Advertisr"
+        },
+        "line": {
+          "$t": [
+            {
+              "text": "Een advertentie is geen doel. Een ",
+              "marks": []
+            },
+            {
+              "text": "voorspelbare stroom aanvragen",
+              "marks": [
+                "em"
+              ]
+            },
+            {
+              "text": " wel, en dat vraagt om iemand die je gewoon even belt als iets niet loopt.",
+              "marks": []
+            }
+          ]
+        },
+        "signature": "Marc Jonk, oprichter Advertisr."
+      }
+    },
+    {
+      "_type": "funnel",
+      "anchor": "aanpak",
+      "eyebrow": "De aanpak",
+      "title": {
+        "$t": [
+          {
+            "text": "Van onbekend naar klant, in drie lagen.",
+            "marks": []
+          }
+        ]
+      },
+      "body": "De meeste bedrijven adverteren alleen onderin de funnel: direct verkopen aan mensen die je nog niet kennen. Dat is de duurste manier om te groeien. Wij bouwen alle drie de lagen, zodat elke euro onderin steunt op warme doelgroepen die je bovenin hebt opgebouwd.",
+      "ghostLabel": "Wat betekent dit voor jouw markt? →",
+      "layers": [
+        {
+          "tag": "Laag 1 · Awareness",
+          "title": "Zichtbaar worden bij de juiste mensen",
+          "text": "Video's en sfeerbeelden die je merk laten zien aan een brede, relevante doelgroep in je regio of markt. Hier bouwen we het publiek op dat we later opnieuw kunnen bereiken.",
+          "kpi": {
+            "$t": [
+              {
+                "text": "Sturen op: ",
+                "marks": []
+              },
+              {
+                "text": "bereik, videoweergaven, opgebouwde doelgroepen",
+                "marks": [
+                  "strong"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "tag": "Laag 2 · Overweging",
+          "title": "Vertrouwen opbouwen",
+          "text": "Reviews, klantverhalen, veelgestelde vragen en bewijs. Mensen die je content zagen of je site bezochten krijgen nu de informatie die twijfel wegneemt.",
+          "kpi": {
+            "$t": [
+              {
+                "text": "Sturen op: ",
+                "marks": []
+              },
+              {
+                "text": "doorkliks, tijd op site, terugkerende bezoekers",
+                "marks": [
+                  "strong"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "tag": "Laag 3 · Conversie",
+          "title": "De aanvraag binnenhalen",
+          "text": "Retargeting op iedereen die interesse toonde, met een concreet aanbod en een korte route naar het formulier. Dit is waar de omzet zichtbaar wordt.",
+          "kpi": {
+            "$t": [
+              {
+                "text": "Sturen op: ",
+                "marks": []
+              },
+              {
+                "text": "leads, kosten per lead, ROAS",
+                "marks": [
+                  "strong"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "_type": "deliverables",
+      "eyebrow": "Wat wij doen",
+      "title": {
+        "$t": [
+          {
+            "text": "Alles wat er nodig is om te draaien.",
+            "marks": []
+          }
+        ]
+      },
+      "lead": "Geen losse onderdelen die je zelf moet samenvoegen. Wij pakken de volledige keten op, lees het als een menukaart, niet als een checklist.",
+      "photo": {
+        "image": {
+          "$image": "/images/advertisr/het-team-van-advertisr-aan-het-werk-op-k.jpg",
+          "alt": "Het team van Advertisr aan het werk op kantoor"
+        },
+        "title": "Eén team, geen doorgeefluik",
+        "text": "Strategie, creatie en beheer op dezelfde vloer, geen los ingehuurde freelancers per onderdeel."
+      },
+      "rows": [
+        {
+          "title": "Strategie & doelgroepen",
+          "text": "We bepalen welke doelgroepen, boodschappen en funnelfases prioriteit krijgen, op basis van je marges en klantwaarde, niet op gevoel."
+        },
+        {
+          "title": "Campagnestructuur",
+          "text": "Business Manager, advertentieaccount, pixel, conversie-API en doelgroepen worden correct ingericht voordat er één euro wordt uitgegeven."
+        },
+        {
+          "title": "Creatie van advertenties",
+          "text": "Reels, carrousels, statische visuals en teksten. We schrijven de hooks en monteren de video's, of we komen op locatie filmen."
+        },
+        {
+          "title": "Tracking & meetbaarheid",
+          "text": "Conversiemetingen die kloppen, zodat je precies ziet welke campagne welke aanvraag opleverde. Zonder dit is optimaliseren giswerk."
+        },
+        {
+          "title": "Testen & optimaliseren",
+          "text": "Doorlopend testen op hooks, creaties, doelgroepen en CTA's. Wat werkt schalen we op, wat niet werkt zetten we uit."
+        },
+        {
+          "title": "Rapportage & afstemming",
+          "text": "Maandelijks een helder overzicht én een gesprek waarin we uitleggen wat er gebeurde, waarom, en wat we volgende maand doen."
+        }
+      ],
+      "band": {
+        "title": {
+          "$t": [
+            {
+              "text": "Wat levert jouw Meta budget nu eigenlijk op?",
+              "marks": []
+            }
+          ]
+        },
+        "text": "In je gratis groeiplan zie je waar jouw creatie, doelgroep en funnel de meeste winst laten liggen."
+      }
+    },
+    {
+      "_type": "mediaChips",
+      "image": {
+        "$image": "/images/advertisr/het-team-van-advertisr-werkt-aan-adverte.jpg",
+        "alt": "Het team van Advertisr werkt aan advertentiecreatie"
+      },
+      "badge": {
+        "title": "Creatie zit erbij",
+        "text": "Geen aparte designfactuur achteraf"
+      },
+      "eyebrow": "Creatie",
+      "title": {
+        "$t": [
+          {
+            "text": "De advertentie ís tegenwoordig de targeting.",
+            "marks": []
+          }
+        ]
+      },
+      "paragraphs": [
+        "Meta's algoritme vindt zelf wel de juiste mensen. Waar jij het verschil maakt, is in de eerste twee seconden: de hook, het beeld, de boodschap. Daarom besteden wij het grootste deel van onze tijd aan creatie in plaats van aan knoppen draaien.",
+        "Heb je zelf al beeldmateriaal? Dan gebruiken we dat. Heb je niets? Dan komen we filmen en halen we uit één draaidag genoeg content voor meerdere weken campagne."
+      ],
+      "chips": [
+        "Reels & korte video",
+        "Carrousels",
+        "Statische visuals",
+        "Advertentieteksten & hooks",
+        "Video-editing",
+        "Contentshoot op locatie"
+      ],
+      "screenshot": false
+    },
+    {
+      "_type": "caseHighlight",
+      "eyebrow": "Bewijs",
+      "title": {
+        "$t": [
+          {
+            "text": "Zo pakt dat uit in de praktijk.",
+            "marks": []
+          }
+        ]
+      },
+      "image": {
+        "$image": "/images/advertisr/ppexport-bloemengroothandel.jpg",
+        "alt": "PPExport bloemengroothandel"
+      },
+      "category": "Bloemengroothandel, Meta & Google Ads",
+      "name": "PPExport",
+      "text": "Van losse leads uit Nederland naar een gevestigde naam in Duitsland, Spanje, Polen en Tsjechië. Met carrouseladvertenties van populaire producten, actiegerichte video's en een kwalificatieformulier verhoogden we niet alleen het aantal leads, maar vooral de kwaliteit ervan.",
+      "stats": [
+        {
+          "value": "164",
+          "label": "leads in de topmaand"
+        },
+        {
+          "value": "8%+",
+          "label": "conversieratio Meta"
+        },
+        {
+          "value": "€2",
+          "label": "per lead in Polen"
+        }
+      ]
+    },
+    {
+      "_type": "faqs",
+      "eyebrow": "Veelgestelde vragen",
+      "title": {
+        "$t": [
+          {
+            "text": "Wat je waarschijnlijk wilt weten.",
+            "marks": []
+          }
+        ]
+      },
+      "$faqs": [
+        [
+          "Wat kost Meta Ads bij Advertisr?",
+          "Onze fee hangt af van de omvang van de campagnes, het aantal creaties per maand en of we ook content produceren. Het advertentiebudget staat daar los van en betaal je rechtstreeks aan Meta. In je groeiplan krijg je een concreet voorstel met een vaste maandfee, zodat je vooraf precies weet waar je aan toe bent."
+        ],
+        [
+          "Hoeveel advertentiebudget heb ik minimaal nodig?",
+          "Dat verschilt sterk per branche en doelstelling. Voor een lokaal bedrijf is een paar honderd euro per maand vaak al genoeg om te leren wat werkt; wil je een volledige funnel met retargeting draaien, dan heb je meer volume nodig. We bepalen dit samen op basis van je markt en marges, niet op basis van een standaardbedrag."
+        ],
+        [
+          "Betaal ik opstartkosten?",
+          "Nee. De werkzaamheden voor strategie, accountinrichting, tracking en campagnestructuur zitten in de eerste maand van het beheer inbegrepen."
+        ],
+        [
+          "Zit ik ergens aan vast?",
+          "Nee. We werken bewust zonder langlopende contracten. De samenwerking is maandelijks opzegbaar met een opzegtermijn van één kalendermaand. We houden je liever klant omdat het werkt."
+        ],
+        [
+          "Van wie zijn mijn advertentieaccount en data?",
+          "Altijd van jou. Je blijft eigenaar van je Business Manager, advertentieaccount, pixel en doelgroepen, wij krijgen alleen beheerrechten. Stopt de samenwerking, dan blijft alles gewoon van jou."
+        ],
+        [
+          "Hoe snel zie ik resultaat?",
+          "De eerste data zie je binnen dagen, maar campagnes hebben tijd nodig om te leren. Reken op ongeveer 30 dagen voor een betrouwbaar beeld en 90 dagen om echt te kunnen optimaliseren en opschalen."
+        ],
+        [
+          "Moet ik zelf content aanleveren?",
+          "Mag, hoeft niet. Heb je al foto's en video's, dan gebruiken we die. Zo niet, dan verzorgen wij de creatie en kunnen we op locatie komen filmen. Dat spreken we vooraf af, zodat je nooit voor verrassingen komt te staan."
+        ],
+        [
+          "Doen jullie ook Google Ads erbij?",
+          "Ja, en in veel gevallen adviseren we dat ook. Google vangt mensen op die al actief zoeken; Meta creëert de vraag daarvóór en haalt bezoekers terug die nog niet klaar waren. Samen dekken ze de volledige customer journey."
+        ]
+      ]
+    },
+    {
+      "_type": "logos",
+      "eyebrow": "Vertrouwd door",
+      "title": {
+        "$t": [
+          {
+            "text": "Merken die hun Meta Ads bij ons neerleggen.",
+            "marks": []
+          }
+        ]
+      },
+      "note": "Van horeca tot B2B-export."
+    },
+    {
+      "_type": "finalCta",
+      "anchor": "groeiplan",
+      "eyebrow": "Klaar om te groeien?",
+      "title": {
+        "$t": [
+          {
+            "text": "Ontvang je gratis groeiplan.",
+            "marks": []
+          }
+        ]
+      },
+      "lead": "Wij bellen je, brengen je huidige marketing in kaart en sturen een concreet plan met kansen, kanalen en aanpak. Volledig vrijblijvend.",
+      "bullets": [
+        "Reactie binnen 1 werkdag",
+        "15 minuten kennismaking, geen verkooppraatje",
+        "Concreet plan, geen vage belofte"
+      ],
+      "form": {
+        "interesse": "Meta Ads",
+        "messagePlaceholder": "Waar wil je mee groeien? Meer leads, meer omzet, meer naamsbekendheid...",
+        "hideMessage": false
+      },
+      "dots": false
+    }
+  ]
+}

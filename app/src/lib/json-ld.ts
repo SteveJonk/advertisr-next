@@ -17,7 +17,8 @@
  * any object left empty by that, so a half-filled document never emits
  * `"telephone": null`.
  */
-import { SITE_DEFAULTS, SITE_URL, type SiteInformation } from '@/lib/site';
+import type { Site } from '@/lib/site';
+import { SITE_URL } from '@/lib/site-url';
 
 export type JsonLdNode = Record<string, unknown>;
 
@@ -96,7 +97,7 @@ const POSTAL_CODE_LINE =
 
 export function postalAddress(
   lines: readonly (string | null | undefined)[] | null | undefined,
-  addressCountry: string = SITE_DEFAULTS.addressCountry,
+  addressCountry?: string,
 ): JsonLdNode | undefined {
   const parts = (lines ?? []).map((line) => line?.trim()).filter(Boolean) as string[];
   if (!parts.length) return undefined;
@@ -121,7 +122,7 @@ export function postalAddress(
  * Everything comes from the resolved `siteInformation`, so the CMS is what
  * search engines read; `site.ts` only supplies the defaults behind it.
  */
-export function organizationJsonLd(site: SiteInformation): JsonLdNode {
+export function organizationJsonLd(site: Pick<Site, 'name' | 'description' | 'phone' | 'email' | 'address' | 'addressCountry' | 'logoUrl' | 'socialLinks' | 'language'>): JsonLdNode {
   return {
     '@type': 'Organization',
     '@id': ORGANIZATION_ID,
@@ -136,7 +137,7 @@ export function organizationJsonLd(site: SiteInformation): JsonLdNode {
   };
 }
 
-export function websiteJsonLd(site: SiteInformation): JsonLdNode {
+export function websiteJsonLd(site: Pick<Site, 'name' | 'description' | 'phone' | 'email' | 'address' | 'addressCountry' | 'logoUrl' | 'socialLinks' | 'language'>): JsonLdNode {
   return {
     '@type': 'WebSite',
     '@id': WEBSITE_ID,
@@ -148,7 +149,7 @@ export function websiteJsonLd(site: SiteInformation): JsonLdNode {
 }
 
 /** The two nodes that appear on every page. */
-export function siteJsonLd(site: SiteInformation): JsonLdNode | null {
+export function siteJsonLd(site: Pick<Site, 'name' | 'description' | 'phone' | 'email' | 'address' | 'addressCountry' | 'logoUrl' | 'socialLinks' | 'language'>): JsonLdNode | null {
   return jsonLdGraph([organizationJsonLd(site), websiteJsonLd(site)]);
 }
 
@@ -192,32 +193,22 @@ export function faqQuestions(faqs: readonly FaqInput[] | null | undefined): Json
 type ContentBlock = { _type?: string } & Record<string, unknown>;
 
 /**
- * The questions on a page, from the `faqs` blocks in the page builder. The FAQ
- * entries are references and `PAGE_QUERY` already resolves them, so what
- * arrives here is the question (`title`) with its answer.
+ * The questions on a page, from its `faqs` blocks. `PAGE_QUERY` resolves the
+ * FAQ references, so what arrives here is the question with its answer.
  */
-export function pageFaqs(
-  content: readonly ContentBlock[] | null | undefined,
-): FaqInput[] {
+export function pageFaqs(content: readonly ContentBlock[] | null | undefined): FaqInput[] {
   return (content ?? [])
     .filter((block) => block?._type === 'faqs')
-    .flatMap((block) => (Array.isArray(block.faqs) ? block.faqs : []))
-    .filter((faq): faq is { title?: string; answer?: string } => Boolean(faq))
-    .map((faq) => ({ question: faq.title, answer: faq.answer }));
+    .flatMap((block) => (Array.isArray(block.faqs) ? (block.faqs as FaqInput[]) : []))
+    .filter(Boolean);
 }
 
 /**
- * The label the `pageHero` block shows in its visible breadcrumb.
- *
- * Structured data should describe what is on the page, so the breadcrumb in
- * the graph follows the one the visitor sees; the page title is the fallback
- * for pages without a `pageHero`.
+ * The label the hero shows as the last breadcrumb, so the graph's breadcrumb
+ * matches the visible one; the page title is the fallback.
  */
-export function pageBreadcrumbLabel(
-  content: readonly ContentBlock[] | null | undefined,
-): string | undefined {
-  const hero = (content ?? []).find((block) => block?._type === 'pageHero');
-  const label = hero?.breadcrumbLabel;
+export function pageBreadcrumbLabel(content: readonly ContentBlock[] | null | undefined): string | undefined {
+  const label = (content ?? []).find((block) => typeof block?.crumb === 'string')?.crumb;
   return typeof label === 'string' && label.trim() ? label.trim() : undefined;
 }
 
@@ -253,7 +244,7 @@ export function webPageJsonLd(input: PageInput): JsonLdNode {
     url,
     name: input.title,
     description: input.description,
-    inLanguage: input.language ?? SITE_DEFAULTS.language,
+    inLanguage: input.language,
     isPartOf: WEBSITE_REF,
     // Deliberately NO `about` pointing at the organisation. The company already
     // hangs off the page via `isPartOf` -> WebSite -> `publisher`, and a second

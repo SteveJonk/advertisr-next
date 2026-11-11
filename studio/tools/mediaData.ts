@@ -120,11 +120,13 @@ export type MediaUsage = {
 const TYPE_LABELS: Record<string, string> = {
   page: 'Page',
   faq: 'FAQ',
-  form: 'Form',
   navigation: 'Navigation',
   footer: 'Footer',
   siteInformation: 'Site information',
-  formGeneralSettings: 'Form settings',
+  caseStudy: 'Case study',
+  client: 'Client logo',
+  teamMember: 'Team member',
+  article: 'Article',
 }
 
 export function typeLabel(type: string): string {

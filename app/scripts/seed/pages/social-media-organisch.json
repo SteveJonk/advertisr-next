@@ -1,0 +1,503 @@
+{
+  "slug": "social-media-organisch",
+  "title": "Social media organisch",
+  "seo": {
+    "title": "Social media organisch",
+    "description": "Van brainstorm en scripting tot contentshoot, Reels-editing en publiceren op Instagram, Facebook, LinkedIn en TikTok. Wij nemen je organische social volledig uit handen."
+  },
+  "content": [
+    {
+      "_type": "serviceHero",
+      "crumb": "Social Media Organisch",
+      "eyebrow": "Social Media Organisch, Van brainstorm tot post",
+      "title": {
+        "$t": [
+          {
+            "text": "Een feed die ",
+            "marks": []
+          },
+          {
+            "text": "klopt",
+            "marks": [
+              "em"
+            ]
+          },
+          {
+            "text": ", zonder dat het jouw tijd kost.",
+            "marks": []
+          }
+        ]
+      },
+      "lead": "Content bedenken, filmen, monteren, schrijven en publiceren. Wij nemen het hele traject over, zodat jouw kanalen er elke week uitzien alsof er een heel team achter zit. Want dat is ook zo.",
+      "secondaryCta": {
+        "_type": "cta",
+        "label": "Bekijk onze aanpak",
+        "linkType": "external",
+        "href": "#aanpak"
+      },
+      "ticks": [
+        "Geen opstartkosten",
+        "Maandelijks opzegbaar",
+        "Direct contact met je marketeer"
+      ],
+      "visual": "social"
+    },
+    {
+      "_type": "marquee",
+      "items": [
+        "Contentstrategie",
+        "Scripting",
+        "Contentshoots",
+        "Reels editing",
+        "Carrousels",
+        "Copywriting",
+        "Contentkalender",
+        "Publicatie & beheer"
+      ]
+    },
+    {
+      "_type": "pain",
+      "eyebrow": "Herken je dit?",
+      "title": {
+        "$t": [
+          {
+            "text": "Social media is het eerste dat blijft liggen.",
+            "marks": []
+          }
+        ]
+      },
+      "lead": "Dit zijn de zinnen die we het vaakst horen in een eerste gesprek.",
+      "items": [
+        {
+          "quote": "We posten als we eraan denken, en dus eigenlijk nooit.",
+          "text": "Consistentie is het hele punt bij organisch. Met een vaste kalender en vooraf geproduceerde content loopt het door, ook in je drukste weken."
+        },
+        {
+          "quote": "We hebben geen idee wát we zouden moeten posten.",
+          "text": "Daarom beginnen we met contentpilaren: vaste thema's die altijd werken voor jouw bedrijf. Daarna is het nooit meer een leeg vel."
+        },
+        {
+          "quote": "Onze ads lopen prima, maar als mensen ons profiel bezoeken schrikken ze.",
+          "text": "Advertenties brengen mensen binnen, je feed bepaalt of ze blijven. Een dode of rommelige pagina maakt juist je betaalde campagnes duurder."
+        }
+      ],
+      "quote": {
+        "image": {
+          "$image": "/images/advertisr/jilles-kaptein.jpg",
+          "alt": "Jilles Kaptein, content en video bij Advertisr"
+        },
+        "line": {
+          "$t": [
+            {
+              "text": "Uit één draaidag halen we genoeg materiaal voor een ",
+              "marks": []
+            },
+            {
+              "text": "hele maand content",
+              "marks": [
+                "em"
+              ]
+            },
+            {
+              "text": ". Het zit hem niet in meer filmen, maar in slimmer filmen.",
+              "marks": []
+            }
+          ]
+        },
+        "signature": "Jilles Kaptein, content & video bij Advertisr."
+      }
+    },
+    {
+      "_type": "funnel",
+      "anchor": "aanpak",
+      "eyebrow": "De aanpak",
+      "title": {
+        "$t": [
+          {
+            "text": "Van losse posts naar een merk dat je herkent.",
+            "marks": []
+          }
+        ]
+      },
+      "body": "Organisch werkt alleen als het structureel is. Wij bouwen dat in drie lagen op, van een vastgelegde stijl tot een kalender die maand na maand vanzelf doorloopt.",
+      "ghostLabel": "Wat betekent dit voor jouw kanalen? →",
+      "layers": [
+        {
+          "tag": "Laag 1 · Fundament",
+          "title": "Stijl & contentpilaren",
+          "text": "Brand guide, tone-of-voice, vaste rubrieken en templates voor Reels, carrousels en statische posts. Alles wat daarna gemaakt wordt, voelt als één merk.",
+          "kpi": {
+            "$t": [
+              {
+                "text": "Sturen op: ",
+                "marks": []
+              },
+              {
+                "text": "herkenbaarheid, consistentie",
+                "marks": [
+                  "strong"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "tag": "Laag 2 · Productie",
+          "title": "Shoots, montage & copy",
+          "text": "We filmen op locatie, monteren de Reels, ontwerpen de posts en schrijven de teksten, met aparte copy per platform waar dat nodig is.",
+          "kpi": {
+            "$t": [
+              {
+                "text": "Sturen op: ",
+                "marks": []
+              },
+              {
+                "text": "contentvolume, kwaliteit per item",
+                "marks": [
+                  "strong"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "tag": "Laag 3 · Ritme",
+          "title": "Kalender & publicatie",
+          "text": "Een vaste maandkalender, ingepland en gepubliceerd op Instagram, Facebook, LinkedIn en TikTok. Jij hoeft alleen nog goedkeuring te geven.",
+          "kpi": {
+            "$t": [
+              {
+                "text": "Sturen op: ",
+                "marks": []
+              },
+              {
+                "text": "bereik, volgersgroei, engagement",
+                "marks": [
+                  "strong"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "_type": "deliverables",
+      "eyebrow": "Wat wij doen",
+      "title": {
+        "$t": [
+          {
+            "text": "Het hele traject, van idee tot gepubliceerde post.",
+            "marks": []
+          }
+        ]
+      },
+      "lead": "Jij levert toegang en input. De rest ligt bij ons. Lees het als een menukaart, niet als een checklist.",
+      "photo": {
+        "image": {
+          "$image": "/images/advertisr/het-team-van-advertisr-bouwt-workflows-o.jpg",
+          "alt": "Het team van Advertisr monteert content"
+        },
+        "title": "Eén team, geen doorgeefluik",
+        "text": "Strategie, camera, montage en copy op dezelfde vloer, geen losse freelancer per onderdeel."
+      },
+      "rows": [
+        {
+          "title": "Strategie & brainstorm",
+          "text": "We bepalen samen de contentpilaren, rubrieken en tone-of-voice die bij jouw merk en doelgroep passen."
+        },
+        {
+          "title": "Scripting & shotlists",
+          "text": "Voor elke shoot leveren we concrete scripts en shotlists aan, zodat een draaidag niets aan toeval overlaat."
+        },
+        {
+          "title": "Contentshoots op locatie",
+          "text": "Wij komen filmen bij jou op de zaak. Uit één dagdeel halen we materiaal voor weken aan content."
+        },
+        {
+          "title": "Reels editing",
+          "text": "Montage, ondertiteling, hooks, muziek en pacing, afgestemd op wat per platform werkt."
+        },
+        {
+          "title": "Carrousels & statische posts",
+          "text": "Ontworpen binnen jouw huisstijl, met vaste templates zodat alles herkenbaar blijft."
+        },
+        {
+          "title": "Copywriting per platform",
+          "text": "Captions voor Instagram en Facebook, en aparte, zakelijkere copy voor LinkedIn. Geen copy-paste over kanalen heen."
+        },
+        {
+          "title": "Contentkalender",
+          "text": "Een maandplanning die je vooraf inziet en goedkeurt, zodat je nooit verrast wordt door wat er live gaat."
+        },
+        {
+          "title": "Inplannen & publiceren",
+          "text": "Wij zetten alles klaar en publiceren op Instagram, Facebook, LinkedIn en TikTok, inclusief basisbeheer van de kanalen."
+        }
+      ],
+      "band": {
+        "title": {
+          "$t": [
+            {
+              "text": "Hoeveel uur per week kost jouw content nu?",
+              "marks": []
+            }
+          ]
+        },
+        "text": "In je gratis groeiplan zie je hoe wij de hele feed van je overnemen."
+      }
+    },
+    {
+      "_type": "pillars",
+      "eyebrow": "Contentpilaren",
+      "title": {
+        "$t": [
+          {
+            "text": "Nooit meer een leeg vel.",
+            "marks": []
+          }
+        ]
+      },
+      "lead": "Vaste thema's die altijd werken. Dit zijn de pilaren waar we meestal mee starten.",
+      "items": [
+        {
+          "icon": "👋",
+          "title": "Meet the team",
+          "text": "De mensen achter het bedrijf in beeld. Verreweg de snelste manier om vertrouwen op te bouwen."
+        },
+        {
+          "icon": "🎬",
+          "title": "Behind the scenes",
+          "text": "Het werk dat normaal niemand ziet. Maakt je merk menselijk in plaats van een logo."
+        },
+        {
+          "icon": "💡",
+          "title": "Kennis & tips",
+          "text": "Korte, concrete tips uit jouw vakgebied. Positioneert je als de partij die het snapt."
+        },
+        {
+          "icon": "⭐",
+          "title": "Social proof",
+          "text": "Klantverhalen, reviews en opgeleverd werk. Het bewijs dat je waarmaakt wat je belooft."
+        },
+        {
+          "icon": "📦",
+          "title": "Aanbod & product",
+          "text": "Wat je verkoopt, mooi in beeld. Niet elke post, maar wel structureel terugkerend."
+        },
+        {
+          "icon": "🎉",
+          "title": "Actueel & seizoen",
+          "text": "Events, acties en wat er speelt. Houdt de feed levend en geeft mensen reden om terug te komen."
+        }
+      ]
+    },
+    {
+      "_type": "output",
+      "eyebrow": "Wat je per maand krijgt",
+      "title": {
+        "$t": [
+          {
+            "text": "Concreet, geen vage inspanningsverplichting.",
+            "marks": []
+          }
+        ]
+      },
+      "lead": "Een gebruikelijk maandpakket ziet er zo uit. De exacte aantallen stemmen we af op jouw situatie.",
+      "items": [
+        {
+          "value": "4",
+          "label": "Reels, inclusief montage en ondertiteling"
+        },
+        {
+          "value": "4",
+          "label": "statische posts of carrousels"
+        },
+        {
+          "value": "4",
+          "label": "kanalen: IG, FB, LinkedIn, TikTok"
+        },
+        {
+          "value": "1",
+          "label": "correctieronde per contentitem"
+        }
+      ]
+    },
+    {
+      "_type": "procSteps",
+      "eyebrow": "Hoe een maand eruitziet",
+      "title": {
+        "$t": [
+          {
+            "text": "Een vast ritme waar je op kunt rekenen.",
+            "marks": []
+          }
+        ]
+      },
+      "steps": [
+        {
+          "title": "Contentoverleg",
+          "text": "Kort afstemmen wat er speelt: acties, events, nieuwe producten of klantverhalen."
+        },
+        {
+          "title": "Shoot of aanlevering",
+          "text": "Wij komen filmen, of verwerken het materiaal dat jij zelf hebt geschoten."
+        },
+        {
+          "title": "Productie",
+          "text": "Montage, design en copy. Je krijgt de volledige kalender ter goedkeuring."
+        },
+        {
+          "title": "Publicatie",
+          "text": "Alles wordt ingepland en gepubliceerd. Jij ziet het vanzelf voorbijkomen."
+        }
+      ]
+    },
+    {
+      "_type": "mediaChips",
+      "image": {
+        "$image": "/images/advertisr/het-team-van-advertisr-op-kantoor-in-haa.jpg",
+        "alt": "Het team van Advertisr tijdens een contentoverleg"
+      },
+      "badge": {
+        "title": "Shoot inbegrepen",
+        "text": "Wij komen naar jou toe"
+      },
+      "eyebrow": "Content",
+      "title": {
+        "$t": [
+          {
+            "text": "Eén draaidag, een maand aan content.",
+            "marks": []
+          }
+        ]
+      },
+      "paragraphs": [
+        "We filmen gericht, met een shotlist vooraf, zodat we uit één dagdeel genoeg materiaal halen voor meerdere Reels, losse snippets en beeld voor je statische posts.",
+        "De sterkste content zetten we daarna ook in als advertentie. Zo versterken je organische kanalen en je betaalde campagnes elkaar in plaats van los van elkaar te lopen."
+      ],
+      "chips": [
+        "Instagram",
+        "Facebook",
+        "LinkedIn",
+        "TikTok",
+        "Reels",
+        "Carrousels"
+      ],
+      "screenshot": false
+    },
+    {
+      "_type": "caseHighlight",
+      "eyebrow": "Bewijs",
+      "title": {
+        "$t": [
+          {
+            "text": "We draaien het ook voor onszelf.",
+            "marks": []
+          }
+        ]
+      },
+      "image": {
+        "$image": "/images/advertisr/het-team-van-advertisr-bouwt-automatiser.jpg",
+        "alt": "Het team van Advertisr op kantoor in Haarlem"
+      },
+      "category": "Advertisr, eigen kanalen",
+      "name": "Hoe wij het zelf aanpakken",
+      "text": "Vaste contentpilaren, een maandkalender en één draaidag per maand. Dezelfde werkwijze die we voor klanten inrichten, zodat we weten wat werkt voordat we het adviseren.",
+      "stats": [
+        {
+          "value": "5.0",
+          "label": "score op Google reviews"
+        },
+        {
+          "value": "4",
+          "label": "kanalen die we zelf draaien"
+        },
+        {
+          "value": "1",
+          "label": "draaidag per maand"
+        }
+      ]
+    },
+    {
+      "_type": "faqs",
+      "eyebrow": "Veelgestelde vragen",
+      "title": {
+        "$t": [
+          {
+            "text": "Wat je waarschijnlijk wilt weten.",
+            "marks": []
+          }
+        ]
+      },
+      "$faqs": [
+        [
+          "Wat kost social media organisch bij Advertisr?",
+          "Dat hangt af van het aantal posts, Reels en kanalen. In je groeiplan krijg je een concreet voorstel met een vaste maandfee, zodat je vooraf precies weet waar je aan toe bent."
+        ],
+        [
+          "Moeten wij zelf content aanleveren?",
+          "Dat mag, maar het hoeft niet. Wij komen periodiek filmen op locatie. Heb je zelf al beeldmateriaal, dan verwerken we dat net zo goed."
+        ],
+        [
+          "Komen jullie ook echt filmen, of alleen monteren?",
+          "We komen naar je toe. Een contentshoot op locatie wordt doorgaans per dagdeel afgerekend, zodat je flexibel blijft in hoe vaak we draaien."
+        ],
+        [
+          "Kunnen jullie ook alleen het fundament neerzetten?",
+          "Ja. Sommige klanten willen de brand guide, contentpilaren, templates en kalender van ons, en voeren het daarna intern zelf uit. Dat kan prima als losse opdracht."
+        ],
+        [
+          "Zien wij de content voordat die live gaat?",
+          "Altijd. Je krijgt de volledige maandkalender ter goedkeuring, inclusief één correctieronde per contentitem."
+        ],
+        [
+          "Werkt dit samen met onze advertenties?",
+          "Juist daar zit veel winst. Organische content die goed presteert, schalen we op als advertentie. En een verzorgd profiel maakt je betaalde campagnes aantoonbaar effectiever."
+        ],
+        [
+          "Zit ik ergens aan vast?",
+          "Nee. We werken bewust zonder langlopende contracten. De samenwerking is maandelijks opzegbaar met een opzegtermijn van één kalendermaand."
+        ]
+      ]
+    },
+    {
+      "_type": "logos",
+      "eyebrow": "Vertrouwd door",
+      "title": {
+        "$t": [
+          {
+            "text": "Merken die hun kanalen bij ons neerleggen.",
+            "marks": []
+          }
+        ]
+      },
+      "note": "Van horeca tot makelaardij."
+    },
+    {
+      "_type": "finalCta",
+      "anchor": "groeiplan",
+      "eyebrow": "Klaar voor kanalen die wél lopen?",
+      "title": {
+        "$t": [
+          {
+            "text": "Ontvang je gratis groeiplan.",
+            "marks": []
+          }
+        ]
+      },
+      "lead": "Wij bellen je, bekijken je huidige kanalen en sturen een concreet plan met contentpilaren en aanpak. Volledig vrijblijvend.",
+      "bullets": [
+        "Reactie binnen 1 werkdag",
+        "15 minuten kennismaking, geen verkooppraatje",
+        "Concreet plan, geen vage belofte"
+      ],
+      "form": {
+        "interesse": "Social Media Organisch",
+        "messagePlaceholder": "Waar loopt het nu vast? Tijd, ideeën, consistentie...",
+        "hideMessage": false
+      },
+      "dots": false
+    }
+  ]
+}

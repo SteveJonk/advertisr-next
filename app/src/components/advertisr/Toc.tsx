@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { cn } from '@/lib/cn';
 
 /** Sticky table of contents with scrollspy; a toggle button replaces the label below 900px. */
-export function Toc({ items }: { items: [id: string, label: string][] }) {
+export function Toc({ label, items }: { label?: string; items: [id: string, label: string][] }) {
   const [active, setActive] = useState<string>();
   const [open, setOpen] = useState(false);
 
@@ -30,9 +30,9 @@ export function Toc({ items }: { items: [id: string, label: string][] }) {
         aria-expanded={open}
         className='hidden w-full cursor-pointer items-center justify-between rounded-xl border border-line-2 bg-white px-[18px] py-3.5 font-display text-sm font-semibold text-ink max-[900px]:flex'
       >
-        Inhoudsopgave <span className={cn('transition-transform duration-[250ms]', open && 'rotate-180')}>▾</span>
+        {label} <span className={cn('transition-transform duration-[250ms]', open && 'rotate-180')}>▾</span>
       </button>
-      <div className='mb-3.5 text-[11px] font-bold tracking-[.1em] text-dim-2 uppercase max-[900px]:hidden'>Inhoudsopgave</div>
+      <div className='mb-3.5 text-[11px] font-bold tracking-[.1em] text-dim-2 uppercase max-[900px]:hidden'>{label}</div>
       <nav className={cn('flex flex-col gap-0.5 border-l-[1.5px] border-line pl-4 max-[900px]:mt-3.5', !open && 'max-[900px]:hidden')}>
         {items.map(([id, label]) => (
           <a

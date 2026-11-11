@@ -1,43 +1,25 @@
 import Image from 'next/image';
+import type { ReactNode } from 'react';
 import { Eyebrow, Wrap } from './ui';
 
-const CLIENTS = [
-  ['ciao-italia', 'Ciao Italia', 'png', 'png'],
-  ['ppexport', 'PPExport', 'png', 'png'],
-  ['de-racketmeesters', 'De Racketmeesters', 'jpg', 'png'],
-  ['maxim-s-fashion-plus', "Maxim's Fashion Plus", 'webp', 'png'],
-  ['hostel-roots', 'Hostel Roots', 'png', 'png'],
-  ['harlem-dance-center', 'Harlem Dance Center', 'png', 'png'],
-  ['groovy-anton', 'Groovy Anton', 'webp', 'png'],
-  ['haarlemse-fiets', 'Haarlemse Fiets', 'png', 'png'],
-  ['staalconstructie-online', 'Staalconstructie Online', null, 'png'],
-  ['l-schuijt-klussenbedrijf', 'L. Schuijt Klussenbedrijf', 'png', 'png'],
-  ['hart-huis-makelaardij', 'Hart & Huis Makelaardij', 'png', 'png'],
-] as const;
-
-type LogosProps = {
-  title: string;
-  note?: string;
-  /** The design has two exports of the logo set; the service pages use the second. */
-  set?: 1 | 2;
-  /** Set 2 only: include Staalconstructie Online (not on web development). */
-  staal?: boolean;
-};
-
 /** "Vertrouwd door" band with the endless logo strip. */
-export function Logos({ title, note = 'Van horeca tot makelaardij.', set = 1, staal = true }: LogosProps) {
-  const logos = CLIENTS.flatMap(([slug, alt, ext1, ext2]) => {
-    if (set === 1) return ext1 ? [{ src: `/images/advertisr/${slug}.${ext1}`, alt }] : [];
-    if (!staal && slug === 'staalconstructie-online') return [];
-    return [{ src: `/images/advertisr/${slug}${slug === 'staalconstructie-online' ? '' : '-2'}.${ext2}`, alt }];
-  });
-
+export function Logos({
+  eyebrow,
+  title,
+  note,
+  logos,
+}: {
+  eyebrow?: string | null;
+  title?: ReactNode;
+  note?: string | null;
+  logos: { src: string; alt: string }[];
+}) {
   return (
     <section className='relative z-2 overflow-hidden border-y border-line bg-soft py-16'>
       <Wrap>
         <div className='rv mb-[34px] flex flex-wrap items-center justify-between gap-3.5'>
           <div>
-            <Eyebrow rv={false}>Vertrouwd door</Eyebrow>
+            <Eyebrow rv={false}>{eyebrow}</Eyebrow>
             <h2 className='mt-3 text-[26px] tracking-[-.03em]'>{title}</h2>
           </div>
           <div className='text-[14.5px] text-dim-2'>{note}</div>
