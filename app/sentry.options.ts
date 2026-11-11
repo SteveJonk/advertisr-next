@@ -15,7 +15,7 @@ export const sentryOptions = {
   // Share of transactions traced. Raise it temporarily when debugging
   // performance; every trace counts against the Sentry quota.
   tracesSampleRate: Number(
-    process.env.NEXT_PUBLIC_SENTRY_TRACES_SAMPLE_RATE ?? 0.1,
+    process.env.NEXT_PUBLIC_SENTRY_TRACES_SAMPLE_RATE || 0.1,
   ),
   dataCollection: {
     // No user data, no request bodies. Widen deliberately if you ever need it:

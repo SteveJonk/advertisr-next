@@ -5,6 +5,7 @@
 > Last updated: 2026-11-11
 
 ## User Preferences
+- Infra: wants the minimal "just renew the app on push" setup; doesn't want existing server pieces (Caddy) reworked.
 
 <!-- How the user likes things done. Code style, tools, patterns, communication. -->
 - Wants plan + questions first, then autonomous build; when away, "go with the recommended answers".
@@ -33,6 +34,7 @@
 - No prettier config in app: format with `--single-quote --print-width 160` to match the repo style.
 
 ## Do-Not-Repeat
+- [2026-11-11] Env fallbacks must use `||`, not `??`: the Dockerfile turns every unset build-arg into an empty-string env var.
 
 <!-- Mistakes made and corrected. Each entry prevents the same mistake recurring. -->
 <!-- Format: [YYYY-MM-DD] Description of what went wrong and what to do instead. -->
@@ -43,6 +45,7 @@
 - [2026-11-11] BSD `sed` doesn't turn `\n` in the replacement into a newline: the edit silently did nothing. Use python for multi-line edits.
 
 ## Decision Log
+- [2026-11-11] Hosting: plain Docker on own server (root@178.104.248.151), host-installed Caddy (user manages it, don't touch) proxies to 127.0.0.1:3000. Coolify dropped. Deploy = GH Actions SSH → ~/advertisr: scp deploy/compose.yml, pull, `up -d --wait`. User chose simple restart (~1-3s gap) over replica swap. GHCR package is public (no docker login). Runtime secrets live in ~/advertisr/app.env on the server; NEXT_PUBLIC_* are build-args from GitHub Variables.
 - [2026-11-11] WP import: single `category` kept (first WP tag), rest of tags as plain strings; categories merged with the seeded ones; placeholders kept (user choices).
 - [2026-11-11] Page builder with one block per design section (~33) rather than a few generic blocks: design parity; illustrations stay code (`visual` select).
 - [2026-11-11] Case cards show a case study's first two stats (one source for cards + results list); articles without a body are cards only (route 404s, card links to #).

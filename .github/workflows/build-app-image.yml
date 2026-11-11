@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - "app/**"
+      - "deploy/**"
       - ".github/workflows/build-app-image.yml"
   workflow_dispatch:
 
@@ -14,10 +15,11 @@ on:
 env:
   IMAGE_NAME: ${{ vars.IMAGE_NAME || github.event.repository.name }}
 
-# Eén build tegelijk; een nieuwe push annuleert een lopende run.
+# Eén run tegelijk. Niet annuleren: een afgebroken deploy laat anders twee
+# app-containers achter. Een nieuwe push wacht tot de lopende klaar is.
 concurrency:
   group: build-app-image
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -25,6 +27,8 @@ jobs:
     permissions:
       contents: read
       packages: write
+    outputs:
+      image: ${{ steps.image.outputs.name }}
 
     steps:
       - name: Checkout
@@ -65,7 +69,12 @@ jobs:
           build-args: |
             NEXT_PUBLIC_SANITY_PROJECT_ID=${{ vars.NEXT_PUBLIC_SANITY_PROJECT_ID }}
             NEXT_PUBLIC_SANITY_DATASET=${{ vars.NEXT_PUBLIC_SANITY_DATASET }}
+            NEXT_PUBLIC_SANITY_API_VERSION=${{ vars.NEXT_PUBLIC_SANITY_API_VERSION }}
+            NEXT_PUBLIC_SITE_URL=${{ vars.NEXT_PUBLIC_SITE_URL }}
+            NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID=${{ vars.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID }}
+            NEXT_PUBLIC_FACEBOOK_PIXEL_ID=${{ vars.NEXT_PUBLIC_FACEBOOK_PIXEL_ID }}
             NEXT_PUBLIC_SENTRY_DSN=${{ vars.NEXT_PUBLIC_SENTRY_DSN }}
+            NEXT_PUBLIC_SENTRY_TRACES_SAMPLE_RATE=${{ vars.NEXT_PUBLIC_SENTRY_TRACES_SAMPLE_RATE }}
             SENTRY_ORG=${{ vars.SENTRY_ORG }}
             SENTRY_PROJECT=${{ vars.SENTRY_PROJECT }}
           secrets: |
@@ -73,16 +82,49 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      # Coolify pulled de image zelf niet automatisch bij een nieuwe :latest
-      # push — dit vertelt hem expliciet om te redeployen. URL + token komen
-      # uit de Webhooks-tab van de resource in Coolify.
-      # /api/v1/deploy is POST (de GET-voorbeelden in Coolify's eigen docs
-      # zijn verouderd — GET geeft nu 405 "This endpoint has changed to a
-      # POST request.").
-      - name: Coolify redeploy triggeren
+
+  # Kopieert deploy/compose.yml naar de server en start de nieuwe image. Eerst
+  # pullen, dan pas vervangen: de onderbreking is alleen de herstart (~1-3s).
+  # De GHCR-package is public, dus geen docker login nodig.
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      DEPLOY_DIR: advertisr
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          sparse-checkout: deploy
+
+      # SSH_KNOWN_HOSTS (output van `ssh-keyscan <host>`) pint de host key,
+      # zodat een gespoofte server de sleutel niet kan onderscheppen.
+      - name: SSH klaarzetten
         run: |
-          curl --fail --request POST "$COOLIFY_WEBHOOK_URL" \
-            --header "Authorization: Bearer $COOLIFY_API_TOKEN"
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          printf 'Host server\n  HostName %s\n  User %s\n  Port %s\n  IdentityFile ~/.ssh/id_deploy\n' \
+            "$SSH_HOST" "$SSH_USER" "${SSH_PORT:-22}" > ~/.ssh/config
         env:
-          COOLIFY_WEBHOOK_URL: ${{ secrets.COOLIFY_WEBHOOK_URL }}
-          COOLIFY_API_TOKEN: ${{ secrets.COOLIFY_API_TOKEN }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+          SSH_HOST: ${{ vars.SSH_HOST }}
+          SSH_USER: ${{ vars.SSH_USER }}
+          SSH_PORT: ${{ vars.SSH_PORT }}
+
+      - name: Deploy-bestanden kopiëren
+        run: |
+          ssh server "mkdir -p $DEPLOY_DIR"
+          scp deploy/compose.yml "server:$DEPLOY_DIR/"
+
+      - name: Nieuwe versie uitrollen
+        run: |
+          ssh server "cd $DEPLOY_DIR && echo APP_IMAGE=$IMAGE > .env \
+            && docker compose pull && docker compose up -d --wait \
+            && docker image prune -f"
+        env:
+          IMAGE: ${{ needs.build.outputs.image }}:${{ github.sha }}

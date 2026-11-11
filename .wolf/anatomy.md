@@ -522,3 +522,7 @@
   - fn `MediaCard` L422-457 (~284 tok)
   - fn `MediaDetail` L458-629 (~1435 tok)
 - `panelStyles.ts` — Shared inline styles for custom studio panels — the parts that any panel (~335 tok)
+
+## deploy/
+
+- `compose.yml` — Production compose for the app on the own server (127.0.0.1:3000, healthcheck on /api/health, env_file app.env, image from .env APP_IMAGE) (~250 tok)

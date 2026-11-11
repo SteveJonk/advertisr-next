@@ -40,3 +40,9 @@
 | 14:30 | Kennisbank search + category filtering (client context, hide-not-unmount), noResults field | app/src/components/advertisr/kennisbank.tsx, sections.tsx, studio/schemaTypes/blocks.ts, seed | done, verified via JS in preview | ~25k |
 | 14:45 | Set noResults on page-kennisbank (block de02089e033a) in production dataset; verified after dev restart | sanity dataset | done | ~6k |
 | 14:55 | Studio npm ci still failing on CI (npm 12): regenerated lockfile with @emnapi entries | studio/package-lock.json | verified npm 10/11/12 | ~5k |
+
+## Session: 2026-11-11 15:13
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 16:00 | Deploy to own server: build-args, deploy/compose.yml, SSH deploy job, dropped Coolify; ?? → || env fallbacks | .github/workflows/build-app-image.yml, app/Dockerfile, deploy/compose.yml, app/src/lib/env.ts, app/sentry.options.ts | tsc ok, compose valid, not run in CI yet | ~6k |

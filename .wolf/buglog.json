@@ -51,9 +51,9 @@
     {
       "id": "bug-004",
       "timestamp": "2026-11-11T13:45:00Z",
-      "error_message": "Parsing CSS source code failed: Unexpected token BadUrl(data:image/svg+xml\u2026)",
+      "error_message": "Parsing CSS source code failed: Unexpected token BadUrl(data:image/svg+xml…)",
       "file": "app/src/app/(site)/seo-geo/page.tsx",
-      "root_cause": "Arbitrary bg-[url(\"data:\u2026\")] class produced invalid CSS; stale in dev cache after removal",
+      "root_cause": "Arbitrary bg-[url(\"data:…\")] class produced invalid CSS; stale in dev cache after removal",
       "fix": "Replaced with inline <svg> Tick; cleared .next/dev; added @source not \"../../design\"",
       "tags": [
         "tailwind",
@@ -163,6 +163,23 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-11-11T14:30:00Z"
+    },
+    {
+      "id": "bug-011",
+      "timestamp": "2026-11-11T16:00:00Z",
+      "error_message": "Empty Docker build-arg (unset GitHub variable) bakes NEXT_PUBLIC_X=\"\" into the bundle; `?? default` doesn't fall back, so dataset/apiVersion become '' and Sentry sample rate Number('')=0",
+      "file": "app/src/lib/env.ts, app/sentry.options.ts",
+      "root_cause": "`ARG X` + `ENV X=$X` always defines the var, empty when not passed; `??` only catches undefined",
+      "fix": "Use `||` for env fallbacks of NEXT_PUBLIC_SANITY_DATASET, NEXT_PUBLIC_SANITY_API_VERSION, NEXT_PUBLIC_SENTRY_TRACES_SAMPLE_RATE",
+      "tags": [
+        "docker",
+        "env",
+        "build-arg",
+        "nullish"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-11-11T16:00:00Z"
     }
   ]
 }

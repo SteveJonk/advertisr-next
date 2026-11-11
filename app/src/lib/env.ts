@@ -23,9 +23,9 @@ export const env = {
     'NEXT_PUBLIC_SANITY_PROJECT_ID',
     process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   ),
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET ?? 'production',
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
   /** Pin this: Sanity treats the date as the API contract version. */
-  apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION ?? '2026-07-26',
+  apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2026-07-26',
   /**
    * Analytics, both optional — leave them unset and no third-party script is
    * loaded at all. See `src/components/TrackingScripts.tsx`.

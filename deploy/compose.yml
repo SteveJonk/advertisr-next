@@ -1,0 +1,21 @@
+# De app op de server. De workflow kopieert dit bestand naar ~/advertisr en
+# schrijft daar .env met APP_IMAGE (de image van de laatste push).
+# De Caddy op de host proxyt naar 127.0.0.1:3000.
+#
+# Alleen op de server (niet in git): app.env met de server-only env vars van
+# de app, zie app/.env.example.
+services:
+  app:
+    image: ${APP_IMAGE:?APP_IMAGE ontbreekt in .env}
+    env_file: app.env
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3000:3000"
+    # `docker compose up --wait` wacht hierop; een kapotte image laat de
+    # deploy-job dus falen in plaats van stil te mislukken.
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:3000/api/health"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
+      start_period: 20s
