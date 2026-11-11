@@ -11,6 +11,7 @@ const articleCard = /* groq */ `{
   title,
   "slug": slug.current,
   excerpt,
+  image,
   featured,
   minutes,
   updatedAt,

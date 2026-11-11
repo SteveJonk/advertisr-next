@@ -126,6 +126,7 @@ export const articleType = defineType({
     {...slug(), group: 'meta'},
     txt('excerpt', {group: 'content', description: 'On the cards in the kennisbank.'}),
     txt('intro', {group: 'content', description: 'Under the title on the article page.'}),
+    img('image', {title: 'Card image', group: 'content', description: 'On the kennisbank card. Empty = the category art.'}),
     defineField({name: 'body', type: 'articleBody', group: 'content', description: 'Without a body the article shows as a card only.'}),
     defineField({name: 'category', type: 'reference', to: [{type: 'articleCategory'}], group: 'meta'}),
     defineField({name: 'author', type: 'reference', to: [{type: 'teamMember'}], group: 'meta'}),

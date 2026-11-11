@@ -79,6 +79,7 @@ export type ArticleCardData = {
   title: string;
   slug: string | null;
   excerpt: string | null;
+  image?: Img;
   minutes: number | null;
   updatedAt: string | null;
   hasBody: boolean | null;
@@ -93,6 +94,16 @@ export function shortDate(date: string | null | undefined, lang: string) {
 
 /** Cards of articles without a body stay cards: there is no page to go to yet. */
 const hrefOf = (a: ArticleCardData) => (a.hasBody && a.slug ? pathForSlug(a.slug, 'article') : '#');
+
+/** The card image when there is one, else the category art. */
+function CardArt({ a, size }: { a: ArticleCardData; size: number }) {
+  const photo = pic(a.image, size * 10);
+  return photo ? (
+    <Image src={photo.src} alt={photo.alt} fill sizes='(max-width: 600px) 100vw, 400px' className='object-cover' />
+  ) : (
+    <CategoryArt category={a.category} size={size} />
+  );
+}
 
 function CategoryArt({ category, size }: { category: ArticleCardData['category']; size: number }) {
   const art = ICONS[category?.icon ?? ''] ?? ICONS.target;
@@ -132,7 +143,7 @@ export function PillarCard({ a, ui, lang }: { a: ArticleCardData; ui: Ui; lang: 
   return (
     <Link href={hrefOf(a)} className={cn(card, 'relative rounded-[20px] hover:border-red/40')}>
       <div className='relative aspect-[16/8.2] overflow-hidden'>
-        <CategoryArt category={a.category} size={100} />
+        <CardArt a={a} size={100} />
         <div className='absolute top-4 left-4 z-2 flex items-center gap-1.5 rounded-full bg-red/92 px-[13px] py-1.5 font-display text-[11px] font-bold tracking-[.03em] text-white'>
           {ui.pillarBadge}
         </div>
@@ -167,7 +178,7 @@ export function ArticleCard({ a, ui, excerpt = true }: { a: ArticleCardData; ui:
   return (
     <Link href={hrefOf(a)} className={cn(card, 'rounded-[18px] hover:border-red/35')}>
       <div className='relative aspect-[16/10] overflow-hidden bg-soft'>
-        <CategoryArt category={a.category} size={72} />
+        <CardArt a={a} size={72} />
         <div className='absolute top-3.5 left-3.5 rounded-full border border-line bg-white/92 px-3 py-[5px] font-display text-[10.5px] font-bold tracking-[.04em] text-ink uppercase backdrop-blur-[6px]'>
           {a.category?.title}
         </div>

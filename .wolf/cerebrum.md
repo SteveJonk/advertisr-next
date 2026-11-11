@@ -29,6 +29,9 @@
 - **Project:** advertisr-next
 - **Description:** A block-based website scaffold: Next.js 16 (App Router, React 19, Tailwind v4)
 
+- HTML → Portable Text: `@portabletext/html` (`htmlToPortableText` + `compileSchema` from `@portabletext/schema`, jsdom as `parseHtml`); custom `rules` map WP blocks to our objects. advertisr.nl WP REST API is public (`/wp-json/wp/v2/posts|tags|users|media`).
+- No prettier config in app: format with `--single-quote --print-width 160` to match the repo style.
+
 ## Do-Not-Repeat
 
 <!-- Mistakes made and corrected. Each entry prevents the same mistake recurring. -->
@@ -37,7 +40,10 @@
 - [2026-11-11] react-hooks/set-state-in-effect: don't setState from DOM checks in useEffect; use a click handler (Nav CTA scrolls to #groeiplan if present, else /groeiplan).
 - [2026-11-11] Don't put `bg-[url("data:image/svg+xml,…")]` in className: Tailwind emits an unparsable `url(\"…\")` and the dev CSS breaks (even after removal, until `.next/dev` is cleared). Use an inline `<svg>` instead.
 
+- [2026-11-11] BSD `sed` doesn't turn `\n` in the replacement into a newline: the edit silently did nothing. Use python for multi-line edits.
+
 ## Decision Log
+- [2026-11-11] WP import: single `category` kept (first WP tag), rest of tags as plain strings; categories merged with the seeded ones; placeholders kept (user choices).
 - [2026-11-11] Page builder with one block per design section (~33) rather than a few generic blocks: design parity; illustrations stay code (`visual` select).
 - [2026-11-11] Case cards show a case study's first two stats (one source for cards + results list); articles without a body are cards only (route 404s, card links to #).
 - [2026-11-11] Form builder removed: LeadForm → /api/lead with env-only mail settings.

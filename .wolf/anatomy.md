@@ -136,6 +136,7 @@
 ## app/scripts/
 
 - `backfill-google-reviews.ts` — One-off: imports ALL Google reviews (the daily sync only sees the 5 most relevant). (~310 tok)
+- `import-wordpress.ts` — One-off: imports the advertisr.nl WordPress posts as articles (first tag = category, HTML → Portable Text). `npm run import:wp [-- --dry]`. (~2200 tok)
 - `check-jsonld.ts` — The smallest thing that fails when the structured data quietly changes. (~2331 tok)
   - fn `node` L37-213 (~1994 tok)
 - `seed.ts` — Fills the dataset with the site's real content: settings, shared documents (~722 tok)

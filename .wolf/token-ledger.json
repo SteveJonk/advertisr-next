@@ -2,16 +2,358 @@
   "version": 1,
   "created_at": "2026-11-11T10:36:49.843Z",
   "lifetime": {
-    "total_tokens_estimated": 0,
-    "total_reads": 0,
+    "total_tokens_estimated": 20664,
+    "total_reads": 16,
     "total_writes": 0,
-    "total_sessions": 0,
-    "anatomy_hits": 0,
-    "anatomy_misses": 0,
+    "total_sessions": 4,
+    "anatomy_hits": 3,
+    "anatomy_misses": 13,
     "repeated_reads_blocked": 0,
-    "estimated_savings_vs_bare_cli": 0
+    "estimated_savings_vs_bare_cli": 600,
+    "real_input_tokens": 2546,
+    "real_output_tokens": 1609139,
+    "real_cache_read_tokens": 411820636,
+    "real_cache_creation_tokens": 4012305,
+    "real_api_calls": 1248
   },
-  "sessions": [],
+  "sessions": [
+    {
+      "id": "session-2026-11-11-1205",
+      "agent": "claude",
+      "started": "2026-11-11T11:05:35.926Z",
+      "ended": "2026-11-11T11:41:38.297Z",
+      "reads": [
+        {
+          "file": "/Users/stevejonk/Documents/Prive Projecten/advertisr-next/app/public/images/advertisr/website-van-hart-huis-makelaardij-op-des.jpg",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 0,
+        "reads_count": 1,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      },
+      "real_usage": {
+        "input_tokens": 306,
+        "output_tokens": 186363,
+        "cache_read_input_tokens": 49451519,
+        "cache_creation_input_tokens": 469099,
+        "api_calls": 152
+      }
+    },
+    {
+      "id": "session-2026-11-11-1205",
+      "agent": "claude",
+      "started": "2026-11-11T11:05:35.926Z",
+      "ended": "2026-11-11T12:04:41.043Z",
+      "reads": [
+        {
+          "file": "/Users/stevejonk/Documents/Prive Projecten/advertisr-next/app/public/images/advertisr/website-van-hart-huis-makelaardij-op-des.jpg",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 0,
+        "reads_count": 1,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      },
+      "real_usage": {
+        "input_tokens": 310,
+        "output_tokens": 186508,
+        "cache_read_input_tokens": 49975765,
+        "cache_creation_input_tokens": 469106,
+        "api_calls": 153
+      }
+    },
+    {
+      "id": "session-2026-11-11-1205",
+      "agent": "claude",
+      "started": "2026-11-11T11:05:35.926Z",
+      "ended": "2026-11-11T12:06:02.677Z",
+      "reads": [
+        {
+          "file": "/Users/stevejonk/Documents/Prive Projecten/advertisr-next/app/public/images/advertisr/website-van-hart-huis-makelaardij-op-des.jpg",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 0,
+        "reads_count": 1,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      },
+      "real_usage": {
+        "input_tokens": 320,
+        "output_tokens": 188152,
+        "cache_read_input_tokens": 52075775,
+        "cache_creation_input_tokens": 470882,
+        "api_calls": 157
+      }
+    },
+    {
+      "id": "session-2026-11-11-1205",
+      "agent": "claude",
+      "started": "2026-11-11T11:05:35.926Z",
+      "ended": "2026-11-11T12:07:57.491Z",
+      "reads": [
+        {
+          "file": "/Users/stevejonk/Documents/Prive Projecten/advertisr-next/app/public/images/advertisr/website-van-hart-huis-makelaardij-op-des.jpg",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 0,
+        "reads_count": 1,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      },
+      "real_usage": {
+        "input_tokens": 340,
+        "output_tokens": 191176,
+        "cache_read_input_tokens": 56307069,
+        "cache_creation_input_tokens": 475757,
+        "api_calls": 165
+      }
+    },
+    {
+      "id": "session-2026-11-11-1205",
+      "agent": "claude",
+      "started": "2026-11-11T11:05:35.926Z",
+      "ended": "2026-11-11T12:08:35.370Z",
+      "reads": [
+        {
+          "file": "/Users/stevejonk/Documents/Prive Projecten/advertisr-next/app/public/images/advertisr/website-van-hart-huis-makelaardij-op-des.jpg",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 0,
+        "reads_count": 1,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      },
+      "real_usage": {
+        "input_tokens": 350,
+        "output_tokens": 191521,
+        "cache_read_input_tokens": 57901967,
+        "cache_creation_input_tokens": 476955,
+        "api_calls": 168
+      }
+    },
+    {
+      "id": "session-2026-11-11-1321",
+      "agent": "claude",
+      "started": "2026-11-11T12:21:17.276Z",
+      "ended": "2026-11-11T12:24:36.475Z",
+      "reads": [
+        {
+          "file": "/Users/stevejonk/.claude/projects/-Users-stevejonk-Documents-Prive-Projecten-advertisr-next/2ae89fc1-4b00-4545-9f0d-d71d5b8fbb57/tool-results/b59ik1woh.txt",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 0,
+        "reads_count": 1,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      },
+      "real_usage": {
+        "input_tokens": 36,
+        "output_tokens": 15426,
+        "cache_read_input_tokens": 2354649,
+        "cache_creation_input_tokens": 144704,
+        "api_calls": 18
+      }
+    },
+    {
+      "id": "session-2026-11-11-1321",
+      "agent": "claude",
+      "started": "2026-11-11T12:21:17.276Z",
+      "ended": "2026-11-11T13:09:34.683Z",
+      "reads": [
+        {
+          "file": "/Users/stevejonk/.claude/projects/-Users-stevejonk-Documents-Prive-Projecten-advertisr-next/2ae89fc1-4b00-4545-9f0d-d71d5b8fbb57/tool-results/b59ik1woh.txt",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/stevejonk/.claude/projects/-Users-stevejonk-Documents-Prive-Projecten-advertisr-next/2ae89fc1-4b00-4545-9f0d-d71d5b8fbb57/tool-results/bhtdh1ofi.txt",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/stevejonk/Documents/Prive Projecten/advertisr-next/app/src/app/(site)/kennisbank/google-ads-voor-mkb/page.tsx",
+          "tokens_estimated": 6888,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 6888,
+        "output_tokens_estimated": 0,
+        "reads_count": 3,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 1
+      },
+      "real_usage": {
+        "input_tokens": 254,
+        "output_tokens": 205237,
+        "cache_read_input_tokens": 43553089,
+        "cache_creation_input_tokens": 459666,
+        "api_calls": 126
+      }
+    },
+    {
+      "id": "session-2026-11-11-1321",
+      "agent": "claude",
+      "started": "2026-11-11T12:21:17.276Z",
+      "ended": "2026-11-11T13:11:54.907Z",
+      "reads": [
+        {
+          "file": "/Users/stevejonk/.claude/projects/-Users-stevejonk-Documents-Prive-Projecten-advertisr-next/2ae89fc1-4b00-4545-9f0d-d71d5b8fbb57/tool-results/b59ik1woh.txt",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/stevejonk/.claude/projects/-Users-stevejonk-Documents-Prive-Projecten-advertisr-next/2ae89fc1-4b00-4545-9f0d-d71d5b8fbb57/tool-results/bhtdh1ofi.txt",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/stevejonk/Documents/Prive Projecten/advertisr-next/app/src/app/(site)/kennisbank/google-ads-voor-mkb/page.tsx",
+          "tokens_estimated": 6888,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 6888,
+        "output_tokens_estimated": 0,
+        "reads_count": 3,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 1
+      },
+      "real_usage": {
+        "input_tokens": 264,
+        "output_tokens": 206655,
+        "cache_read_input_tokens": 45579504,
+        "cache_creation_input_tokens": 463363,
+        "api_calls": 130
+      }
+    },
+    {
+      "id": "session-2026-11-11-1321",
+      "agent": "claude",
+      "started": "2026-11-11T12:21:17.276Z",
+      "ended": "2026-11-11T13:17:28.109Z",
+      "reads": [
+        {
+          "file": "/Users/stevejonk/.claude/projects/-Users-stevejonk-Documents-Prive-Projecten-advertisr-next/2ae89fc1-4b00-4545-9f0d-d71d5b8fbb57/tool-results/b59ik1woh.txt",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/stevejonk/.claude/projects/-Users-stevejonk-Documents-Prive-Projecten-advertisr-next/2ae89fc1-4b00-4545-9f0d-d71d5b8fbb57/tool-results/bhtdh1ofi.txt",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/stevejonk/Documents/Prive Projecten/advertisr-next/app/src/app/(site)/kennisbank/google-ads-voor-mkb/page.tsx",
+          "tokens_estimated": 6888,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 6888,
+        "output_tokens_estimated": 0,
+        "reads_count": 3,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 1
+      },
+      "real_usage": {
+        "input_tokens": 280,
+        "output_tokens": 209038,
+        "cache_read_input_tokens": 48642471,
+        "cache_creation_input_tokens": 467469,
+        "api_calls": 136
+      }
+    },
+    {
+      "id": "session-2026-11-11-1424",
+      "agent": "claude",
+      "started": "2026-11-11T13:24:37.638Z",
+      "ended": "2026-11-11T13:34:29.776Z",
+      "reads": [
+        {
+          "file": "/Users/stevejonk/Documents/Prive Projecten/advertisr-next/app/scripts/import-wordpress.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 0,
+        "reads_count": 1,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      },
+      "real_usage": {
+        "input_tokens": 86,
+        "output_tokens": 29063,
+        "cache_read_input_tokens": 5978828,
+        "cache_creation_input_tokens": 115304,
+        "api_calls": 43
+      }
+    }
+  ],
   "daemon_usage": [],
   "waste_flags": [],
   "optimization_report": {

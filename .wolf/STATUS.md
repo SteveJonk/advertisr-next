@@ -8,6 +8,12 @@
 
 ## ✅ Done
 
+### WordPress posts imported into Sanity (2026-11-11)
+- `npm run import:wp` (`app/scripts/import-wordpress.ts`, `--dry` to preview) pulls the 13 posts from the advertisr.nl WP REST API; 12 imported as `article-<wp slug>` (the Google Ads MKB guide was already seeded and is skipped).
+- First WP tag = category (merged: Google Ads→Google Ads, SEO→SEO & GEO, AI→AI & Automatisering; new: Online marketing, Social advertising, Strategie); other tags → `tags`. Seeded placeholder articles kept.
+- WP cover CTA → `inlineCta`, blockquote → `pullQuote`, table → bullets, closing "Ben jij op zoek…" → `ctaTitle`; old advertisr.nl links mapped to new paths; featured image → new `article.image` ("Card image", shown on cards instead of category art).
+- Re-running replaces the imported articles (studio edits to them are lost).
+
 ### Sanity page builder wired to every page (2026-11-11)
 - All 15 pages are `page` documents built from ~33 blocks (`studio/schemaTypes/blocks.ts` ↔ `app/src/components/PageBuilder.tsx` + `components/advertisr/sections.tsx`). Routes: `(site)/page.tsx` (home), `(site)/[slug]`, `(site)/kennisbank` (+ `[slug]` for articles), `(landing)/groeiplan`. Static page files and `lib/advertisr/*` deleted.
 - Documents: page, article (+ articleCategory), faq (referenced from `faqs` blocks), caseStudy, review, client, teamMember. Singletons: siteInformation (incl. ~50 `interfaceText` strings: buttons, form labels, badges, 404), navigation, footer, googleReviews.
@@ -34,6 +40,8 @@
 **Goal:** User reviews the CMS-driven site + studio; fill the remaining real data.
 
 ### Open items / decisions for the user
+- 301 redirects from the old WP URLs (`/<post-slug>/` → `/kennisbank/<post-slug>`) before go-live, or the posts' Google rankings break.
+- Imported articles have no `intro`, FAQs or related articles; WP excerpts were poor so `excerpt` = Yoast meta description.
 - Deploy the studio (`cd studio && npm run deploy`) so the new schema is live for editors; `studio/.env` was created locally (project y2l1clva).
 - Google reviews: set `GOOGLE_PLACES_API_KEY`, `GOOGLE_REVIEWS_SYNC_SECRET` (+ `CRON_SECRET` on Vercel) and fill the Place ID + website address on the studio's "Google reviews" page. The cron is in `app/vercel.json` (Vercel); on Netlify a scheduled function is needed instead. Badge score is seeded as 5,0 until the first sync.
 - Mail env for `/api/lead` still missing (returns 503).

@@ -1255,6 +1255,14 @@ export type Article = {
   slug: Slug;
   excerpt?: string;
   intro?: string;
+  image?: {
+    asset?: SanityImageAssetReference;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  };
   body?: ArticleBody;
   category?: ArticleCategoryReference;
   author?: TeamMemberReference;
@@ -1532,7 +1540,7 @@ export type AllSanitySchemaTypes =
 
 // Source: ../app/src/sanity/queries.ts
 // Variable: PAGE_QUERY
-// Query: *[_type == "page" && slug.current == $slug][0]{    _id,    title,    "slug": slug.current,    seo,    content[]{      ...,      primaryCta{  ...,  internalLink->{ _type, "slug": slug.current }},      secondaryCta{  ...,  internalLink->{ _type, "slug": slug.current }},      cta{  ...,  internalLink->{ _type, "slug": slug.current }},      band{ ..., cta{  ...,  internalLink->{ _type, "slug": slug.current }} },      closing{ ..., cta{  ...,  internalLink->{ _type, "slug": slug.current }} },      _type == "faqs" => { "faqs": faqs[]->{ _id, question, answer } },      _type == "caseCards" => { "cases": cases[]->{ _id, name, category, badge, eyebrow, headline, summary, image, stats, tags, url } },      _type == "caseList" => { "cases": cases[]->{ _id, name, category, badge, eyebrow, headline, summary, image, stats, tags, url } },      _type == "teamGrid" => { "members": members[]->{ _id, name, role, bio, photo } },      _type == "logos" => {        "clients": *[_type == "client" && defined(logo.asset)] | order(coalesce(sortOrder, 999) asc){ _id, name, logo }      },      _type == "reviews" => {        "items": *[_type == "review" && hidden != true] | order(coalesce(sortOrder, 9999) asc, publishedAt desc)[0...30]{ _id, name, text, tone }      },      _type == "articleIndex" => {        "articles": *[_type == "article" && defined(slug.current)] | order(coalesce(updatedAt, publishedAt, _createdAt) desc){  _id,  title,  "slug": slug.current,  excerpt,  featured,  minutes,  updatedAt,  "hasBody": count(body) > 0,  category->{ title, color, icon },  author->{ name, photo }},        "categories": *[_type == "articleCategory"] | order(coalesce(sortOrder, 999) asc).title      }    }  }
+// Query: *[_type == "page" && slug.current == $slug][0]{    _id,    title,    "slug": slug.current,    seo,    content[]{      ...,      primaryCta{  ...,  internalLink->{ _type, "slug": slug.current }},      secondaryCta{  ...,  internalLink->{ _type, "slug": slug.current }},      cta{  ...,  internalLink->{ _type, "slug": slug.current }},      band{ ..., cta{  ...,  internalLink->{ _type, "slug": slug.current }} },      closing{ ..., cta{  ...,  internalLink->{ _type, "slug": slug.current }} },      _type == "faqs" => { "faqs": faqs[]->{ _id, question, answer } },      _type == "caseCards" => { "cases": cases[]->{ _id, name, category, badge, eyebrow, headline, summary, image, stats, tags, url } },      _type == "caseList" => { "cases": cases[]->{ _id, name, category, badge, eyebrow, headline, summary, image, stats, tags, url } },      _type == "teamGrid" => { "members": members[]->{ _id, name, role, bio, photo } },      _type == "logos" => {        "clients": *[_type == "client" && defined(logo.asset)] | order(coalesce(sortOrder, 999) asc){ _id, name, logo }      },      _type == "reviews" => {        "items": *[_type == "review" && hidden != true] | order(coalesce(sortOrder, 9999) asc, publishedAt desc)[0...30]{ _id, name, text, tone }      },      _type == "articleIndex" => {        "articles": *[_type == "article" && defined(slug.current)] | order(coalesce(updatedAt, publishedAt, _createdAt) desc){  _id,  title,  "slug": slug.current,  excerpt,  image,  featured,  minutes,  updatedAt,  "hasBody": count(body) > 0,  category->{ title, color, icon },  author->{ name, photo }},        "categories": *[_type == "articleCategory"] | order(coalesce(sortOrder, 999) asc).title      }    }  }
 export type PAGE_QUERY_RESULT = {
   _id: string;
   title: string;
@@ -1620,6 +1628,14 @@ export type PAGE_QUERY_RESULT = {
           title: string;
           slug: string;
           excerpt: string | null;
+          image: {
+            asset?: SanityImageAssetReference;
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            alt?: string;
+            _type: "image";
+          } | null;
           featured: boolean | null;
           minutes: number | null;
           updatedAt: string | null;
@@ -2658,7 +2674,7 @@ export type PAGE_SLUGS_QUERY_RESULT = Array<{
 
 // Source: ../app/src/sanity/queries.ts
 // Variable: ARTICLE_QUERY
-// Query: *[_type == "article" && slug.current == $slug][0]{    _id,    title,    "slug": slug.current,    intro,    excerpt,    minutes,    publishedAt,    updatedAt,    featured,    crumbLabel,    tags,    sources,    ctaTitle,    ctaText,    seo,    category->{ title, color, icon },    author->{ name, photo, authorTitle, authorBio },    body[]{ ..., _type == "inlineCta" => { cta{  ...,  internalLink->{ _type, "slug": slug.current }} } },    "faqs": faqs[]->{ _id, question, answer },    "related": related[]->{  _id,  title,  "slug": slug.current,  excerpt,  featured,  minutes,  updatedAt,  "hasBody": count(body) > 0,  category->{ title, color, icon },  author->{ name, photo }}  }
+// Query: *[_type == "article" && slug.current == $slug][0]{    _id,    title,    "slug": slug.current,    intro,    excerpt,    minutes,    publishedAt,    updatedAt,    featured,    crumbLabel,    tags,    sources,    ctaTitle,    ctaText,    seo,    category->{ title, color, icon },    author->{ name, photo, authorTitle, authorBio },    body[]{ ..., _type == "inlineCta" => { cta{  ...,  internalLink->{ _type, "slug": slug.current }} } },    "faqs": faqs[]->{ _id, question, answer },    "related": related[]->{  _id,  title,  "slug": slug.current,  excerpt,  image,  featured,  minutes,  updatedAt,  "hasBody": count(body) > 0,  category->{ title, color, icon },  author->{ name, photo }}  }
 export type ARTICLE_QUERY_RESULT = {
   _id: string;
   title: string;
@@ -2773,6 +2789,14 @@ export type ARTICLE_QUERY_RESULT = {
     title: string;
     slug: string;
     excerpt: string | null;
+    image: {
+      asset?: SanityImageAssetReference;
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt?: string;
+      _type: "image";
+    } | null;
     featured: boolean | null;
     minutes: number | null;
     updatedAt: string | null;
@@ -2913,13 +2937,16 @@ export type SITE_QUERY_RESULT = {
 };
 
 // Query TypeMap
-import "@sanity/client";
-declare module "@sanity/client" {
+declare global {
   interface SanityQueries {
-    '\n  *[_type == "page" && slug.current == $slug][0]{\n    _id,\n    title,\n    "slug": slug.current,\n    seo,\n    content[]{\n      ...,\n      primaryCta{\n  ...,\n  internalLink->{ _type, "slug": slug.current }\n},\n      secondaryCta{\n  ...,\n  internalLink->{ _type, "slug": slug.current }\n},\n      cta{\n  ...,\n  internalLink->{ _type, "slug": slug.current }\n},\n      band{ ..., cta{\n  ...,\n  internalLink->{ _type, "slug": slug.current }\n} },\n      closing{ ..., cta{\n  ...,\n  internalLink->{ _type, "slug": slug.current }\n} },\n      _type == "faqs" => { "faqs": faqs[]->{ _id, question, answer } },\n      _type == "caseCards" => { "cases": cases[]->{ _id, name, category, badge, eyebrow, headline, summary, image, stats, tags, url } },\n      _type == "caseList" => { "cases": cases[]->{ _id, name, category, badge, eyebrow, headline, summary, image, stats, tags, url } },\n      _type == "teamGrid" => { "members": members[]->{ _id, name, role, bio, photo } },\n      _type == "logos" => {\n        "clients": *[_type == "client" && defined(logo.asset)] | order(coalesce(sortOrder, 999) asc){ _id, name, logo }\n      },\n      _type == "reviews" => {\n        "items": *[_type == "review" && hidden != true] | order(coalesce(sortOrder, 9999) asc, publishedAt desc)[0...30]{ _id, name, text, tone }\n      },\n      _type == "articleIndex" => {\n        "articles": *[_type == "article" && defined(slug.current)] | order(coalesce(updatedAt, publishedAt, _createdAt) desc){\n  _id,\n  title,\n  "slug": slug.current,\n  excerpt,\n  featured,\n  minutes,\n  updatedAt,\n  "hasBody": count(body) > 0,\n  category->{ title, color, icon },\n  author->{ name, photo }\n},\n        "categories": *[_type == "articleCategory"] | order(coalesce(sortOrder, 999) asc).title\n      }\n    }\n  }\n': PAGE_QUERY_RESULT;
+    '\n  *[_type == "page" && slug.current == $slug][0]{\n    _id,\n    title,\n    "slug": slug.current,\n    seo,\n    content[]{\n      ...,\n      primaryCta{\n  ...,\n  internalLink->{ _type, "slug": slug.current }\n},\n      secondaryCta{\n  ...,\n  internalLink->{ _type, "slug": slug.current }\n},\n      cta{\n  ...,\n  internalLink->{ _type, "slug": slug.current }\n},\n      band{ ..., cta{\n  ...,\n  internalLink->{ _type, "slug": slug.current }\n} },\n      closing{ ..., cta{\n  ...,\n  internalLink->{ _type, "slug": slug.current }\n} },\n      _type == "faqs" => { "faqs": faqs[]->{ _id, question, answer } },\n      _type == "caseCards" => { "cases": cases[]->{ _id, name, category, badge, eyebrow, headline, summary, image, stats, tags, url } },\n      _type == "caseList" => { "cases": cases[]->{ _id, name, category, badge, eyebrow, headline, summary, image, stats, tags, url } },\n      _type == "teamGrid" => { "members": members[]->{ _id, name, role, bio, photo } },\n      _type == "logos" => {\n        "clients": *[_type == "client" && defined(logo.asset)] | order(coalesce(sortOrder, 999) asc){ _id, name, logo }\n      },\n      _type == "reviews" => {\n        "items": *[_type == "review" && hidden != true] | order(coalesce(sortOrder, 9999) asc, publishedAt desc)[0...30]{ _id, name, text, tone }\n      },\n      _type == "articleIndex" => {\n        "articles": *[_type == "article" && defined(slug.current)] | order(coalesce(updatedAt, publishedAt, _createdAt) desc){\n  _id,\n  title,\n  "slug": slug.current,\n  excerpt,\n  image,\n  featured,\n  minutes,\n  updatedAt,\n  "hasBody": count(body) > 0,\n  category->{ title, color, icon },\n  author->{ name, photo }\n},\n        "categories": *[_type == "articleCategory"] | order(coalesce(sortOrder, 999) asc).title\n      }\n    }\n  }\n': PAGE_QUERY_RESULT;
     '\n  *[_type == "page" && defined(slug.current)]{ "slug": slug.current, _updatedAt }\n': PAGE_SLUGS_QUERY_RESULT;
-    '\n  *[_type == "article" && slug.current == $slug][0]{\n    _id,\n    title,\n    "slug": slug.current,\n    intro,\n    excerpt,\n    minutes,\n    publishedAt,\n    updatedAt,\n    featured,\n    crumbLabel,\n    tags,\n    sources,\n    ctaTitle,\n    ctaText,\n    seo,\n    category->{ title, color, icon },\n    author->{ name, photo, authorTitle, authorBio },\n    body[]{ ..., _type == "inlineCta" => { cta{\n  ...,\n  internalLink->{ _type, "slug": slug.current }\n} } },\n    "faqs": faqs[]->{ _id, question, answer },\n    "related": related[]->{\n  _id,\n  title,\n  "slug": slug.current,\n  excerpt,\n  featured,\n  minutes,\n  updatedAt,\n  "hasBody": count(body) > 0,\n  category->{ title, color, icon },\n  author->{ name, photo }\n}\n  }\n': ARTICLE_QUERY_RESULT;
+    '\n  *[_type == "article" && slug.current == $slug][0]{\n    _id,\n    title,\n    "slug": slug.current,\n    intro,\n    excerpt,\n    minutes,\n    publishedAt,\n    updatedAt,\n    featured,\n    crumbLabel,\n    tags,\n    sources,\n    ctaTitle,\n    ctaText,\n    seo,\n    category->{ title, color, icon },\n    author->{ name, photo, authorTitle, authorBio },\n    body[]{ ..., _type == "inlineCta" => { cta{\n  ...,\n  internalLink->{ _type, "slug": slug.current }\n} } },\n    "faqs": faqs[]->{ _id, question, answer },\n    "related": related[]->{\n  _id,\n  title,\n  "slug": slug.current,\n  excerpt,\n  image,\n  featured,\n  minutes,\n  updatedAt,\n  "hasBody": count(body) > 0,\n  category->{ title, color, icon },\n  author->{ name, photo }\n}\n  }\n': ARTICLE_QUERY_RESULT;
     '\n  *[_type == "article" && defined(slug.current) && count(body) > 0]{ "slug": slug.current, _updatedAt }\n': ARTICLE_SLUGS_QUERY_RESULT;
     '{\n  "info": *[_type == "siteInformation" && _id == "siteInformation"][0]{\n    name,\n    defaultTitle,\n    description,\n    language,\n    email,\n    phone,\n    city,\n    address,\n    addressCountry,\n    socialLinks,\n    "logoUrl": logo.asset->url,\n    interfaceText\n  },\n  "nav": *[_type == "navigation" && _id == "navigation"][0]{ links, ctaLabel, landingCtaLabel },\n  "footer": *[_type == "footer" && _id == "footer"][0]{ columns, legal, copyright },\n  "google": *[_type == "googleReviews" && _id == "googleReviews"][0]{ rating, userRatingCount, googleMapsUri }\n}': SITE_QUERY_RESULT;
   }
+}
+// Lets @sanity/client releases that predate the global registry read it too
+declare module "@sanity/client" {
+  interface SanityQueries extends globalThis.SanityQueries {}
 }

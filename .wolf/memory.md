@@ -25,3 +25,9 @@
 |------|--------|---------|---------|--------|
 | 13:24 | wire-sanity: content map + page-builder schema proposal (no code yet); dataset y2l1clva/production empty, write token missing | studio/schemaTypes, app/src/app | proposal sent for review | ~60k |
 | 14:08 | wire-sanity: page builder + docs/singletons, Google reviews sync, template removed, dataset seeded, builds pass | studio/schemaTypes, app/src, app/scripts/seed | done | ~250k |
+
+## Session: 2026-11-11 14:24
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 14:34 | WP → Sanity import: 12 articles, 3 categories, card image field | app/scripts/import-wordpress.ts, studio/schemaTypes/documents.ts, ArticleCard.tsx, queries.ts | imported + verified on /kennisbank | ~60k |
