@@ -1,17 +1,18 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-11-11T10:36:50.429Z
-> Files: 161 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-11-11T11:40:22.954Z
+> Files: 207 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ./
 
-- `.DS_Store` (~2186 tok)
+- `.DS_Store` (~2732 tok)
 - `AGENTS.md` — OpenWolf (~68 tok)
 - `CLAUDE.md` — OpenWolf (~57 tok)
 - `README.md` — Project documentation (~7775 tok)
 
 ## .claude/
 
+- `launch.json` (~48 tok)
 - `settings.json` (~514 tok)
 
 ## .claude/commands/
@@ -104,11 +105,13 @@
 
 ## app/
 
+- `.DS_Store` (~2186 tok)
 - `.gitignore` — Git ignore rules (~147 tok)
 - `Dockerfile` — Docker container definition (~294 tok)
 - `eslint.config.mjs` — ESLint flat configuration (~124 tok)
 - `netlify.toml` (~228 tok)
-- `next.config.ts` — Next.js configuration (~472 tok)
+- `next-env.d.ts` — / <reference types="next" /> (~72 tok)
+- `next.config.ts` — Next.js configuration (~518 tok)
 - `package-lock.json` — npm lock file (~208179 tok)
 - `package.json` — Node.js package manifest (~389 tok)
 - `postcss.config.mjs` — Declares config (~26 tok)
@@ -116,6 +119,18 @@
 - `sentry.options.ts` — One source of Sentry settings for the client, the server and the edge (~291 tok)
 - `sentry.server.config.ts` — Sentry for the Node.js server runtime. Imported by `src/instrumentation.ts`, (~69 tok)
 - `tsconfig.json` — TypeScript configuration (~192 tok)
+- `tsconfig.tsbuildinfo` (~89355 tok)
+
+## app/design/
+
+- `contact.html` — Contact | Advertisr. (~18654 tok)
+- `google-ads-voor-mkb.html` — Google Ads voor MKB: complete gids voor winstgevende campagnes in 2026 | Advertisr. (~235787 tok)
+- `resultaten.html` — Resultaten | Advertisr. (~263956 tok)
+
+## app/public/images/advertisr/
+
+- `groovy-anton.webp` (~14840 tok)
+- `maxim-s-fashion-plus.webp` (~20856 tok)
 
 ## app/scripts/
 
@@ -171,26 +186,132 @@
 ## app/src/app/
 
 - `global-error.tsx` — Last-resort error boundary: it replaces the root layout, so it renders its (~239 tok)
-- `globals.css` — Styles: 4 rules, 54 vars, 1 media queries, 3 animations, 1 layers (~1694 tok)
-- `layout.tsx` — Site-wide metadata defaults, from the `siteInformation` singleton. (~1264 tok)
-  - fn `generateMetadata` L47-78 (~193 tok)
-  - fn `asNavLinks` L79-84 (~58 tok)
-  - fn `RootLayout` L85-137 (~475 tok)
+- `globals.css` — Styles: 6 rules, 73 vars, 2 media queries, 7 animations, 1 layers (~2286 tok)
+- `layout.tsx` — display (~428 tok)
 - `manifest.json` (~46 tok)
 - `not-found.tsx` — NotFound (~246 tok)
-- `page.tsx` — options (~397 tok)
 - `robots.ts` — Served at `/robots.txt`. (~150 tok)
-- `sitemap.ts` — Every CMS page, listed from the CMS itself. (~321 tok)
+- `sitemap.ts` — The static Advertisr. routes, plus every CMS page listed from the CMS itself. (~467 tok)
 
-## app/src/app/[slug]/
+## app/src/app/(cms)/
+
+- `layout.tsx` — Site-wide metadata defaults, from the `siteInformation` singleton. (~914 tok)
+  - fn `generateMetadata` L22-53 (~193 tok)
+  - fn `asNavLinks` L54-58 (~74 tok)
+  - fn `CmsLayout` L59-92 (~348 tok)
+
+## app/src/app/(cms)/[slug]/
 
 - `page.tsx` — Every CMS page except the home page renders through this one route — there (~603 tok)
   - fn `generateMetadata` L23-32 (~69 tok)
   - fn `SanityPage` L33-74 (~292 tok)
 
+## app/src/app/(landing)/
+
+- `layout.tsx` — Stripped-down chrome for the /groeiplan landing page: no menu, a slim footer and a sticky CTA on phones. (~522 tok)
+  - fn `LandingLayout` L8-43 (~419 tok)
+
+## app/src/app/(landing)/groeiplan/
+
+- `page.tsx` — metadata (~3255 tok)
+  - fn `GrowthPlanPage` L69-242 (~2345 tok)
+
+## app/src/app/(site)/
+
+- `layout.tsx` — Chrome for the Advertisr. pages (everything except /groeiplan and the CMS routes). (~132 tok)
+- `page.tsx` — STAGES (~5312 tok)
+  - fn `Hero` L123-218 (~1327 tok)
+  - fn `Services` L219-281 (~1206 tok)
+  - fn `Cases` L282-300 (~147 tok)
+  - fn `Approach` L301-335 (~522 tok)
+  - fn `StatBand` L336-358 (~214 tok)
+  - fn `Team` L359-405 (~667 tok)
+  - fn `HomePage` L406-434 (~186 tok)
+
+## app/src/app/(site)/ai-agent-workflows/
+
+- `page.tsx` — metadata (~3532 tok)
+  - fn `Page` L14-244 (~3337 tok)
+
+## app/src/app/(site)/contact/
+
+- `page.tsx` — metadata (~2194 tok)
+  - fn `ContactPage` L51-161 (~1523 tok)
+
+## app/src/app/(site)/data-analytics/
+
+- `page.tsx` — metadata (~3189 tok)
+  - fn `Page` L14-232 (~2996 tok)
+
+## app/src/app/(site)/google-ads/
+
+- `page.tsx` — metadata (~3549 tok)
+  - fn `Page` L14-244 (~3362 tok)
+
+## app/src/app/(site)/kennisbank/
+
+- `page.tsx` — metadata (~1402 tok)
+  - fn `KnowledgeBasePage` L13-115 (~1229 tok)
+
+## app/src/app/(site)/kennisbank/google-ads-voor-mkb/
+
+- `page.tsx` — Long-form body styles, as the design's `.art-prose`. (~6888 tok)
+  - fn `InlineCta` L105-124 (~423 tok)
+  - fn `Box` L125-133 (~61 tok)
+  - fn `ArticlePage` L134-466 (~5197 tok)
+
+## app/src/app/(site)/marketing-automation/
+
+- `page.tsx` — metadata (~3116 tok)
+  - fn `Page` L14-230 (~2922 tok)
+
+## app/src/app/(site)/meta-ads/
+
+- `page.tsx` — metadata (~3482 tok)
+  - fn `Page` L14-244 (~3300 tok)
+
+## app/src/app/(site)/resultaten/
+
+- `page.tsx` — metadata (~2924 tok)
+  - fn `ResultsPage` L102-225 (~1569 tok)
+
+## app/src/app/(site)/seo-geo/
+
+- `page.tsx` — Browser-framed screenshot of the Advertisr portal. (~6029 tok)
+  - fn `Shot` L19-47 (~287 tok)
+  - fn `HeroShot` L48-232 (~2401 tok)
+  - fn `Tools` L233-289 (~787 tok)
+  - fn `Steps` L290-318 (~365 tok)
+  - fn `Tick` L319-328 (~112 tok)
+  - fn `Features` L329-368 (~438 tok)
+  - fn `Page` L369-483 (~1385 tok)
+
+## app/src/app/(site)/social-media-organisch/
+
+- `page.tsx` — metadata (~4228 tok)
+  - fn `Pillars` L38-65 (~322 tok)
+  - fn `Output` L66-87 (~259 tok)
+  - fn `Month` L88-98 (~69 tok)
+  - fn `Page` L99-322 (~2976 tok)
+
+## app/src/app/(site)/team/
+
+- `page.tsx` — metadata (~2544 tok)
+  - fn `TeamPage` L58-189 (~1742 tok)
+
+## app/src/app/(site)/web-development/
+
+- `page.tsx` — metadata (~3430 tok)
+  - fn `Page` L14-241 (~3246 tok)
+
 ## app/src/app/api/health/
 
 - `route.ts` — Liveness check for uptime monitors and load balancers: 200 while the server (~105 tok)
+
+## app/src/app/api/lead/
+
+- `route.ts` — The Advertisr. lead form ("Ontvang je gratis groeiplan"), posted by (~804 tok)
+  - fn `POST` L24-77 (~566 tok)
 
 ## app/src/app/api/revalidate/
 
@@ -234,6 +355,79 @@
 - `TrackingScripts.tsx` — Google Tag Manager and the Meta (Facebook) pixel, both opt-in. (~866 tok)
   - fn `TrackingScriptsHead` L21-62 (~399 tok)
   - fn `TrackingScriptsBody` L63-92 (~222 tok)
+
+## app/src/components/advertisr/
+
+- `ArticleCard.tsx` — Placeholder art per category: tinted glow + line icon + dot grid. (~1711 tok)
+  - fn `CategoryArt` L75-89 (~180 tok)
+  - fn `Avatar` L90-106 (~143 tok)
+  - fn `PillarCard` L107-133 (~372 tok)
+  - fn `ArticleCard` L134-156 (~336 tok)
+- `CaseCard.tsx` — Dark photo card with a category pill, title and two stats. (~628 tok)
+  - fn `CaseCard` L13-49 (~553 tok)
+- `Compare.tsx` — "Bureaus zetten er vaak een laag tussen. Wij niet." comparison table. (~784 tok)
+  - fn `Compare` L16-66 (~549 tok)
+- `FinalCta.tsx` — Extra background layer (seo-geo puts an ambient ring here). (~622 tok)
+  - fn `FinalCta` L16-54 (~496 tok)
+- `Footer.tsx` — COLUMNS (~603 tok)
+  - fn `Footer` L29-61 (~370 tok)
+- `kennisbank.tsx` — Category pills. Like the design, they only mark the active one; filtering comes with real content. (~728 tok)
+  - fn `Pills` L8-30 (~226 tok)
+  - fn `NewsletterForm` L31-73 (~435 tok)
+- `LeadForm.tsx` — null drops the message field (the short groeiplan hero form). (~1536 tok)
+  - fn `LeadForm` L31-129 (~1222 tok)
+- `Logos.tsx` — The design has two exports of the logo set; the service pages use the second. (~894 tok)
+  - fn `Logos` L28-64 (~588 tok)
+- `Marquee.tsx` — Pill strip that scrolls forever (doubled so the loop is seamless). (~309 tok)
+- `Nav.tsx` — Fixed top bar; frosted once the page scrolls past 20px. Links hide below (~878 tok)
+  - fn `activeLabel` L10-19 (~115 tok)
+  - fn `Nav` L20-74 (~687 tok)
+- `Reviews.tsx` — Google-review masonry. The homepage shows all ten, other pages the first six. (~658 tok)
+  - fn `Reviews` L17-63 (~531 tok)
+- `service.tsx` — Dark "Wat levert … op?" band with a CTA button. (~6170 tok)
+  - fn `CtaBand` L16-48 (~254 tok)
+  - fn `FloatStat` L49-62 (~153 tok)
+  - fn `ServiceHero` L63-114 (~535 tok)
+  - fn `BridgeQuote` L115-137 (~414 tok)
+  - fn `Pain` L138-184 (~566 tok)
+  - fn `Funnel` L185-250 (~1005 tok)
+  - fn `LedgerRow` L251-270 (~371 tok)
+  - fn `Deliverables` L271-316 (~655 tok)
+  - fn `Crea` L317-409 (~842 tok)
+  - fn `CaseStudy` L410-449 (~414 tok)
+  - fn `FaqList` L450-467 (~246 tok)
+  - fn `Faq` L468-487 (~120 tok)
+  - fn `ProcRow` L488-506 (~298 tok)
+- `SiteEffects.tsx` — The designs' page script, ported once for every page: (~1080 tok)
+  - fn `SiteEffects` L14-103 (~938 tok)
+- `Toc.tsx` — Sticky table of contents with scrollspy; a toggle button replaces the label below 900px. (~628 tok)
+  - fn `Toc` L7-53 (~574 tok)
+- `ui.tsx` — Content width shell: 1240px, 40px gutter (22px on phones). (~1876 tok)
+  - fn `Wrap` L6-10 (~68 tok)
+  - fn `Sec` L11-14 (~49 tok)
+  - fn `Eyebrow` L15-30 (~146 tok)
+  - fn `SecHead` L31-59 (~248 tok)
+  - fn `Arrow` L60-63 (~37 tok)
+  - fn `BtnRed` L64-71 (~66 tok)
+  - fn `BtnGhost` L72-102 (~171 tok)
+  - fn `Brand` L103-120 (~191 tok)
+  - fn `Check` L121-130 (~135 tok)
+  - fn `Ambient` L131-140 (~202 tok)
+  - fn `GoogleG` L141-164 (~280 tok)
+  - fn `Count` L165-169 (~50 tok)
+  - fn `Crumb` L170-191 (~176 tok)
+- `visuals.tsx` — Index that advances every `ms`, unless the visitor prefers reduced motion. (~4996 tok)
+  - fn `useCycle` L12-21 (~91 tok)
+  - fn `Stage` L22-29 (~138 tok)
+  - fn `Live` L30-38 (~89 tok)
+  - fn `Browser` L39-52 (~175 tok)
+  - fn `PhoneVisual` L53-97 (~711 tok)
+  - fn `SerpVisual` L98-136 (~624 tok)
+  - fn `SiteVisual` L137-173 (~321 tok)
+  - fn `DashVisual` L174-236 (~764 tok)
+  - fn `JourneyVisual` L237-286 (~637 tok)
+  - fn `FlowVisual` L287-344 (~631 tok)
+  - fn `SocialVisual` L345-403 (~700 tok)
 
 ## app/src/components/blocks/
 
@@ -368,6 +562,12 @@
   - fn `withDefaults` L123-135 (~116 tok)
   - fn `telHref` L136-139 (~29 tok)
   - fn `mailtoHref` L140-150 (~63 tok)
+
+## app/src/lib/advertisr/
+
+- `articles.ts` — Kennisbank content. Only the Google Ads guide has a page so far; the rest link to '#' as in the design. (~1164 tok)
+- `nav.ts` — Every service page, in the footer's order. (~362 tok)
+- `reviews.ts` — Exports REVIEWS (~583 tok)
 
 ## app/src/sanity/
 

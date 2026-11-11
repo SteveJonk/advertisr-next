@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* The static design exports are reference material, not source. */
+@source not "../../design";
+
 /* ==========================================================================
    THEME — this is the file you edit to rebrand the site.
    ==========================================================================
@@ -31,26 +34,39 @@
      accent*               : soft fills, tags, quiet highlights
      brand*                : primary buttons and the loudest UI
      ---------------------------------------------------------------------- */
+  /* Advertisr. brand palette — the design's own names. The role tokens
+     below point at these, so the template blocks pick up the brand too. */
+  --color-ink: #0e0e12;
+  --color-soft: #f6f4f0;
+  --color-line: rgb(14 14 18 / 0.1);
+  --color-line-2: rgb(14 14 18 / 0.18);
+  --color-red: #ff3951;
+  --color-red-ink: #d91e3a;
+  --color-red-tint: #fff1f3;
+  --color-dim: #55545e;
+  --color-dim-2: #85848e;
+  --color-night: #0d0d12;
+  --color-star: #f5a800;
+
   --color-surface: #ffffff;
-  --color-surface-alt: #f8fafc;
+  --color-surface-alt: var(--color-soft);
 
-  --color-fg: #0f172a;
-  --color-muted: #475569;
-  --color-subtle: #94a3b8;
+  --color-fg: var(--color-ink);
+  --color-muted: var(--color-dim);
+  --color-subtle: var(--color-dim-2);
 
-  --color-inverse: #0f172a;
+  --color-inverse: var(--color-ink);
   --color-inverse-fg: #f8fafc;
 
-  --color-accent: #e2e8f0;
-  --color-accent-deep: #cbd5e1;
-  --color-accent-strong: #0284c7;
+  --color-accent: var(--color-red-tint);
+  --color-accent-deep: #ffd5db;
+  --color-accent-strong: var(--color-red-ink);
 
-  --color-brand: #0f172a;
-  --color-brand-hover: #1e293b;
-  --color-brand-deep: #334155;
-  --color-brand-fg: #f8fafc;
+  --color-brand: var(--color-ink);
+  --color-brand-hover: var(--color-red);
+  --color-brand-deep: var(--color-red-ink);
+  --color-brand-fg: #ffffff;
 
-  /* The one colour that must read as "something went wrong" — form errors. */
   --color-danger: #b91c1c;
 
   /* --- Typography --------------------------------------------------------
@@ -58,7 +74,7 @@
      `--font-sans` is everything else. Both fall back to system fonts if the
      next/font variable is missing, so the site still renders during setup.
      ---------------------------------------------------------------------- */
-  --font-display: var(--font-display-src), Georgia, "Times New Roman", serif;
+  --font-display: var(--font-display-src), system-ui, sans-serif;
   --font-sans:
     var(--font-sans-src), -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
@@ -95,10 +111,14 @@
   --spacing-section-sm: 82px;
 
   --container-site: 1280px;
+  --container-page: 1240px;
 
   /* Breakpoints deliberately differ from the Tailwind defaults — the layouts
      in src/components are built against these. Change with care. */
   --breakpoint-xs: 400px;
+  /* Advertisr. design steps (with sm = 760px shared). */
+  --breakpoint-mob: 520px;
+  --breakpoint-dsk: 1080px;
   --breakpoint-sm: 760px;
   --breakpoint-md: 960px;
   --breakpoint-lg: 1120px;
@@ -113,10 +133,46 @@
   --shadow-topbar: 0 1px 0 rgb(15 23 42 / 0.09);
 
   --ease-brand: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-rv: cubic-bezier(0.2, 0.7, 0.3, 1);
 
   --animate-hero-cycle: hero-cycle 22.5s infinite;
   --animate-cue: cue 2.4s infinite;
   --animate-spin-in: spin-in 0.9s var(--ease-brand) both;
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-logos: logos 42s linear infinite;
+  --animate-pulse-dot: pulse-dot 1.6s ease-in-out infinite;
+  --animate-draw: draw 1.4s cubic-bezier(0.2, 0.7, 0.2, 1) 0.2s both;
+
+  @keyframes draw {
+    from {
+      stroke-dashoffset: 500;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes marquee {
+    to {
+      transform: translateX(calc(-50% - 6px));
+    }
+  }
+
+  @keyframes pulse-dot {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.35;
+    }
+  }
+
+  @keyframes logos {
+    to {
+      transform: translateX(-50%);
+    }
+  }
 
   @keyframes hero-cycle {
     0% {
@@ -172,12 +228,18 @@
   body {
     @apply overflow-x-hidden bg-surface font-sans text-fg antialiased;
     font-size: 16px;
+    line-height: 1.65;
   }
 
   h1,
   h2,
   h3 {
-    @apply font-display font-normal leading-[1.02] tracking-[-0.02em];
+    @apply font-display font-bold leading-[1.04] tracking-[-0.025em];
+  }
+
+  h1 em,
+  h2 em {
+    @apply text-red not-italic;
   }
 
   ::selection {
@@ -188,5 +250,31 @@
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+}
+
+/* Scroll reveal: <SiteEffects> sets data-in once the element is on screen,
+   with a sibling-staggered transition-delay. The transition list also covers
+   the hover lifts of the cards that carry it. */
+@utility rv {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.8s var(--ease-rv),
+    transform 0.8s var(--ease-rv),
+    translate 0.3s var(--ease-rv),
+    box-shadow 0.3s,
+    border-color 0.3s,
+    background-color 0.3s;
+
+  &[data-in] {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }

@@ -1,12 +1,12 @@
 {
   "version": 1,
   "meta": {
-    "lastScanned": "2026-11-11T10:36:50.429Z",
-    "fileCount": 161,
+    "lastScanned": "2026-11-11T11:40:22.954Z",
+    "fileCount": 207,
     "hits": 0,
     "misses": 0,
-    "renderedHash": "f7db1317d17c17485d136989718a0feec77f09bfb225714859adda98554ec4dd",
-    "storeUpdatedAt": "2026-11-11T10:36:50.430Z"
+    "renderedHash": "73b78f636a1d68c770fc4fca30bfee7d66b49c0ca08b37224d77d1b7f8dc5442",
+    "storeUpdatedAt": "2026-11-11T11:40:22.956Z"
   },
   "files": {
     ".claude/commands/reframe.md": {
@@ -15,7 +15,7 @@
       "hash": "17a75695be5d4629",
       "size": 2221,
       "mtimeMs": 1794393410377.4504,
-      "updatedAt": "2026-11-11T10:36:50.394Z",
+      "updatedAt": "2026-11-11T11:40:22.874Z",
       "source": "scan"
     },
     ".claude/commands/security-audit.md": {
@@ -24,7 +24,16 @@
       "hash": "e6f7e0b7337c9c86",
       "size": 2060,
       "mtimeMs": 1794393410376.9766,
-      "updatedAt": "2026-11-11T10:36:50.394Z",
+      "updatedAt": "2026-11-11T11:40:22.874Z",
+      "source": "scan"
+    },
+    ".claude/launch.json": {
+      "description": "",
+      "tokens": 48,
+      "hash": "2809eb3b8cff780b",
+      "size": 166,
+      "mtimeMs": 1794395825315.9492,
+      "updatedAt": "2026-11-11T11:40:22.874Z",
       "source": "scan"
     },
     ".claude/rules/openwolf.md": {
@@ -33,7 +42,7 @@
       "hash": "6d735b2c1c54a916",
       "size": 1323,
       "mtimeMs": 1794393409856.7244,
-      "updatedAt": "2026-11-11T10:36:50.395Z",
+      "updatedAt": "2026-11-11T11:40:22.875Z",
       "source": "scan"
     },
     ".claude/settings.json": {
@@ -42,7 +51,7 @@
       "hash": "f68759bb50af5ee4",
       "size": 1799,
       "mtimeMs": 1794393409856.2285,
-      "updatedAt": "2026-11-11T10:36:50.395Z",
+      "updatedAt": "2026-11-11T11:40:22.876Z",
       "source": "scan"
     },
     ".cursor/rules/openwolf.mdc": {
@@ -51,16 +60,16 @@
       "hash": "25a895da2047ef4d",
       "size": 323,
       "mtimeMs": 1794393410371.6802,
-      "updatedAt": "2026-11-11T10:36:50.396Z",
+      "updatedAt": "2026-11-11T11:40:22.876Z",
       "source": "scan"
     },
     ".DS_Store": {
       "description": "",
-      "tokens": 2186,
-      "hash": "0fe00154a3fc363b",
-      "size": 8196,
-      "mtimeMs": 1794390052527.1833,
-      "updatedAt": "2026-11-11T10:36:50.396Z",
+      "tokens": 2732,
+      "hash": "088a3f5b2fecd9d5",
+      "size": 10244,
+      "mtimeMs": 1794393565213.4434,
+      "updatedAt": "2026-11-11T11:40:22.876Z",
       "source": "scan"
     },
     ".github/workflows/build-app-image.yml": {
@@ -69,7 +78,7 @@
       "hash": "bf84c04ea3934b66",
       "size": 3110,
       "mtimeMs": 1794390052527.4417,
-      "updatedAt": "2026-11-11T10:36:50.396Z",
+      "updatedAt": "2026-11-11T11:40:22.877Z",
       "source": "scan"
     },
     ".github/workflows/deploy-sanity-studio.yml": {
@@ -78,7 +87,7 @@
       "hash": "b8ec5d2427fea54e",
       "size": 2809,
       "mtimeMs": 1794390052527.5488,
-      "updatedAt": "2026-11-11T10:36:50.396Z",
+      "updatedAt": "2026-11-11T11:40:22.877Z",
       "source": "scan"
     },
     ".opencode/command/reframe.md": {
@@ -87,7 +96,7 @@
       "hash": "17a75695be5d4629",
       "size": 2221,
       "mtimeMs": 1794393410378.034,
-      "updatedAt": "2026-11-11T10:36:50.396Z",
+      "updatedAt": "2026-11-11T11:40:22.878Z",
       "source": "scan"
     },
     ".opencode/command/security-audit.md": {
@@ -96,7 +105,7 @@
       "hash": "e6f7e0b7337c9c86",
       "size": 2060,
       "mtimeMs": 1794393410377.7788,
-      "updatedAt": "2026-11-11T10:36:50.397Z",
+      "updatedAt": "2026-11-11T11:40:22.878Z",
       "source": "scan"
     },
     ".opencode/plugin/openwolf/anatomy.ts": {
@@ -105,7 +114,7 @@
       "hash": "de2a14445289179f",
       "size": 10257,
       "mtimeMs": 1794393410342.726,
-      "updatedAt": "2026-11-11T10:36:50.398Z",
+      "updatedAt": "2026-11-11T11:40:22.879Z",
       "source": "scan",
       "symbols": [
         {
@@ -221,7 +230,7 @@
       "hash": "0193b1022c8e098b",
       "size": 1881,
       "mtimeMs": 1794393410347.6611,
-      "updatedAt": "2026-11-11T10:36:50.398Z",
+      "updatedAt": "2026-11-11T11:40:22.880Z",
       "source": "scan",
       "symbols": [
         {
@@ -302,7 +311,7 @@
       "hash": "5044a1f76c74f535",
       "size": 3782,
       "mtimeMs": 1794393410348.0132,
-      "updatedAt": "2026-11-11T10:36:50.399Z",
+      "updatedAt": "2026-11-11T11:40:22.880Z",
       "source": "scan"
     },
     ".opencode/plugin/openwolf/post-read.ts": {
@@ -311,7 +320,7 @@
       "hash": "1bc80c56ad0cfd32",
       "size": 2200,
       "mtimeMs": 1794393410352.7798,
-      "updatedAt": "2026-11-11T10:36:50.399Z",
+      "updatedAt": "2026-11-11T11:40:22.881Z",
       "source": "scan",
       "symbols": [
         {
@@ -329,7 +338,7 @@
       "hash": "02ba6ccd8d82475c",
       "size": 11300,
       "mtimeMs": 1794393410353.4028,
-      "updatedAt": "2026-11-11T10:36:50.399Z",
+      "updatedAt": "2026-11-11T11:40:22.882Z",
       "source": "scan",
       "symbols": [
         {
@@ -396,7 +405,7 @@
       "hash": "88c051b64b073c6a",
       "size": 2401,
       "mtimeMs": 1794393410353.7964,
-      "updatedAt": "2026-11-11T10:36:50.399Z",
+      "updatedAt": "2026-11-11T11:40:22.882Z",
       "source": "scan",
       "symbols": [
         {
@@ -414,7 +423,7 @@
       "hash": "c3b34d216601e76f",
       "size": 4092,
       "mtimeMs": 1794393410357.3738,
-      "updatedAt": "2026-11-11T10:36:50.399Z",
+      "updatedAt": "2026-11-11T11:40:22.883Z",
       "source": "scan",
       "symbols": [
         {
@@ -460,7 +469,7 @@
       "hash": "dda2df097f6d5874",
       "size": 3340,
       "mtimeMs": 1794393410357.9602,
-      "updatedAt": "2026-11-11T10:36:50.400Z",
+      "updatedAt": "2026-11-11T11:40:22.883Z",
       "source": "scan",
       "symbols": [
         {
@@ -499,7 +508,7 @@
       "hash": "5f8633a3904ee5ce",
       "size": 5057,
       "mtimeMs": 1794393410358.333,
-      "updatedAt": "2026-11-11T10:36:50.400Z",
+      "updatedAt": "2026-11-11T11:40:22.883Z",
       "source": "scan",
       "symbols": [
         {
@@ -538,7 +547,7 @@
       "hash": "47f4dfb03abf55f9",
       "size": 757,
       "mtimeMs": 1794393410362.7014,
-      "updatedAt": "2026-11-11T10:36:50.400Z",
+      "updatedAt": "2026-11-11T11:40:22.883Z",
       "source": "scan"
     },
     ".opencode/plugin/openwolf.ts": {
@@ -547,7 +556,7 @@
       "hash": "a29f91aadb9a324d",
       "size": 261,
       "mtimeMs": 1794393410363.553,
-      "updatedAt": "2026-11-11T10:36:50.400Z",
+      "updatedAt": "2026-11-11T11:40:22.884Z",
       "source": "scan"
     },
     "AGENTS.md": {
@@ -556,7 +565,16 @@
       "hash": "8c90778623bf50ac",
       "size": 271,
       "mtimeMs": 1794393410363.9883,
-      "updatedAt": "2026-11-11T10:36:50.400Z",
+      "updatedAt": "2026-11-11T11:40:22.884Z",
+      "source": "scan"
+    },
+    "app/.DS_Store": {
+      "description": "",
+      "tokens": 2186,
+      "hash": "2c6b5bfed0712cbe",
+      "size": 8196,
+      "mtimeMs": 1794393690286.0662,
+      "updatedAt": "2026-11-11T11:40:22.884Z",
       "source": "scan"
     },
     "app/.gitignore": {
@@ -565,7 +583,34 @@
       "hash": "468399b2c7fcbe78",
       "size": 552,
       "mtimeMs": 1794390052527.9854,
-      "updatedAt": "2026-11-11T10:36:50.401Z",
+      "updatedAt": "2026-11-11T11:40:22.885Z",
+      "source": "scan"
+    },
+    "app/design/contact.html": {
+      "description": "Contact | Advertisr.",
+      "tokens": 18654,
+      "hash": "8ebbe8f97f00f952",
+      "size": 70063,
+      "mtimeMs": 1794393500111.2412,
+      "updatedAt": "2026-11-11T11:40:22.886Z",
+      "source": "scan"
+    },
+    "app/design/google-ads-voor-mkb.html": {
+      "description": "Google Ads voor MKB: complete gids voor winstgevende campagnes in 2026 | Advertisr.",
+      "tokens": 235787,
+      "hash": "960d52a7b9984fab",
+      "size": 884273,
+      "mtimeMs": 1794393474886.8423,
+      "updatedAt": "2026-11-11T11:40:22.889Z",
+      "source": "scan"
+    },
+    "app/design/resultaten.html": {
+      "description": "Resultaten | Advertisr.",
+      "tokens": 263956,
+      "hash": "48c1f124acc4df27",
+      "size": 989946,
+      "mtimeMs": 1794393492910.6975,
+      "updatedAt": "2026-11-11T11:40:22.895Z",
       "source": "scan"
     },
     "app/Dockerfile": {
@@ -574,7 +619,7 @@
       "hash": "c8a0488797cac4e8",
       "size": 1100,
       "mtimeMs": 1794390052528.2185,
-      "updatedAt": "2026-11-11T10:36:50.401Z",
+      "updatedAt": "2026-11-11T11:40:22.895Z",
       "source": "scan"
     },
     "app/eslint.config.mjs": {
@@ -583,7 +628,7 @@
       "hash": "870f1adccecf3051",
       "size": 465,
       "mtimeMs": 1794390052528.3674,
-      "updatedAt": "2026-11-11T10:36:50.401Z",
+      "updatedAt": "2026-11-11T11:40:22.896Z",
       "source": "scan"
     },
     "app/netlify.toml": {
@@ -592,16 +637,25 @@
       "hash": "0ec233d7301739f1",
       "size": 798,
       "mtimeMs": 1794390052528.5366,
-      "updatedAt": "2026-11-11T10:36:50.401Z",
+      "updatedAt": "2026-11-11T11:40:22.896Z",
+      "source": "scan"
+    },
+    "app/next-env.d.ts": {
+      "description": "/ <reference types=\"next\" />",
+      "tokens": 72,
+      "hash": "7ad303e40d4fddf4",
+      "size": 251,
+      "mtimeMs": 1794397041767.016,
+      "updatedAt": "2026-11-11T11:40:22.896Z",
       "source": "scan"
     },
     "app/next.config.ts": {
       "description": "Next.js configuration",
-      "tokens": 472,
-      "hash": "5243f40aef95bdfe",
-      "size": 1652,
-      "mtimeMs": 1794390052528.6863,
-      "updatedAt": "2026-11-11T10:36:50.401Z",
+      "tokens": 518,
+      "hash": "92db21e35dc2c962",
+      "size": 1811,
+      "mtimeMs": 1794395734663.3943,
+      "updatedAt": "2026-11-11T11:40:22.897Z",
       "source": "scan"
     },
     "app/package-lock.json": {
@@ -610,7 +664,7 @@
       "hash": "f83b600e7d61d7e4",
       "size": 728625,
       "mtimeMs": 1794390081768.3713,
-      "updatedAt": "2026-11-11T10:36:50.403Z",
+      "updatedAt": "2026-11-11T11:40:22.899Z",
       "source": "scan"
     },
     "app/package.json": {
@@ -619,7 +673,7 @@
       "hash": "080e23d6617cefca",
       "size": 1360,
       "mtimeMs": 1794390052530.5889,
-      "updatedAt": "2026-11-11T10:36:50.403Z",
+      "updatedAt": "2026-11-11T11:40:22.899Z",
       "source": "scan"
     },
     "app/postcss.config.mjs": {
@@ -628,7 +682,25 @@
       "hash": "dfac7ac2d86d326a",
       "size": 94,
       "mtimeMs": 1794390052530.723,
-      "updatedAt": "2026-11-11T10:36:50.404Z",
+      "updatedAt": "2026-11-11T11:40:22.900Z",
+      "source": "scan"
+    },
+    "app/public/images/advertisr/groovy-anton.webp": {
+      "description": "",
+      "tokens": 14840,
+      "hash": "58a9c1c700e3a158",
+      "size": 58638,
+      "mtimeMs": 1794395374942.2917,
+      "updatedAt": "2026-11-11T11:40:22.902Z",
+      "source": "scan"
+    },
+    "app/public/images/advertisr/maxim-s-fashion-plus.webp": {
+      "description": "",
+      "tokens": 20856,
+      "hash": "8c7b53b4333fba51",
+      "size": 82592,
+      "mtimeMs": 1794395374939.4417,
+      "updatedAt": "2026-11-11T11:40:22.904Z",
       "source": "scan"
     },
     "app/scripts/check-form.ts": {
@@ -637,7 +709,7 @@
       "hash": "ffccf53d5cc8c1dd",
       "size": 9580,
       "mtimeMs": 1794390052531.6106,
-      "updatedAt": "2026-11-11T10:36:50.404Z",
+      "updatedAt": "2026-11-11T11:40:22.905Z",
       "source": "scan",
       "symbols": [
         {
@@ -676,7 +748,7 @@
       "hash": "03449dcb6bc36e88",
       "size": 9161,
       "mtimeMs": 1794390052531.7908,
-      "updatedAt": "2026-11-11T10:36:50.405Z",
+      "updatedAt": "2026-11-11T11:40:22.905Z",
       "source": "scan",
       "symbols": [
         {
@@ -694,7 +766,7 @@
       "hash": "384d13c82c79b467",
       "size": 3433,
       "mtimeMs": 1794390052532.0842,
-      "updatedAt": "2026-11-11T10:36:50.405Z",
+      "updatedAt": "2026-11-11T11:40:22.905Z",
       "source": "scan",
       "symbols": [
         {
@@ -719,7 +791,7 @@
       "hash": "5d41d3c8ad6d666a",
       "size": 1846,
       "mtimeMs": 1794390052532.1858,
-      "updatedAt": "2026-11-11T10:36:50.405Z",
+      "updatedAt": "2026-11-11T11:40:22.906Z",
       "source": "scan",
       "symbols": [
         {
@@ -744,7 +816,7 @@
       "hash": "e28200797b3e043c",
       "size": 2062,
       "mtimeMs": 1794390052532.2883,
-      "updatedAt": "2026-11-11T10:36:50.406Z",
+      "updatedAt": "2026-11-11T11:40:22.906Z",
       "source": "scan",
       "symbols": [
         {
@@ -776,7 +848,7 @@
       "hash": "f0826cb97276ec80",
       "size": 3157,
       "mtimeMs": 1794390052532.3901,
-      "updatedAt": "2026-11-11T10:36:50.406Z",
+      "updatedAt": "2026-11-11T11:40:22.906Z",
       "source": "scan",
       "symbols": [
         {
@@ -801,7 +873,7 @@
       "hash": "40d328cf9c025adb",
       "size": 2398,
       "mtimeMs": 1794390052532.485,
-      "updatedAt": "2026-11-11T10:36:50.406Z",
+      "updatedAt": "2026-11-11T11:40:22.906Z",
       "source": "scan",
       "symbols": [
         {
@@ -861,7 +933,7 @@
       "hash": "90fa8713dc0404ce",
       "size": 4762,
       "mtimeMs": 1794390052532.5889,
-      "updatedAt": "2026-11-11T10:36:50.406Z",
+      "updatedAt": "2026-11-11T11:40:22.907Z",
       "source": "scan",
       "symbols": [
         {
@@ -921,7 +993,7 @@
       "hash": "2e6b62fab52bf30d",
       "size": 1250,
       "mtimeMs": 1794390052532.68,
-      "updatedAt": "2026-11-11T10:36:50.406Z",
+      "updatedAt": "2026-11-11T11:40:22.907Z",
       "source": "scan"
     },
     "app/scripts/seed.ts": {
@@ -930,7 +1002,7 @@
       "hash": "84b806274d9b2d5e",
       "size": 2207,
       "mtimeMs": 1794390052531.9238,
-      "updatedAt": "2026-11-11T10:36:50.406Z",
+      "updatedAt": "2026-11-11T11:40:22.907Z",
       "source": "scan",
       "symbols": [
         {
@@ -955,7 +1027,7 @@
       "hash": "a1c8602a5143bb25",
       "size": 256,
       "mtimeMs": 1794390052532.78,
-      "updatedAt": "2026-11-11T10:36:50.407Z",
+      "updatedAt": "2026-11-11T11:40:22.907Z",
       "source": "scan"
     },
     "app/sentry.options.ts": {
@@ -964,7 +1036,7 @@
       "hash": "a8271f36f1fc1bd9",
       "size": 1020,
       "mtimeMs": 1794390052532.8755,
-      "updatedAt": "2026-11-11T10:36:50.407Z",
+      "updatedAt": "2026-11-11T11:40:22.908Z",
       "source": "scan"
     },
     "app/sentry.server.config.ts": {
@@ -973,16 +1045,16 @@
       "hash": "cd70f1e833d830dd",
       "size": 240,
       "mtimeMs": 1794390052532.969,
-      "updatedAt": "2026-11-11T10:36:50.407Z",
+      "updatedAt": "2026-11-11T11:40:22.908Z",
       "source": "scan"
     },
-    "app/src/app/[slug]/page.tsx": {
+    "app/src/app/(cms)/[slug]/page.tsx": {
       "description": "Every CMS page except the home page renders through this one route — there",
       "tokens": 603,
       "hash": "d60642eae38e9fd3",
       "size": 2110,
       "mtimeMs": 1794390052533.4275,
-      "updatedAt": "2026-11-11T10:36:50.407Z",
+      "updatedAt": "2026-11-11T11:40:22.908Z",
       "source": "scan",
       "symbols": [
         {
@@ -1001,14 +1073,480 @@
         }
       ]
     },
+    "app/src/app/(cms)/layout.tsx": {
+      "description": "Site-wide metadata defaults, from the `siteInformation` singleton.",
+      "tokens": 914,
+      "hash": "2e54c5d68571a252",
+      "size": 3201,
+      "mtimeMs": 1794396911691.3364,
+      "updatedAt": "2026-11-11T11:40:22.908Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "generateMetadata",
+          "kind": "fn",
+          "startLine": 22,
+          "endLine": 53,
+          "tokens": 193
+        },
+        {
+          "name": "asNavLinks",
+          "kind": "fn",
+          "startLine": 54,
+          "endLine": 58,
+          "tokens": 74
+        },
+        {
+          "name": "CmsLayout",
+          "kind": "fn",
+          "startLine": 59,
+          "endLine": 92,
+          "tokens": 348
+        }
+      ]
+    },
+    "app/src/app/(landing)/groeiplan/page.tsx": {
+      "description": "metadata",
+      "tokens": 3255,
+      "hash": "b63d5f281a999613",
+      "size": 11403,
+      "mtimeMs": 1794396922542.9878,
+      "updatedAt": "2026-11-11T11:40:22.909Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "GrowthPlanPage",
+          "kind": "fn",
+          "startLine": 69,
+          "endLine": 242,
+          "tokens": 2345
+        }
+      ]
+    },
+    "app/src/app/(landing)/layout.tsx": {
+      "description": "Stripped-down chrome for the /groeiplan landing page: no menu, a slim footer and a sticky CTA on phones.",
+      "tokens": 522,
+      "hash": "2fee9c79a99322b6",
+      "size": 1827,
+      "mtimeMs": 1794396922485.0745,
+      "updatedAt": "2026-11-11T11:40:22.910Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "LandingLayout",
+          "kind": "fn",
+          "startLine": 8,
+          "endLine": 43,
+          "tokens": 419
+        }
+      ]
+    },
+    "app/src/app/(site)/ai-agent-workflows/page.tsx": {
+      "description": "metadata",
+      "tokens": 3532,
+      "hash": "53a4fdc4a82c21b5",
+      "size": 12380,
+      "mtimeMs": 1794396922641.3306,
+      "updatedAt": "2026-11-11T11:40:22.910Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "Page",
+          "kind": "fn",
+          "startLine": 14,
+          "endLine": 244,
+          "tokens": 3337
+        }
+      ]
+    },
+    "app/src/app/(site)/contact/page.tsx": {
+      "description": "metadata",
+      "tokens": 2194,
+      "hash": "410224b47589c9fb",
+      "size": 7709,
+      "mtimeMs": 1794396922558,
+      "updatedAt": "2026-11-11T11:40:22.911Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "ContactPage",
+          "kind": "fn",
+          "startLine": 51,
+          "endLine": 161,
+          "tokens": 1523
+        }
+      ]
+    },
+    "app/src/app/(site)/data-analytics/page.tsx": {
+      "description": "metadata",
+      "tokens": 3189,
+      "hash": "24602a4d7dbac771",
+      "size": 11179,
+      "mtimeMs": 1794396922566.3928,
+      "updatedAt": "2026-11-11T11:40:22.911Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "Page",
+          "kind": "fn",
+          "startLine": 14,
+          "endLine": 232,
+          "tokens": 2996
+        }
+      ]
+    },
+    "app/src/app/(site)/google-ads/page.tsx": {
+      "description": "metadata",
+      "tokens": 3549,
+      "hash": "b2ee761fad9b965e",
+      "size": 12438,
+      "mtimeMs": 1794396922574.8416,
+      "updatedAt": "2026-11-11T11:40:22.912Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "Page",
+          "kind": "fn",
+          "startLine": 14,
+          "endLine": 244,
+          "tokens": 3362
+        }
+      ]
+    },
+    "app/src/app/(site)/kennisbank/google-ads-voor-mkb/page.tsx": {
+      "description": "Long-form body styles, as the design's `.art-prose`.",
+      "tokens": 6888,
+      "hash": "72d64ed789619bb7",
+      "size": 24159,
+      "mtimeMs": 1794396922692.8408,
+      "updatedAt": "2026-11-11T11:40:22.912Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "InlineCta",
+          "kind": "fn",
+          "startLine": 105,
+          "endLine": 124,
+          "tokens": 423
+        },
+        {
+          "name": "Box",
+          "kind": "fn",
+          "startLine": 125,
+          "endLine": 133,
+          "tokens": 61
+        },
+        {
+          "name": "ArticlePage",
+          "kind": "fn",
+          "startLine": 134,
+          "endLine": 466,
+          "tokens": 5197
+        }
+      ]
+    },
+    "app/src/app/(site)/kennisbank/page.tsx": {
+      "description": "metadata",
+      "tokens": 1402,
+      "hash": "d6d4fe2bbf04c1d3",
+      "size": 4912,
+      "mtimeMs": 1794396922582.2356,
+      "updatedAt": "2026-11-11T11:40:22.913Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "KnowledgeBasePage",
+          "kind": "fn",
+          "startLine": 13,
+          "endLine": 115,
+          "tokens": 1229
+        }
+      ]
+    },
+    "app/src/app/(site)/layout.tsx": {
+      "description": "Chrome for the Advertisr. pages (everything except /groeiplan and the CMS routes).",
+      "tokens": 132,
+      "hash": "4ca767ddcff526fd",
+      "size": 461,
+      "mtimeMs": 1794395734745.506,
+      "updatedAt": "2026-11-11T11:40:22.913Z",
+      "source": "scan"
+    },
+    "app/src/app/(site)/marketing-automation/page.tsx": {
+      "description": "metadata",
+      "tokens": 3116,
+      "hash": "becc845ea647431d",
+      "size": 10913,
+      "mtimeMs": 1794396922622.7856,
+      "updatedAt": "2026-11-11T11:40:22.913Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "Page",
+          "kind": "fn",
+          "startLine": 14,
+          "endLine": 230,
+          "tokens": 2922
+        }
+      ]
+    },
+    "app/src/app/(site)/meta-ads/page.tsx": {
+      "description": "metadata",
+      "tokens": 3482,
+      "hash": "4db58d3fff6f4bde",
+      "size": 12208,
+      "mtimeMs": 1794396922671.3606,
+      "updatedAt": "2026-11-11T11:40:22.914Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "Page",
+          "kind": "fn",
+          "startLine": 14,
+          "endLine": 244,
+          "tokens": 3300
+        }
+      ]
+    },
+    "app/src/app/(site)/page.tsx": {
+      "description": "STAGES",
+      "tokens": 5312,
+      "hash": "f011ff981c18393f",
+      "size": 18616,
+      "mtimeMs": 1794396922525.5747,
+      "updatedAt": "2026-11-11T11:40:22.915Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "Hero",
+          "kind": "fn",
+          "startLine": 123,
+          "endLine": 218,
+          "tokens": 1327
+        },
+        {
+          "name": "Services",
+          "kind": "fn",
+          "startLine": 219,
+          "endLine": 281,
+          "tokens": 1206
+        },
+        {
+          "name": "Cases",
+          "kind": "fn",
+          "startLine": 282,
+          "endLine": 300,
+          "tokens": 147
+        },
+        {
+          "name": "Approach",
+          "kind": "fn",
+          "startLine": 301,
+          "endLine": 335,
+          "tokens": 522
+        },
+        {
+          "name": "StatBand",
+          "kind": "fn",
+          "startLine": 336,
+          "endLine": 358,
+          "tokens": 214
+        },
+        {
+          "name": "Team",
+          "kind": "fn",
+          "startLine": 359,
+          "endLine": 405,
+          "tokens": 667
+        },
+        {
+          "name": "HomePage",
+          "kind": "fn",
+          "startLine": 406,
+          "endLine": 434,
+          "tokens": 186
+        }
+      ]
+    },
+    "app/src/app/(site)/resultaten/page.tsx": {
+      "description": "metadata",
+      "tokens": 2924,
+      "hash": "76b1ab055fd443eb",
+      "size": 10256,
+      "mtimeMs": 1794396922593.5444,
+      "updatedAt": "2026-11-11T11:40:22.915Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "ResultsPage",
+          "kind": "fn",
+          "startLine": 102,
+          "endLine": 225,
+          "tokens": 1569
+        }
+      ]
+    },
+    "app/src/app/(site)/seo-geo/page.tsx": {
+      "description": "Browser-framed screenshot of the Advertisr portal.",
+      "tokens": 6029,
+      "hash": "54cc450bd3029127",
+      "size": 21114,
+      "mtimeMs": 1794396922613.9624,
+      "updatedAt": "2026-11-11T11:40:22.916Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "Shot",
+          "kind": "fn",
+          "startLine": 19,
+          "endLine": 47,
+          "tokens": 287
+        },
+        {
+          "name": "HeroShot",
+          "kind": "fn",
+          "startLine": 48,
+          "endLine": 232,
+          "tokens": 2401
+        },
+        {
+          "name": "Tools",
+          "kind": "fn",
+          "startLine": 233,
+          "endLine": 289,
+          "tokens": 787
+        },
+        {
+          "name": "Steps",
+          "kind": "fn",
+          "startLine": 290,
+          "endLine": 318,
+          "tokens": 365
+        },
+        {
+          "name": "Tick",
+          "kind": "fn",
+          "startLine": 319,
+          "endLine": 328,
+          "tokens": 112
+        },
+        {
+          "name": "Features",
+          "kind": "fn",
+          "startLine": 329,
+          "endLine": 368,
+          "tokens": 438
+        },
+        {
+          "name": "Page",
+          "kind": "fn",
+          "startLine": 369,
+          "endLine": 483,
+          "tokens": 1385
+        }
+      ]
+    },
+    "app/src/app/(site)/social-media-organisch/page.tsx": {
+      "description": "metadata",
+      "tokens": 4228,
+      "hash": "b0150c468f1863bd",
+      "size": 14832,
+      "mtimeMs": 1794396922655.3997,
+      "updatedAt": "2026-11-11T11:40:22.916Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "Pillars",
+          "kind": "fn",
+          "startLine": 38,
+          "endLine": 65,
+          "tokens": 322
+        },
+        {
+          "name": "Output",
+          "kind": "fn",
+          "startLine": 66,
+          "endLine": 87,
+          "tokens": 259
+        },
+        {
+          "name": "Month",
+          "kind": "fn",
+          "startLine": 88,
+          "endLine": 98,
+          "tokens": 69
+        },
+        {
+          "name": "Page",
+          "kind": "fn",
+          "startLine": 99,
+          "endLine": 322,
+          "tokens": 2976
+        }
+      ]
+    },
+    "app/src/app/(site)/team/page.tsx": {
+      "description": "metadata",
+      "tokens": 2544,
+      "hash": "d0bb0ec71feaa242",
+      "size": 8908,
+      "mtimeMs": 1794396922632.038,
+      "updatedAt": "2026-11-11T11:40:22.917Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "TeamPage",
+          "kind": "fn",
+          "startLine": 58,
+          "endLine": 189,
+          "tokens": 1742
+        }
+      ]
+    },
+    "app/src/app/(site)/web-development/page.tsx": {
+      "description": "metadata",
+      "tokens": 3430,
+      "hash": "d3751a0ff4dff95d",
+      "size": 12012,
+      "mtimeMs": 1794396922662.4988,
+      "updatedAt": "2026-11-11T11:40:22.918Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "Page",
+          "kind": "fn",
+          "startLine": 14,
+          "endLine": 241,
+          "tokens": 3246
+        }
+      ]
+    },
     "app/src/app/api/health/route.ts": {
       "description": "Liveness check for uptime monitors and load balancers: 200 while the server",
       "tokens": 105,
       "hash": "df196ad005aa19cc",
       "size": 366,
       "mtimeMs": 1794390052533.6838,
-      "updatedAt": "2026-11-11T10:36:50.408Z",
+      "updatedAt": "2026-11-11T11:40:22.918Z",
       "source": "scan"
+    },
+    "app/src/app/api/lead/route.ts": {
+      "description": "The Advertisr. lead form (\"Ontvang je gratis groeiplan\"), posted by",
+      "tokens": 804,
+      "hash": "78214a044c0b3ddd",
+      "size": 2813,
+      "mtimeMs": 1794396911676.955,
+      "updatedAt": "2026-11-11T11:40:22.918Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "POST",
+          "kind": "fn",
+          "startLine": 24,
+          "endLine": 77,
+          "tokens": 566
+        }
+      ]
     },
     "app/src/app/api/revalidate/route.ts": {
       "description": "Expires the cached Sanity reads. Two callers:",
@@ -1016,7 +1554,7 @@
       "hash": "202b331b2fe71f71",
       "size": 2562,
       "mtimeMs": 1794390052533.861,
-      "updatedAt": "2026-11-11T10:36:50.408Z",
+      "updatedAt": "2026-11-11T11:40:22.918Z",
       "source": "scan",
       "symbols": [
         {
@@ -1055,7 +1593,7 @@
       "hash": "fb2255b940e45556",
       "size": 570,
       "mtimeMs": 1794390052534.0115,
-      "updatedAt": "2026-11-11T10:36:50.408Z",
+      "updatedAt": "2026-11-11T11:40:22.918Z",
       "source": "scan"
     },
     "app/src/app/api/submit-form/route.ts": {
@@ -1064,7 +1602,7 @@
       "hash": "790d562dc356b40e",
       "size": 7232,
       "mtimeMs": 1794390052534.1792,
-      "updatedAt": "2026-11-11T10:36:50.408Z",
+      "updatedAt": "2026-11-11T11:40:22.919Z",
       "source": "scan",
       "symbols": [
         {
@@ -1096,7 +1634,7 @@
       "hash": "74b2f245d4628da5",
       "size": 3618,
       "mtimeMs": 1794390052534.34,
-      "updatedAt": "2026-11-11T10:36:50.408Z",
+      "updatedAt": "2026-11-11T11:40:22.919Z",
       "source": "scan",
       "symbols": [
         {
@@ -1128,49 +1666,26 @@
       "hash": "43ef850981c27370",
       "size": 836,
       "mtimeMs": 1794390052534.4355,
-      "updatedAt": "2026-11-11T10:36:50.409Z",
+      "updatedAt": "2026-11-11T11:40:22.919Z",
       "source": "scan"
     },
     "app/src/app/globals.css": {
-      "description": "Styles: 4 rules, 54 vars, 1 media queries, 3 animations, 1 layers",
-      "tokens": 1694,
-      "hash": "cef487cbbd39ca36",
-      "size": 5937,
-      "mtimeMs": 1794390052534.544,
-      "updatedAt": "2026-11-11T10:36:50.409Z",
+      "description": "Styles: 6 rules, 73 vars, 2 media queries, 7 animations, 1 layers",
+      "tokens": 2286,
+      "hash": "762c1a94765eb29a",
+      "size": 8006,
+      "mtimeMs": 1794397033240.346,
+      "updatedAt": "2026-11-11T11:40:22.920Z",
       "source": "scan"
     },
     "app/src/app/layout.tsx": {
-      "description": "Site-wide metadata defaults, from the `siteInformation` singleton.",
-      "tokens": 1264,
-      "hash": "f043f1bb6b030fdb",
-      "size": 4430,
-      "mtimeMs": 1794390052534.6472,
-      "updatedAt": "2026-11-11T10:36:50.409Z",
-      "source": "scan",
-      "symbols": [
-        {
-          "name": "generateMetadata",
-          "kind": "fn",
-          "startLine": 47,
-          "endLine": 78,
-          "tokens": 193
-        },
-        {
-          "name": "asNavLinks",
-          "kind": "fn",
-          "startLine": 79,
-          "endLine": 84,
-          "tokens": 58
-        },
-        {
-          "name": "RootLayout",
-          "kind": "fn",
-          "startLine": 85,
-          "endLine": 137,
-          "tokens": 475
-        }
-      ]
+      "description": "display",
+      "tokens": 428,
+      "hash": "be594dbb33bd5350",
+      "size": 1499,
+      "mtimeMs": 1794396911682.5564,
+      "updatedAt": "2026-11-11T11:40:22.920Z",
+      "source": "scan"
     },
     "app/src/app/manifest.json": {
       "description": "",
@@ -1178,7 +1693,7 @@
       "hash": "5f0aa6d3efda2301",
       "size": 159,
       "mtimeMs": 1794390052534.9001,
-      "updatedAt": "2026-11-11T10:36:50.409Z",
+      "updatedAt": "2026-11-11T11:40:22.920Z",
       "source": "scan"
     },
     "app/src/app/not-found.tsx": {
@@ -1187,16 +1702,7 @@
       "hash": "fe9268924a5dc597",
       "size": 861,
       "mtimeMs": 1794390052535.0872,
-      "updatedAt": "2026-11-11T10:36:50.410Z",
-      "source": "scan"
-    },
-    "app/src/app/page.tsx": {
-      "description": "options",
-      "tokens": 397,
-      "hash": "e558e436e846b5a9",
-      "size": 1388,
-      "mtimeMs": 1794390052535.2148,
-      "updatedAt": "2026-11-11T10:36:50.410Z",
+      "updatedAt": "2026-11-11T11:40:22.920Z",
       "source": "scan"
     },
     "app/src/app/robots.ts": {
@@ -1205,7 +1711,7 @@
       "hash": "32a9a14000924349",
       "size": 526,
       "mtimeMs": 1794390052535.3433,
-      "updatedAt": "2026-11-11T10:36:50.410Z",
+      "updatedAt": "2026-11-11T11:40:22.920Z",
       "source": "scan"
     },
     "app/src/app/sentry-test/page.tsx": {
@@ -1214,17 +1720,569 @@
       "hash": "264ad722295c8e8c",
       "size": 1330,
       "mtimeMs": 1794390052535.5432,
-      "updatedAt": "2026-11-11T10:36:50.410Z",
+      "updatedAt": "2026-11-11T11:40:22.920Z",
       "source": "scan"
     },
     "app/src/app/sitemap.ts": {
-      "description": "Every CMS page, listed from the CMS itself.",
-      "tokens": 321,
-      "hash": "0af2acd518e5f975",
-      "size": 1122,
-      "mtimeMs": 1794390052535.6733,
-      "updatedAt": "2026-11-11T10:36:50.411Z",
+      "description": "The static Advertisr. routes, plus every CMS page listed from the CMS itself.",
+      "tokens": 467,
+      "hash": "61b65f35a557027e",
+      "size": 1633,
+      "mtimeMs": 1794396961605.7556,
+      "updatedAt": "2026-11-11T11:40:22.921Z",
       "source": "scan"
+    },
+    "app/src/components/advertisr/ArticleCard.tsx": {
+      "description": "Placeholder art per category: tinted glow + line icon + dot grid.",
+      "tokens": 1711,
+      "hash": "083ce45e458a6036",
+      "size": 5992,
+      "mtimeMs": 1794396911495.77,
+      "updatedAt": "2026-11-11T11:40:22.921Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "CategoryArt",
+          "kind": "fn",
+          "startLine": 75,
+          "endLine": 89,
+          "tokens": 180
+        },
+        {
+          "name": "Avatar",
+          "kind": "fn",
+          "startLine": 90,
+          "endLine": 106,
+          "tokens": 143
+        },
+        {
+          "name": "PillarCard",
+          "kind": "fn",
+          "startLine": 107,
+          "endLine": 133,
+          "tokens": 372
+        },
+        {
+          "name": "ArticleCard",
+          "kind": "fn",
+          "startLine": 134,
+          "endLine": 156,
+          "tokens": 336
+        }
+      ]
+    },
+    "app/src/components/advertisr/CaseCard.tsx": {
+      "description": "Dark photo card with a category pill, title and two stats.",
+      "tokens": 628,
+      "hash": "807bd1115ed07077",
+      "size": 2198,
+      "mtimeMs": 1794396911503.3496,
+      "updatedAt": "2026-11-11T11:40:22.921Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "CaseCard",
+          "kind": "fn",
+          "startLine": 13,
+          "endLine": 49,
+          "tokens": 553
+        }
+      ]
+    },
+    "app/src/components/advertisr/Compare.tsx": {
+      "description": "\"Bureaus zetten er vaak een laag tussen. Wij niet.\" comparison table.",
+      "tokens": 784,
+      "hash": "4eaa0c5bce9325ae",
+      "size": 2741,
+      "mtimeMs": 1794396911510.7998,
+      "updatedAt": "2026-11-11T11:40:22.921Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "Compare",
+          "kind": "fn",
+          "startLine": 16,
+          "endLine": 66,
+          "tokens": 549
+        }
+      ]
+    },
+    "app/src/components/advertisr/FinalCta.tsx": {
+      "description": "Extra background layer (seo-geo puts an ambient ring here).",
+      "tokens": 622,
+      "hash": "af10c6bac523821a",
+      "size": 2175,
+      "mtimeMs": 1794395660284.8125,
+      "updatedAt": "2026-11-11T11:40:22.922Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "FinalCta",
+          "kind": "fn",
+          "startLine": 16,
+          "endLine": 54,
+          "tokens": 496
+        }
+      ]
+    },
+    "app/src/components/advertisr/Footer.tsx": {
+      "description": "COLUMNS",
+      "tokens": 603,
+      "hash": "5ff6f812511a93a9",
+      "size": 2112,
+      "mtimeMs": 1794395622141.6946,
+      "updatedAt": "2026-11-11T11:40:22.922Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "Footer",
+          "kind": "fn",
+          "startLine": 29,
+          "endLine": 61,
+          "tokens": 370
+        }
+      ]
+    },
+    "app/src/components/advertisr/kennisbank.tsx": {
+      "description": "Category pills. Like the design, they only mark the active one; filtering comes with real content.",
+      "tokens": 728,
+      "hash": "d27e7685ef74e888",
+      "size": 2546,
+      "mtimeMs": 1794396911531.3857,
+      "updatedAt": "2026-11-11T11:40:22.922Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "Pills",
+          "kind": "fn",
+          "startLine": 8,
+          "endLine": 30,
+          "tokens": 226
+        },
+        {
+          "name": "NewsletterForm",
+          "kind": "fn",
+          "startLine": 31,
+          "endLine": 73,
+          "tokens": 435
+        }
+      ]
+    },
+    "app/src/components/advertisr/LeadForm.tsx": {
+      "description": "null drops the message field (the short groeiplan hero form).",
+      "tokens": 1536,
+      "hash": "432ef935aead4da4",
+      "size": 5378,
+      "mtimeMs": 1794396911543.6892,
+      "updatedAt": "2026-11-11T11:40:22.923Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "LeadForm",
+          "kind": "fn",
+          "startLine": 31,
+          "endLine": 129,
+          "tokens": 1222
+        }
+      ]
+    },
+    "app/src/components/advertisr/Logos.tsx": {
+      "description": "The design has two exports of the logo set; the service pages use the second.",
+      "tokens": 894,
+      "hash": "29d9863dc95a292b",
+      "size": 3128,
+      "mtimeMs": 1794395690095.3303,
+      "updatedAt": "2026-11-11T11:40:22.923Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "Logos",
+          "kind": "fn",
+          "startLine": 28,
+          "endLine": 64,
+          "tokens": 588
+        }
+      ]
+    },
+    "app/src/components/advertisr/Marquee.tsx": {
+      "description": "Pill strip that scrolls forever (doubled so the loop is seamless).",
+      "tokens": 309,
+      "hash": "b54bc49444c43632",
+      "size": 1080,
+      "mtimeMs": 1794395812466.3005,
+      "updatedAt": "2026-11-11T11:40:22.923Z",
+      "source": "scan"
+    },
+    "app/src/components/advertisr/Nav.tsx": {
+      "description": "Fixed top bar; frosted once the page scrolls past 20px. Links hide below",
+      "tokens": 878,
+      "hash": "6c3c1fc46a0b8eb5",
+      "size": 3081,
+      "mtimeMs": 1794396911562.8184,
+      "updatedAt": "2026-11-11T11:40:22.923Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "activeLabel",
+          "kind": "fn",
+          "startLine": 10,
+          "endLine": 19,
+          "tokens": 115
+        },
+        {
+          "name": "Nav",
+          "kind": "fn",
+          "startLine": 20,
+          "endLine": 74,
+          "tokens": 687
+        }
+      ]
+    },
+    "app/src/components/advertisr/Reviews.tsx": {
+      "description": "Google-review masonry. The homepage shows all ten, other pages the first six.",
+      "tokens": 658,
+      "hash": "12fc6856ef365776",
+      "size": 2321,
+      "mtimeMs": 1794396911567.3462,
+      "updatedAt": "2026-11-11T11:40:22.923Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "Reviews",
+          "kind": "fn",
+          "startLine": 17,
+          "endLine": 63,
+          "tokens": 531
+        }
+      ]
+    },
+    "app/src/components/advertisr/service.tsx": {
+      "description": "Dark \"Wat levert … op?\" band with a CTA button.",
+      "tokens": 6170,
+      "hash": "3c4ebf056dd1b260",
+      "size": 21600,
+      "mtimeMs": 1794396911594.468,
+      "updatedAt": "2026-11-11T11:40:22.924Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "CtaBand",
+          "kind": "fn",
+          "startLine": 16,
+          "endLine": 48,
+          "tokens": 254
+        },
+        {
+          "name": "FloatStat",
+          "kind": "fn",
+          "startLine": 49,
+          "endLine": 62,
+          "tokens": 153
+        },
+        {
+          "name": "ServiceHero",
+          "kind": "fn",
+          "startLine": 63,
+          "endLine": 114,
+          "tokens": 535
+        },
+        {
+          "name": "BridgeQuote",
+          "kind": "fn",
+          "startLine": 115,
+          "endLine": 137,
+          "tokens": 414
+        },
+        {
+          "name": "Pain",
+          "kind": "fn",
+          "startLine": 138,
+          "endLine": 184,
+          "tokens": 566
+        },
+        {
+          "name": "Funnel",
+          "kind": "fn",
+          "startLine": 185,
+          "endLine": 250,
+          "tokens": 1005
+        },
+        {
+          "name": "LedgerRow",
+          "kind": "fn",
+          "startLine": 251,
+          "endLine": 270,
+          "tokens": 371
+        },
+        {
+          "name": "Deliverables",
+          "kind": "fn",
+          "startLine": 271,
+          "endLine": 316,
+          "tokens": 655
+        },
+        {
+          "name": "Crea",
+          "kind": "fn",
+          "startLine": 317,
+          "endLine": 409,
+          "tokens": 842
+        },
+        {
+          "name": "CaseStudy",
+          "kind": "fn",
+          "startLine": 410,
+          "endLine": 449,
+          "tokens": 414
+        },
+        {
+          "name": "FaqList",
+          "kind": "fn",
+          "startLine": 450,
+          "endLine": 467,
+          "tokens": 246
+        },
+        {
+          "name": "Faq",
+          "kind": "fn",
+          "startLine": 468,
+          "endLine": 487,
+          "tokens": 120
+        },
+        {
+          "name": "ProcRow",
+          "kind": "fn",
+          "startLine": 488,
+          "endLine": 506,
+          "tokens": 298
+        }
+      ]
+    },
+    "app/src/components/advertisr/SiteEffects.tsx": {
+      "description": "The designs' page script, ported once for every page:",
+      "tokens": 1080,
+      "hash": "62c88e530cf6801d",
+      "size": 3779,
+      "mtimeMs": 1794395594577.6345,
+      "updatedAt": "2026-11-11T11:40:22.924Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "SiteEffects",
+          "kind": "fn",
+          "startLine": 14,
+          "endLine": 103,
+          "tokens": 938
+        }
+      ]
+    },
+    "app/src/components/advertisr/Toc.tsx": {
+      "description": "Sticky table of contents with scrollspy; a toggle button replaces the label below 900px.",
+      "tokens": 628,
+      "hash": "55d8abf744ff890e",
+      "size": 2197,
+      "mtimeMs": 1794396880916.5923,
+      "updatedAt": "2026-11-11T11:40:22.924Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "Toc",
+          "kind": "fn",
+          "startLine": 7,
+          "endLine": 53,
+          "tokens": 574
+        }
+      ]
+    },
+    "app/src/components/advertisr/ui.tsx": {
+      "description": "Content width shell: 1240px, 40px gutter (22px on phones).",
+      "tokens": 1876,
+      "hash": "0e0ec8bd45034f5f",
+      "size": 6567,
+      "mtimeMs": 1794396911623.2617,
+      "updatedAt": "2026-11-11T11:40:22.925Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "Wrap",
+          "kind": "fn",
+          "startLine": 6,
+          "endLine": 10,
+          "tokens": 68
+        },
+        {
+          "name": "Sec",
+          "kind": "fn",
+          "startLine": 11,
+          "endLine": 14,
+          "tokens": 49
+        },
+        {
+          "name": "Eyebrow",
+          "kind": "fn",
+          "startLine": 15,
+          "endLine": 30,
+          "tokens": 146
+        },
+        {
+          "name": "SecHead",
+          "kind": "fn",
+          "startLine": 31,
+          "endLine": 59,
+          "tokens": 248
+        },
+        {
+          "name": "Arrow",
+          "kind": "fn",
+          "startLine": 60,
+          "endLine": 63,
+          "tokens": 37
+        },
+        {
+          "name": "BtnRed",
+          "kind": "fn",
+          "startLine": 64,
+          "endLine": 71,
+          "tokens": 66
+        },
+        {
+          "name": "BtnGhost",
+          "kind": "fn",
+          "startLine": 72,
+          "endLine": 102,
+          "tokens": 171
+        },
+        {
+          "name": "Brand",
+          "kind": "fn",
+          "startLine": 103,
+          "endLine": 120,
+          "tokens": 191
+        },
+        {
+          "name": "Check",
+          "kind": "fn",
+          "startLine": 121,
+          "endLine": 130,
+          "tokens": 135
+        },
+        {
+          "name": "Ambient",
+          "kind": "fn",
+          "startLine": 131,
+          "endLine": 140,
+          "tokens": 202
+        },
+        {
+          "name": "GoogleG",
+          "kind": "fn",
+          "startLine": 141,
+          "endLine": 164,
+          "tokens": 280
+        },
+        {
+          "name": "Count",
+          "kind": "fn",
+          "startLine": 165,
+          "endLine": 169,
+          "tokens": 50
+        },
+        {
+          "name": "Crumb",
+          "kind": "fn",
+          "startLine": 170,
+          "endLine": 191,
+          "tokens": 176
+        }
+      ]
+    },
+    "app/src/components/advertisr/visuals.tsx": {
+      "description": "Index that advances every `ms`, unless the visitor prefers reduced motion.",
+      "tokens": 4996,
+      "hash": "af0ff9bd9204bcc1",
+      "size": 17534,
+      "mtimeMs": 1794396911644.788,
+      "updatedAt": "2026-11-11T11:40:22.925Z",
+      "source": "scan",
+      "symbols": [
+        {
+          "name": "useCycle",
+          "kind": "fn",
+          "startLine": 12,
+          "endLine": 21,
+          "tokens": 91
+        },
+        {
+          "name": "Stage",
+          "kind": "fn",
+          "startLine": 22,
+          "endLine": 29,
+          "tokens": 138
+        },
+        {
+          "name": "Live",
+          "kind": "fn",
+          "startLine": 30,
+          "endLine": 38,
+          "tokens": 89
+        },
+        {
+          "name": "Browser",
+          "kind": "fn",
+          "startLine": 39,
+          "endLine": 52,
+          "tokens": 175
+        },
+        {
+          "name": "PhoneVisual",
+          "kind": "fn",
+          "startLine": 53,
+          "endLine": 97,
+          "tokens": 711
+        },
+        {
+          "name": "SerpVisual",
+          "kind": "fn",
+          "startLine": 98,
+          "endLine": 136,
+          "tokens": 624
+        },
+        {
+          "name": "SiteVisual",
+          "kind": "fn",
+          "startLine": 137,
+          "endLine": 173,
+          "tokens": 321
+        },
+        {
+          "name": "DashVisual",
+          "kind": "fn",
+          "startLine": 174,
+          "endLine": 236,
+          "tokens": 764
+        },
+        {
+          "name": "JourneyVisual",
+          "kind": "fn",
+          "startLine": 237,
+          "endLine": 286,
+          "tokens": 637
+        },
+        {
+          "name": "FlowVisual",
+          "kind": "fn",
+          "startLine": 287,
+          "endLine": 344,
+          "tokens": 631
+        },
+        {
+          "name": "SocialVisual",
+          "kind": "fn",
+          "startLine": 345,
+          "endLine": 403,
+          "tokens": 700
+        }
+      ]
     },
     "app/src/components/blocks/Benefits.tsx": {
       "description": "DEFAULTS — renders chart",
@@ -1232,7 +2290,7 @@
       "hash": "9ad6266c644c0c75",
       "size": 4399,
       "mtimeMs": 1794390052536.9375,
-      "updatedAt": "2026-11-11T10:36:50.411Z",
+      "updatedAt": "2026-11-11T11:40:22.926Z",
       "source": "scan",
       "symbols": [
         {
@@ -1257,7 +2315,7 @@
       "hash": "be2c55009e9cc382",
       "size": 4453,
       "mtimeMs": 1794390052537.0835,
-      "updatedAt": "2026-11-11T10:36:50.411Z",
+      "updatedAt": "2026-11-11T11:40:22.926Z",
       "source": "scan",
       "symbols": [
         {
@@ -1275,7 +2333,7 @@
       "hash": "c2409741a95105f3",
       "size": 2207,
       "mtimeMs": 1794390052537.2117,
-      "updatedAt": "2026-11-11T10:36:50.411Z",
+      "updatedAt": "2026-11-11T11:40:22.926Z",
       "source": "scan",
       "symbols": [
         {
@@ -1293,7 +2351,7 @@
       "hash": "0056dd7d2dbdce33",
       "size": 2335,
       "mtimeMs": 1794390052537.3386,
-      "updatedAt": "2026-11-11T10:36:50.411Z",
+      "updatedAt": "2026-11-11T11:40:22.927Z",
       "source": "scan",
       "symbols": [
         {
@@ -1311,7 +2369,7 @@
       "hash": "0895048ef53878ea",
       "size": 3727,
       "mtimeMs": 1794390052537.4712,
-      "updatedAt": "2026-11-11T10:36:50.412Z",
+      "updatedAt": "2026-11-11T11:40:22.927Z",
       "source": "scan",
       "symbols": [
         {
@@ -1329,7 +2387,7 @@
       "hash": "296e0c028bc531eb",
       "size": 5887,
       "mtimeMs": 1794390052537.6152,
-      "updatedAt": "2026-11-11T10:36:50.412Z",
+      "updatedAt": "2026-11-11T11:40:22.927Z",
       "source": "scan",
       "symbols": [
         {
@@ -1347,7 +2405,7 @@
       "hash": "648c2bf43b04519d",
       "size": 4604,
       "mtimeMs": 1794390052537.7668,
-      "updatedAt": "2026-11-11T10:36:50.412Z",
+      "updatedAt": "2026-11-11T11:40:22.927Z",
       "source": "scan",
       "symbols": [
         {
@@ -1372,7 +2430,7 @@
       "hash": "f0ab57b11a028e23",
       "size": 2167,
       "mtimeMs": 1794390052537.8884,
-      "updatedAt": "2026-11-11T10:36:50.412Z",
+      "updatedAt": "2026-11-11T11:40:22.927Z",
       "source": "scan",
       "symbols": [
         {
@@ -1390,7 +2448,7 @@
       "hash": "5fde55546f13894d",
       "size": 3701,
       "mtimeMs": 1794390052538.0024,
-      "updatedAt": "2026-11-11T10:36:50.412Z",
+      "updatedAt": "2026-11-11T11:40:22.927Z",
       "source": "scan",
       "symbols": [
         {
@@ -1408,7 +2466,7 @@
       "hash": "0272fd325168fd49",
       "size": 5746,
       "mtimeMs": 1794390052538.1228,
-      "updatedAt": "2026-11-11T10:36:50.412Z",
+      "updatedAt": "2026-11-11T11:40:22.928Z",
       "source": "scan",
       "symbols": [
         {
@@ -1433,7 +2491,7 @@
       "hash": "12e0456b7d82b01b",
       "size": 5807,
       "mtimeMs": 1794390052538.3206,
-      "updatedAt": "2026-11-11T10:36:50.412Z",
+      "updatedAt": "2026-11-11T11:40:22.928Z",
       "source": "scan",
       "symbols": [
         {
@@ -1458,7 +2516,7 @@
       "hash": "ee96da47c574505b",
       "size": 4711,
       "mtimeMs": 1794390052538.5183,
-      "updatedAt": "2026-11-11T10:36:50.413Z",
+      "updatedAt": "2026-11-11T11:40:22.928Z",
       "source": "scan",
       "symbols": [
         {
@@ -1483,7 +2541,7 @@
       "hash": "15b96f35572b6a00",
       "size": 6050,
       "mtimeMs": 1794390052538.789,
-      "updatedAt": "2026-11-11T10:36:50.413Z",
+      "updatedAt": "2026-11-11T11:40:22.928Z",
       "source": "scan",
       "symbols": [
         {
@@ -1515,7 +2573,7 @@
       "hash": "01332ac78862595f",
       "size": 12184,
       "mtimeMs": 1794390052538.684,
-      "updatedAt": "2026-11-11T10:36:50.413Z",
+      "updatedAt": "2026-11-11T11:40:22.928Z",
       "source": "scan",
       "symbols": [
         {
@@ -1547,7 +2605,7 @@
       "hash": "2f919953f124cec0",
       "size": 342,
       "mtimeMs": 1794390052536.0186,
-      "updatedAt": "2026-11-11T10:36:50.413Z",
+      "updatedAt": "2026-11-11T11:40:22.929Z",
       "source": "scan"
     },
     "app/src/components/layout/SiteFooter.tsx": {
@@ -1556,7 +2614,7 @@
       "hash": "e2bad8449ef02974",
       "size": 4281,
       "mtimeMs": 1794390052538.945,
-      "updatedAt": "2026-11-11T10:36:50.414Z",
+      "updatedAt": "2026-11-11T11:40:22.929Z",
       "source": "scan",
       "symbols": [
         {
@@ -1581,7 +2639,7 @@
       "hash": "329707161f7be07b",
       "size": 5335,
       "mtimeMs": 1794390052539.0483,
-      "updatedAt": "2026-11-11T10:36:50.414Z",
+      "updatedAt": "2026-11-11T11:40:22.929Z",
       "source": "scan",
       "symbols": [
         {
@@ -1620,7 +2678,7 @@
       "hash": "d3b2d3befb7e372d",
       "size": 11469,
       "mtimeMs": 1794390052536.296,
-      "updatedAt": "2026-11-11T10:36:50.414Z",
+      "updatedAt": "2026-11-11T11:40:22.929Z",
       "source": "scan",
       "symbols": [
         {
@@ -1652,7 +2710,7 @@
       "hash": "ad2cf19f2a63678b",
       "size": 2408,
       "mtimeMs": 1794390052536.541,
-      "updatedAt": "2026-11-11T10:36:50.414Z",
+      "updatedAt": "2026-11-11T11:40:22.930Z",
       "source": "scan",
       "symbols": [
         {
@@ -1670,7 +2728,7 @@
       "hash": "0a7755b4be8a0b61",
       "size": 3032,
       "mtimeMs": 1794390052536.7144,
-      "updatedAt": "2026-11-11T10:36:50.414Z",
+      "updatedAt": "2026-11-11T11:40:22.930Z",
       "source": "scan",
       "symbols": [
         {
@@ -1695,7 +2753,7 @@
       "hash": "0f5b786a32e87ac2",
       "size": 1910,
       "mtimeMs": 1794390052539.206,
-      "updatedAt": "2026-11-11T10:36:50.414Z",
+      "updatedAt": "2026-11-11T11:40:22.930Z",
       "source": "scan",
       "symbols": [
         {
@@ -1720,7 +2778,7 @@
       "hash": "aa4881d4172ba0f4",
       "size": 1819,
       "mtimeMs": 1794390052539.3562,
-      "updatedAt": "2026-11-11T10:36:50.414Z",
+      "updatedAt": "2026-11-11T11:40:22.930Z",
       "source": "scan",
       "symbols": [
         {
@@ -1745,7 +2803,7 @@
       "hash": "b76531db4a4239fd",
       "size": 1994,
       "mtimeMs": 1794390052539.506,
-      "updatedAt": "2026-11-11T10:36:50.415Z",
+      "updatedAt": "2026-11-11T11:40:22.930Z",
       "source": "scan",
       "symbols": [
         {
@@ -1763,7 +2821,7 @@
       "hash": "f869c0e71584e43f",
       "size": 670,
       "mtimeMs": 1794390052539.6045,
-      "updatedAt": "2026-11-11T10:36:50.415Z",
+      "updatedAt": "2026-11-11T11:40:22.930Z",
       "source": "scan"
     },
     "app/src/components/ui/IconArrow.tsx": {
@@ -1772,7 +2830,7 @@
       "hash": "6a5c1f24e03300a7",
       "size": 708,
       "mtimeMs": 1794390052539.7073,
-      "updatedAt": "2026-11-11T10:36:50.415Z",
+      "updatedAt": "2026-11-11T11:40:22.930Z",
       "source": "scan"
     },
     "app/src/components/ui/Image.tsx": {
@@ -1781,7 +2839,7 @@
       "hash": "7967e17c1164a358",
       "size": 686,
       "mtimeMs": 1794390052539.7988,
-      "updatedAt": "2026-11-11T10:36:50.415Z",
+      "updatedAt": "2026-11-11T11:40:22.930Z",
       "source": "scan"
     },
     "app/src/components/ui/Lead.tsx": {
@@ -1790,7 +2848,7 @@
       "hash": "0b58910b0d9f88c1",
       "size": 318,
       "mtimeMs": 1794390052539.8965,
-      "updatedAt": "2026-11-11T10:36:50.415Z",
+      "updatedAt": "2026-11-11T11:40:22.931Z",
       "source": "scan"
     },
     "app/src/components/ui/LogoMark.tsx": {
@@ -1799,7 +2857,7 @@
       "hash": "57e1eeee2d0344ca",
       "size": 1675,
       "mtimeMs": 1794390052539.9893,
-      "updatedAt": "2026-11-11T10:36:50.415Z",
+      "updatedAt": "2026-11-11T11:40:22.931Z",
       "source": "scan"
     },
     "app/src/components/ui/Reveal.tsx": {
@@ -1808,7 +2866,7 @@
       "hash": "aec7f6d2a3d1a840",
       "size": 882,
       "mtimeMs": 1794390052540.0884,
-      "updatedAt": "2026-11-11T10:36:50.415Z",
+      "updatedAt": "2026-11-11T11:40:22.931Z",
       "source": "scan"
     },
     "app/src/components/ui/RevealLink.tsx": {
@@ -1817,7 +2875,7 @@
       "hash": "dd12002044baeeb5",
       "size": 969,
       "mtimeMs": 1794390052540.1821,
-      "updatedAt": "2026-11-11T10:36:50.415Z",
+      "updatedAt": "2026-11-11T11:40:22.931Z",
       "source": "scan"
     },
     "app/src/components/ui/SectionHead.tsx": {
@@ -1826,7 +2884,7 @@
       "hash": "f0ab3aab1f7b059e",
       "size": 559,
       "mtimeMs": 1794390052540.2878,
-      "updatedAt": "2026-11-11T10:36:50.415Z",
+      "updatedAt": "2026-11-11T11:40:22.931Z",
       "source": "scan"
     },
     "app/src/components/ui/Wrap.tsx": {
@@ -1835,7 +2893,7 @@
       "hash": "bde3116a0bd7d4cd",
       "size": 416,
       "mtimeMs": 1794390052540.3826,
-      "updatedAt": "2026-11-11T10:36:50.415Z",
+      "updatedAt": "2026-11-11T11:40:22.931Z",
       "source": "scan"
     },
     "app/src/hooks/useActiveStep.ts": {
@@ -1844,7 +2902,7 @@
       "hash": "3b0e1f6ea523cbf1",
       "size": 1106,
       "mtimeMs": 1794390052540.5532,
-      "updatedAt": "2026-11-11T10:36:50.416Z",
+      "updatedAt": "2026-11-11T11:40:22.931Z",
       "source": "scan"
     },
     "app/src/hooks/useMobileNav.ts": {
@@ -1853,7 +2911,7 @@
       "hash": "59f2e48a7765bf83",
       "size": 984,
       "mtimeMs": 1794390052540.6497,
-      "updatedAt": "2026-11-11T10:36:50.416Z",
+      "updatedAt": "2026-11-11T11:40:22.932Z",
       "source": "scan"
     },
     "app/src/hooks/useRevealOnScroll.ts": {
@@ -1862,7 +2920,7 @@
       "hash": "ff5027d1717a5bf1",
       "size": 906,
       "mtimeMs": 1794390052540.7402,
-      "updatedAt": "2026-11-11T10:36:50.416Z",
+      "updatedAt": "2026-11-11T11:40:22.932Z",
       "source": "scan"
     },
     "app/src/hooks/useStickyTopbar.ts": {
@@ -1871,7 +2929,7 @@
       "hash": "e9e5ab97944164eb",
       "size": 826,
       "mtimeMs": 1794390052540.8345,
-      "updatedAt": "2026-11-11T10:36:50.416Z",
+      "updatedAt": "2026-11-11T11:40:22.932Z",
       "source": "scan"
     },
     "app/src/instrumentation-client.ts": {
@@ -1880,7 +2938,7 @@
       "hash": "fd8bd47a20347fe6",
       "size": 976,
       "mtimeMs": 1794390052540.9365,
-      "updatedAt": "2026-11-11T10:36:50.416Z",
+      "updatedAt": "2026-11-11T11:40:22.932Z",
       "source": "scan"
     },
     "app/src/instrumentation.ts": {
@@ -1889,7 +2947,34 @@
       "hash": "a53714662dd6eff4",
       "size": 722,
       "mtimeMs": 1794390052541.0354,
-      "updatedAt": "2026-11-11T10:36:50.416Z",
+      "updatedAt": "2026-11-11T11:40:22.932Z",
+      "source": "scan"
+    },
+    "app/src/lib/advertisr/articles.ts": {
+      "description": "Kennisbank content. Only the Google Ads guide has a page so far; the rest link to '#' as in the design.",
+      "tokens": 1164,
+      "hash": "92d272ed79ee21d3",
+      "size": 4073,
+      "mtimeMs": 1794396911655.0762,
+      "updatedAt": "2026-11-11T11:40:22.933Z",
+      "source": "scan"
+    },
+    "app/src/lib/advertisr/nav.ts": {
+      "description": "Every service page, in the footer's order.",
+      "tokens": 362,
+      "hash": "d9fb75205bd62131",
+      "size": 1267,
+      "mtimeMs": 1794396961516.5906,
+      "updatedAt": "2026-11-11T11:40:22.933Z",
+      "source": "scan"
+    },
+    "app/src/lib/advertisr/reviews.ts": {
+      "description": "Exports REVIEWS",
+      "tokens": 583,
+      "hash": "f7996aa86a2dcde7",
+      "size": 2039,
+      "mtimeMs": 1794396911665.443,
+      "updatedAt": "2026-11-11T11:40:22.933Z",
       "source": "scan"
     },
     "app/src/lib/captcha.ts": {
@@ -1898,7 +2983,7 @@
       "hash": "6b850a4085b904ec",
       "size": 1744,
       "mtimeMs": 1794390052541.1973,
-      "updatedAt": "2026-11-11T10:36:50.416Z",
+      "updatedAt": "2026-11-11T11:40:22.933Z",
       "source": "scan"
     },
     "app/src/lib/chrome.ts": {
@@ -1907,7 +2992,7 @@
       "hash": "0a9825cfe769c118",
       "size": 214,
       "mtimeMs": 1794390052541.2864,
-      "updatedAt": "2026-11-11T10:36:50.416Z",
+      "updatedAt": "2026-11-11T11:40:22.933Z",
       "source": "scan"
     },
     "app/src/lib/cn.ts": {
@@ -1916,7 +3001,7 @@
       "hash": "ec1499e69cf8ab14",
       "size": 129,
       "mtimeMs": 1794390052541.536,
-      "updatedAt": "2026-11-11T10:36:50.416Z",
+      "updatedAt": "2026-11-11T11:40:22.934Z",
       "source": "scan"
     },
     "app/src/lib/demo-content.ts": {
@@ -1925,7 +3010,7 @@
       "hash": "f5c7234747bea1a7",
       "size": 13879,
       "mtimeMs": 1794390052541.8018,
-      "updatedAt": "2026-11-11T10:36:50.417Z",
+      "updatedAt": "2026-11-11T11:40:22.934Z",
       "source": "scan"
     },
     "app/src/lib/env.ts": {
@@ -1934,7 +3019,7 @@
       "hash": "8e87940b279b29c7",
       "size": 1336,
       "mtimeMs": 1794390052541.9514,
-      "updatedAt": "2026-11-11T10:36:50.417Z",
+      "updatedAt": "2026-11-11T11:40:22.934Z",
       "source": "scan"
     },
     "app/src/lib/form-fields.ts": {
@@ -1943,7 +3028,7 @@
       "hash": "6a95c64a0838ecf5",
       "size": 6927,
       "mtimeMs": 1794390052542.0889,
-      "updatedAt": "2026-11-11T10:36:50.417Z",
+      "updatedAt": "2026-11-11T11:40:22.934Z",
       "source": "scan",
       "symbols": [
         {
@@ -1996,7 +3081,7 @@
       "hash": "b537639e4583d7d2",
       "size": 5910,
       "mtimeMs": 1794390052542.2058,
-      "updatedAt": "2026-11-11T10:36:50.417Z",
+      "updatedAt": "2026-11-11T11:40:22.934Z",
       "source": "scan",
       "symbols": [
         {
@@ -2042,7 +3127,7 @@
       "hash": "5659969d69b5c77d",
       "size": 10350,
       "mtimeMs": 1794390052542.3591,
-      "updatedAt": "2026-11-11T10:36:50.417Z",
+      "updatedAt": "2026-11-11T11:40:22.935Z",
       "source": "scan",
       "symbols": [
         {
@@ -2151,7 +3236,7 @@
       "hash": "3a4fd193d899c506",
       "size": 1563,
       "mtimeMs": 1794390052542.4592,
-      "updatedAt": "2026-11-11T10:36:50.417Z",
+      "updatedAt": "2026-11-11T11:40:22.935Z",
       "source": "scan"
     },
     "app/src/lib/mail.ts": {
@@ -2160,7 +3245,7 @@
       "hash": "17b253f21d98901a",
       "size": 7770,
       "mtimeMs": 1794390052542.57,
-      "updatedAt": "2026-11-11T10:36:50.418Z",
+      "updatedAt": "2026-11-11T11:40:22.935Z",
       "source": "scan",
       "symbols": [
         {
@@ -2213,7 +3298,7 @@
       "hash": "64ead4d2f84da32b",
       "size": 328,
       "mtimeMs": 1794390052542.6687,
-      "updatedAt": "2026-11-11T10:36:50.418Z",
+      "updatedAt": "2026-11-11T11:40:22.935Z",
       "source": "scan"
     },
     "app/src/lib/sentry-test.ts": {
@@ -2222,16 +3307,16 @@
       "hash": "1ec0fdb113ba1ffb",
       "size": 637,
       "mtimeMs": 1794390052542.7517,
-      "updatedAt": "2026-11-11T10:36:50.418Z",
+      "updatedAt": "2026-11-11T11:40:22.936Z",
       "source": "scan"
     },
     "app/src/lib/site.ts": {
       "description": "Site-wide details, and the defaults they fall back to.",
       "tokens": 1562,
-      "hash": "df3423db46fe7bb1",
+      "hash": "9a079e520d7149c9",
       "size": 5477,
-      "mtimeMs": 1794390052542.8552,
-      "updatedAt": "2026-11-11T10:36:50.418Z",
+      "mtimeMs": 1794395854325.87,
+      "updatedAt": "2026-11-11T11:40:22.936Z",
       "source": "scan",
       "symbols": [
         {
@@ -2284,7 +3369,7 @@
       "hash": "3224719ec2ccece7",
       "size": 1055,
       "mtimeMs": 1794390052543.0579,
-      "updatedAt": "2026-11-11T10:36:50.418Z",
+      "updatedAt": "2026-11-11T11:40:22.936Z",
       "source": "scan"
     },
     "app/src/sanity/fetch.ts": {
@@ -2293,7 +3378,7 @@
       "hash": "0b24cc64edbf9e5d",
       "size": 848,
       "mtimeMs": 1794390052543.189,
-      "updatedAt": "2026-11-11T10:36:50.419Z",
+      "updatedAt": "2026-11-11T11:40:22.936Z",
       "source": "scan"
     },
     "app/src/sanity/image-loader.ts": {
@@ -2302,7 +3387,7 @@
       "hash": "7582a22c511ca176",
       "size": 1488,
       "mtimeMs": 1794390052543.3054,
-      "updatedAt": "2026-11-11T10:36:50.419Z",
+      "updatedAt": "2026-11-11T11:40:22.936Z",
       "source": "scan"
     },
     "app/src/sanity/image.ts": {
@@ -2311,7 +3396,7 @@
       "hash": "a9d4b36e089e43ca",
       "size": 1680,
       "mtimeMs": 1794390052543.404,
-      "updatedAt": "2026-11-11T10:36:50.419Z",
+      "updatedAt": "2026-11-11T11:40:22.937Z",
       "source": "scan"
     },
     "app/src/sanity/metadata.ts": {
@@ -2320,7 +3405,7 @@
       "hash": "b4821efebadc58e8",
       "size": 2375,
       "mtimeMs": 1794390052543.5037,
-      "updatedAt": "2026-11-11T10:36:50.419Z",
+      "updatedAt": "2026-11-11T11:40:22.937Z",
       "source": "scan",
       "symbols": [
         {
@@ -2345,7 +3430,7 @@
       "hash": "19ed9667a8b1cadb",
       "size": 5403,
       "mtimeMs": 1794390052543.6062,
-      "updatedAt": "2026-11-11T10:36:50.419Z",
+      "updatedAt": "2026-11-11T11:40:22.937Z",
       "source": "scan"
     },
     "app/src/sanity/sanity.types.ts": {
@@ -2354,7 +3439,7 @@
       "hash": "b08a7595b9b65647",
       "size": 37256,
       "mtimeMs": 1794390052543.7515,
-      "updatedAt": "2026-11-11T10:36:50.420Z",
+      "updatedAt": "2026-11-11T11:40:22.938Z",
       "source": "scan"
     },
     "app/src/sanity/schema.json": {
@@ -2363,7 +3448,7 @@
       "hash": "59912dff0166e3ab",
       "size": 96671,
       "mtimeMs": 1794390052543.9534,
-      "updatedAt": "2026-11-11T10:36:50.420Z",
+      "updatedAt": "2026-11-11T11:40:22.940Z",
       "source": "scan"
     },
     "app/src/sanity/site-information.ts": {
@@ -2372,7 +3457,7 @@
       "hash": "22d91cea965f64fa",
       "size": 1110,
       "mtimeMs": 1794390052544.245,
-      "updatedAt": "2026-11-11T10:36:50.420Z",
+      "updatedAt": "2026-11-11T11:40:22.940Z",
       "source": "scan"
     },
     "app/tsconfig.json": {
@@ -2381,7 +3466,16 @@
       "hash": "5c51df4c59f4510d",
       "size": 670,
       "mtimeMs": 1794390052544.494,
-      "updatedAt": "2026-11-11T10:36:50.420Z",
+      "updatedAt": "2026-11-11T11:40:22.940Z",
+      "source": "scan"
+    },
+    "app/tsconfig.tsbuildinfo": {
+      "description": "",
+      "tokens": 89355,
+      "hash": "ee5e3a4ee722e5da",
+      "size": 335079,
+      "mtimeMs": 1794396964467.7693,
+      "updatedAt": "2026-11-11T11:40:22.942Z",
       "source": "scan"
     },
     "CLAUDE.md": {
@@ -2390,7 +3484,7 @@
       "hash": "b1ca356fa9d5f3a6",
       "size": 225,
       "mtimeMs": 1794393409861.0525,
-      "updatedAt": "2026-11-11T10:36:50.420Z",
+      "updatedAt": "2026-11-11T11:40:22.942Z",
       "source": "scan"
     },
     "README.md": {
@@ -2399,7 +3493,7 @@
       "hash": "c44f06a63e7c0d58",
       "size": 31270,
       "mtimeMs": 1794390052527.7104,
-      "updatedAt": "2026-11-11T10:36:50.420Z",
+      "updatedAt": "2026-11-11T11:40:22.942Z",
       "source": "scan"
     },
     "studio/.gitignore": {
@@ -2408,7 +3502,7 @@
       "hash": "b07fe2b926636cc1",
       "size": 537,
       "mtimeMs": 1794390052544.8176,
-      "updatedAt": "2026-11-11T10:36:50.420Z",
+      "updatedAt": "2026-11-11T11:40:22.943Z",
       "source": "scan"
     },
     "studio/eslint.config.mjs": {
@@ -2417,7 +3511,7 @@
       "hash": "c5807d719bd7e7fe",
       "size": 78,
       "mtimeMs": 1794390052545.0388,
-      "updatedAt": "2026-11-11T10:36:50.420Z",
+      "updatedAt": "2026-11-11T11:40:22.943Z",
       "source": "scan"
     },
     "studio/package-lock.json": {
@@ -2426,7 +3520,7 @@
       "hash": "6b8df2182ca68269",
       "size": 601081,
       "mtimeMs": 1794392033873.924,
-      "updatedAt": "2026-11-11T10:36:50.421Z",
+      "updatedAt": "2026-11-11T11:40:22.945Z",
       "source": "scan"
     },
     "studio/package.json": {
@@ -2435,7 +3529,7 @@
       "hash": "be311e0cb10e6e95",
       "size": 1051,
       "mtimeMs": 1794390052547.3113,
-      "updatedAt": "2026-11-11T10:36:50.422Z",
+      "updatedAt": "2026-11-11T11:40:22.945Z",
       "source": "scan"
     },
     "studio/README.md": {
@@ -2444,7 +3538,7 @@
       "hash": "3dbf91d1dea727f3",
       "size": 1720,
       "mtimeMs": 1794390052544.9297,
-      "updatedAt": "2026-11-11T10:36:50.422Z",
+      "updatedAt": "2026-11-11T11:40:22.945Z",
       "source": "scan"
     },
     "studio/sanity.cli.ts": {
@@ -2453,7 +3547,7 @@
       "hash": "0d56f29c93d9de3c",
       "size": 946,
       "mtimeMs": 1794390052547.432,
-      "updatedAt": "2026-11-11T10:36:50.422Z",
+      "updatedAt": "2026-11-11T11:40:22.945Z",
       "source": "scan"
     },
     "studio/sanity.config.ts": {
@@ -2462,7 +3556,7 @@
       "hash": "b7edd634723c05c1",
       "size": 934,
       "mtimeMs": 1794390052547.5386,
-      "updatedAt": "2026-11-11T10:36:50.422Z",
+      "updatedAt": "2026-11-11T11:40:22.945Z",
       "source": "scan"
     },
     "studio/schemaTypes/blocks/benefitsType.ts": {
@@ -2471,7 +3565,7 @@
       "hash": "76238667c1b0a8d7",
       "size": 2248,
       "mtimeMs": 1794390052547.7886,
-      "updatedAt": "2026-11-11T10:36:50.422Z",
+      "updatedAt": "2026-11-11T11:40:22.946Z",
       "source": "scan"
     },
     "studio/schemaTypes/blocks/contactFormType.ts": {
@@ -2480,7 +3574,7 @@
       "hash": "93853ff8c90e06ac",
       "size": 2792,
       "mtimeMs": 1794390052547.8887,
-      "updatedAt": "2026-11-11T10:36:50.423Z",
+      "updatedAt": "2026-11-11T11:40:22.946Z",
       "source": "scan"
     },
     "studio/schemaTypes/blocks/crossLinksType.ts": {
@@ -2489,7 +3583,7 @@
       "hash": "84229b651aa969e7",
       "size": 1115,
       "mtimeMs": 1794390052547.9888,
-      "updatedAt": "2026-11-11T10:36:50.423Z",
+      "updatedAt": "2026-11-11T11:40:22.947Z",
       "source": "scan"
     },
     "studio/schemaTypes/blocks/ctaBandType.ts": {
@@ -2498,7 +3592,7 @@
       "hash": "4fef3833a20e9784",
       "size": 1182,
       "mtimeMs": 1794390052548.0957,
-      "updatedAt": "2026-11-11T10:36:50.423Z",
+      "updatedAt": "2026-11-11T11:40:22.947Z",
       "source": "scan"
     },
     "studio/schemaTypes/blocks/faqsType.ts": {
@@ -2507,7 +3601,7 @@
       "hash": "9f84992a20aef4df",
       "size": 924,
       "mtimeMs": 1794390052548.1902,
-      "updatedAt": "2026-11-11T10:36:50.423Z",
+      "updatedAt": "2026-11-11T11:40:22.947Z",
       "source": "scan"
     },
     "studio/schemaTypes/blocks/heroType.ts": {
@@ -2516,7 +3610,7 @@
       "hash": "b52428b1fef70186",
       "size": 2240,
       "mtimeMs": 1794390052548.304,
-      "updatedAt": "2026-11-11T10:36:50.423Z",
+      "updatedAt": "2026-11-11T11:40:22.947Z",
       "source": "scan"
     },
     "studio/schemaTypes/blocks/introType.ts": {
@@ -2525,7 +3619,7 @@
       "hash": "95ae188db7a7eb0b",
       "size": 2403,
       "mtimeMs": 1794390052548.5544,
-      "updatedAt": "2026-11-11T10:36:50.424Z",
+      "updatedAt": "2026-11-11T11:40:22.947Z",
       "source": "scan"
     },
     "studio/schemaTypes/blocks/mediaTextType.ts": {
@@ -2534,7 +3628,7 @@
       "hash": "b7965ae76fbcf469",
       "size": 1208,
       "mtimeMs": 1794390052548.708,
-      "updatedAt": "2026-11-11T10:36:50.424Z",
+      "updatedAt": "2026-11-11T11:40:22.947Z",
       "source": "scan"
     },
     "studio/schemaTypes/blocks/pageHeroType.ts": {
@@ -2543,7 +3637,7 @@
       "hash": "aaa29cb261e90b5e",
       "size": 1690,
       "mtimeMs": 1794390052548.8198,
-      "updatedAt": "2026-11-11T10:36:50.424Z",
+      "updatedAt": "2026-11-11T11:40:22.948Z",
       "source": "scan"
     },
     "studio/schemaTypes/blocks/servicesType.ts": {
@@ -2552,7 +3646,7 @@
       "hash": "454e891b7b839757",
       "size": 2633,
       "mtimeMs": 1794390052548.9236,
-      "updatedAt": "2026-11-11T10:36:50.424Z",
+      "updatedAt": "2026-11-11T11:40:22.948Z",
       "source": "scan"
     },
     "studio/schemaTypes/blocks/stepsType.ts": {
@@ -2561,7 +3655,7 @@
       "hash": "c3ca58efaff554e8",
       "size": 1597,
       "mtimeMs": 1794390052549.0227,
-      "updatedAt": "2026-11-11T10:36:50.424Z",
+      "updatedAt": "2026-11-11T11:40:22.948Z",
       "source": "scan"
     },
     "studio/schemaTypes/faqType.ts": {
@@ -2570,7 +3664,7 @@
       "hash": "1f7a05e01a3cc9f2",
       "size": 830,
       "mtimeMs": 1794390052549.1362,
-      "updatedAt": "2026-11-11T10:36:50.425Z",
+      "updatedAt": "2026-11-11T11:40:22.948Z",
       "source": "scan"
     },
     "studio/schemaTypes/footerType.ts": {
@@ -2579,7 +3673,7 @@
       "hash": "4c3de80938e93040",
       "size": 2041,
       "mtimeMs": 1794390052549.2368,
-      "updatedAt": "2026-11-11T10:36:50.425Z",
+      "updatedAt": "2026-11-11T11:40:22.949Z",
       "source": "scan"
     },
     "studio/schemaTypes/formGeneralSettingsType.ts": {
@@ -2588,7 +3682,7 @@
       "hash": "b352e085dc6ab315",
       "size": 11898,
       "mtimeMs": 1794390052549.397,
-      "updatedAt": "2026-11-11T10:36:50.425Z",
+      "updatedAt": "2026-11-11T11:40:22.949Z",
       "source": "scan",
       "symbols": [
         {
@@ -2613,7 +3707,7 @@
       "hash": "dccc82fe3141c082",
       "size": 9026,
       "mtimeMs": 1794390052549.5388,
-      "updatedAt": "2026-11-11T10:36:50.425Z",
+      "updatedAt": "2026-11-11T11:40:22.949Z",
       "source": "scan",
       "symbols": [
         {
@@ -2631,7 +3725,7 @@
       "hash": "1c3ac94797112c53",
       "size": 1843,
       "mtimeMs": 1794390052549.6301,
-      "updatedAt": "2026-11-11T10:36:50.425Z",
+      "updatedAt": "2026-11-11T11:40:22.949Z",
       "source": "scan"
     },
     "studio/schemaTypes/navigationType.ts": {
@@ -2640,7 +3734,7 @@
       "hash": "be12c9ef0727712d",
       "size": 1269,
       "mtimeMs": 1794390052549.7283,
-      "updatedAt": "2026-11-11T10:36:50.425Z",
+      "updatedAt": "2026-11-11T11:40:22.950Z",
       "source": "scan"
     },
     "studio/schemaTypes/objects/ctaType.ts": {
@@ -2649,7 +3743,7 @@
       "hash": "d016fc7939d21106",
       "size": 326,
       "mtimeMs": 1794390052549.8792,
-      "updatedAt": "2026-11-11T10:36:50.426Z",
+      "updatedAt": "2026-11-11T11:40:22.950Z",
       "source": "scan"
     },
     "studio/schemaTypes/objects/formFieldType.ts": {
@@ -2658,7 +3752,7 @@
       "hash": "2cb8c42eae5fee0a",
       "size": 4571,
       "mtimeMs": 1794390052549.9812,
-      "updatedAt": "2026-11-11T10:36:50.426Z",
+      "updatedAt": "2026-11-11T11:40:22.950Z",
       "source": "scan"
     },
     "studio/schemaTypes/objects/linkFields.ts": {
@@ -2667,7 +3761,7 @@
       "hash": "bdc930395402f7a6",
       "size": 1422,
       "mtimeMs": 1794390052550.0667,
-      "updatedAt": "2026-11-11T10:36:50.426Z",
+      "updatedAt": "2026-11-11T11:40:22.950Z",
       "source": "scan"
     },
     "studio/schemaTypes/objects/linkType.ts": {
@@ -2676,7 +3770,7 @@
       "hash": "4a6dec2e72655f28",
       "size": 188,
       "mtimeMs": 1794390052550.1494,
-      "updatedAt": "2026-11-11T10:36:50.426Z",
+      "updatedAt": "2026-11-11T11:40:22.950Z",
       "source": "scan"
     },
     "studio/schemaTypes/objects/seoType.ts": {
@@ -2685,7 +3779,7 @@
       "hash": "63b872958e54bf8f",
       "size": 856,
       "mtimeMs": 1794390052550.2424,
-      "updatedAt": "2026-11-11T10:36:50.426Z",
+      "updatedAt": "2026-11-11T11:40:22.950Z",
       "source": "scan"
     },
     "studio/schemaTypes/pageBuilderType.ts": {
@@ -2694,7 +3788,7 @@
       "hash": "617f58f2d68669a5",
       "size": 833,
       "mtimeMs": 1794390052550.3318,
-      "updatedAt": "2026-11-11T10:36:50.426Z",
+      "updatedAt": "2026-11-11T11:40:22.951Z",
       "source": "scan"
     },
     "studio/schemaTypes/pageType.ts": {
@@ -2703,7 +3797,7 @@
       "hash": "302e9947730ed839",
       "size": 744,
       "mtimeMs": 1794390052550.4243,
-      "updatedAt": "2026-11-11T10:36:50.426Z",
+      "updatedAt": "2026-11-11T11:40:22.951Z",
       "source": "scan"
     },
     "studio/schemaTypes/siteInformationType.ts": {
@@ -2712,7 +3806,7 @@
       "hash": "58501f4ba7274f6e",
       "size": 4552,
       "mtimeMs": 1794390052550.522,
-      "updatedAt": "2026-11-11T10:36:50.426Z",
+      "updatedAt": "2026-11-11T11:40:22.951Z",
       "source": "scan"
     },
     "studio/structure.ts": {
@@ -2721,7 +3815,7 @@
       "hash": "1cc9103b99c0870d",
       "size": 2794,
       "mtimeMs": 1794390052550.6104,
-      "updatedAt": "2026-11-11T10:36:50.427Z",
+      "updatedAt": "2026-11-11T11:40:22.951Z",
       "source": "scan"
     },
     "studio/tools/ClearCache.tsx": {
@@ -2730,7 +3824,7 @@
       "hash": "3645d2bedc7a051d",
       "size": 3586,
       "mtimeMs": 1794390052550.7715,
-      "updatedAt": "2026-11-11T10:36:50.427Z",
+      "updatedAt": "2026-11-11T11:40:22.951Z",
       "source": "scan",
       "symbols": [
         {
@@ -2755,7 +3849,7 @@
       "hash": "386bda3ae99b6f86",
       "size": 4983,
       "mtimeMs": 1794390052550.868,
-      "updatedAt": "2026-11-11T10:36:50.427Z",
+      "updatedAt": "2026-11-11T11:40:22.951Z",
       "source": "scan",
       "symbols": [
         {
@@ -2787,7 +3881,7 @@
       "hash": "f43a03edcafca268",
       "size": 7687,
       "mtimeMs": 1794390052551.1294,
-      "updatedAt": "2026-11-11T10:36:50.427Z",
+      "updatedAt": "2026-11-11T11:40:22.952Z",
       "source": "scan",
       "symbols": [
         {
@@ -2882,7 +3976,7 @@
       "hash": "9c537d6dbd51c896",
       "size": 4958,
       "mtimeMs": 1794390052551.2275,
-      "updatedAt": "2026-11-11T10:36:50.427Z",
+      "updatedAt": "2026-11-11T11:40:22.952Z",
       "source": "scan"
     },
     "studio/tools/MediaTool.tsx": {
@@ -2891,7 +3985,7 @@
       "hash": "7a97af01128ac2c8",
       "size": 19992,
       "mtimeMs": 1794390052551.0024,
-      "updatedAt": "2026-11-11T10:36:50.428Z",
+      "updatedAt": "2026-11-11T11:40:22.952Z",
       "source": "scan",
       "symbols": [
         {
@@ -2923,7 +4017,7 @@
       "hash": "e809be7d33595a60",
       "size": 1174,
       "mtimeMs": 1794390052551.3206,
-      "updatedAt": "2026-11-11T10:36:50.428Z",
+      "updatedAt": "2026-11-11T11:40:22.952Z",
       "source": "scan"
     },
     "studio/tsconfig.json": {
@@ -2932,7 +4026,7 @@
       "hash": "e5a67d7d8cdee156",
       "size": 417,
       "mtimeMs": 1794390052551.4233,
-      "updatedAt": "2026-11-11T10:36:50.428Z",
+      "updatedAt": "2026-11-11T11:40:22.953Z",
       "source": "scan"
     }
   }

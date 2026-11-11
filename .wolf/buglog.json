@@ -1,4 +1,68 @@
 {
   "version": 1,
-  "bugs": []
+  "bugs": [
+    {
+      "id": "bug-001",
+      "timestamp": "2026-11-11T12:30:00Z",
+      "error_message": "TypeError: Invalid URL at new URL(SITE_URL) in layout",
+      "file": "app/src/lib/site.ts",
+      "root_cause": "NEXT_PUBLIC_SITE_URL= empty in .env; `??` keeps empty string",
+      "fix": "Use `||` fallback to http://localhost:3000",
+      "tags": [
+        "env",
+        "url",
+        "nextjs"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-11-11T12:30:00Z"
+    },
+    {
+      "id": "bug-002",
+      "timestamp": "2026-11-11T12:35:00Z",
+      "error_message": "Layout squeezed: max-w-wrap = 44px",
+      "file": "app/src/app/globals.css",
+      "root_cause": "Tailwind v4 max-w-* also reads --spacing-*; --spacing-wrap (template) won over --container-wrap",
+      "fix": "Renamed token to --container-page / max-w-page",
+      "tags": [
+        "tailwind",
+        "tokens"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-11-11T12:35:00Z"
+    },
+    {
+      "id": "bug-003",
+      "timestamp": "2026-11-11T13:40:00Z",
+      "error_message": "next build: Error occurred prerendering page /sitemap.xml (Dataset not found)",
+      "file": "app/src/app/sitemap.ts",
+      "root_cause": "sitemap used client.fetch (throws) and only listed CMS pages",
+      "fix": "safeFetch + static Advertisr routes, CMS pages that collide with static paths skipped",
+      "tags": [
+        "sitemap",
+        "sanity",
+        "build"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-11-11T13:40:00Z"
+    },
+    {
+      "id": "bug-004",
+      "timestamp": "2026-11-11T13:45:00Z",
+      "error_message": "Parsing CSS source code failed: Unexpected token BadUrl(data:image/svg+xml…)",
+      "file": "app/src/app/(site)/seo-geo/page.tsx",
+      "root_cause": "Arbitrary bg-[url(\"data:…\")] class produced invalid CSS; stale in dev cache after removal",
+      "fix": "Replaced with inline <svg> Tick; cleared .next/dev; added @source not \"../../design\"",
+      "tags": [
+        "tailwind",
+        "css",
+        "dev-cache"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-11-11T13:45:00Z"
+    }
+  ]
 }

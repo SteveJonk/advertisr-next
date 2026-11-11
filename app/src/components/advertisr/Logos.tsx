@@ -1,0 +1,63 @@
+import Image from 'next/image';
+import { Eyebrow, Wrap } from './ui';
+
+const CLIENTS = [
+  ['ciao-italia', 'Ciao Italia', 'png', 'png'],
+  ['ppexport', 'PPExport', 'png', 'png'],
+  ['de-racketmeesters', 'De Racketmeesters', 'jpg', 'png'],
+  ['maxim-s-fashion-plus', "Maxim's Fashion Plus", 'webp', 'png'],
+  ['hostel-roots', 'Hostel Roots', 'png', 'png'],
+  ['harlem-dance-center', 'Harlem Dance Center', 'png', 'png'],
+  ['groovy-anton', 'Groovy Anton', 'webp', 'png'],
+  ['haarlemse-fiets', 'Haarlemse Fiets', 'png', 'png'],
+  ['staalconstructie-online', 'Staalconstructie Online', null, 'png'],
+  ['l-schuijt-klussenbedrijf', 'L. Schuijt Klussenbedrijf', 'png', 'png'],
+  ['hart-huis-makelaardij', 'Hart & Huis Makelaardij', 'png', 'png'],
+] as const;
+
+type LogosProps = {
+  title: string;
+  note?: string;
+  /** The design has two exports of the logo set; the service pages use the second. */
+  set?: 1 | 2;
+  /** Set 2 only: include Staalconstructie Online (not on web development). */
+  staal?: boolean;
+};
+
+/** "Vertrouwd door" band with the endless logo strip. */
+export function Logos({ title, note = 'Van horeca tot makelaardij.', set = 1, staal = true }: LogosProps) {
+  const logos = CLIENTS.flatMap(([slug, alt, ext1, ext2]) => {
+    if (set === 1) return ext1 ? [{ src: `/images/advertisr/${slug}.${ext1}`, alt }] : [];
+    if (!staal && slug === 'staalconstructie-online') return [];
+    return [{ src: `/images/advertisr/${slug}${slug === 'staalconstructie-online' ? '' : '-2'}.${ext2}`, alt }];
+  });
+
+  return (
+    <section className='relative z-2 overflow-hidden border-y border-line bg-soft py-16'>
+      <Wrap>
+        <div className='rv mb-[34px] flex flex-wrap items-center justify-between gap-3.5'>
+          <div>
+            <Eyebrow rv={false}>Vertrouwd door</Eyebrow>
+            <h2 className='mt-3 text-[26px] tracking-[-.03em]'>{title}</h2>
+          </div>
+          <div className='text-[14.5px] text-dim-2'>{note}</div>
+        </div>
+      </Wrap>
+      <div className="relative before:pointer-events-none before:absolute before:inset-y-0 before:left-0 before:z-3 before:w-[110px] before:bg-[linear-gradient(90deg,var(--color-soft),transparent)] before:content-[''] after:pointer-events-none after:absolute after:inset-y-0 after:right-0 after:z-3 after:w-[110px] after:bg-[linear-gradient(-90deg,var(--color-soft),transparent)] after:content-['']">
+        <div className='flex w-max animate-logos gap-[18px] motion-reduce:animate-none'>
+          {[0, 1].map((copy) =>
+            logos.map((logo) => (
+              <div
+                key={`${copy}-${logo.src}`}
+                aria-hidden={copy === 1 || undefined}
+                className='h-20 w-[150px] shrink-0 overflow-hidden rounded-[14px] border border-line bg-white px-[18px] py-3.5 transition-[translate,border-color] duration-[250ms] hover:-translate-y-[3px] hover:border-red/45'
+              >
+                <Image src={logo.src} alt={copy ? '' : logo.alt} width={114} height={52} className='size-full object-contain' />
+              </div>
+            )),
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}

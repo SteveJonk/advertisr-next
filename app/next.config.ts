@@ -17,6 +17,11 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'cdn.sanity.io',
       },
+      // Case-study covers in the Advertisr. designs still live on the old site.
+      {
+        protocol: 'https',
+        hostname: 'advertisr.nl',
+      },
     ],
   },
 };
