@@ -4,6 +4,7 @@ export const HOME_SLUG = 'home';
 /** Turn a page slug into its path, mapping the home page onto `/`. */
 export function pathForSlug(slug: string, type: string = 'page'): string {
   if (type === 'article') return `/kennisbank/${slug}`;
+  if (type === 'caseStudy') return `/case/${slug}`;
   return slug === HOME_SLUG ? '/' : `/${slug}`;
 }
 

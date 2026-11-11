@@ -1,6 +1,7 @@
-import Image from 'next/image';
+import Image from '@/components/ui/Image';
 import Link from 'next/link';
 import { cn } from '@/lib/cn';
+import { pathForSlug } from '@/lib/links';
 import type { Site } from '@/lib/site';
 import type { PAGE_QUERY_RESULT } from '@/sanity/sanity.types';
 import { ArticleCard, PillarCard, type ArticleCardData } from './ArticleCard';
@@ -127,9 +128,10 @@ export function Stages({ b, site }: P<'stages'>) {
               <ul className='border-t border-line'>
                 {(s.links ?? []).map((l) => (
                   <li key={l._key} className='border-b border-line last:border-b-0'>
+                    {/* after:w-[.92em]: next/font's Inter has no →, the fallback glyph is ~2px wider and wrapped the n8n badge. */}
                     <Link
                       href={l.href ?? '#'}
-                      className="group/l flex items-center justify-between gap-2.5 py-[13px] text-[15px] font-semibold transition-[color,padding] duration-200 after:text-red after:transition-transform after:duration-200 after:content-['→'] hover:pl-1 hover:text-red-ink hover:after:translate-x-[3px]"
+                      className="group/l flex items-center justify-between gap-2.5 py-[13px] text-[15px] font-semibold transition-[color,padding] duration-200 after:w-[.92em] after:shrink-0 after:text-red after:transition-transform after:duration-200 after:content-['→'] hover:pl-1 hover:text-red-ink hover:after:translate-x-[3px]"
                     >
                       <span>
                         {l.label}
@@ -146,7 +148,7 @@ export function Stages({ b, site }: P<'stages'>) {
             </div>
           ))}
         </div>
-        <div className="rv relative isolate mt-8 flex flex-wrap items-center justify-between gap-6 overflow-hidden rounded-[22px] border border-white/10 bg-[radial-gradient(520px_220px_at_100%_0%,rgba(255,57,81,.55),transparent_70%),radial-gradient(420px_200px_at_0%_120%,rgba(255,120,90,.22),transparent_70%),linear-gradient(135deg,#1c1c24_0%,#0d0d12_100%)] px-[34px] py-[30px] text-base text-white shadow-[inset_0_1px_0_rgba(255,255,255,.16),inset_0_-24px_40px_-30px_rgba(255,57,81,.35),0_2px_0_rgba(14,14,18,.06),0_30px_60px_-26px_rgba(14,14,18,.6),0_60px_90px_-50px_rgba(255,57,81,.5)] before:absolute before:inset-0 before:-z-1 before:bg-[radial-gradient(rgba(255,255,255,.14)_1px,transparent_1.4px)] before:bg-size-[20px_20px] before:mask-[linear-gradient(100deg,transparent_35%,#000)] before:content-['']">
+        <div className="rv relative isolate mt-8 flex flex-wrap items-center justify-between gap-6 overflow-hidden rounded-[22px] border border-white/10 bg-[radial-gradient(520px_220px_at_100%_0%,rgba(255,57,81,.55),transparent_70%),radial-gradient(420px_200px_at_0%_120%,rgba(255,120,90,.22),transparent_70%),linear-gradient(135deg,#1c1c24_0%,#0d0d12_100%)] px-[34px] py-[30px] text-base/[1.65] text-white shadow-[inset_0_1px_0_rgba(255,255,255,.16),inset_0_-24px_40px_-30px_rgba(255,57,81,.35),0_2px_0_rgba(14,14,18,.06),0_30px_60px_-26px_rgba(14,14,18,.6),0_60px_90px_-50px_rgba(255,57,81,.5)] before:absolute before:inset-0 before:-z-1 before:bg-[radial-gradient(rgba(255,255,255,.14)_1px,transparent_1.4px)] before:bg-size-[20px_20px] before:mask-[linear-gradient(100deg,transparent_35%,#000)] before:content-['']">
           <span className='max-w-155 leading-[1.55] text-white/72 [&_strong]:font-semibold [&_strong]:text-white'>
             <Rich value={b.band?.text} />
           </span>
@@ -173,7 +175,7 @@ export function CaseCards({ b, site }: P<'caseCards'>) {
           {(b.cases ?? []).map((c) => (
             <CaseCard
               key={c._id}
-              href={c.url ?? '#'}
+              href={c.slug ? pathForSlug(c.slug, 'caseStudy') : '#'}
               img={pic(c.image, 800)?.src}
               cat={c.category}
               title={c.name}
@@ -490,15 +492,13 @@ export function CaseList({ b, site }: P<'caseList'>) {
                     </span>
                   ))}
                 </div>
-                {c.url && (
-                  <a
-                    href={c.url}
-                    target='_blank'
-                    rel='noopener'
+                {c.slug && (
+                  <Link
+                    href={pathForSlug(c.slug, 'caseStudy')}
                     className='mt-[18px] inline-flex items-center gap-2 border-b-[1.5px] border-line-2 pb-[3px] text-[14.5px] font-semibold text-ink transition-colors duration-200 hover:border-red hover:text-red'
                   >
                     {site.ui.caseListLink}
-                  </a>
+                  </Link>
                 )}
               </div>
             </div>

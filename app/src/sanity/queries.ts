@@ -49,7 +49,8 @@ const formDoc = /* groq */ `form->{
 
 const faqs = /* groq */ `faqs[]->{ _id, question, answer }`;
 
-const caseDocs = /* groq */ `cases[]->{ _id, name, category, badge, eyebrow, headline, summary, image, stats, tags, url }`;
+const caseFields = /* groq */ `_id, name, "slug": slug.current, category, badge, eyebrow, headline, summary, image, stats, tags`;
+const caseDocs = /* groq */ `cases[]->{ ${caseFields} }`;
 
 /**
  * One page and its blocks. Blocks are spread wholesale (`...`); what follows
@@ -114,13 +115,26 @@ export const ARTICLE_QUERY = defineQuery(`
     author->{ name, photo, authorTitle, authorBio },
     body[]{ ..., _type == "inlineCta" => { cta${link} } },
     "faqs": ${faqs},
-    "related": related[]->${articleCard}
+    "related": related[defined(@->_id)]->${articleCard}
   }
 `);
 
 /** Only articles with a body get a page; the rest are cards. */
 export const ARTICLE_SLUGS_QUERY = defineQuery(`
   *[_type == "article" && defined(slug.current) && count(body) > 0]{ "slug": slug.current, _updatedAt }
+`);
+
+export const CASE_QUERY = defineQuery(`
+  *[_type == "caseStudy" && slug.current == $slug][0]{
+    ${caseFields},
+    seo,
+    body[]{ ..., _type == "inlineCta" => { cta${link} } },
+    "others": *[_type == "caseStudy" && defined(slug.current) && slug.current != $slug] | order(coalesce(sortOrder, 999) asc)[0...3]{ ${caseFields} }
+  }
+`);
+
+export const CASE_SLUGS_QUERY = defineQuery(`
+  *[_type == "caseStudy" && defined(slug.current)]{ "slug": slug.current, _updatedAt }
 `);
 
 /** Everything around the content: site details, interface text, nav, footer and the Google score. */

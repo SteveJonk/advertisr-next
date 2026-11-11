@@ -48,13 +48,14 @@
 **Goal:** User reviews the CMS-driven site + studio; fill the remaining real data.
 
 ### Open items / decisions for the user
+- **Case pages /case/[slug] live (2026-11-11):** slugs ppexport/trockenblumen/ciao-italia + case interface texts written to the dataset. Deploy the studio so editors see slug/body/seo. `url` kept as "Old website URL" for WP 301s. The old WP case write-ups exist as imported articles (/kennisbank/case-study-ppexport, …): move them into the case `body` and redirect/remove the articles.
 - 301 redirects from the old WP URLs (`/<post-slug>/` → `/kennisbank/<post-slug>`) before go-live, or the posts' Google rankings break.
 - Imported articles have no `intro`, FAQs or related articles; WP excerpts were poor so `excerpt` = Yoast meta description.
 - Deploy the studio (`cd studio && npm run deploy`) so the new schema is live for editors; `studio/.env` was created locally (project y2l1clva).
 - Google reviews: set `GOOGLE_PLACES_API_KEY`, `GOOGLE_REVIEWS_SYNC_SECRET` (+ `CRON_SECRET` on Vercel) and fill the Place ID + website address on the studio's "Google reviews" page. The cron is in `app/vercel.json` (Vercel); on Netlify a scheduled function is needed instead. Badge score is seeded as 5,0 until the first sync.
 - Mail env for `/api/submit-form` still missing (returns 500). Set MAILJET_* (or provider) + CONTACT_ADMIN_EMAIL + MAIL_TEST_SECRET; deploy the studio so editors get Forms/Form settings.
 - Per-service message placeholders on the lead forms were folded into the shared `form-groeiplan` placeholder; make extra forms in the studio if a page needs its own.
-- Placeholders still in the content (now editable in the studio): phone/WhatsApp, booking link, LinkedIn/Instagram, legal links, article sources, the 10 kennisbank articles without a body (shown as cards linking to `#`).
+- Placeholders still in the content (now editable in the studio): phone/WhatsApp, booking link, LinkedIn/Instagram, legal links, article sources. The 10 body-less kennisbank articles were unpublished to drafts (2026-11-11; body is now required) — write a body and publish to bring them back.
 - Root `README.md` / `studio/README.md` still describe the template (seed:site, Form settings, check:form): rewrite.
 - Re-running `npm run seed` overwrites studio edits to the seeded documents: only for setting up a dataset.
 

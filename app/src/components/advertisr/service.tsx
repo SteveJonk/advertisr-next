@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from '@/components/ui/Image';
 import type { ReactNode } from 'react';
 import { cn } from '@/lib/cn';
 import { Ambient, BtnGhost, BtnRed, Crumb, Eyebrow, Sec, SecHead, Wrap } from './ui';
@@ -15,7 +15,17 @@ const darkBand = cn(
 /** Dark "Wat levert … op?" band with a CTA button. */
 export type Cta = { label: string; href: string } | null;
 
-export function CtaBand({ title, sub, cta, className }: { title: ReactNode; sub: ReactNode; cta: Cta; className?: string }) {
+export function CtaBand({
+  title,
+  sub,
+  cta,
+  className,
+}: {
+  title: ReactNode;
+  sub: ReactNode;
+  cta: Cta;
+  className?: string;
+}) {
   return (
     <div
       className={cn(
@@ -26,7 +36,9 @@ export function CtaBand({ title, sub, cta, className }: { title: ReactNode; sub:
     >
       <h3 className='max-w-140 text-[clamp(22px,2.4vw,30px)] leading-[1.15] tracking-[-.03em]'>
         {title}
-        <span className='mt-2.5 block font-sans text-[15.5px] leading-[1.55] font-normal tracking-normal text-white/72'>{sub}</span>
+        <span className='mt-2.5 block font-sans text-[15.5px] leading-[1.55] font-normal tracking-normal text-white/72'>
+          {sub}
+        </span>
       </h3>
       {cta && (
         <BtnRed href={cta.href} className='max-sm:w-full max-sm:justify-center'>
@@ -38,7 +50,15 @@ export function CtaBand({ title, sub, cta, className }: { title: ReactNode; sub:
 }
 
 /** Small frosted stat that floats over a hero visual. Hidden below 520px. */
-export function FloatStat({ value, label, className }: { value: ReactNode; label: string; className?: string }) {
+export function FloatStat({
+  value,
+  label,
+  className,
+}: {
+  value: ReactNode;
+  label: string;
+  className?: string;
+}) {
   return (
     <div
       className={cn(
@@ -46,7 +66,9 @@ export function FloatStat({ value, label, className }: { value: ReactNode; label
         className,
       )}
     >
-      <b className='block font-display text-[23px] leading-none tracking-[-.03em]'>{value}</b>
+      <b className='block font-display text-[23px] leading-none tracking-[-.03em]'>
+        {value}
+      </b>
       <span className='text-[11.5px] text-dim'>{label}</span>
     </div>
   );
@@ -83,7 +105,9 @@ export function ServiceHero({
           <div>
             <Crumb home={home} items={crumbs} />
             <Eyebrow>{eyebrow}</Eyebrow>
-            <h1 className='rv mt-1.5 mb-6 text-[clamp(40px,4.9vw,68px)] tracking-[-.04em]'>{title}</h1>
+            <h1 className='rv mt-1.5 mb-6 text-[clamp(40px,4.9vw,68px)] tracking-[-.04em]'>
+              {title}
+            </h1>
             <p className='rv mb-[34px] max-w-[530px] text-[18.5px] text-dim'>{sub}</p>
             <div className='rv mb-[22px] flex flex-wrap items-center gap-[22px]'>
               {primary && <BtnRed href={primary.href}>{primary.label}</BtnRed>}
@@ -91,7 +115,10 @@ export function ServiceHero({
             </div>
             <div className='rv flex flex-wrap gap-x-[22px] gap-y-2 text-[13.5px] text-dim'>
               {ticks.map((t) => (
-                <span key={t} className="flex items-center gap-2 before:size-[5px] before:rounded-full before:bg-red before:content-['']">
+                <span
+                  key={t}
+                  className="flex items-center gap-2 before:size-[5px] before:rounded-full before:bg-red before:content-['']"
+                >
                   {t}
                 </span>
               ))}
@@ -105,7 +132,12 @@ export function ServiceHero({
 }
 
 export type PainItem = { q: string; text: ReactNode };
-export type Bridge = { img?: string; alt?: string; line: ReactNode; sig?: string | null };
+export type Bridge = {
+  img?: string;
+  alt?: string;
+  line: ReactNode;
+  sig?: string | null;
+};
 
 /** Founder quote card; overlaps the section below it by 64px. */
 export function BridgeQuote({ img, alt, line, sig }: Bridge) {
@@ -115,7 +147,13 @@ export function BridgeQuote({ img, alt, line, sig }: Bridge) {
         <div className='relative flex flex-wrap items-center gap-[34px] overflow-hidden rounded-[22px] bg-[linear-gradient(125deg,#FFF1F3_0%,#fff_52%,#F6F4F0_100%)] px-11 py-[38px] max-sm:gap-5 max-sm:px-[22px] max-sm:py-[26px]'>
           {img && (
             <div className='relative z-2 size-[76px] shrink-0 overflow-hidden rounded-full border-2 border-red/55'>
-              <Image src={img} alt={alt ?? ''} fill sizes='76px' className='object-cover object-[center_22%]' />
+              <Image
+                src={img}
+                alt={alt ?? ''}
+                fill
+                sizes='76px'
+                className='object-cover object-[center_22%]'
+              />
             </div>
           )}
           <div className='relative z-2 min-w-70 flex-1'>
@@ -151,8 +189,16 @@ export function Pain({
   children?: ReactNode;
 }) {
   return (
-    <section className={cn('relative z-2 border-t border-line bg-soft pt-[110px] max-sm:pt-[74px]', className)}>
-      <div className='pointer-events-none absolute inset-0 z-0 overflow-hidden' aria-hidden='true'>
+    <section
+      className={cn(
+        'relative z-2 border-t border-line bg-soft pt-[110px] max-sm:pt-[74px]',
+        className,
+      )}
+    >
+      <div
+        className='pointer-events-none absolute inset-0 z-0 overflow-hidden'
+        aria-hidden='true'
+      >
         <div className='absolute inset-0 bg-[radial-gradient(rgba(14,14,18,.13)_1px,transparent_1.4px)] bg-size-[26px_26px] opacity-50 mask-[radial-gradient(ellipse_70%_60%_at_70%_30%,#000_0%,transparent_75%)]' />
         <div className='absolute -top-[280px] -left-[200px] size-[860px] rounded-full bg-[radial-gradient(circle,rgba(255,57,81,.13),rgba(255,57,81,0)_64%)] blur-[10px]' />
       </div>
@@ -164,8 +210,12 @@ export function Pain({
               key={p.q}
               className='rv rounded-[18px] border border-line bg-white px-7 py-[30px] shadow-[0_18px_40px_-30px_rgba(14,14,18,.3)] hover:-translate-y-1 hover:border-red/45 hover:shadow-[0_28px_50px_-30px_rgba(255,57,81,.4)]'
             >
-              <span className='mb-[18px] block font-display text-[44px] leading-[.55] text-red'>&quot;</span>
-              <div className='mb-3 font-display text-[21px] leading-[1.22] font-bold tracking-[-.024em]'>{p.q}</div>
+              <span className='mb-[18px] block font-display text-[44px] leading-[.55] text-red'>
+                &quot;
+              </span>
+              <div className='mb-3 font-display text-[21px] leading-[1.22] font-bold tracking-[-.024em]'>
+                {p.q}
+              </div>
               <p className='text-[15px] leading-[1.6] text-dim'>{p.text}</p>
             </div>
           ))}
@@ -198,16 +248,27 @@ export function Funnel({
   className?: string;
 }) {
   return (
-    <section id={id} className={cn('relative z-2 scroll-mt-10 pt-[150px] pb-28 max-sm:pt-30 max-sm:pb-[74px]', className)}>
+    <section
+      id={id}
+      className={cn(
+        'relative z-2 scroll-mt-10 pt-[150px] pb-28 max-sm:pt-30 max-sm:pb-[74px]',
+        className,
+      )}
+    >
       <Wrap>
         <div className='relative overflow-hidden rounded-[26px] border border-line bg-[linear-gradient(180deg,#fff,#FBFAF8)] px-14 py-15 shadow-[0_40px_80px_-50px_rgba(14,14,18,.35)] max-dsk:px-8 max-dsk:py-11 max-sm:rounded-[20px] max-sm:px-[22px] max-sm:py-[34px]'>
-          <div className='pointer-events-none absolute inset-0 z-0 overflow-hidden' aria-hidden='true'>
+          <div
+            className='pointer-events-none absolute inset-0 z-0 overflow-hidden'
+            aria-hidden='true'
+          >
             <div className='absolute inset-0 bg-[radial-gradient(rgba(14,14,18,.13)_1px,transparent_1.4px)] bg-size-[26px_26px] opacity-45 mask-[radial-gradient(ellipse_70%_60%_at_70%_30%,#000_0%,transparent_75%)]' />
           </div>
           <div className='relative z-2 grid grid-cols-[.88fr_1.12fr] items-center gap-14 max-dsk:grid-cols-1 max-dsk:gap-13'>
             <div>
               <Eyebrow>{eyebrow}</Eyebrow>
-              <h2 className='rv mt-4 text-[clamp(31px,3.5vw,48px)] tracking-[-.035em]'>{title}</h2>
+              <h2 className='rv mt-4 text-[clamp(31px,3.5vw,48px)] tracking-[-.035em]'>
+                {title}
+              </h2>
               <p className='rv mt-[18px] text-[17px] text-dim'>{body}</p>
               {ghost && (
                 <div className='rv mt-[30px]'>
@@ -246,7 +307,15 @@ export function Funnel({
 }
 
 /** Numbered ledger row with the red hover bar. */
-export function LedgerRow({ n, title, text }: { n: string; title: string; text: ReactNode }) {
+export function LedgerRow({
+  n,
+  title,
+  text,
+}: {
+  n: string;
+  title: string;
+  text: ReactNode;
+}) {
   return (
     <div className="group/l relative grid grid-cols-[64px_1fr_26px] items-start gap-[22px] border-b border-line px-1 py-7 transition-[padding-left,background] duration-300 ease-rv before:absolute before:inset-y-0 before:left-0 before:w-0 before:bg-red before:transition-[width] before:duration-300 before:ease-rv before:content-[''] hover:bg-ink/[.025] hover:pl-[22px] hover:before:w-[3px] max-sm:grid-cols-[40px_1fr] max-sm:py-[22px]">
       <div className='pt-[3px] font-display text-[15px] font-bold text-dim-2 transition-colors duration-300 group-hover/l:text-red-ink'>
@@ -263,7 +332,12 @@ export function LedgerRow({ n, title, text }: { n: string; title: string; text: 
   );
 }
 
-export type Photo = { src?: string; alt?: string; t?: string | null; s?: string | null };
+export type Photo = {
+  src?: string;
+  alt?: string;
+  t?: string | null;
+  s?: string | null;
+};
 
 /** "Wat wij doen": sticky photo beside the numbered ledger, then the dark CTA band. */
 export function Deliverables({
@@ -288,16 +362,33 @@ export function Deliverables({
       <Wrap>
         <SecHead eyebrow={eyebrow} title={title} lead={lead} />
         <div className='relative z-2 grid grid-cols-[.72fr_1.28fr] items-start gap-15 max-dsk:grid-cols-1 max-dsk:gap-8'>
-          <div className="rv sticky top-[104px] h-140 overflow-hidden rounded-[20px] shadow-[0_40px_80px_-40px_rgba(14,14,18,.5)] after:absolute after:inset-0 after:bg-[linear-gradient(180deg,transparent_42%,rgba(12,12,16,.9)_100%)] after:content-[''] max-dsk:static max-dsk:h-80 max-sm:h-60">
-            {photo.src && <Image src={photo.src} alt={photo.alt ?? ''} fill sizes='(max-width:1080px) 100vw, 440px' className='object-cover' />}
+          <div className="rv sticky top-[104px] h-140 overflow-hidden rounded-[20px] shadow-[0_40px_80px_-40px_rgba(14,14,18,.5)] after:absolute after:inset-0 after:bg-[linear-gradient(180deg,transparent_42%,rgba(12,12,16,.9)_100%)] after:content-[''] max-dsk:relative max-dsk:top-0 max-dsk:h-80 max-sm:h-60">
+            {photo.src && (
+              <Image
+                src={photo.src}
+                alt={photo.alt ?? ''}
+                fill
+                sizes='(max-width:1080px) 100vw, 440px'
+                className='object-cover'
+              />
+            )}
             <div className='absolute inset-x-6 bottom-6 z-3 text-white'>
-              <div className='font-display text-[21px] leading-[1.2] font-bold tracking-[-.026em]'>{photo.t}</div>
-              <div className='mt-2 text-[13.5px] leading-normal text-white/85'>{photo.s}</div>
+              <div className='font-display text-[21px] leading-[1.2] font-bold tracking-[-.026em]'>
+                {photo.t}
+              </div>
+              <div className='mt-2 text-[13.5px] leading-normal text-white/85'>
+                {photo.s}
+              </div>
             </div>
           </div>
           <div className='rv border-t-[1.5px] border-ink'>
             {rows.map((r, i) => (
-              <LedgerRow key={r.title} n={String(i + 1).padStart(2, '0')} title={r.title} text={r.text} />
+              <LedgerRow
+                key={r.title}
+                n={String(i + 1).padStart(2, '0')}
+                title={r.title}
+                text={r.text}
+              />
             ))}
           </div>
         </div>
@@ -340,7 +431,9 @@ export function Crea({
             <div
               className={cn(
                 'relative z-2 rounded-[18px]',
-                shot ? '' : 'h-[430px] overflow-hidden shadow-[0_40px_80px_-36px_rgba(14,14,18,.5)] max-dsk:h-[390px] max-sm:h-75',
+                shot
+                  ? ''
+                  : 'h-[430px] overflow-hidden shadow-[0_40px_80px_-36px_rgba(14,14,18,.5)] max-dsk:h-[390px] max-sm:h-75',
               )}
             >
               {!img ? null : shot ? (
@@ -353,7 +446,13 @@ export function Crea({
                   className='h-auto w-full rounded-[18px] border border-line shadow-[0_40px_80px_-36px_rgba(14,14,18,.5)]'
                 />
               ) : (
-                <Image src={img} alt={alt ?? ''} fill sizes='(max-width:1080px) 100vw, 560px' className='object-cover' />
+                <Image
+                  src={img}
+                  alt={alt ?? ''}
+                  fill
+                  sizes='(max-width:1080px) 100vw, 560px'
+                  className='object-cover'
+                />
               )}
               <div
                 className={cn(
@@ -368,9 +467,17 @@ export function Crea({
           </div>
           <div>
             <Eyebrow>{eyebrow}</Eyebrow>
-            <h2 className='rv mt-4 mb-5 text-[clamp(29px,3.2vw,42px)] tracking-[-.035em]'>{title}</h2>
+            <h2 className='rv mt-4 mb-5 text-[clamp(29px,3.2vw,42px)] tracking-[-.035em]'>
+              {title}
+            </h2>
             {paras.map((p, i) => (
-              <p key={i} className={cn('rv text-[16.5px] text-dim', i < paras.length - 1 && 'mb-4')}>
+              <p
+                key={i}
+                className={cn(
+                  'rv text-[16.5px] text-dim',
+                  i < paras.length - 1 && 'mb-4',
+                )}
+              >
                 {p}
               </p>
             ))}
@@ -421,7 +528,15 @@ export function CaseStudy({
         <SecHead eyebrow={eyebrow} title={title} />
         <div className='rv relative grid min-h-85 grid-cols-2 overflow-hidden rounded-[20px] border border-line bg-white shadow-[0_30px_60px_-40px_rgba(14,14,18,.35)] max-dsk:grid-cols-1'>
           <div className='relative max-dsk:min-h-65'>
-            {img && <Image src={img} alt={alt ?? ''} fill sizes='(max-width:1080px) 100vw, 620px' className='object-cover' />}
+            {img && (
+              <Image
+                src={img}
+                alt={alt ?? ''}
+                fill
+                sizes='(max-width:1080px) 100vw, 620px'
+                className='object-cover'
+              />
+            )}
           </div>
           <div className='flex flex-col justify-center px-[42px] py-11 max-sm:px-[26px] max-sm:py-8'>
             <Eyebrow rv={false}>{cat}</Eyebrow>
@@ -430,7 +545,9 @@ export function CaseStudy({
             <div className='flex gap-9 border-t border-line pt-5'>
               {stats.map(([n, l]) => (
                 <div key={l}>
-                  <div className='font-display text-[32px] font-bold tracking-[-.035em]'>{n}</div>
+                  <div className='font-display text-[32px] font-bold tracking-[-.035em]'>
+                    {n}
+                  </div>
                   <div className='mt-0.5 text-[12.5px] text-dim'>{l}</div>
                 </div>
               ))}
@@ -445,12 +562,18 @@ export function CaseStudy({
 export type FaqItem = { q: string; a: ReactNode };
 
 /** Accordion on native <details>. */
-export function FaqList({ items, className }: { items: FaqItem[]; className?: string }) {
+export function FaqList({
+  items,
+  className,
+}: {
+  items: FaqItem[];
+  className?: string;
+}) {
   return (
     <div className={cn('max-w-210 border-t-[1.5px] border-ink', className)}>
       {items.map((f) => (
         <details key={f.q} className='group rv border-b border-line'>
-          <summary className='flex cursor-pointer list-none items-center justify-between gap-5 py-[22px] font-display text-lg font-semibold tracking-[-.02em] transition-colors duration-200 hover:text-red-ink [&::-webkit-details-marker]:hidden'>
+          <summary className='flex cursor-pointer list-none items-center justify-between gap-5 py-[22px] font-display text-lg/[1.65] font-semibold tracking-[-.02em] transition-colors duration-200 hover:text-red-ink [&::-webkit-details-marker]:hidden'>
             {f.q}{' '}
             <span className='shrink-0 text-[22px] leading-none text-red transition-transform duration-[280ms] ease-rv group-open:rotate-45'>
               +
@@ -463,7 +586,17 @@ export function FaqList({ items, className }: { items: FaqItem[]; className?: st
   );
 }
 
-export function Faq({ items, eyebrow, title, className }: { items: FaqItem[]; eyebrow?: string | null; title?: ReactNode; className?: string }) {
+export function Faq({
+  items,
+  eyebrow,
+  title,
+  className,
+}: {
+  items: FaqItem[];
+  eyebrow?: string | null;
+  title?: ReactNode;
+  className?: string;
+}) {
   return (
     <Sec className={className}>
       <Wrap>

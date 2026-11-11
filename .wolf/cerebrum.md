@@ -5,6 +5,7 @@
 > Last updated: 2026-11-11
 
 ## User Preferences
+- [2026-11-11] Mobile nav: user dislikes dropdown menus; prefers a drawer sliding in from the side. Hamburger nav must also cover tablets (≤769px).
 - Infra: wants the minimal "just renew the app on push" setup; doesn't want existing server pieces (Caddy) reworked.
 
 <!-- How the user likes things done. Code style, tools, patterns, communication. -->
@@ -36,6 +37,11 @@
 - No prettier config in app: format with `--single-quote --print-width 160` to match the repo style.
 
 ## Do-Not-Repeat
+- [2026-11-11] `fixed` children inside the Nav break once it gets `backdrop-blur` (backdrop-filter makes it their containing block). Render overlays/drawers outside <nav>.
+- [2026-11-11] Don't toggle `visibility` on a panel you focus into on open: focus() runs before it's visible and silently fails. Use `inert` for the closed state.
+- [2026-11-11] No Prettier config in the repo: bare `npx prettier --write` rewrites files to double quotes. Code style is single quotes + jsx single quotes + long lines; use `--single-quote --jsx-single-quote --print-width 180` or don't run it.
+- [2026-11-11] Browser pane hidden ⇒ CSS transitions/timers throttled; computed opacity/visibility lag. Don't mistake it for a bug.
+- [2026-11-11] Lockfiles are written by local npm 11.6.2 (Node 24); npm 10 and 12 reject them (@emnapi missing). In CI/Docker pin npm 11 (`npm i -g npm@11.6.2`) rather than regenerating the lock.
 - [2026-11-11] zsh: `"$R:app/x"` applies the `:a` modifier (and `:s`, `:h`, …) and unquoted `$args` is not word-split. Write `${R}:path`, and run arg-list loops under `bash -c`.
 - [2026-11-11] Only one `next dev` per folder (Next 16 lock): when another session's server holds :3000, verify against it (curl / browser on :3000) instead of starting a second one.
 - [2026-11-11] Env fallbacks must use `||`, not `??`: the Dockerfile turns every unset build-arg into an empty-string env var.
@@ -65,3 +71,14 @@
 - [2026-11-11] There's no prettier config; running `npx prettier --write` reformats whole files (double quotes, 80 cols). Don't run it; match the style by hand (single quotes, jsx single quotes, ~160 cols).
 - [2026-11-11] The browser pane may be hidden → IntersectionObserver never fires there, so `.rv` content looks blank in screenshots. Check tabs_context before concluding reveal is broken.
 - [2026-11-11] Locally, Sanity edits don't show in `next dev`: reads are cached under tag `sanity` (24h) and SANITY_REVALIDATE_SECRET is empty in app env, so /api/revalidate refuses. Clearing .next fetch-cache isn't enough; restart the dev server. Patch the dataset via `npx sanity exec <file> --with-user-token` (getCliClient from 'sanity/cli'), script file must sit inside studio/.
+
+- [2026-11-11] `cn` is plain join (no tailwind-merge): a className passed to Stage/etc. cannot override a same-variant base class; and `max-mob:` sorts after `max-sm:`, so base `max-mob:*` beats caller `max-sm:*`. Use `!` or restructure.
+
+- [2026-11-11] Never leave a position:fixed element translated off-screen (drawers): body overflow-x:hidden does not clip it and mobile browsers zoom out the whole page. Clip it in a fixed inset-0 overflow-hidden wrapper with the panel absolute.
+
+- [2026-11-11] Porting design `position:static` overrides: a box holding a next/image `fill` (or any absolute child) must stay positioned. Use `max-*:relative max-*:top-0` instead of `max-*:static` (top-0 cancels a sticky top offset). When verifying, scroll lazy images into view; unloaded images hide layout bugs.
+
+- [2026-11-11] next/font Inter has no → (U+2192) in any subset; CSS `content:"→"` renders in the fallback font ~15% wider than the design. Size the pseudo explicitly (`after:w-[.92em]`) where width matters. Also: Tailwind `text-base`/`text-lg` set their own line-height; the design inherits body 1.65 — use `text-base/[1.65]`.
+
+- [2026-11-11] Case studies have their own route /case/[slug] (pathForSlug(slug, "caseStudy")). Long-form Portable Text renderers live in components/advertisr/prose.tsx (shared by articles and cases).
+- [2026-11-11] Never import `next/image` directly: use `@/components/ui/Image` (applies sanityLoader so the Sanity CDN resizes at q=85). A global images.loaderFile breaks /_next/image for local images.

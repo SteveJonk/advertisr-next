@@ -2,19 +2,19 @@
   "version": 1,
   "created_at": "2026-11-11T10:36:49.843Z",
   "lifetime": {
-    "total_tokens_estimated": 20664,
-    "total_reads": 21,
+    "total_tokens_estimated": 72074,
+    "total_reads": 44,
     "total_writes": 0,
-    "total_sessions": 7,
-    "anatomy_hits": 3,
-    "anatomy_misses": 18,
+    "total_sessions": 12,
+    "anatomy_hits": 16,
+    "anatomy_misses": 28,
     "repeated_reads_blocked": 0,
-    "estimated_savings_vs_bare_cli": 600,
-    "real_input_tokens": 2940,
-    "real_output_tokens": 1739256,
-    "real_cache_read_tokens": 447481881,
-    "real_cache_creation_tokens": 4512284,
-    "real_api_calls": 1443
+    "estimated_savings_vs_bare_cli": 3200,
+    "real_input_tokens": 4190,
+    "real_output_tokens": 2125995,
+    "real_cache_read_tokens": 534970971,
+    "real_cache_creation_tokens": 6151400,
+    "real_api_calls": 2027
   },
   "sessions": [
     {
@@ -453,6 +453,408 @@
         "cache_read_input_tokens": 14707777,
         "cache_creation_input_tokens": 191655,
         "api_calls": 75
+      }
+    },
+    {
+      "id": "session-2026-11-11-1601",
+      "agent": "claude",
+      "started": "2026-11-11T15:01:39.354Z",
+      "ended": "2026-11-11T15:31:08.704Z",
+      "reads": [
+        {
+          "file": "/Users/stevejonk/.claude/projects/-Users-stevejonk-Documents-Prive-Projecten-advertisr-next/8fff9ac5-978f-4596-b55f-a54061a817bc/tool-results/bpihbatch.txt",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/private/tmp/claude-501/-Users-stevejonk--claude-spares-spare-YGZDmn/8fff9ac5-978f-4596-b55f-a54061a817bc/scratchpad/old-app.txt",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 0,
+        "reads_count": 2,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      },
+      "real_usage": {
+        "input_tokens": 68,
+        "output_tokens": 29080,
+        "cache_read_input_tokens": 3378234,
+        "cache_creation_input_tokens": 143617,
+        "api_calls": 31
+      }
+    },
+    {
+      "id": "session-2026-11-11-1601",
+      "agent": "claude",
+      "started": "2026-11-11T15:01:39.354Z",
+      "ended": "2026-11-11T15:36:11.183Z",
+      "reads": [
+        {
+          "file": "/Users/stevejonk/.claude/projects/-Users-stevejonk-Documents-Prive-Projecten-advertisr-next/8fff9ac5-978f-4596-b55f-a54061a817bc/tool-results/bpihbatch.txt",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/private/tmp/claude-501/-Users-stevejonk--claude-spares-spare-YGZDmn/8fff9ac5-978f-4596-b55f-a54061a817bc/scratchpad/old-app.txt",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 0,
+        "reads_count": 2,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      },
+      "real_usage": {
+        "input_tokens": 74,
+        "output_tokens": 30541,
+        "cache_read_input_tokens": 3643457,
+        "cache_creation_input_tokens": 144716,
+        "api_calls": 33
+      }
+    },
+    {
+      "id": "session-2026-11-11-1601",
+      "agent": "claude",
+      "started": "2026-11-11T15:01:39.354Z",
+      "ended": "2026-11-11T15:41:04.824Z",
+      "reads": [
+        {
+          "file": "/Users/stevejonk/.claude/projects/-Users-stevejonk-Documents-Prive-Projecten-advertisr-next/8fff9ac5-978f-4596-b55f-a54061a817bc/tool-results/bpihbatch.txt",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/private/tmp/claude-501/-Users-stevejonk--claude-spares-spare-YGZDmn/8fff9ac5-978f-4596-b55f-a54061a817bc/scratchpad/old-app.txt",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 0,
+        "reads_count": 2,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      },
+      "real_usage": {
+        "input_tokens": 78,
+        "output_tokens": 31148,
+        "cache_read_input_tokens": 3777604,
+        "cache_creation_input_tokens": 144767,
+        "api_calls": 34
+      }
+    },
+    {
+      "id": "session-2026-11-11-1601",
+      "agent": "claude",
+      "started": "2026-11-11T15:01:39.354Z",
+      "ended": "2026-11-11T15:42:04.923Z",
+      "reads": [
+        {
+          "file": "/Users/stevejonk/.claude/projects/-Users-stevejonk-Documents-Prive-Projecten-advertisr-next/8fff9ac5-978f-4596-b55f-a54061a817bc/tool-results/bpihbatch.txt",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/private/tmp/claude-501/-Users-stevejonk--claude-spares-spare-YGZDmn/8fff9ac5-978f-4596-b55f-a54061a817bc/scratchpad/old-app.txt",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 0,
+        "reads_count": 2,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      },
+      "real_usage": {
+        "input_tokens": 82,
+        "output_tokens": 31612,
+        "cache_read_input_tokens": 3912411,
+        "cache_creation_input_tokens": 144798,
+        "api_calls": 35
+      }
+    },
+    {
+      "id": "session-2026-11-11-1601",
+      "agent": "claude",
+      "started": "2026-11-11T15:01:39.354Z",
+      "ended": "2026-11-11T15:46:42.109Z",
+      "reads": [
+        {
+          "file": "/Users/stevejonk/.claude/projects/-Users-stevejonk-Documents-Prive-Projecten-advertisr-next/8fff9ac5-978f-4596-b55f-a54061a817bc/tool-results/bpihbatch.txt",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/private/tmp/claude-501/-Users-stevejonk--claude-spares-spare-YGZDmn/8fff9ac5-978f-4596-b55f-a54061a817bc/scratchpad/old-app.txt",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 0,
+        "reads_count": 2,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      },
+      "real_usage": {
+        "input_tokens": 90,
+        "output_tokens": 33155,
+        "cache_read_input_tokens": 4319594,
+        "cache_creation_input_tokens": 146459,
+        "api_calls": 38
+      }
+    },
+    {
+      "id": "session-2026-11-11-1652",
+      "agent": "claude",
+      "started": "2026-11-11T15:52:07.296Z",
+      "ended": "2026-11-11T15:54:55.256Z",
+      "reads": [
+        {
+          "file": "/Users/stevejonk/Documents/Prive Projecten/advertisr-next/app/src/components/advertisr/Nav.tsx",
+          "tokens_estimated": 980,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 980,
+        "output_tokens_estimated": 0,
+        "reads_count": 1,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 1
+      },
+      "real_usage": {
+        "input_tokens": 56,
+        "output_tokens": 10926,
+        "cache_read_input_tokens": 2879557,
+        "cache_creation_input_tokens": 64363,
+        "api_calls": 27
+      }
+    },
+    {
+      "id": "session-2026-11-11-2055",
+      "agent": "claude",
+      "started": "2026-11-11T19:55:25.223Z",
+      "ended": "2026-11-11T20:05:03.897Z",
+      "reads": [
+        {
+          "file": "/Users/stevejonk/Documents/Prive Projecten/advertisr-next/app/src/components/advertisr/Nav.tsx",
+          "tokens_estimated": 980,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 980,
+        "output_tokens_estimated": 0,
+        "reads_count": 1,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 1
+      },
+      "real_usage": {
+        "input_tokens": 80,
+        "output_tokens": 19690,
+        "cache_read_input_tokens": 5361620,
+        "cache_creation_input_tokens": 121842,
+        "api_calls": 39
+      }
+    },
+    {
+      "id": "session-2026-11-11-2055",
+      "agent": "claude",
+      "started": "2026-11-11T19:55:25.223Z",
+      "ended": "2026-11-11T20:09:12.161Z",
+      "reads": [
+        {
+          "file": "/Users/stevejonk/Documents/Prive Projecten/advertisr-next/app/src/components/advertisr/Nav.tsx",
+          "tokens_estimated": 980,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 980,
+        "output_tokens_estimated": 0,
+        "reads_count": 1,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 1
+      },
+      "real_usage": {
+        "input_tokens": 130,
+        "output_tokens": 36034,
+        "cache_read_input_tokens": 9680743,
+        "cache_creation_input_tokens": 148335,
+        "api_calls": 63
+      }
+    },
+    {
+      "id": "session-2026-11-11-2055",
+      "agent": "claude",
+      "started": "2026-11-11T19:55:25.223Z",
+      "ended": "2026-11-11T20:15:36.020Z",
+      "reads": [
+        {
+          "file": "/Users/stevejonk/Documents/Prive Projecten/advertisr-next/app/src/components/advertisr/Nav.tsx",
+          "tokens_estimated": 980,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/stevejonk/Documents/Prive Projecten/advertisr-next/app/src/components/advertisr/visuals.tsx",
+          "tokens_estimated": 4996,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 5976,
+        "output_tokens_estimated": 0,
+        "reads_count": 2,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 2
+      },
+      "real_usage": {
+        "input_tokens": 146,
+        "output_tokens": 38636,
+        "cache_read_input_tokens": 11063615,
+        "cache_creation_input_tokens": 156577,
+        "api_calls": 70
+      }
+    },
+    {
+      "id": "session-2026-11-11-2055",
+      "agent": "claude",
+      "started": "2026-11-11T19:55:25.223Z",
+      "ended": "2026-11-11T20:21:27.026Z",
+      "reads": [
+        {
+          "file": "/Users/stevejonk/Documents/Prive Projecten/advertisr-next/app/src/components/advertisr/Nav.tsx",
+          "tokens_estimated": 980,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/stevejonk/Documents/Prive Projecten/advertisr-next/app/src/components/advertisr/visuals.tsx",
+          "tokens_estimated": 4996,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/stevejonk/Documents/Prive Projecten/advertisr-next/app/src/components/advertisr/sections.tsx",
+          "tokens_estimated": 14816,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/stevejonk/Documents/Prive Projecten/advertisr-next/app/src/app/layout.tsx",
+          "tokens_estimated": 455,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 21247,
+        "output_tokens_estimated": 0,
+        "reads_count": 4,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 4
+      },
+      "real_usage": {
+        "input_tokens": 194,
+        "output_tokens": 52340,
+        "cache_read_input_tokens": 16087374,
+        "cache_creation_input_tokens": 186708,
+        "api_calls": 93
+      }
+    },
+    {
+      "id": "session-2026-11-11-2055",
+      "agent": "claude",
+      "started": "2026-11-11T19:55:25.223Z",
+      "ended": "2026-11-11T20:28:08.323Z",
+      "reads": [
+        {
+          "file": "/Users/stevejonk/Documents/Prive Projecten/advertisr-next/app/src/components/advertisr/Nav.tsx",
+          "tokens_estimated": 980,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/stevejonk/Documents/Prive Projecten/advertisr-next/app/src/components/advertisr/visuals.tsx",
+          "tokens_estimated": 4996,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/stevejonk/Documents/Prive Projecten/advertisr-next/app/src/components/advertisr/sections.tsx",
+          "tokens_estimated": 14816,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/Users/stevejonk/Documents/Prive Projecten/advertisr-next/app/src/app/layout.tsx",
+          "tokens_estimated": 455,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 21247,
+        "output_tokens_estimated": 0,
+        "reads_count": 4,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 4
+      },
+      "real_usage": {
+        "input_tokens": 252,
+        "output_tokens": 73577,
+        "cache_read_input_tokens": 23384881,
+        "cache_creation_input_tokens": 236934,
+        "api_calls": 121
       }
     }
   ],

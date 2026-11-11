@@ -43,6 +43,14 @@ const UI: Record<string, [name: string, title: string][]> = {
     ['relatedEyebrow', 'Related articles eyebrow'],
     ['relatedTitle', 'Related articles title'],
   ],
+  cases: [
+    ['crumbCases', 'Case page: breadcrumb to the results page'],
+    ['caseResultsEyebrow', 'Case page: results eyebrow'],
+    ['moreCasesEyebrow', 'Case page: more cases eyebrow'],
+    ['moreCasesTitle', 'Case page: more cases title'],
+    ['caseCtaTitle', 'Case page: closing band title'],
+    ['caseCtaText', 'Case page: closing band text'],
+  ],
   notFound: [
     ['notFoundMetaTitle', '404 browser tab title'],
     ['notFoundEyebrow', '404 eyebrow'],

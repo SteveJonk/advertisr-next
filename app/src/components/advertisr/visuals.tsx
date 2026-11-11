@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import Image from '@/components/ui/Image';
 import { useEffect, useState, type ReactNode } from 'react';
 import { cn } from '@/lib/cn';
 import { FloatStat } from './service';
@@ -52,7 +52,7 @@ function Browser({ url, className, children }: { url: string; className?: string
 
 export function PhoneVisual() {
   return (
-    <Stage className='min-h-150 max-sm:min-h-130'>
+    <Stage className='min-h-150 max-sm:min-h-130 max-mob:min-h-130!'>
       <FloatStat value='8%+' label='conversieratio Meta Ads' className='top-[34px] -left-[34px] max-sm:-left-2' />
       <div className='relative z-3 w-[298px] rounded-[36px] border border-ink/50 bg-[#15151B] p-[9px] shadow-[0_44px_80px_-34px_rgba(14,14,18,.55),inset_0_0_0_1px_rgba(255,255,255,.08)]'>
         <div className='overflow-hidden rounded-[28px] bg-white'>
@@ -299,7 +299,7 @@ export function FlowVisual() {
           <Live label='Actief' />
         </div>
         <div className='px-[22px] pt-6 pb-[26px]'>
-          <div className="relative flex flex-col pl-7 before:absolute before:top-2.5 before:bottom-2.5 before:left-[9px] before:w-[1.5px] before:bg-red/30 before:content-['']">
+          <div className="relative flex flex-col pl-7 before:absolute before:top-2.5 before:bottom-2.5 before:left-[4.75px] before:w-[1.5px] before:bg-red/30 before:content-['']">
             {FLOW.map((title, i) => (
               <div
                 key={title}

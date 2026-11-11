@@ -36,6 +36,12 @@ export const singletons = [
       stepPrefix: 'Stap',
       caseCardLink: 'Bekijk case →',
       caseListLink: 'Bekijk de volledige case study →',
+      crumbCases: 'Resultaten',
+      caseResultsEyebrow: 'Het resultaat',
+      moreCasesEyebrow: 'Meer resultaten',
+      moreCasesTitle: 'Andere klanten, dezelfde aanpak.',
+      caseCtaTitle: 'Benieuwd wat dit voor jouw bedrijf kan opleveren?',
+      caseCtaText: 'In je gratis groeiplan rekenen we het voor je door. Vrijblijvend, binnen 48 uur.',
       ratedOnGoogle: 'Beoordeeld op Google',
       onGoogle: 'op Google',
       googleReview: 'Google review',
@@ -195,7 +201,7 @@ export const cases = [
     tags: ['Web development', 'Google Ads', 'Meta Ads'],
     url: 'https://advertisr.nl/online-ads-case-study-ciao-italia/',
   },
-].map((c, i) => ({ _type: 'caseStudy', sortOrder: i + 1, ...c, stats: c.stats.map(([value, label]) => ({ value, label })) }));
+].map((c, i) => ({ _type: 'caseStudy', sortOrder: i + 1, slug: { _type: 'slug', current: c._id.replace('case-', '') }, ...c, stats: c.stats.map(([value, label]) => ({ value, label })) }));
 
 export const categories = [
   ['google-ads', 'Google Ads', '#FF3951', 'target'],

@@ -125,6 +125,8 @@ export function Nav({ site, landing = false }: { site: Pick<Site, 'name' | 'nav'
               open ? 'visible opacity-100' : 'invisible opacity-0',
             )}
           />
+          {/* Clipping layer: an off-screen fixed drawer widens the page on mobile browsers (zoomed-out, "desktop" look). */}
+          <div className='pointer-events-none fixed inset-0 z-120 overflow-hidden min-[770px]:hidden'>
           <div
             id='mobile-menu'
             role='dialog'
@@ -132,7 +134,7 @@ export function Nav({ site, landing = false }: { site: Pick<Site, 'name' | 'nav'
             aria-label='Menu'
             inert={!open}
             className={cn(
-              'fixed inset-y-0 right-0 z-120 flex w-[min(86vw,380px)] flex-col bg-white px-[22px] pb-8 shadow-[-30px_0_60px_-30px_rgba(14,14,18,.35)] transition-[translate] duration-[420ms] ease-rv motion-reduce:transition-none min-[770px]:hidden',
+              'pointer-events-auto absolute inset-y-0 right-0 flex w-[min(86vw,380px)] flex-col bg-white px-[22px] pb-8 shadow-[-30px_0_60px_-30px_rgba(14,14,18,.35)] transition-[translate] duration-[420ms] ease-rv motion-reduce:transition-none',
               open ? 'translate-x-0' : 'translate-x-full',
             )}
           >
@@ -177,6 +179,7 @@ export function Nav({ site, landing = false }: { site: Pick<Site, 'name' | 'nav'
             <Link href='/groeiplan' onClick={toForm} className={cn(cta, 'mt-auto block py-3.5 text-center max-sm:py-3.5 max-sm:text-sm')}>
               {site.nav.ctaLabel}
             </Link>
+          </div>
           </div>
         </>
       )}

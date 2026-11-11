@@ -133,17 +133,19 @@
       "error_message": "npm ci EUSAGE: Missing @emnapi/core@2.0.0-beta.2 / @emnapi/runtime from lock file (Deploy Sanity Studio action)",
       "file": ".github/workflows/deploy-sanity-studio.yml",
       "root_cause": "Lockfile written by npm 11 (local Node 24) omits deps of optional @rolldown/binding-wasm32-wasi; npm 10 (Node 22 on CI) treats that as out of sync. Regenerating the lockfile doesn't help. Node 24 on CI ships npm 12, which also rejects it; pinning Node only moved the problem.",
-      "fix": "Regenerated studio/package-lock.json with `npx npm@12 install --package-lock-only` in a clean copy: adds node_modules/@emnapi/core + runtime. Verified `npm ci --dry-run` passes on npm 10, 11 and 12 in a dir without node_modules.",
+      "fix": "Regenerated studio/package-lock.json with `npx npm@12 install --package-lock-only` in a clean copy: adds node_modules/@emnapi/core + runtime. Verified `npm ci --dry-run` passes on npm 10, 11 and 12 in a dir without node_modules. | 2026-11-11 app/Dockerfile (Build App Image): npm@12 lock regen fails there ('Fetching packages of type remote have been disabled' on @tailwindcss/oxide-wasm32-wasi), so instead the deps stage runs `npm install -g npm@11.6.2 && npm ci` — same npm as local, verified clean `npm ci --dry-run` on 11.6.2.",
       "tags": [
         "npm",
         "ci",
         "lockfile",
         "github-actions",
-        "sanity"
+        "sanity",
+        "docker",
+        "app"
       ],
       "related_bugs": [],
-      "occurrences": 2,
-      "last_seen": "2026-11-11T14:55:00Z"
+      "occurrences": 3,
+      "last_seen": "2026-11-11T15:30:00Z"
     },
     {
       "id": "bug-010",
@@ -213,6 +215,96 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-11-11T16:12:35"
+    },
+    {
+      "id": "bug-014",
+      "timestamp": "2026-11-11T17:00:00Z",
+      "error_message": "Service page not the same as the design on mobile",
+      "file": "app/src/components/advertisr/service.tsx, visuals.tsx",
+      "root_cause": "FAQ summary used text-lg (28px line-height) instead of body 1.65; Stage's max-mob:min-h-0 overrode the Meta phone stage's max-sm:min-h-130 below 520px (design keeps 520px)",
+      "fix": "text-lg/[1.65] on FAQ summary; max-mob:min-h-130! on the phone stage (cn has no tailwind-merge)",
+      "tags": [
+        "mobile",
+        "tailwind",
+        "line-height",
+        "variant-order"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-11-11T17:00:00Z"
+    },
+    {
+      "id": "bug-015",
+      "timestamp": "2026-11-11T17:30:00Z",
+      "error_message": "Mobile page looks right on refresh, then flips to a stretched desktop-like layout",
+      "file": "app/src/components/advertisr/Nav.tsx",
+      "root_cause": "Closed mobile drawer is position:fixed translated off-screen right (x 375-698); body overflow-x:hidden doesn't clip fixed elements, so real mobile browsers widen the layout viewport and zoom out. Chrome emulation doesn't show it.",
+      "fix": "Wrap drawer in a pointer-events-none fixed inset-0 overflow-hidden layer and make the drawer absolute inside it",
+      "tags": [
+        "mobile",
+        "overflow",
+        "fixed",
+        "drawer",
+        "ios"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-11-11T17:30:00Z"
+    },
+    {
+      "id": "bug-016",
+      "timestamp": "2026-11-11T18:00:00Z",
+      "error_message": "Mobile: after load the 'Wat wij doen' photo covers the whole ledger (looks stretched/desktop)",
+      "file": "app/src/components/advertisr/service.tsx",
+      "root_cause": "Deliverables photo box used max-dsk:static (ported from design's position:static). Its next/image `fill` child is position:absolute, so with a static box it filled the nearest positioned ancestor (the whole grid). Only visible once the lazy image loaded, hence the 'flip'.",
+      "fix": "max-dsk:relative max-dsk:top-0 (relative keeps it the containing block; top-0 cancels the sticky top-[104px] offset)",
+      "tags": [
+        "mobile",
+        "next-image",
+        "fill",
+        "position",
+        "sticky",
+        "lazy-load"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-11-11T18:00:00Z"
+    },
+    {
+      "id": "bug-017",
+      "timestamp": "2026-11-11T18:40:00Z",
+      "error_message": "Homepage 'Vier schakels' cards differ from design: n8n badge wraps under 'AI Agent Workflows', cards 25px taller",
+      "file": "app/src/components/advertisr/sections.tsx",
+      "root_cause": "next/font Inter subsets (even latin-ext) have no U+2192; the CSS '→' falls back to a ~16px glyph vs 13.7px in the design, leaving the label 0.8px short so the badge wrapped. Band also inherited text-base's 1.5 line-height.",
+      "fix": "after:w-[.92em] after:shrink-0 on the link arrow; text-base/[1.65] on the band",
+      "tags": [
+        "font",
+        "next-font",
+        "glyph",
+        "arrow",
+        "wrap",
+        "line-height"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-11-11T18:40:00Z"
+    },
+    {
+      "id": "bug-018",
+      "timestamp": "2026-11-11T00:00:00Z",
+      "error_message": "Sanity images low quality on site, served as webp while original is jpeg",
+      "file": "app/src/components/ui/Image.tsx",
+      "root_cause": "Image wrapper using sanityLoader was deleted in 87de3f7; components imported next/image directly so /_next/image re-compressed fixed-size Sanity URLs at q=75",
+      "fix": "Restored components/ui/Image.tsx (client wrapper applying sanityLoader for cdn.sanity.io srcs) and pointed all next/image imports to it",
+      "tags": [
+        "next-image",
+        "sanity",
+        "image-quality",
+        "loader"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-11-11T00:00:00Z"
     }
   ]
 }

@@ -229,6 +229,10 @@
 
 - `page.tsx` — A route of its own because `kennisbank/[slug]` claims the segment. (~81 tok)
 
+## app/src/app/(site)/case/[slug]/
+
+- `page.tsx` — Case study page: hero from the card fields, results, optional story (prose.tsx), CTA band, other cases. (~1400 tok)
+
 ## app/src/app/(site)/kennisbank/[slug]/
 
 - `page.tsx` — "Wat kost Google Ads?" → "wat-kost-google-ads", the h2's id for the table of contents. (~4316 tok)
@@ -309,6 +313,7 @@
   - fn `ArticleCard` L177-201 (~349 tok)
 - `CaseCard.tsx` — Dark photo card with a category pill, title and two stats. (~654 tok)
   - fn `CaseCard` L14-52 (~568 tok)
+- `prose.tsx` — Long-form Portable Text: `prose` styles, `proseComponents`, `anchor`/`textOf` for the TOC. Used by articles and case pages. (~1600 tok)
 - `cms.tsx` — Helpers that turn Sanity field values into what the design components take. (~672 tok)
   - fn `Rich` L17-31 (~139 tok)
   - fn `plain` L32-38 (~79 tok)
@@ -334,7 +339,7 @@
 - `Logos.tsx` — "Vertrouwd door" band with the endless logo strip. (~560 tok)
   - fn `Logos` L6-46 (~511 tok)
 - `Marquee.tsx` — Pill strip that scrolls forever (doubled so the loop is seamless). (~309 tok)
-- `Nav.tsx` — Fixed top bar; frosted once the page scrolls past 20px. Links hide below (~980 tok)
+- `Nav.tsx` — Fixed top bar; frosted once the page scrolls past 20px. Up to 769px links move into a right-side slide-in drawer (rendered outside <nav>, with backdrop, scroll lock, focus handling); bar CTA hides below 520px. Links hide below (~980 tok)
   - fn `Nav` L16-81 (~817 tok)
 - `Reviews.tsx` — A tone for reviews without one (Google imports), stable per name. (~798 tok)
   - fn `toneFor` L20-25 (~64 tok)
