@@ -2,11 +2,15 @@
 
 > Single source of truth for resuming work. Read this FIRST when starting a session.
 > Update this file at the end of every work phase so the next `/clear` resumes in 1 read.
-> Last updated: 2026-11-11 (forms restored)
+> Last updated: 2026-11-11 (design audit fixes)
 
 ---
 
 ## ✅ Done
+
+### Design vs app audit + fixes (2026-11-11)
+- Side-by-side audit of all 15 pages (desktop 1440 / mobile 390). Fixed: Bricolage now loads the `opsz` axis (heading wraps matched the design), caseHighlight got a `lead` (Bewijs intro on 4 service pages; seed JSON + dataset patched), founder quote no longer translated, contact reviews `pt-5!` after contactMethods, form controls `leading-[normal]` + mobile row gap, groeiplan steps text 16.5px, SEO overlay screenshot overlaps again (side follows `flip`), article meta row (author full row, category icon instead of emoji), hero content widths 680/740.
+- Remaining differences are content: related articles + Meta Ads pillar (drafts), newer Google reviews (longer), case stat labels, Steve's photo. Deploy the studio so editors see caseHighlight `lead`.
 
 ### Sanity form builder restored + wired to every form (2026-11-11)
 - Studio: `form` documents (fields or steps, buttons, small print `note`, confirmation/redirect, per-form mail), `formField`, singleton **Form settings** (`formGeneralSettings`: mail provider + fallback credentials, mail design, spam check reCAPTCHA/Turnstile, shared interface text) with the "Send test mail" panel (`tools/MailTest.tsx`). Menu: Forms + Form settings.

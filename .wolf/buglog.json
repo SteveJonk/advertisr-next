@@ -8,11 +8,7 @@
       "file": "app/src/lib/site.ts",
       "root_cause": "NEXT_PUBLIC_SITE_URL= empty in .env; `??` keeps empty string",
       "fix": "Use `||` fallback to http://localhost:3000",
-      "tags": [
-        "env",
-        "url",
-        "nextjs"
-      ],
+      "tags": ["env", "url", "nextjs"],
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-11-11T12:30:00Z"
@@ -24,10 +20,7 @@
       "file": "app/src/app/globals.css",
       "root_cause": "Tailwind v4 max-w-* also reads --spacing-*; --spacing-wrap (template) won over --container-wrap",
       "fix": "Renamed token to --container-page / max-w-page",
-      "tags": [
-        "tailwind",
-        "tokens"
-      ],
+      "tags": ["tailwind", "tokens"],
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-11-11T12:35:00Z"
@@ -39,11 +32,7 @@
       "file": "app/src/app/sitemap.ts",
       "root_cause": "sitemap used client.fetch (throws) and only listed CMS pages",
       "fix": "safeFetch + static Advertisr routes, CMS pages that collide with static paths skipped",
-      "tags": [
-        "sitemap",
-        "sanity",
-        "build"
-      ],
+      "tags": ["sitemap", "sanity", "build"],
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-11-11T13:40:00Z"
@@ -55,11 +44,7 @@
       "file": "app/src/app/(site)/seo-geo/page.tsx",
       "root_cause": "Arbitrary bg-[url(\"data:…\")] class produced invalid CSS; stale in dev cache after removal",
       "fix": "Replaced with inline <svg> Tick; cleared .next/dev; added @source not \"../../design\"",
-      "tags": [
-        "tailwind",
-        "css",
-        "dev-cache"
-      ],
+      "tags": ["tailwind", "css", "dev-cache"],
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-11-11T13:45:00Z"
@@ -69,11 +54,7 @@
       "file": "app/package.json",
       "root_cause": "Regex removal of scripts left a trailing comma after the last script",
       "fix": "Removed the comma; validate with node -e require",
-      "tags": [
-        "json",
-        "package.json",
-        "scripts"
-      ],
+      "tags": ["json", "package.json", "scripts"],
       "id": "bug-005",
       "timestamp": "2026-11-11T14:08:59.716432",
       "related_bugs": [],
@@ -85,11 +66,7 @@
       "file": "app/src/sanity/queries.ts",
       "root_cause": "Typegen can't narrow `_type in [...] => {}` conditional projections, so resolved and unresolved shapes unioned",
       "fix": "One conditional per block type (caseCards, caseList) sharing a projection string",
-      "tags": [
-        "sanity",
-        "typegen",
-        "groq"
-      ],
+      "tags": ["sanity", "typegen", "groq"],
       "id": "bug-006",
       "timestamp": "2026-11-11T14:08:59.716432",
       "related_bugs": [],
@@ -101,11 +78,7 @@
       "file": "app/src/components/advertisr/Nav.tsx",
       "root_cause": "Nav set CTA href from a DOM lookup inside useEffect",
       "fix": "href=/groeiplan + onClick that scrolls to #groeiplan when the page has it",
-      "tags": [
-        "react",
-        "eslint",
-        "nav"
-      ],
+      "tags": ["react", "eslint", "nav"],
       "id": "bug-007",
       "timestamp": "2026-11-11T14:08:59.716432",
       "related_bugs": [],
@@ -117,10 +90,7 @@
       "file": "app/scripts/check-jsonld.ts",
       "root_cause": "Python str.replace replaced every occurrence when adapting the test to the removed SITE_DEFAULTS",
       "fix": "Restored addressCountry in the CMS-merged expectation",
-      "tags": [
-        "test",
-        "json-ld"
-      ],
+      "tags": ["test", "json-ld"],
       "id": "bug-008",
       "timestamp": "2026-11-11T14:08:59.716432",
       "related_bugs": [],
@@ -134,15 +104,7 @@
       "file": ".github/workflows/deploy-sanity-studio.yml",
       "root_cause": "Lockfile written by npm 11 (local Node 24) omits deps of optional @rolldown/binding-wasm32-wasi; npm 10 (Node 22 on CI) treats that as out of sync. Regenerating the lockfile doesn't help. Node 24 on CI ships npm 12, which also rejects it; pinning Node only moved the problem.",
       "fix": "Regenerated studio/package-lock.json with `npx npm@12 install --package-lock-only` in a clean copy: adds node_modules/@emnapi/core + runtime. Verified `npm ci --dry-run` passes on npm 10, 11 and 12 in a dir without node_modules. | 2026-11-11 app/Dockerfile (Build App Image): npm@12 lock regen fails there ('Fetching packages of type remote have been disabled' on @tailwindcss/oxide-wasm32-wasi), so instead the deps stage runs `npm install -g npm@11.6.2 && npm ci` — same npm as local, verified clean `npm ci --dry-run` on 11.6.2.",
-      "tags": [
-        "npm",
-        "ci",
-        "lockfile",
-        "github-actions",
-        "sanity",
-        "docker",
-        "app"
-      ],
+      "tags": ["npm", "ci", "lockfile", "github-actions", "sanity", "docker", "app"],
       "related_bugs": [],
       "occurrences": 3,
       "last_seen": "2026-11-11T15:30:00Z"
@@ -154,14 +116,7 @@
       "file": "app/src/components/advertisr/kennisbank.tsx",
       "root_cause": "Search input and Pills were visual-only placeholders (ponytail comment in ArticleIndex). First fix unmounted empty sections, and remounted .rv elements stayed opacity 0 because SiteEffects observes .rv once per pathname.",
       "fix": "ArticleFilter context (q + category) in kennisbank.tsx; FilterItem/FilterGroup/FilterEmpty hide via className 'contents'/'hidden', never unmount. New articleIndex.noResults field.",
-      "tags": [
-        "kennisbank",
-        "filter",
-        "search",
-        "rv",
-        "reveal",
-        "SiteEffects"
-      ],
+      "tags": ["kennisbank", "filter", "search", "rv", "reveal", "SiteEffects"],
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-11-11T14:30:00Z"
@@ -173,12 +128,7 @@
       "file": "app/src/lib/env.ts, app/sentry.options.ts",
       "root_cause": "`ARG X` + `ENV X=$X` always defines the var, empty when not passed; `??` only catches undefined",
       "fix": "Use `||` for env fallbacks of NEXT_PUBLIC_SANITY_DATASET, NEXT_PUBLIC_SANITY_API_VERSION, NEXT_PUBLIC_SENTRY_TRACES_SAMPLE_RATE",
-      "tags": [
-        "docker",
-        "env",
-        "build-arg",
-        "nullish"
-      ],
+      "tags": ["docker", "env", "build-arg", "nullish"],
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-11-11T16:00:00Z"
@@ -190,12 +140,7 @@
       "file": "studio/schemaTypes/form.ts, app/src/app/api/submit-form/route.ts",
       "root_cause": "87de3f7 removed the template form builder and replaced it with a fixed-field LeadForm + /api/lead and env-only mail settings",
       "fix": "Restored form/formField/formGeneralSettings schemas, MailTest panel, /api/submit-form, /api/test-mail, captcha, FormRenderer (restyled); blocks reference form docs; migrated dataset (5 forms)",
-      "tags": [
-        "sanity",
-        "forms",
-        "mail",
-        "regression"
-      ],
+      "tags": ["sanity", "forms", "mail", "regression"],
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-11-11T16:12:35"
@@ -207,11 +152,7 @@
       "file": "(shell)",
       "root_cause": "zsh treats $VAR:a / :s / :h etc. as history modifiers and does not word-split unquoted $args",
       "fix": "Use ${R}:path and run word-split loops under bash -c",
-      "tags": [
-        "zsh",
-        "shell",
-        "git"
-      ],
+      "tags": ["zsh", "shell", "git"],
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-11-11T16:12:35"
@@ -223,12 +164,7 @@
       "file": "app/src/components/advertisr/service.tsx, visuals.tsx",
       "root_cause": "FAQ summary used text-lg (28px line-height) instead of body 1.65; Stage's max-mob:min-h-0 overrode the Meta phone stage's max-sm:min-h-130 below 520px (design keeps 520px)",
       "fix": "text-lg/[1.65] on FAQ summary; max-mob:min-h-130! on the phone stage (cn has no tailwind-merge)",
-      "tags": [
-        "mobile",
-        "tailwind",
-        "line-height",
-        "variant-order"
-      ],
+      "tags": ["mobile", "tailwind", "line-height", "variant-order"],
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-11-11T17:00:00Z"
@@ -240,13 +176,7 @@
       "file": "app/src/components/advertisr/Nav.tsx",
       "root_cause": "Closed mobile drawer is position:fixed translated off-screen right (x 375-698); body overflow-x:hidden doesn't clip fixed elements, so real mobile browsers widen the layout viewport and zoom out. Chrome emulation doesn't show it.",
       "fix": "Wrap drawer in a pointer-events-none fixed inset-0 overflow-hidden layer and make the drawer absolute inside it",
-      "tags": [
-        "mobile",
-        "overflow",
-        "fixed",
-        "drawer",
-        "ios"
-      ],
+      "tags": ["mobile", "overflow", "fixed", "drawer", "ios"],
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-11-11T17:30:00Z"
@@ -258,14 +188,7 @@
       "file": "app/src/components/advertisr/service.tsx",
       "root_cause": "Deliverables photo box used max-dsk:static (ported from design's position:static). Its next/image `fill` child is position:absolute, so with a static box it filled the nearest positioned ancestor (the whole grid). Only visible once the lazy image loaded, hence the 'flip'.",
       "fix": "max-dsk:relative max-dsk:top-0 (relative keeps it the containing block; top-0 cancels the sticky top-[104px] offset)",
-      "tags": [
-        "mobile",
-        "next-image",
-        "fill",
-        "position",
-        "sticky",
-        "lazy-load"
-      ],
+      "tags": ["mobile", "next-image", "fill", "position", "sticky", "lazy-load"],
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-11-11T18:00:00Z"
@@ -277,14 +200,7 @@
       "file": "app/src/components/advertisr/sections.tsx",
       "root_cause": "next/font Inter subsets (even latin-ext) have no U+2192; the CSS '→' falls back to a ~16px glyph vs 13.7px in the design, leaving the label 0.8px short so the badge wrapped. Band also inherited text-base's 1.5 line-height.",
       "fix": "after:w-[.92em] after:shrink-0 on the link arrow; text-base/[1.65] on the band",
-      "tags": [
-        "font",
-        "next-font",
-        "glyph",
-        "arrow",
-        "wrap",
-        "line-height"
-      ],
+      "tags": ["font", "next-font", "glyph", "arrow", "wrap", "line-height"],
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-11-11T18:40:00Z"
@@ -296,34 +212,82 @@
       "file": "app/src/components/ui/Image.tsx",
       "root_cause": "Image wrapper using sanityLoader was deleted in 87de3f7; components imported next/image directly so /_next/image re-compressed fixed-size Sanity URLs at q=75",
       "fix": "Restored components/ui/Image.tsx (client wrapper applying sanityLoader for cdn.sanity.io srcs) and pointed all next/image imports to it",
-      "tags": [
-        "next-image",
-        "sanity",
-        "image-quality",
-        "loader"
-      ],
+      "tags": ["next-image", "sanity", "image-quality", "loader"],
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-11-11T00:00:00Z"
     },
     {
       "id": "bug-019",
-      "timestamp": "2026-11-11T00:00:00Z",
-      "error_message": "Mobile menu animation jumpy: jumps left-to-right, then into position instead of sliding in from the right",
-      "file": "app/src/components/advertisr/Nav.tsx",
-      "root_cause": "Drawer's clipping layer used overflow:hidden, which is still programmatically scrollable; focusing the close button while the drawer was translated off-screen scrolled the layer ~200px, shifting the drawer left before the slide.",
-      "fix": "overflow-clip on the clipping layer (not scrollable) + focus({ preventScroll: true })",
-      "tags": [
-        "mobile",
-        "drawer",
-        "nav",
-        "animation",
-        "overflow",
-        "focus"
-      ],
+      "timestamp": "2026-11-11T22:38:18",
+      "error_message": "Headings wrap one line earlier than the design on every page",
+      "file": "app/src/app/layout.tsx",
+      "root_cause": "next/font loaded static Bricolage weights; design loads the opsz 12..96 axis (narrower at display sizes)",
+      "fix": "Bricolage_Grotesque({ axes: ['opsz'] }) without fixed weights",
+      "tags": ["font", "typography", "next-font"],
       "related_bugs": [],
       "occurrences": 1,
-      "last_seen": "2026-11-11T00:00:00Z"
+      "last_seen": "2026-11-11T22:38:18"
+    },
+    {
+      "id": "bug-020",
+      "timestamp": "2026-11-11T22:38:18",
+      "error_message": "Bewijs section missing intro paragraph on 4 service pages",
+      "file": "studio/schemaTypes/blocks.ts",
+      "root_cause": "caseHighlight block was defined with head(false) (no lead)",
+      "fix": "head() + CaseStudy lead prop + seed JSON + dataset patched",
+      "tags": ["sanity", "schema", "content"],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-11-11T22:38:18"
+    },
+    {
+      "id": "bug-021",
+      "timestamp": "2026-11-11T22:38:18",
+      "error_message": "Founder quote card 64px (mobile 50px) lower than design",
+      "file": "app/src/components/advertisr/service.tsx",
+      "root_cause": "Tailwind translate-y uses the `translate` property, which survives .rv reveal; in the design .rv.in{transform:none} cancels .bridge's translateY",
+      "fix": "Removed translate from BridgeQuote",
+      "tags": ["css", "reveal", "transform"],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-11-11T22:38:18"
+    },
+    {
+      "id": "bug-022",
+      "timestamp": "2026-11-11T22:38:18",
+      "error_message": "Form inputs 52px tall vs 45px in design; mobile rows missing gap",
+      "file": "app/src/components/form/fields.tsx",
+      "root_cause": "Preflight font:inherit gave controls body line-height 1.65; leading-normal is 1.5 not CSS normal; FormRenderer row had max-sm:gap-0",
+      "fix": "leading-[normal] on controls; dropped max-sm:gap-0",
+      "tags": ["form", "line-height", "tailwind"],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-11-11T22:38:18"
+    },
+    {
+      "id": "bug-023",
+      "timestamp": "2026-11-11T22:38:18",
+      "error_message": "SEO landingspagina overlay screenshot stacked below main shot",
+      "file": "app/src/components/advertisr/sections.tsx",
+      "root_cause": "Shot's own `relative`/shadow come later in CSS than caller's `absolute` (cn doesn't merge)",
+      "fix": "absolute!/shadow!/max-[640px]:relative!, side follows flip",
+      "tags": ["css", "cn", "specificity"],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-11-11T22:38:18"
+    },
+    {
+      "id": "bug-024",
+      "timestamp": "2026-11-11T22:38:18",
+      "error_message": "Article/kennisbank/resultaten hero text column 80px wider than design",
+      "file": "app/src/app/(site)/kennisbank/[slug]/page.tsx",
+      "root_cause": "design max-width sits on the padded .wrap (40px each side); app put it on an inner div",
+      "fix": "max-w-185 (740) article, max-w-170 (680) heroes",
+      "tags": ["layout", "width"],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-11-11T22:38:18"
     }
   ]
 }

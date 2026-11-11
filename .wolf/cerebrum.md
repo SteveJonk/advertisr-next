@@ -17,6 +17,9 @@
 
 ## Key Learnings
 
+- [2026-11-11] Design `.wrap X-in{max-width:N}` means N includes the wrap's 40px side padding: content = N-80. Tailwind `translate-*` is the `translate` property (not transform), so it is NOT cancelled by the design's `.rv.in{transform:none}`. `cn` doesn't merge: a caller class that conflicts with a component's base class needs `!`. Tailwind `leading-normal` = 1.5, CSS `normal` is `leading-[normal]`.
+- [2026-11-11] After writing to the Sanity dataset, the local dev data cache is stale until POST /api/revalidate with header x-revalidate-secret ($SANITY_REVALIDATE_SECRET).
+
 - [2026-11-11] Design HTML loads Bricolage Grotesque with the opsz axis (12..96) from Google Fonts; app's next/font loads static weights only, so headings render wider and wrap one line earlier than the design (+20..80px per section). Fix = next/font `axes: ['opsz']` with variable weight.
 - [2026-11-11] Design-vs-app screenshots: puppeteer-core lives in the global openwolf package; next/image lazy images need `img.loading='eager'` + wait before fullPage screenshots or they render blank.
 - Forms are Sanity documents again (`form` + `formField`, singleton `formGeneralSettings` = Form settings with mail/spam/interface text). Blocks (`contactHero`, `groeiplanHero`, `finalCta`, `articleIndex.newsletter`) hold a `form` reference + `interesse`; a hidden field `{{interesse}}` / `{{path}}` picks those up. Everything posts to `/api/submit-form` (FORM_QUERY is the allow-list); mail env wins over the studio fallbacks. `npm run check:form` checks the round trip.

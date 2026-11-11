@@ -81,7 +81,8 @@ export default async function ArticlePage({ params }: Props) {
           <Ambient />
         </div>
         <Wrap>
-          <div className='mx-auto max-w-205 text-left'>
+          {/* The design's max-width:820px sits on the padded .wrap: 740px of content. */}
+          <div className='mx-auto max-w-185 text-left'>
             <Crumb
               home={ui.crumbHome}
               items={[[ui.crumbKennisbank ?? '', '/kennisbank'], ...(article.category ? [[article.category.title, '/kennisbank'] as [string, string]] : []), [crumb]]}

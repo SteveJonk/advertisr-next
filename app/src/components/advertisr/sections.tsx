@@ -415,7 +415,8 @@ export function PageHero({ b, site }: P<'pageHero'>) {
     <header className='relative overflow-hidden pt-[150px] pb-[50px]'>
       {fadedAmbient}
       <Wrap>
-        <div className='max-w-190'>
+        {/* The design's max-width:760px sits on the padded .wrap: 680px of content. */}
+        <div className='max-w-170'>
           <Crumb home={site.ui.crumbHome} items={crumbs} />
           <Eyebrow>{b.eyebrow}</Eyebrow>
           <h1 className='rv mt-[18px] mb-5 text-[clamp(36px,5vw,60px)] leading-[1.03] tracking-[-.04em] text-ink'>
@@ -1260,7 +1261,8 @@ export function ArticleIndex({ b, site }: P<'articleIndex'>) {
       <header className='relative overflow-hidden pt-[150px] pb-[50px]'>
         {fadedAmbient}
         <Wrap>
-          <div className='max-w-190'>
+          {/* The design's max-width:760px sits on the padded .wrap: 680px of content. */}
+          <div className='max-w-170'>
             <Crumb home={site.ui.crumbHome} items={b.crumb ? [[b.crumb]] : []} />
             <Eyebrow>{b.eyebrow}</Eyebrow>
             <h1 className='rv mt-4 mb-[18px] text-[clamp(34px,4.6vw,54px)] tracking-[-.04em] text-ink'>
