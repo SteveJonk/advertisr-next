@@ -52,7 +52,7 @@
 - [2026-11-11] Tokens stay in `@theme` (globals.css), not tailwind.config.ts: repo convention beats skill default; template role tokens alias the Advertisr palette.
 - [2026-11-11] Reveal as a global `<SiteEffects>` + `rv` utility instead of per-element `<Reveal>` wrappers: hundreds of `.rv` grid children; wrappers would break layouts and the sibling stagger.
 - [2026-11-11] Service pages generated from the design HTML with a scratch extractor into typed props of shared section components (one template, 8 pages).
-- [2026-11-11] Keep CI Node major = local Node (24): npm 10 vs 11 disagree on optional wasm deps in package-lock, so `npm ci` fails on CI. Check with `npx npm@10 ci --dry-run`.
+- [2026-11-11] npm 11 (local) writes lockfiles missing optional wasm deps (@emnapi/*); npm 10 and 12 reject them in `npm ci`. Fix the lockfile (regen with `npx npm@12 install --package-lock-only`), don't pin Node. Verify `npm ci --dry-run` with npm@10/11/12 in a clean copy WITHOUT node_modules.
 - [2026-11-11] Never conditionally unmount/remount `.rv` elements client-side: SiteEffects observes `.rv` once per pathname, so a remounted one stays opacity 0. Hide with className `hidden`/`contents` instead.
 - [2026-11-11] There's no prettier config; running `npx prettier --write` reformats whole files (double quotes, 80 cols). Don't run it; match the style by hand (single quotes, jsx single quotes, ~160 cols).
 - [2026-11-11] The browser pane may be hidden → IntersectionObserver never fires there, so `.rv` content looks blank in screenshots. Check tabs_context before concluding reveal is broken.

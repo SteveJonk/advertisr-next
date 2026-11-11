@@ -39,3 +39,4 @@
 | 14:00 | Fix studio deploy npm ci lockfile error: CI Node 22->24 | .github/workflows/deploy-sanity-studio.yml | fixed | ~3k |
 | 14:30 | Kennisbank search + category filtering (client context, hide-not-unmount), noResults field | app/src/components/advertisr/kennisbank.tsx, sections.tsx, studio/schemaTypes/blocks.ts, seed | done, verified via JS in preview | ~25k |
 | 14:45 | Set noResults on page-kennisbank (block de02089e033a) in production dataset; verified after dev restart | sanity dataset | done | ~6k |
+| 14:55 | Studio npm ci still failing on CI (npm 12): regenerated lockfile with @emnapi entries | studio/package-lock.json | verified npm 10/11/12 | ~5k |

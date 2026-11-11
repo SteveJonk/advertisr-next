@@ -132,8 +132,8 @@
       "timestamp": "2026-11-11T14:00:00Z",
       "error_message": "npm ci EUSAGE: Missing @emnapi/core@2.0.0-beta.2 / @emnapi/runtime from lock file (Deploy Sanity Studio action)",
       "file": ".github/workflows/deploy-sanity-studio.yml",
-      "root_cause": "Lockfile written by npm 11 (local Node 24) omits deps of optional @rolldown/binding-wasm32-wasi; npm 10 (Node 22 on CI) treats that as out of sync. Regenerating the lockfile doesn't help.",
-      "fix": "CI node-version 22 -> 24 so CI uses npm 11 like local. Repro: npx npm@10 ci --dry-run in studio/",
+      "root_cause": "Lockfile written by npm 11 (local Node 24) omits deps of optional @rolldown/binding-wasm32-wasi; npm 10 (Node 22 on CI) treats that as out of sync. Regenerating the lockfile doesn't help. Node 24 on CI ships npm 12, which also rejects it; pinning Node only moved the problem.",
+      "fix": "Regenerated studio/package-lock.json with `npx npm@12 install --package-lock-only` in a clean copy: adds node_modules/@emnapi/core + runtime. Verified `npm ci --dry-run` passes on npm 10, 11 and 12 in a dir without node_modules.",
       "tags": [
         "npm",
         "ci",
@@ -142,8 +142,8 @@
         "sanity"
       ],
       "related_bugs": [],
-      "occurrences": 1,
-      "last_seen": "2026-11-11T14:00:00Z"
+      "occurrences": 2,
+      "last_seen": "2026-11-11T14:55:00Z"
     },
     {
       "id": "bug-010",
