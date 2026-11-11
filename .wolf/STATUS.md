@@ -43,7 +43,7 @@
 
 ## 🚀 Next phase
 
-**Deploy to own server (code done, not yet run):** `.github/workflows/build-app-image.yml` now has a `deploy` job (SSH → `~/advertisr`, `deploy/compose.yml`, `docker compose up -d --wait`). To do by user: GitHub vars SSH_HOST/SSH_USER(+SSH_PORT), secrets SSH_PRIVATE_KEY/SSH_KNOWN_HOSTS, new NEXT_PUBLIC_* vars (SITE_URL!), `~/advertisr/app.env` on server, stop old app container on :3000, crontab for `/api/google-reviews?trigger=schedule` (Vercel cron doesn't run there). Coolify secrets can be deleted.
+**Deploy to own server (code done, not yet run):** `.github/workflows/build-app-image.yml` now has a `deploy` job (SSH → `~/advertisr`, `deploy/compose.yml`, `docker compose up -d --wait`, then removes all app images except current + previous; rollback = previous sha in `~/advertisr/.env` + `docker compose up -d`). To do by user: GitHub vars SSH_HOST/SSH_USER(+SSH_PORT), secrets SSH_PRIVATE_KEY/SSH_KNOWN_HOSTS, new NEXT_PUBLIC_* vars (SITE_URL!), `~/advertisr/app.env` on server, stop old app container on :3000, crontab for `/api/google-reviews?trigger=schedule` (Vercel cron doesn't run there). Coolify secrets can be deleted.
 
 **Goal:** User reviews the CMS-driven site + studio; fill the remaining real data.
 

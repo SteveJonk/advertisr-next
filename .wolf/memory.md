@@ -89,3 +89,9 @@
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
 | 21:39 | Article body required, related refs weak, 10 body-less articles unpublished to drafts | studio/schemaTypes/documents.ts, app/src/sanity/queries.ts | done | ~4k |
+
+## Session: 2026-11-11 21:45
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 21:46 | deploy job: keep only current+previous app image on server (docker rmi from 3rd newest) | .github/workflows/build-app-image.yml | yaml valid, not run on server yet | ~2k |

@@ -121,10 +121,22 @@ jobs:
           ssh server "mkdir -p $DEPLOY_DIR"
           scp deploy/compose.yml "server:$DEPLOY_DIR/"
 
+      # Na een geslaagde uitrol: alleen de nieuwe en de vorige image bewaren
+      # (terugvallen = vorige sha in .env zetten + `docker compose up -d`).
+      # `docker images` sorteert nieuwste eerst; alles vanaf de 3e gaat weg.
+      # Faalt de uitrol, dan stopt set -e vóór het opruimen.
       - name: Nieuwe versie uitrollen
         run: |
-          ssh server "cd $DEPLOY_DIR && echo APP_IMAGE=$IMAGE > .env \
-            && docker compose pull && docker compose up -d --wait \
-            && docker image prune -f"
+          ssh server bash -s <<EOF
+          set -e
+          cd $DEPLOY_DIR
+          echo APP_IMAGE=$IMAGE:$SHA > .env
+          docker compose pull
+          docker compose up -d --wait
+          docker images $IMAGE --format '{{.Repository}}:{{.Tag}}' | grep -v '<none>' \
+            | tail -n +3 | xargs -r docker rmi || true
+          docker image prune -f
+          EOF
         env:
-          IMAGE: ${{ needs.build.outputs.image }}:${{ github.sha }}
+          IMAGE: ${{ needs.build.outputs.image }}
+          SHA: ${{ github.sha }}
