@@ -1,7 +1,10 @@
 FROM node:22-alpine AS deps
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN npm ci
+# Same npm major as the one that writes package-lock.json locally. npm 10
+# (node:22's default) and 12 reject this lockfile ("Missing @emnapi/... from
+# lock file") because they treat optional wasm bundled deps differently.
+RUN npm install -g npm@11.6.2 && npm ci
 
 FROM node:22-alpine AS builder
 WORKDIR /app
