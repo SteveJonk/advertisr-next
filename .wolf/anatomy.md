@@ -294,7 +294,7 @@
 - `FinalCta.tsx` — Extra background layer (seo-geo puts the dot grid here). (~526 tok)
   - fn `FinalCta` L15-45 (~402 tok)
 - `Footer.tsx` — Footer (~468 tok)
-- `kennisbank.tsx` — Category pills. Like the design, they only mark the active one; filtering comes with real content. (~748 tok)
+- `kennisbank.tsx` — Kennisbank client bits: ArticleFilter context (search + category), FilterItem/Group/Empty (hide, never unmount), SearchBox, Pills, NewsletterForm. (~748 tok)
   - fn `Pills` L9-31 (~226 tok)
   - fn `NewsletterForm` L32-74 (~444 tok)
 - `LeadForm.tsx` — The `form` object on a block; empty fields fall back to the defaults in Site information. (~1563 tok)

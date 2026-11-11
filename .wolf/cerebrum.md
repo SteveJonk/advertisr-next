@@ -52,3 +52,8 @@
 - [2026-11-11] Tokens stay in `@theme` (globals.css), not tailwind.config.ts: repo convention beats skill default; template role tokens alias the Advertisr palette.
 - [2026-11-11] Reveal as a global `<SiteEffects>` + `rv` utility instead of per-element `<Reveal>` wrappers: hundreds of `.rv` grid children; wrappers would break layouts and the sibling stagger.
 - [2026-11-11] Service pages generated from the design HTML with a scratch extractor into typed props of shared section components (one template, 8 pages).
+- [2026-11-11] Keep CI Node major = local Node (24): npm 10 vs 11 disagree on optional wasm deps in package-lock, so `npm ci` fails on CI. Check with `npx npm@10 ci --dry-run`.
+- [2026-11-11] Never conditionally unmount/remount `.rv` elements client-side: SiteEffects observes `.rv` once per pathname, so a remounted one stays opacity 0. Hide with className `hidden`/`contents` instead.
+- [2026-11-11] There's no prettier config; running `npx prettier --write` reformats whole files (double quotes, 80 cols). Don't run it; match the style by hand (single quotes, jsx single quotes, ~160 cols).
+- [2026-11-11] The browser pane may be hidden → IntersectionObserver never fires there, so `.rv` content looks blank in screenshots. Check tabs_context before concluding reveal is broken.
+- [2026-11-11] Locally, Sanity edits don't show in `next dev`: reads are cached under tag `sanity` (24h) and SANITY_REVALIDATE_SECRET is empty in app env, so /api/revalidate refuses. Clearing .next fetch-cache isn't enough; restart the dev server. Patch the dataset via `npx sanity exec <file> --with-user-token` (getCliClient from 'sanity/cli'), script file must sit inside studio/.

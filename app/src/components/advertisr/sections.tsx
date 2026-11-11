@@ -6,7 +6,7 @@ import type { PAGE_QUERY_RESULT } from '@/sanity/sanity.types';
 import { ArticleCard, PillarCard, type ArticleCardData } from './ArticleCard';
 import { CaseCard } from './CaseCard';
 import { Animated, btn, pic, Rich } from './cms';
-import { NewsletterForm, Pills } from './kennisbank';
+import { ArticleFilter, FilterEmpty, FilterGroup, FilterItem, NewsletterForm, Pills, SearchBox } from './kennisbank';
 import { LeadForm } from './LeadForm';
 import { BridgeQuote, CtaBand, FloatStat, frame, ProcRow, type Cta } from './service';
 import { Ambient, BtnGhost, BtnRed, Crumb, Eyebrow, Sec, SecHead, Wrap } from './ui';
@@ -997,8 +997,15 @@ export function ArticleIndex({ b, site }: P<'articleIndex'>) {
   const featured = (b.articles ?? []).filter((a) => a.featured) as ArticleCardData[];
   const latest = articles.filter((a) => !featured.includes(a));
   const cta = mainCta(b.band?.cta, site, '/groeiplan');
+  const pills = [b.allLabel ?? '', ...(b.categories ?? [])];
+  const ids = (list: ArticleCardData[]) => list.map((a) => a._id);
+  const filterData = articles.map((a) => ({
+    _id: a._id,
+    category: a.category?.title ?? null,
+    text: [a.title, a.excerpt, a.category?.title].join(' ').toLocaleLowerCase(),
+  }));
   return (
-    <>
+    <ArticleFilter articles={filterData} categories={pills}>
       <header className='relative overflow-hidden pt-[150px] pb-[50px]'>
         {fadedAmbient}
         <Wrap>
@@ -1009,54 +1016,63 @@ export function ArticleIndex({ b, site }: P<'articleIndex'>) {
               <Rich value={b.title} />
             </h1>
             <p className='rv max-w-[530px] text-[18.5px] text-dim'>{b.lead}</p>
-            {/* ponytail: search and the pills are visual only, as in the design; filter client-side once there are enough articles. */}
-            <div className='rv mt-[30px] flex max-w-130 items-center gap-3 rounded-full border border-line-2 bg-white py-2 pr-2 pl-[22px] shadow-[0_18px_36px_-26px_rgba(14,14,18,.35)]'>
-              <input
-                type='text'
-                aria-label={b.searchLabel ?? undefined}
-                placeholder={b.searchPlaceholder ?? undefined}
-                className='flex-1 border-none bg-transparent font-sans text-[14.5px] text-ink outline-none placeholder:text-dim-2'
-              />
-              <button type='button' className='shrink-0 cursor-pointer rounded-full border-none bg-red px-5 py-[11px] font-display text-[13.5px] font-semibold text-white'>
-                {b.searchButton}
-              </button>
-            </div>
-            <Pills items={[b.allLabel ?? '', ...(b.categories ?? [])].filter(Boolean)} />
+            <SearchBox label={b.searchLabel ?? undefined} placeholder={b.searchPlaceholder ?? undefined} button={b.searchButton ?? undefined} />
+            <Pills items={pills} />
           </div>
         </Wrap>
       </header>
 
       {!!featured.length && (
-        <Sec className='pt-[34px]!'>
-          <Wrap>
-            <SecHead eyebrow={b.featured?.eyebrow} title={<Rich value={b.featured?.title} />} lead={b.featured?.lead} className='mb-0!' />
-            <div className='mt-11 grid grid-cols-2 gap-[18px] max-[860px]:grid-cols-1'>
-              {featured.map((a) => (
-                <PillarCard key={a._id} a={a} ui={site.ui} lang={site.language} />
-              ))}
-            </div>
-          </Wrap>
-        </Sec>
+        <FilterGroup ids={ids(featured)}>
+          <Sec className='pt-[34px]!'>
+            <Wrap>
+              <SecHead eyebrow={b.featured?.eyebrow} title={<Rich value={b.featured?.title} />} lead={b.featured?.lead} className='mb-0!' />
+              <div className='mt-11 grid grid-cols-2 gap-[18px] max-[860px]:grid-cols-1'>
+                {featured.map((a) => (
+                  <FilterItem key={a._id} id={a._id}>
+                    <PillarCard a={a} ui={site.ui} lang={site.language} />
+                  </FilterItem>
+                ))}
+              </div>
+            </Wrap>
+          </Sec>
+        </FilterGroup>
       )}
 
       {!!latest.length && (
-        <Sec className='pt-3.5!'>
-          <Wrap>
-            <SecHead eyebrow={b.latest?.eyebrow} title={<Rich value={b.latest?.title} />} className='mb-0!' />
-            <div className='mt-5 grid grid-cols-3 gap-5 max-[980px]:grid-cols-2 max-[600px]:grid-cols-1'>
-              {latest.map((a) => (
-                <ArticleCard key={a._id} a={a} ui={site.ui} />
-              ))}
-            </div>
-            {b.loadMoreLabel && (
-              <div className='rv mt-11 flex justify-center'>
-                <BtnGhost href='#'>
-                  {b.loadMoreLabel} <span>↓</span>
-                </BtnGhost>
+        <FilterGroup ids={ids(latest)}>
+          <Sec className='pt-3.5!'>
+            <Wrap>
+              <SecHead eyebrow={b.latest?.eyebrow} title={<Rich value={b.latest?.title} />} className='mb-0!' />
+              <div className='mt-5 grid grid-cols-3 gap-5 max-[980px]:grid-cols-2 max-[600px]:grid-cols-1'>
+                {latest.map((a) => (
+                  <FilterItem key={a._id} id={a._id}>
+                    <ArticleCard a={a} ui={site.ui} />
+                  </FilterItem>
+                ))}
               </div>
-            )}
-          </Wrap>
-        </Sec>
+              {b.loadMoreLabel && (
+                <div className='rv mt-11 flex justify-center'>
+                  <BtnGhost href='#'>
+                    {b.loadMoreLabel} <span>↓</span>
+                  </BtnGhost>
+                </div>
+              )}
+            </Wrap>
+          </Sec>
+        </FilterGroup>
+      )}
+
+      {b.noResults && (
+        <FilterEmpty ids={ids(articles)}>
+          <Sec className='pt-[34px]!'>
+            <Wrap>
+              <p className='text-center text-base text-dim' role='status'>
+                {b.noResults}
+              </p>
+            </Wrap>
+          </Sec>
+        </FilterEmpty>
       )}
 
       {b.band && (
@@ -1086,6 +1102,6 @@ export function ArticleIndex({ b, site }: P<'articleIndex'>) {
           </Wrap>
         </Sec>
       )}
-    </>
+    </ArticleFilter>
   );
 }

@@ -104,6 +104,7 @@ export const BLOCKS = [
     str('searchPlaceholder'),
     str('searchButton'),
     str('allLabel', {title: 'All-categories pill'}),
+    str('noResults', {title: 'No-results text', description: 'Shown when the search or category matches no article.'}),
     obj('featured', head(), {title: 'Pillar guides heading'}),
     obj('latest', head(false), {title: 'Latest articles heading'}),
     str('loadMoreLabel'),

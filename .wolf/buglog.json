@@ -51,9 +51,9 @@
     {
       "id": "bug-004",
       "timestamp": "2026-11-11T13:45:00Z",
-      "error_message": "Parsing CSS source code failed: Unexpected token BadUrl(data:image/svg+xml…)",
+      "error_message": "Parsing CSS source code failed: Unexpected token BadUrl(data:image/svg+xml\u2026)",
       "file": "app/src/app/(site)/seo-geo/page.tsx",
-      "root_cause": "Arbitrary bg-[url(\"data:…\")] class produced invalid CSS; stale in dev cache after removal",
+      "root_cause": "Arbitrary bg-[url(\"data:\u2026\")] class produced invalid CSS; stale in dev cache after removal",
       "fix": "Replaced with inline <svg> Tick; cleared .next/dev; added @source not \"../../design\"",
       "tags": [
         "tailwind",
@@ -126,6 +126,43 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-11-11T14:08:59.716432"
+    },
+    {
+      "id": "bug-009",
+      "timestamp": "2026-11-11T14:00:00Z",
+      "error_message": "npm ci EUSAGE: Missing @emnapi/core@2.0.0-beta.2 / @emnapi/runtime from lock file (Deploy Sanity Studio action)",
+      "file": ".github/workflows/deploy-sanity-studio.yml",
+      "root_cause": "Lockfile written by npm 11 (local Node 24) omits deps of optional @rolldown/binding-wasm32-wasi; npm 10 (Node 22 on CI) treats that as out of sync. Regenerating the lockfile doesn't help.",
+      "fix": "CI node-version 22 -> 24 so CI uses npm 11 like local. Repro: npx npm@10 ci --dry-run in studio/",
+      "tags": [
+        "npm",
+        "ci",
+        "lockfile",
+        "github-actions",
+        "sanity"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-11-11T14:00:00Z"
+    },
+    {
+      "id": "bug-010",
+      "timestamp": "2026-11-11T14:30:00Z",
+      "error_message": "Kennisbank search and category pills don't filter; always all articles",
+      "file": "app/src/components/advertisr/kennisbank.tsx",
+      "root_cause": "Search input and Pills were visual-only placeholders (ponytail comment in ArticleIndex). First fix unmounted empty sections, and remounted .rv elements stayed opacity 0 because SiteEffects observes .rv once per pathname.",
+      "fix": "ArticleFilter context (q + category) in kennisbank.tsx; FilterItem/FilterGroup/FilterEmpty hide via className 'contents'/'hidden', never unmount. New articleIndex.noResults field.",
+      "tags": [
+        "kennisbank",
+        "filter",
+        "search",
+        "rv",
+        "reveal",
+        "SiteEffects"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-11-11T14:30:00Z"
     }
   ]
 }

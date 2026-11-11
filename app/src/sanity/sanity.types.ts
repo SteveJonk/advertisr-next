@@ -632,6 +632,7 @@ export type ArticleIndex = {
   searchPlaceholder?: string;
   searchButton?: string;
   allLabel?: string;
+  noResults?: string;
   featured?: Featured;
   latest?: Latest;
   loadMoreLabel?: string;
@@ -1595,6 +1596,7 @@ export type PAGE_QUERY_RESULT = {
         searchPlaceholder?: string;
         searchButton?: string;
         allLabel?: string;
+        noResults?: string;
         featured?: Featured;
         latest?: Latest;
         loadMoreLabel?: string;

@@ -1,18 +1,12 @@
 {
-  "session_id": "session-2026-11-11-1424",
-  "started": "2026-11-11T13:24:37.638Z",
-  "files_read": {
-    "/Users/stevejonk/Documents/Prive Projecten/advertisr-next/app/scripts/import-wordpress.ts": {
-      "count": 1,
-      "tokens": 0,
-      "first_read": "2026-11-11T13:31:06.397Z"
-    }
-  },
+  "session_id": "session-2026-11-11-1439",
+  "started": "2026-11-11T13:39:26.487Z",
+  "files_read": {},
   "files_written": [],
   "edit_counts": {},
   "anatomy_hits": 0,
-  "anatomy_misses": 1,
+  "anatomy_misses": 0,
   "repeated_reads_warned": 0,
   "cerebrum_warnings": 0,
-  "stop_count": 2
+  "stop_count": 3
 }

@@ -953,6 +953,7 @@ const kennisbank = {
       searchPlaceholder: "Zoek op onderwerp, bijvoorbeeld 'ROAS' of 'GA4'...",
       searchButton: 'Zoeken',
       allLabel: 'Alle artikelen',
+      noResults: 'Geen artikelen gevonden. Probeer een ander woord of een andere categorie.',
       featured: { eyebrow: 'Uitgelicht', title: t('Onze complete gidsen.'), lead: 'Lange, diepgaande artikelen die één onderwerp compleet behandelen.' },
       latest: { eyebrow: 'Nieuwste artikelen', title: t('Praktisch, geen theorie.') },
       loadMoreLabel: 'Meer artikelen laden',
