@@ -19,7 +19,15 @@ export type LeadFormProps = {
 };
 
 /** The red-framed card around a Sanity form; the form posts to /api/submit-form. */
-export function LeadForm({ site, form, interesse, id: anchor, className, intro, children }: LeadFormProps) {
+export function LeadForm({
+  site,
+  form,
+  interesse,
+  id: anchor,
+  className,
+  intro,
+  children,
+}: LeadFormProps) {
   const definition = toFormDefinition(form);
   return (
     <div
@@ -49,7 +57,11 @@ export function LeadForm({ site, form, interesse, id: anchor, className, intro, 
 }
 
 /** The kennisbank's one-row newsletter sign-up: the same renderer, inline. */
-export function NewsletterForm({ site, form, interesse }: Pick<LeadFormProps, 'site' | 'form' | 'interesse'>) {
+export function NewsletterForm({
+  site,
+  form,
+  interesse,
+}: Pick<LeadFormProps, 'site' | 'form' | 'interesse'>) {
   const definition = toFormDefinition(form);
   if (!definition) return null;
   return (

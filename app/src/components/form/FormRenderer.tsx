@@ -37,12 +37,16 @@ const VARIANTS = {
     form: '',
     fields: '',
     row: 'grid grid-cols-2 gap-4 max-sm:grid-cols-1',
-    button: cn(btnRed, 'mt-1.5 w-full cursor-pointer justify-center disabled:opacity-70'),
+    button: cn(
+      btnRed,
+      'mt-1.5 w-full cursor-pointer justify-center disabled:opacity-70',
+    ),
     error: 'mt-3 text-center text-[13px] text-red-ink',
     note: 'mt-4 text-center text-xs text-dim-2',
   },
   inline: {
-    form: 'flex shrink-0 flex-wrap gap-2.5',
+    // full width mobile
+    form: 'flex shrink-0 flex-wrap gap-2.5 max-sm:w-full max-sm:flex-col',
     fields: 'contents',
     row: 'contents',
     button: cn(btnRed, 'cursor-pointer px-6! py-[13px]! disabled:opacity-70'),
@@ -51,12 +55,24 @@ const VARIANTS = {
   },
 } as const satisfies Record<FormFieldVariant, Record<string, string>>;
 
-function SuccessPanel({ variant, title, body }: { variant: FormFieldVariant; title?: string; body?: string }) {
+function SuccessPanel({
+  variant,
+  title,
+  body,
+}: {
+  variant: FormFieldVariant;
+  title?: string;
+  body?: string;
+}) {
   if (variant === 'inline') {
     return (
       <p className='font-display text-[15px] font-semibold text-ink' role='status'>
         {title}
-        {body ? <span className='mt-1 block font-sans text-sm font-normal text-dim'>{body}</span> : null}
+        {body ? (
+          <span className='mt-1 block font-sans text-sm font-normal text-dim'>
+            {body}
+          </span>
+        ) : null}
       </p>
     );
   }
@@ -79,7 +95,13 @@ function SuccessPanel({ variant, title, body }: { variant: FormFieldVariant; tit
  * refuse to submit over a required field it cannot focus. Validation is driven
  * per step instead — `reportValidity()` still shows the native message.
  */
-export function FormRenderer({ form, text, captcha, variant = 'card', context }: FormRendererProps) {
+export function FormRenderer({
+  form,
+  text,
+  captcha,
+  variant = 'card',
+  context,
+}: FormRendererProps) {
   const router = useRouter();
   const tokens = { path: usePathname(), ...context };
   const [step, setStep] = useState(0);
@@ -174,14 +196,18 @@ export function FormRenderer({ form, text, captcha, variant = 'card', context }:
       // A token is single-use: clear it so a retry gets a fresh one.
       captchaRef.current?.reset();
       setStatus('idle');
-      setError(
-        submitError instanceof Error ? submitError.message : text.sendFailed,
-      );
+      setError(submitError instanceof Error ? submitError.message : text.sendFailed);
     }
   }
 
   if (status === 'done') {
-    return <SuccessPanel variant={variant} title={form.successTitle} body={form.successBody} />;
+    return (
+      <SuccessPanel
+        variant={variant}
+        title={form.successTitle}
+        body={form.successBody}
+      />
+    );
   }
 
   return (
@@ -195,13 +221,18 @@ export function FormRenderer({ form, text, captcha, variant = 'card', context }:
             />
           </div>
           <span className='text-[11.5px] font-semibold tracking-[.11em] whitespace-nowrap text-dim-2 uppercase'>
-            {fillTokens(text.stepCounter, { step: String(step + 1), total: String(total) })}
+            {fillTokens(text.stepCounter, {
+              step: String(step + 1),
+              total: String(total),
+            })}
           </span>
         </div>
       ) : null}
 
       <form onSubmit={onSubmit} noValidate className={styles.form}>
-        {form.showTitle && form.title ? <h3 className='mb-5 text-[22px] tracking-[-.02em]'>{form.title}</h3> : null}
+        {form.showTitle && form.title ? (
+          <h3 className='mb-5 text-[22px] tracking-[-.02em]'>{form.title}</h3>
+        ) : null}
 
         {steps.map((formStep, index) => (
           <div
@@ -217,7 +248,12 @@ export function FormRenderer({ form, text, captcha, variant = 'card', context }:
             {formStep.fields
               .filter((field) => field.type === 'hidden')
               .map((field) => (
-                <input key={field.name} type='hidden' name={field.name} value={fillTokens(field.defaultValue ?? '', tokens)} />
+                <input
+                  key={field.name}
+                  type='hidden'
+                  name={field.name}
+                  value={fillTokens(field.defaultValue ?? '', tokens)}
+                />
               ))}
 
             {toFieldRows(formStep.fields).map((row) => {
@@ -225,25 +261,50 @@ export function FormRenderer({ form, text, captcha, variant = 'card', context }:
               return row.length === 2 ? (
                 <div key={key} className={styles.row}>
                   {row.map((field) => (
-                    <FormField key={field.name} field={field} variant={variant} idPrefix={form.id} />
+                    <FormField
+                      key={field.name}
+                      field={field}
+                      variant={variant}
+                      idPrefix={form.id}
+                    />
                   ))}
                 </div>
               ) : (
-                <FormField key={key} field={row[0]} variant={variant} idPrefix={form.id} />
+                <FormField
+                  key={key}
+                  field={row[0]}
+                  variant={variant}
+                  idPrefix={form.id}
+                />
               );
             })}
           </div>
         ))}
 
         {/* Honeypot, hidden from people and assistive tech. */}
-        <input type='text' name='fax' tabIndex={-1} autoComplete='off' aria-hidden='true' className='hidden' />
+        <input
+          type='text'
+          name='fax'
+          tabIndex={-1}
+          autoComplete='off'
+          aria-hidden='true'
+          className='hidden'
+        />
 
         {/* Mounted on every step so the token survives Back/Next; it loads once the last step shows. */}
-        {captcha ? <Captcha ref={captchaRef} {...captcha} hidden={!isLastStep} /> : null}
+        {captcha ? (
+          <Captcha ref={captchaRef} {...captcha} hidden={!isLastStep} />
+        ) : null}
 
         {isLastStep ? (
-          <button type='submit' disabled={status === 'sending'} className={styles.button}>
-            {status === 'sending' ? text.sendingText : form.submitButtonText || text.submitButtonText}
+          <button
+            type='submit'
+            disabled={status === 'sending'}
+            className={styles.button}
+          >
+            {status === 'sending'
+              ? text.sendingText
+              : form.submitButtonText || text.submitButtonText}
             {variant === 'card' && <Arrow />}
           </button>
         ) : (
