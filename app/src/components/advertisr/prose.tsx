@@ -1,6 +1,7 @@
 import { type PortableTextComponents } from 'next-sanity';
 import Link from 'next/link';
 import { btn, Rich, type Inline } from '@/components/advertisr/cms';
+import { resolveHref } from '@/lib/links';
 import { Arrow, btnRed } from '@/components/advertisr/ui';
 import { cn } from '@/lib/cn';
 
@@ -32,7 +33,7 @@ export const proseComponents: PortableTextComponents = {
     h2: ({ children, value }) => <h2 id={anchor(textOf(value as Block))}>{children}</h2>,
   },
   marks: {
-    link: ({ children, value }) => <a href={value?.href}>{children}</a>,
+    link: ({ children, value }) => <a href={resolveHref(value)}>{children}</a>,
   },
   types: {
     callout: ({ value }: { value: { variant?: string; label?: string; text?: Inline } }) =>

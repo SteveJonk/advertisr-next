@@ -1,5 +1,5 @@
 import {defineArrayMember, defineField, defineType} from 'sanity'
-import {cta, inline, list, str, txt} from './fields'
+import {cta, inline, linkFields, list, str, txt} from './fields'
 
 const marks = {
   decorators: [
@@ -27,34 +27,7 @@ export const ctaType = defineType({
   type: 'object',
   fields: [
     str('label'),
-    defineField({
-      name: 'linkType',
-      title: 'Link to',
-      type: 'string',
-      options: {
-        list: [
-          {title: 'A page', value: 'internal'},
-          {title: 'URL or #anchor', value: 'external'},
-        ],
-        layout: 'radio',
-        direction: 'horizontal',
-      },
-      initialValue: 'external',
-    }),
-    defineField({
-      name: 'internalLink',
-      title: 'Page',
-      type: 'reference',
-      to: [{type: 'page'}, {type: 'article'}],
-      hidden: ({parent}) => parent?.linkType !== 'internal',
-    }),
-    defineField({
-      name: 'href',
-      title: 'URL',
-      type: 'string',
-      description: '/contact, #groeiplan, https://…, tel: or mailto:',
-      hidden: ({parent}) => parent?.linkType === 'internal',
-    }),
+    ...linkFields,
   ],
   preview: {select: {title: 'label', subtitle: 'href'}},
 })
@@ -105,7 +78,7 @@ export const articleBodyType = defineType({
           defineArrayMember({
             name: 'link',
             type: 'object',
-            fields: [defineField({name: 'href', type: 'string', title: 'URL'})],
+            fields: linkFields,
           }),
         ],
       },

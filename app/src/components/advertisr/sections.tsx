@@ -1,7 +1,7 @@
 import Image from '@/components/ui/Image';
 import Link from 'next/link';
 import { cn } from '@/lib/cn';
-import { pathForSlug } from '@/lib/links';
+import { pathForSlug, resolveHref } from '@/lib/links';
 import type { Site } from '@/lib/site';
 import type { PAGE_QUERY_RESULT } from '@/sanity/sanity.types';
 import { ArticleCard, PillarCard, type ArticleCardData } from './ArticleCard';
@@ -194,7 +194,7 @@ export function Stages({ b, site }: P<'stages'>) {
                   <li key={l._key} className='border-b border-line last:border-b-0'>
                     {/* after:w-[.92em]: next/font's Inter has no →, the fallback glyph is ~2px wider and wrapped the n8n badge. */}
                     <Link
-                      href={l.href ?? '#'}
+                      href={resolveHref(l) ?? '#'}
                       className="group/l flex items-center justify-between gap-2.5 py-[13px] text-[15px] font-semibold transition-[color,padding] duration-200 after:w-[.92em] after:shrink-0 after:text-red after:transition-transform after:duration-200 after:content-['→'] hover:pl-1 hover:text-red-ink hover:after:translate-x-[3px]"
                     >
                       <span>
@@ -668,8 +668,8 @@ export function ContactHero({ b, site }: P<'contactHero'>) {
                   <div className='text-[11px] tracking-[.06em] text-dim uppercase'>
                     {q.label}
                   </div>
-                  {q.href ? (
-                    <a href={q.href} className={`${value} hover:text-red-ink`}>
+                  {resolveHref(q) ? (
+                    <a href={resolveHref(q)} className={`${value} hover:text-red-ink`}>
                       {q.value}
                     </a>
                   ) : (
@@ -711,7 +711,7 @@ export function ContactMethods({ b }: P<'contactMethods'>) {
           {(b.methods ?? []).map((m) => (
             <a
               key={m._key}
-              href={m.href ?? '#'}
+              href={resolveHref(m) ?? '#'}
               className='rv block rounded-2xl border border-line bg-white px-5 py-6 shadow-[0_20px_40px_-32px_rgba(14,14,18,.4)] hover:-translate-y-1 hover:border-red/35 hover:shadow-[0_28px_50px_-30px_rgba(255,57,81,.4)]'
             >
               <div className='mb-3.5 flex size-10 items-center justify-center rounded-[10px] bg-red-tint text-[17px]'>

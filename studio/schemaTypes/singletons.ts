@@ -4,10 +4,10 @@ import {MenuIcon} from '@sanity/icons/Menu'
 import {StarIcon} from '@sanity/icons/Star'
 import {defineArrayMember, defineField, defineType, type FieldDefinition} from 'sanity'
 import {GoogleReviewsSync} from '../tools/GoogleReviewsSync'
-import {list, str, strings, txt} from './fields'
+import {linkFields, list, str, strings, txt} from './fields'
 
 const link = (name: string, title?: string) =>
-  list(name, [str('label'), str('href', {title: 'URL', description: '/page, /#anchor, https://…, mailto:'})], {
+  list(name, [str('label'), ...linkFields], {
     title,
     preview: {title: 'label', subtitle: 'href'},
   })
@@ -115,7 +115,7 @@ export const navigationType = defineType({
       'links',
       [
         str('label'),
-        str('href', {title: 'URL'}),
+        ...linkFields,
         strings('match', {title: 'Also active on', description: 'Paths that light this link up, e.g. every service page.'}),
       ],
       {preview: {title: 'label', subtitle: 'href'}},

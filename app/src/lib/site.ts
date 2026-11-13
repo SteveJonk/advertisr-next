@@ -5,6 +5,7 @@ import { SITE_QUERY } from '@/sanity/queries';
 import type { SITE_QUERY_RESULT } from '@/sanity/sanity.types';
 import type { FormCaptcha } from '@/components/form/Captcha';
 import { resolveFormText, type FormText } from '@/lib/form-fields';
+import { resolveHref, type SanityLink } from '@/lib/links';
 
 /**
  * The site's public origin, without a trailing slash. From the environment:
@@ -41,8 +42,8 @@ export type Site = {
   forms: { text: FormText; captcha?: FormCaptcha };
 };
 
-const links = (items: { label?: string; href?: string }[] | null | undefined): Link[] =>
-  (items ?? []).filter((l) => l.label).map((l) => ({ label: l.label!, href: l.href || '#' }));
+const links = (items: NonNullable<SanityLink>[] | null | undefined): Link[] =>
+  (items ?? []).filter((l) => l.label).map((l) => ({ label: l.label!, href: resolveHref(l) || '#' }));
 
 /**
  * Site details, interface text, nav, footer and Google score in one request.
@@ -75,7 +76,7 @@ export const getSite = cache(async (): Promise<Site> => {
     nav: {
       links: (data?.nav?.links ?? [])
         .filter((l) => l.label)
-        .map((l) => ({ label: l.label!, href: l.href || '#', match: l.match ?? [] })),
+        .map((l) => ({ label: l.label!, href: resolveHref(l) || '#', match: l.match ?? [] })),
       ctaLabel: data?.nav?.ctaLabel ?? '',
       landingCtaLabel: data?.nav?.landingCtaLabel ?? '',
     },
