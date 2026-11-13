@@ -45,6 +45,41 @@ export const img = (name: string, o: Opts = {}) =>
     ...(o.required ? {validation: (r: {required: () => unknown}) => r.required()} : {}),
   } as FieldDefinition)
 
+/**
+ * Where a link goes: a document on this site, or a typed URL. Items saved
+ * before `linkType` existed have only `href`; they show and render as a URL.
+ */
+export const linkFields = [
+  defineField({
+    name: 'linkType',
+    title: 'Link to',
+    type: 'string',
+    options: {
+      list: [
+        {title: 'A page', value: 'internal'},
+        {title: 'URL or #anchor', value: 'external'},
+      ],
+      layout: 'radio',
+      direction: 'horizontal',
+    },
+    initialValue: 'external',
+  }),
+  defineField({
+    name: 'internalLink',
+    title: 'Page',
+    type: 'reference',
+    to: [{type: 'page'}, {type: 'article'}, {type: 'caseStudy'}],
+    hidden: ({parent}) => parent?.linkType !== 'internal',
+  }),
+  defineField({
+    name: 'href',
+    title: 'URL',
+    type: 'string',
+    description: '/contact, #groeiplan, https://…, tel: or mailto:',
+    hidden: ({parent}) => parent?.linkType === 'internal',
+  }),
+] as FieldDefinition[]
+
 export const cta = (name: string, o: Opts = {}) =>
   defineField({name, type: 'cta', ...common(o), ...rules(o)} as FieldDefinition)
 

@@ -113,3 +113,9 @@
 | 22:00 | Kennisbank load-more: ArticleFilter pages 'latest' 9 at a time, LoadMore button hides when done; ghost class exported from ui.tsx                                                       | kennisbank.tsx, sections.tsx, ui.tsx                                                                                                                     | verified 9→12, button hides               | ~4k     |
 | 22:06 | Design vs app side-by-side audit (15 pages, desktop+mobile, puppeteer+sharp in scratchpad)                                                                                              | app/design/\*.html vs :3000                                                                                                                              | report delivered in chat; no code changed | ~60k    |
 | 22:38 | Fixed 8 design mismatches (font opsz, Bewijs lead, bridge translate, contact reviews pt, form leading+gap, groeiplan steps, seo overlay, article header) + hero widths; dataset patched | layout.tsx, service.tsx, sections.tsx, PageBuilder.tsx, fields.tsx, FormRenderer.tsx, ArticleCard.tsx, kennisbank/[slug]/page.tsx, blocks.ts, seed pages | verified by recapture; tsc+eslint clean   | ~90k    |
+
+## Session: 2026-11-13 09:01
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 09:03 | All CMS link fields (nav, footer, contact details, stage links, contact options, article/case body links) now internal/external via shared linkFields; old href-only items fall back to URL | studio/schemaTypes/{fields,objects,singletons,blocks}.ts, app/src/sanity/queries.ts, app/src/lib/site.ts, app/src/components/advertisr/{sections,prose}.tsx | typecheck ok, nav/footer render unchanged | ~15k |

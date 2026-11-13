@@ -16,6 +16,7 @@
 - Google reviews import follows the SteveJonk/schuijt pattern (Places API sync route + studio panel + cron + SerpApi backfill).
 
 ## Key Learnings
+- Every CMS link is `linkFields` (studio/schemaTypes/fields.ts: linkType/internalLink/href) and is resolved with `resolveHref` after the GROQ `${link}` projection derefs `internalLink`. Items with no `linkType` count as external (pre-2026-11-13 content). New link lists: spread `...linkFields` and add `${link}` to the query.
 
 - [2026-11-11] Design `.wrap X-in{max-width:N}` means N includes the wrap's 40px side padding: content = N-80. Tailwind `translate-*` is the `translate` property (not transform), so it is NOT cancelled by the design's `.rv.in{transform:none}`. `cn` doesn't merge: a caller class that conflicts with a component's base class needs `!`. Tailwind `leading-normal` = 1.5, CSS `normal` is `leading-[normal]`.
 - [2026-11-11] After writing to the Sanity dataset, the local dev data cache is stale until POST /api/revalidate with header x-revalidate-secret ($SANITY_REVALIDATE_SECRET).

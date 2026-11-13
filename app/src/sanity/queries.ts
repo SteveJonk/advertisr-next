@@ -1,6 +1,6 @@
 import { defineQuery } from 'next-sanity';
 
-/** A button: pull the referenced page's type and slug up so `resolveHref` can build the path. */
+/** A link: pull the referenced page's type and slug up so `resolveHref` can build the path. */
 const link = /* groq */ `{
   ...,
   internalLink->{ _type, "slug": slug.current }
@@ -72,6 +72,9 @@ export const PAGE_QUERY = defineQuery(`
       closing{ ..., cta${link} },
       defined(form) => { "form": ${formDoc} },
       defined(newsletter) => { newsletter{ ..., "form": ${formDoc} } },
+      _type == "contactHero" => { quick[]${link} },
+      _type == "stages" => { stages[]{ ..., links[]${link} } },
+      _type == "contactMethods" => { methods[]${link} },
       _type == "faqs" => { "faqs": ${faqs} },
       _type == "caseCards" => { "cases": ${caseDocs} },
       _type == "caseList" => { "cases": ${caseDocs} },
@@ -113,7 +116,7 @@ export const ARTICLE_QUERY = defineQuery(`
     seo,
     category->{ title, color, icon },
     author->{ name, photo, authorTitle, authorBio },
-    body[]{ ..., _type == "inlineCta" => { cta${link} } },
+    body[]{ ..., _type == "block" => { markDefs[]${link} }, _type == "inlineCta" => { cta${link} } },
     "faqs": ${faqs},
     "related": related[defined(@->_id)]->${articleCard}
   }
@@ -128,7 +131,7 @@ export const CASE_QUERY = defineQuery(`
   *[_type == "caseStudy" && slug.current == $slug][0]{
     ${caseFields},
     seo,
-    body[]{ ..., _type == "inlineCta" => { cta${link} } },
+    body[]{ ..., _type == "block" => { markDefs[]${link} }, _type == "inlineCta" => { cta${link} } },
     "others": *[_type == "caseStudy" && defined(slug.current) && slug.current != $slug] | order(coalesce(sortOrder, 999) asc)[0...3]{ ${caseFields} }
   }
 `);
@@ -153,8 +156,8 @@ export const SITE_QUERY = defineQuery(`{
     "logoUrl": logo.asset->url,
     interfaceText
   },
-  "nav": *[_type == "navigation" && _id == "navigation"][0]{ links, ctaLabel, landingCtaLabel },
-  "footer": *[_type == "footer" && _id == "footer"][0]{ columns, legal, copyright },
+  "nav": *[_type == "navigation" && _id == "navigation"][0]{ links[]${link}, ctaLabel, landingCtaLabel },
+  "footer": *[_type == "footer" && _id == "footer"][0]{ columns[]{ title, links[]${link} }, legal[]${link}, copyright },
   "google": *[_type == "googleReviews" && _id == "googleReviews"][0]{ rating, userRatingCount, googleMapsUri },
   // The public half of Form settings; the secrets stay in FORM_SETTINGS_QUERY.
   "forms": *[_type == "formGeneralSettings" && _id == "formGeneralSettings"][0]{

@@ -1,5 +1,5 @@
 import {defineArrayMember, defineField, defineType, type FieldDefinition} from 'sanity'
-import {bool, cta, head, img, inline, list, num, obj, paragraphs, refs, stat, str, strings, txt} from './fields'
+import {bool, cta, head, img, inline, linkFields, list, num, obj, paragraphs, refs, stat, str, strings, txt} from './fields'
 
 /**
  * Every section of the Advertisr. design is one block here. The renderer is
@@ -81,7 +81,7 @@ export const BLOCKS = [
   block('contactHero', 'Contact hero', [
     str('crumb', {title: 'Breadcrumb'}),
     ...head(),
-    list('quick', [str('icon', {description: 'An emoji.'}), str('label'), str('value'), str('href')], {title: 'Contact details', preview: {title: 'label', subtitle: 'value'}}),
+    list('quick', [str('icon', {description: 'An emoji.'}), str('label'), str('value'), ...linkFields], {title: 'Contact details', preview: {title: 'label', subtitle: 'value'}}),
     strings('ticks'),
     anchor('contactformulier'),
     ...form(),
@@ -144,7 +144,7 @@ export const BLOCKS = [
   block('stages', 'Four stages', [
     anchor('diensten'),
     ...head(),
-    list('stages', [str('title'), txt('text', {rows: 2}), list('links', [str('label'), str('href'), str('badge')], {preview: {title: 'label', subtitle: 'href'}}) as FieldDefinition]),
+    list('stages', [str('title'), txt('text', {rows: 2}), list('links', [str('label'), ...linkFields, str('badge')], {preview: {title: 'label', subtitle: 'href'}}) as FieldDefinition]),
     obj('band', [inline('text'), cta('cta')]),
   ]),
   block('caseCards', 'Case cards', [anchor('cases'), ...head(), refs('cases', 'caseStudy')]),
@@ -156,7 +156,7 @@ export const BLOCKS = [
   block('teamGrid', 'Team members', [anchor('team'), ...head(), refs('members', 'teamMember')]),
   block('story', 'Story', [...head(false), str('uspTitle', {title: 'Box title'}), list('usps', [str('title'), str('text')], {title: 'Box items'}), paragraphs('paragraphs')]),
   block('caseList', 'Results list', [refs('cases', 'caseStudy'), band()]),
-  block('contactMethods', 'Contact options', [...head(false), list('methods', [str('icon', {description: 'An emoji.'}), str('title'), str('value'), str('text'), str('href')])]),
+  block('contactMethods', 'Contact options', [...head(false), list('methods', [str('icon', {description: 'An emoji.'}), str('title'), str('value'), str('text'), ...linkFields])]),
   block('infoCard', 'Info card', [str('icon', {description: 'An emoji.'}), str('title'), txt('text', {rows: 2}), cta('cta')]),
   block('valueGrid', 'Numbered cards', [...head(), list('items', [str('title'), txt('text')])]),
   block('stepsMedia', 'Photo with steps', [img('image'), badge(), ...head(false), steps(), band()]),
