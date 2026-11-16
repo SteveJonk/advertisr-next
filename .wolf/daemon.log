@@ -8,3 +8,7 @@
 [2026-11-11T10:36:50.463Z] [INFO] Dashboard server listening on 127.0.0.1:18799
 [2026-11-11T11:00:00.020Z] [INFO] Executing task: Full anatomy rescan
 [2026-11-11T11:00:00.126Z] [INFO] Task Full anatomy rescan completed in 106ms
+[2026-11-13T11:00:00.050Z] [INFO] Executing task: Full anatomy rescan
+[2026-11-13T11:00:00.260Z] [INFO] Task Full anatomy rescan completed in 210ms
+[2026-11-13T17:00:00.056Z] [INFO] Executing task: Full anatomy rescan
+[2026-11-13T17:00:00.218Z] [INFO] Task Full anatomy rescan completed in 162ms
