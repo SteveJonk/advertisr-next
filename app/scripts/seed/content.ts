@@ -45,6 +45,8 @@ export const singletons = [
       ratedOnGoogle: 'Beoordeeld op Google',
       onGoogle: 'op Google',
       googleReview: 'Google review',
+      readMore: 'Lees meer',
+      close: 'Sluiten',
       pillarBadge: '📖 Pillar gids',
       readingTime: 'min leestijd',
       updated: 'Bijgewerkt',

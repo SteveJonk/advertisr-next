@@ -212,6 +212,7 @@ function render(block: Any, site: Site, prev?: Any) {
           title={<Rich value={b.title} />}
           items={(b.items ?? []).slice(0, b.count ?? 6)}
           rating={site.rating}
+          ratingLink={site.ratingLink}
           ui={ui}
         />
       );

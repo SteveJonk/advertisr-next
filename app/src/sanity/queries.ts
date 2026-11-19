@@ -83,7 +83,7 @@ export const PAGE_QUERY = defineQuery(`
         "clients": *[_type == "client" && defined(logo.asset)] | order(coalesce(sortOrder, 999) asc){ _id, name, logo }
       },
       _type == "reviews" => {
-        "items": *[_type == "review" && hidden != true] | order(coalesce(sortOrder, 9999) asc, publishedAt desc)[0...30]{ _id, name, text, tone }
+        "items": *[_type == "review" && hidden != true] | order(coalesce(sortOrder, 9999) asc, publishedAt desc)[0...9]{ _id, name, text, tone }
       },
       _type == "articleIndex" => {
         "articles": *[_type == "article" && defined(slug.current)] | order(coalesce(updatedAt, publishedAt, _createdAt) desc)${articleCard},
@@ -158,7 +158,7 @@ export const SITE_QUERY = defineQuery(`{
   },
   "nav": *[_type == "navigation" && _id == "navigation"][0]{ links[]${link}, ctaLabel, landingCtaLabel },
   "footer": *[_type == "footer" && _id == "footer"][0]{ columns[]{ title, links[]${link} }, legal[]${link}, copyright },
-  "google": *[_type == "googleReviews" && _id == "googleReviews"][0]{ rating, userRatingCount, googleMapsUri },
+  "google": *[_type == "googleReviews" && _id == "googleReviews"][0]{ rating, userRatingCount, "link": coalesce(link, googleMapsUri) },
   // The public half of Form settings; the secrets stay in FORM_SETTINGS_QUERY.
   "forms": *[_type == "formGeneralSettings" && _id == "formGeneralSettings"][0]{
     ${captchaProvider},

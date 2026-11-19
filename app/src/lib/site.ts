@@ -38,6 +38,8 @@ export type Site = {
   footer: { columns: { title: string; links: Link[] }[]; legal: Link[]; copyright: string };
   /** The Google score as the badges print it ("5,0"), or '' before the first sync. */
   rating: string;
+  /** Where the score badge links to (Google Maps), or null. */
+  ratingLink: string | null;
   /** Form settings: the copy every form shares, and the public spam-check key. */
   forms: { text: FormText; captcha?: FormCaptcha };
 };
@@ -86,6 +88,7 @@ export const getSite = cache(async (): Promise<Site> => {
       copyright: data?.footer?.copyright ?? '',
     },
     rating: rating ? rating.toFixed(1).replace('.', ',') : '',
+    ratingLink: data?.google?.link ?? null,
     forms: {
       text: resolveFormText(forms?.formText),
       captcha: siteKey && (provider === 'recaptcha' || provider === 'turnstile') ? { provider, siteKey } : undefined,

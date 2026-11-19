@@ -25,6 +25,8 @@ const UI: Record<string, [name: string, title: string][]> = {
     ['ratedOnGoogle', 'Rating card under the score'],
     ['onGoogle', 'After the score in badges ("op Google")'],
     ['googleReview', 'After a reviewer\'s name ("Google review")'],
+    ['readMore', 'Review card: read more ("Lees meer")'],
+    ['close', 'Close button in popups ("Sluiten")'],
   ],
   articles: [
     ['pillarBadge', 'Pillar guide badge'],
@@ -171,6 +173,13 @@ export const googleReviewsType = defineType({
       group: 'settings',
       initialValue: true,
       description: 'Off = the scheduled run does nothing. Syncing from here still works.',
+    }),
+    defineField({
+      name: 'link',
+      title: 'Score badge link',
+      type: 'url',
+      group: 'settings',
+      description: 'Where the Google score badge above the reviews links to. Empty = the Google Maps link from the last sync.',
     }),
     defineField({
       name: 'siteUrl',
