@@ -6650,6 +6650,13 @@
         },
         "optional": true
       },
+      "link": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
       "siteUrl": {
         "type": "objectAttribute",
         "value": {
@@ -7353,6 +7360,20 @@
               "optional": true
             },
             "googleReview": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "readMore": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "close": {
               "type": "objectAttribute",
               "value": {
                 "type": "string"

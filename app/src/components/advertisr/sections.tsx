@@ -139,7 +139,7 @@ export function HomeHero({ b, site }: P<'homeHero'>) {
               >
                 <div className='text-sm tracking-[3px] text-red'>★★★★★</div>
                 <div className='mt-[5px] font-display text-[26px] font-bold tracking-[-.03em]'>
-                  {site.rating} / 5
+                  {site.rating}/5,0
                 </div>
                 <div className='mt-px text-[12.5px] text-dim'>
                   {site.ui.ratedOnGoogle}
@@ -195,9 +195,10 @@ export function Stages({ b, site }: P<'stages'>) {
                     {/* after:w-[.92em]: next/font's Inter has no →, the fallback glyph is ~2px wider and wrapped the n8n badge. */}
                     <Link
                       href={resolveHref(l) ?? '#'}
-                      className="group/l flex items-center justify-between gap-2.5 py-[13px] text-[15px] font-semibold transition-[color,padding] duration-200 after:w-[.92em] after:shrink-0 after:text-red after:transition-transform after:duration-200 after:content-['→'] hover:pl-1 hover:text-red-ink hover:after:translate-x-[3px]"
+                      className="group/l flex items-center justify-between gap-2.5 py-[13px] text-[15px] font-semibold transition-colors duration-200 after:w-[.92em] after:shrink-0 after:text-red after:transition-transform after:duration-200 after:content-['→'] hover:text-red-ink hover:after:translate-x-[3px]"
                     >
-                      <span>
+                      {/* Shift with a transform, not padding: padding reflowed the line and wrapped the n8n badge. */}
+                      <span className='transition-transform duration-200 group-hover/l:translate-x-1'>
                         {l.label}
                         {l.badge && (
                           <span className='ml-2 inline-block rounded-full border border-red/28 bg-red/10 px-2 py-0.5 align-[2px] text-[10.5px] tracking-[.1em] text-red-ink uppercase'>
